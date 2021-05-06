@@ -59,4 +59,6 @@
     <dimen name="size_text_body_capture">12sp</dimen>
     <dimen name="width_img_camera">130dp</dimen>
     <dimen name="heigth_img_camara">130dp</dimen>
+    <dimen name="width_heigth_icon_documents">32dp</dimen>
+
 </resources>

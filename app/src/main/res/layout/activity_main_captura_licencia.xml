@@ -121,73 +121,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <ImageView
                     android:id="@+id/img_frontal_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
-                    app:errorEnabled="true"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="44dp"
+                    android:contentDescription="@string/imagenes"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp">
+                    app:srcCompat="@drawable/img_camara_tutum" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_frontal_licencia"
+                    android:text="@string/img_txt_frontal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_capture"
+                    app:layout_constraintStart_toStartOf="@id/img_frontal_licencia"
+                    app:layout_constraintBottom_toTopOf="@id/img_frontal_licencia"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:foreground="@drawable/img_camara_tutum"
-                        android:hint="hint" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <ImageView
                     android:id="@+id/img_reverso_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:errorEnabled="true"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginEnd="28dp"
+                    android:contentDescription="@string/imagenes"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:foreground="@drawable/img_camara_tutum"
-                        android:hint="Reverso" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/InputVigenciaLicencia"
-                android:layout_width="@dimen/width_input_largo"
-                android:layout_height="match_parent"
-                android:hint="@string/input_vigencia"
-                android:textColorHint="@color/darkest"
-                app:boxBackgroundMode="filled"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidth="2dp"
-                app:hintEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_camara_tutum" />
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:cursorVisible="true"
-                    android:inputType="date"
+                    android:id="@+id/txt_reverso_licencia"
+                    android:text="@string/img_txt_reverso"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textColorLink="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/size_text_body_capture"
+                    app:layout_constraintStart_toStartOf="@id/img_reverso_licencia"
+                    app:layout_constraintBottom_toTopOf="@id/img_reverso_licencia"/>
 
-            </com.google.android.material.textfield.TextInputLayout>
-            <EditText
-                android:layout_width="@dimen/width_boton"
-                android:layout_height="@dimen/heigth_boton"
-                android:id="@+id/VigenciaLicencia"
-                android:inputType="date"
-                android:focusable="false"
-                android:clickable="true"
-                android:singleLine="true"/>
+
+                <ImageView
+                    android:id="@+id/icon_calendar_licencia"
+                    android:layout_width="@dimen/width_heigth_icon_documents"
+                    android:layout_height="@dimen/width_heigth_icon_documents"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_baseline_edit_calendar_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/VigenciaLicencia"
+                    app:layout_constraintTop_toTopOf="@id/VigenciaLicencia"/>
+
+                <EditText
+                    android:id="@+id/VigenciaLicencia"
+                    android:layout_width="@dimen/width_boton"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/input_vigencia"
+                    android:importantForAutofill="no"
+                    android:inputType="date"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_reverso_licencia"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="40dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/btn_guardar_licencia"

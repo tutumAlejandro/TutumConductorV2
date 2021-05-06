@@ -126,7 +126,7 @@ public class MainRegistrate extends AppCompatActivity {
         String Email = email.getEditText().getText().toString().trim();
         String Password = pass.getEditText().getText().toString().trim();
 
-        if(!check_nombre(Nombres) | !check_apeidom(ApeidoP) | !check_apeidop(ApeidoM) | !check_email(Email) | ! check_password(Password))
+        if(!check_nombre(Nombres) | !check_apeidom(ApeidoM) | !check_apeidop(ApeidoP) | !check_email(Email) | ! check_password(Password))
         {
             return;
         }else

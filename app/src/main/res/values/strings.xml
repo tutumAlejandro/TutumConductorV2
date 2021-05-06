@@ -114,8 +114,9 @@
     <string name="txt_text7_tarjeton">(Ten cuidado con el flash al sacar la foto, ya que el reflejo podria impedir que veamos todos los datos con claridad).</string>
     <string name="todo">TODO</string>
 
-    <!-- cadenas para el recycler view -->
-    <string name="btn_text_head">encabezado</string>
-    <string name="btn_text_body">cuerpo boton</string>
+    <!-- cadenas para las image view de los documentos-->
+    <string name="img_txt_frontal">Frontal</string>
+    <string name="img_txt_reverso">Reverso</string>
+    <string name="img_txt_lateral">Lateral</string>
 
 </resources>
