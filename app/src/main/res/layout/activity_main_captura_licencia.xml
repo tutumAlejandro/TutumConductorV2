@@ -197,6 +197,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/boton_redondo"
+                android:onClick="guarda_licencia"
                 android:text="@string/btn_text_guardar"
                 android:textColor="@color/white"
                 android:textSize="@dimen/size_text_btn" />
