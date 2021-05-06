@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainCapturaLicencia"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_retroceso_ine"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:contentDescription="@string/todo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flecha_retroceso" />
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="32dp"
+                    android:contentDescription="@string/imagenes"
+                    android:src="@drawable/cuadros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/txt1_licencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/txt_text1_licencia"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_head_capture" />
+
+            <TextView
+                android:id="@+id/text2_licencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text2_licencia"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_head2_capture" />
+
+            <TextView
+                android:id="@+id/text3_licencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text3_licencia"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text4_licencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text4_licencia"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text5_licencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text5_licencia"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text6_licencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text6_licencia"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text7_licencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text7_licencia"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imagenes_licencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/img_frontal_licencia"
+                    android:layout_width="@dimen/width_img_camera"
+                    android:layout_height="@dimen/heigth_img_camara"
+                    app:errorEnabled="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/img_camara_tutum"
+                        android:hint="hint" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/img_reverso_licencia"
+                    android:layout_width="@dimen/width_img_camera"
+                    android:layout_height="@dimen/heigth_img_camara"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/img_camara_tutum"
+                        android:hint="Reverso" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputVigenciaLicencia"
+                android:layout_width="@dimen/width_input_largo"
+                android:layout_height="match_parent"
+                android:hint="@string/input_vigencia"
+                android:textColorHint="@color/darkest"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidth="2dp"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="true"
+                    android:inputType="date"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textColorLink="@color/black"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:id="@+id/VigenciaLicencia"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:singleLine="true"/>
+
+            <Button
+                android:id="@+id/btn_guardar_licencia"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/boton_redondo"
+                android:text="@string/btn_text_guardar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_btn" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

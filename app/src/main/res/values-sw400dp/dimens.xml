@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- archivo dimens para telefonos con pantallas de 5.0in, Pixel 2(5.0in), Nexus 5x(5.0in), PixelXL(5.5in), Nexus6P(5.7in), Nexus6(6.0in) y 6.3in-->
+    <!-- Medidas para el logo Tutum de la ventana de bienvenida o Inicio -->
+    <dimen name="width_logo_tutum">300dp</dimen>
+    <dimen name="heigth_logo_tutum">180dp</dimen>
+    <dimen name="margin_top_logo_tutum">100dp</dimen>
+    <dimen name="margin_start_logo_tutum">60dp</dimen>
+    <!-- Medidas para el logo Tutum de la ventana de bienvenida o Inicio -->
+    <dimen name="size_txt_by">24sp</dimen>
+    <dimen name="margin_bottom_by">180dp</dimen>
+    <dimen name="margin_start_by">190dp</dimen>
+    <!-- Medidas para el texto B Tutum de la ventana de bienvenida o Inicio -->
+    <dimen name="size_txt_tutum">26sp</dimen>
+    <dimen name="margin_start_tutum">170dp</dimen>
+
+    <!-- Medidas para la imagen fondo 3 -->
+    <dimen name="height_imagen_fonde3">320dp</dimen>
+
+    <!-- Medidas para los botones -->
+    <dimen name="width_boton">320dp</dimen>
+    <dimen name="heigth_boton">60dp</dimen>
+    <dimen name="size_text_btn">18sp</dimen>
+
+    <!-- Medidas para los input Text Layout -->
+    <dimen name="width_input_corto">180dp</dimen>
+    <dimen name="width_input_largo">380dp</dimen>
+    <dimen name="size_text_input">18sp</dimen>
+    <dimen name="width_input_mediano">240dp</dimen>
+    <dimen name="width_img_ladas">120dp</dimen>
+    <dimen name="heigth_img_ladas">60dp</dimen>
+    <!-- Medidas para la ventana OTP -->
+    <dimen name="size_text_otp1">20sp</dimen>
+    <dimen name="size_text_otp2">14sp</dimen>
+    <dimen name="size_text_otp3">18sp</dimen>
+    <!-- Medidas para la ventana de rol conductor -->
+    <dimen name="size_text_info_rol">14sp</dimen>
+    <!-- Medidas para la ventana de captura documentos -->
+    <dimen name="size_txt_completar_registro">22sp</dimen>
+    <dimen name="size_txt_bienvenida">22sp</dimen>
+    <dimen name="size_txt_pasos_restantes">16sp</dimen>
+    <dimen name="size_txt_completar">14sp</dimen>
+
+    <dimen name="width_img_retroceso">50dp</dimen>
+    <dimen name="heigth_img_retroceso">50dp</dimen>
+
+    <dimen name="width_btn_documentos">320dp</dimen>
+    <dimen name="heigth_btn_documentos">120dp</dimen>
+    <dimen name="margin_start_btn_documentos">50dp</dimen>
+    <dimen name="width_text_body_btn">180dp</dimen>
+    <dimen name="size_text_head_btn">14sp</dimen>
+    <dimen name="size_text_body_btn">14sp</dimen>
+    <dimen name="width_heigth_arrow_fwd">40dp</dimen>
+
+    <!-- medidas para las ventanas de Terminos y Condiciones, Ine, Licencia, Caracteristicas,Tarjeta, Poliza, Tarjeton y Codigo-->
+    <dimen name="size_text_head_capture">18sp</dimen>
+    <dimen name="size_text_head2_capture">14sp</dimen>
+    <dimen name="size_text_body_capture">12sp</dimen>
+    <dimen name="width_img_camera">130dp</dimen>
+    <dimen name="heigth_img_camara">130dp</dimen>
+
+</resources>

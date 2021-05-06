@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainRegistroTelefono"
+    android:background="@color/darkest">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_imagen_fonde3"
+                android:src="@drawable/fondo3"
+                android:id="@+id/img_fondo_registro_telefono"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_ingresa_telefono"
+                android:text="@string/txt_ingresa_text1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_input"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/width_img_ladas"
+                    android:layout_height="@dimen/heigth_img_ladas"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/InputTelefono"
+                    android:layout_width="@dimen/width_input_mediano"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    app:hintEnabled="true"
+                    android:hint="@string/txt_ingresa_telefono"
+                    android:textColorHint="@color/white"
+                    app:boxStrokeColor="@color/white"
+                    app:boxStrokeWidth="2dp"
+                    app:errorEnabled="true">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="auto"
+                        android:inputType="text|phone"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_text_input" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_guardar_telefono"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/boton_redondo"
+                android:fontFamily="@font/boring_sans_bold"
+                android:onClick="main_otp"
+                android:text="@string/btn_text_continuar"
+                android:textSize="@dimen/size_text_btn" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

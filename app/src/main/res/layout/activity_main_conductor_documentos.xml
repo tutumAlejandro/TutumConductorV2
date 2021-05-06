@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainConductorDocumentos"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scroll_conductor_documentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_retroceso_documentos_conductor"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:contentDescription="@string/todo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flecha_retroceso" />
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="32dp"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/cuadros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/text_completar_el_registro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/txt_documentos_text1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_completar" />
+
+            <TextView
+                android:id="@+id/text_documentos_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/btn_text_registrate"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_bienvenida" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/txt_documentos_text2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_pasos_restantes" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_documentos_text3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_completar" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!-- Boton para leer los terminos y condiciones -->
+
+                <ImageView
+                    android:id="@+id/btn_terminos_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/siguiente_paso_conductor1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_sig_paso"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/btn_terminos_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_terminos_conductor"/>
+
+                <TextView
+                    android:id="@+id/txt_docto_terminos_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_btn_doc_aceptar_terminos"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    android:fontFamily="@font/open_sans_bold"
+                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_conductor1"
+                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_conductor1" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_terminos_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_terminos_conductor"/>
+
+                <!-- Boton para la captura de la Identificacion Oficial INE -->
+                <ImageView
+                    android:id="@+id/btn_ine_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_terminos_conductor"/>
+
+                <TextView
+                    android:id="@+id/siguiente_paso_conductor2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/btn_ine_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_ine_conductor"/>
+
+                <TextView
+                    android:id="@+id/txt_docto_ine_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_btn_doc_ine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    android:fontFamily="@font/open_sans_bold"
+                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_conductor2"
+                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_conductor2"/>
+
+                <ImageView
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_ine_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_ine_conductor"/>
+
+                <!-- Boton para la captura de la Licencia -->
+
+                <ImageView
+                    android:id="@+id/btn_licencia_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_ine_conductor"/>
+
+                <TextView
+                    android:id="@+id/siguiente_paso_conductor3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/btn_licencia_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_licencia_conductor"/>
+
+                <TextView
+                    android:id="@+id/txt_docto_licencia_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_btn_doc_licencia"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    android:fontFamily="@font/open_sans_bold"
+                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_conductor3"
+                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_conductor3" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_licencia_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_licencia_conductor"/>
+
+                <!-- Boton para la captura de las caracteristicas del vehiculo -->
+                <ImageView
+                    android:id="@+id/btn_caracteristicas_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_licencia_conductor"/>
+
+                <TextView
+                    android:id="@+id/siguiente_paso_conductor4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/btn_caracteristicas_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_caracteristicas_conductor"/>
+
+                <TextView
+                    android:id="@+id/txt_docto_caracterisitcas_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_btn_doc_caracteristicas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    android:fontFamily="@font/open_sans_bold"
+                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_conductor4"
+                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_conductor4" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_caracteristicas_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_caracteristicas_conductor"/>
+                <!-- Boton para la captura de la tarjeta -->
+
+                <ImageView
+                    android:id="@+id/btn_tarjeta_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_conductor"/>
+
+                <TextView
+                    android:id="@+id/siguiente_paso_conductor5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/btn_tarjeta_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_tarjeta_conductor"/>
+
+                <TextView
+                    android:id="@+id/txt_docto_tarjeta_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_btn_doc_tarjeta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    android:fontFamily="@font/open_sans_bold"
+                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_conductor5"
+                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_conductor5" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_tarjeta_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_tarjeta_conductor"/>
+                <!-- Boton para la captura de la poliza -->
+
+                <ImageView
+                    android:id="@+id/btn_poliza_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_tarjeta_conductor"/>
+
+                <TextView
+                    android:id="@+id/siguiente_paso_conductor6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/btn_poliza_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_poliza_conductor"/>
+
+                <TextView
+                    android:id="@+id/txt_docto_poliza_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_btn_doc_poliza"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    android:fontFamily="@font/open_sans_bold"
+                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_conductor6"
+                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_conductor6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_poliza_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_poliza_conductor"/>
+                <!-- Boton para la captura del tarjeton -->
+
+                <ImageView
+                    android:id="@+id/btn_tarjeton_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_poliza_conductor"/>
+
+                <TextView
+                    android:id="@+id/siguiente_paso_conductor7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/btn_tarjeton_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_tarjeton_conductor"/>
+
+                <TextView
+                    android:id="@+id/txt_docto_tarjeton_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_btn_doc_tarjeton"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    android:fontFamily="@font/open_sans_bold"
+                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_conductor7"
+                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_conductor7" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_tarjeton_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/btn_tarjeton_conductor"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--- Text View para prueba -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/conductor"
+                android:textColor="@color/black"
+                android:textSize="16sp"></TextView>
+
+            <!--- Text View para prueba -->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

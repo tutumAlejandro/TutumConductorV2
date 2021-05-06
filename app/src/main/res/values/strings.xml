@@ -1,0 +1,121 @@
+<resources>
+    <!-- Strings para la aplicacion de tutum conductor-->
+    <string name="app_name">TutumConductorV2</string>
+    <string name="socio">Socio</string>
+    <string name="conductor">Conductor</string>
+    <string name="snv">Sin Vehiculo</string>
+    <!-- Strings tod para las imagenes-->
+    <string name="imagenes">imagenes</string>
+    <!-- Strings para la ventana de presentación-->
+    <string name="txt_inicio_by">By</string>
+    <string name="txt_inicio_tutum">Tutum®</string>
+    <!-- Strings para los botones-->
+    <string name="btn_text_inicio_sesion">INICIAR SESIÓN</string>
+    <string name="btn_text_registrate">REGISTRATE</string>
+    <string name="btn_text_continuar">Continuar</string>
+    <string name="btn_text_socio">Socio Administrador</string>
+    <string name="btn_text_conductor">Conductor</string>
+    <string name="btn_text_snv">Conductor sin Vehículo</string>
+    <string name="btn_text_guardar">Guardar</string>
+    <string name="input_vigencia">Fecha de Vigencia</string>
+    <string name="input_fabricante">Fabricante del Vehiculo</string>
+    <string name="input_ano_vehiculo">Año del vehículo</string>
+    <string name="input_matricula">Matricula</string>
+    <!-- Strings para la ventana registrate-->
+    <string name="txt_registrate_nombres">Nombre(s)</string>
+    <string name="txt_registrate_apeido_paterno">Apellido Paterno</string>
+    <string name="txt_registrate_apeido_materno">Apellido Materno</string>
+    <string name="txt_registrate_email">Correo Electrónico</string>
+    <string name="txt_registrate_pass">Contraseña</string>
+    <!-- Strings para la ventana inicio de sesion-->
+    <string name="txt_inicio_email">Correo Electrónico</string>
+    <string name="txt_inicio_pass">Constraseña</string>
+    <string name="txt_inicio_recupera">Recupera Contraseña</string>
+    <!-- Strings para la ventana ingresa telefono-->
+    <string name="txt_ingresa_text1">Ingresa tu Número de Teléfono Móvil</string>
+    <string name="txt_ingresa_telefono">Teléfono Celular</string>
+    <!-- Strings para la ventana verifica OTP-->
+    <string name="txt_verifica_text1">OTP Verificación</string>
+    <string name="txt_verifica_text2">Ingresar código de 6 dígitos mandado a:</string>
+    <string name="txt_verifica_otp">Codigo OTP</string>
+    <string name="txt_verifica_link_editar">Editar</string>
+    <string name="txt_verifica_link_reenviar">REENVIAR CÓDIGO</string>
+    <!-- Strings para la ventana seleccion rol conductor-->
+    <string name="txt_rol_info_socio">Elige esta opción si, además de ser conductor de un vehículo,deseas que alguien más conduzca los vehículos que tu administras</string>
+    <string name="txt_rol_info_conductor">Eres conductor y tienes un vehículo con las condiciones y reglamentaciones adecuadas para brindar el servicio de transporte</string>
+    <string name="txt_rol_info_snv">Elige esta opción si cuentas con un código de manejo, un administrador te lo puede proporcionar</string>
+    <!-- Strings para las ventanas de toma de documentos-->
+    <string name="txt_documentos_text1">Completar Registro</string>
+    <string name="txt_documentos_text2">PASOS RESTANTES</string>
+    <string name="txt_documentos_text3">Esto es lo que debes hacer para completar tu regitro</string>
+    <string name="txt_btn_doc_sig_paso">Siguiente paso recomendado</string>
+    <string name="txt_btn_doc_aceptar_terminos">Aceptar los términos y condiciones y Aviso de Privacidad</string>
+    <string name="txt_btn_doc_listo_comenzar">Listo para comenzar</string>
+    <string name="txt_btn_doc_ine">Identificación Oficial INE</string>
+    <string name="txt_btn_doc_licencia">Licencia de conducir</string>
+    <string name="txt_btn_doc_caracteristicas">Características del vehículo</string>
+    <string name="txt_btn_doc_tarjeta">Tarjeta de circulación vigente</string>
+    <string name="txt_btn_doc_poliza">Póliza de seguro vigente</string>
+    <string name="txt_btn_doc_tarjeton">Tarjeta de control de servicio público de autotransportes</string>
+    <string name="txt_btn_doc_codigo">Código de vehículo</string>
+
+    <!-- Strings para la ventana de terminos y condiciones-->
+    <string name="txt_text1_terminos">Para continuar como conductor debes leer y aceptar los siguientes términos y condiciones y aviso de privacidad.</string>
+    <string name="txt_text2_terminos">CONSENTIMIENTO LEGAL</string>
+    <string name="txt_text3_terminos">Al enviar los formularios y hacer clic en continuar doy mi consentimiento para que Tutum recopile y procese mis datos personales, inluida 
+        toda la información sensible para evaluar mi elegibilidad para utilizar la plataforma Tutum Conductor y para todos los fines descritos en la Declaración de Privacidad de Tutum.</string>
+    <string name="txt_link_terminos">Términos y condiciones</string>
+    <string name="txt_link_politica">Política de Privacidad</string>
+
+    <!-- Strings para la ventana de Identificacion Oficial-->
+    <string name="txt_text1_identificacion">Identificación Oficial INE</string>
+    <string name="txt_text2_identificacion">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA, SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN</string>
+    <string name="txt_text3_identificación">Carga una foto por cada lado de tu identificación oficial (INE/IFE) VIGENTE.</string>
+    <string name="txt_text4_identificacion">Indicaciones:</string>
+    <string name="txt_text5_identificacion">-Documento en original.</string>
+    <string name="txt_text6_identificacion">-En la imagen debe verse claramente toda la información.</string>
+    <string name="txt_text7_identificacion">-La CURP en la identificación debe ser visible.</string>
+    <string name="txt_text8_identificacion">(Ten cuidado con el flash al sacar la foto, ya que el reflejo podria impedir que veamos todos los datos con claridad).</string>
+
+    <!-- Strings para la ventana de Licencia de conducir-->
+    <string name="txt_text1_licencia">Identificación Oficial INE</string>
+    <string name="txt_text2_licencia">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA. SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
+    <string name="txt_text3_licencia">Carga una foto por cada lado de tu licencia de conducir VIGENTE.</string>
+    <string name="txt_text4_licencia">Indicaciones:</string>
+    <string name="txt_text5_licencia">-Documento original.</string>
+    <string name="txt_text6_licencia">-En la imagen debe deben verse claramente toda la información y la foto del conductor.</string>
+    <string name="txt_text7_licencia">(Ten cuidado con el flash al sacar la foto, ya que el reflejo podria impedir que veamos todos los datos con claridad).</string>
+
+    <!-- Strings para la ventana de caracteristicas-->
+    <string name="txt_text1_caracteristicas">Caracteristicas del vehículo</string>
+    <string name="txt_text2_caracteristicas">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
+    <string name="txt_text3_caracteristicas">Selecciona la marca, modelo, año, placas y carga una fotografia frontal del vehiculo. Ten en cuenta que esta fotografia
+    será la que vea el público, trata de que la foto tenga un ángulo frontal, con una buena visibilidad del autómovil y con visibilidad en la matricula.</string>
+
+    <!-- Strings para la ventana de tarjeta de circulación-->
+    <string name="txt_text1_tarjeta">Tarjeta de circulación vigente</string>
+    <string name="txt_text2_tarjeta">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
+    <string name="txt_text3_tarjeta">Carga una foto de tu tarjeta de circulación VIGENTE.</string>
+    <string name="txt_text4_tarjeta">Asegúrate de que se pueda leer con facilidad los detalles.</string>
+
+    <!-- Strings para la ventana de póliza de seguro-->
+    <string name="txt_text1_poliza">Póliza de seguro vigente</string>
+    <string name="txt_text2_poliza">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
+    <string name="txt_text3_poliza">Carga una foto de tu poliza de seguro VIGENTE.</string>
+    <string name="txt_text4_poliza">El seguro deberá contar con cobertura amplia. Asegúrate de que se pueda leer con facilidad todos los detalles.</string>
+
+    <!-- Strings para la tarjeta de control de servicio publico de autotransportes-->
+    <string name="txt_text1_tarjeton">Tarjeta de control de servicio público de autotransportes</string>
+    <string name="txt_text2_tarjeton">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
+    <string name="txt_text3_tarjeton">Carga una foto de la tarjeta de control VIGENTE.</string>
+    <string name="txt_text4_tarjeton">Indicaciones:</string>
+    <string name="txt_text5_tarjeton">-Documento en original.</string>
+    <string name="txt_text6_tarjeton">-En la imagen debe verse claramente toda la información.</string>
+    <string name="txt_text7_tarjeton">(Ten cuidado con el flash al sacar la foto, ya que el reflejo podria impedir que veamos todos los datos con claridad).</string>
+    <string name="todo">TODO</string>
+
+    <!-- cadenas para el recycler view -->
+    <string name="btn_text_head">encabezado</string>
+    <string name="btn_text_body">cuerpo boton</string>
+
+</resources>

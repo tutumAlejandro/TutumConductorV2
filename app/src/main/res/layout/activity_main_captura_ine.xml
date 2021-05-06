@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainCapturaIne">
+
+    <ScrollView
+        android:id="@+id/scroll_view_ine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/todo_ine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_retroceso_ine"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:contentDescription="@string/todo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flecha_retroceso" />
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="32dp"
+                    android:contentDescription="@string/imagenes"
+                    android:src="@drawable/cuadros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txt1_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/txt_text1_identificacion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_head_capture" />
+
+            <TextView
+                android:id="@+id/text2_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text2_identificacion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_head2_capture" />
+
+            <TextView
+                android:id="@+id/text3_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text3_identificación"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text4_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text4_identificacion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text5_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text5_identificacion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text6_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text6_identificacion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text7_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text7_identificacion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <TextView
+                android:id="@+id/text8_ine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/txt_text8_identificacion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_text_body_capture" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imagenes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    android:layout_width="@dimen/width_img_camera"
+                    android:layout_height="@dimen/heigth_img_camara"
+                    app:errorEnabled="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/img_camara_tutum"
+                        android:hint="hint" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="@dimen/width_img_camera"
+                    android:layout_height="@dimen/heigth_img_camara"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/img_camara_tutum"
+                        android:hint="Reverso" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:id="@+id/btn_guardar_licencia"
+                android:background="@drawable/boton_redondo"
+                android:text="@string/btn_text_guardar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_btn"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

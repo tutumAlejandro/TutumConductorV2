@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainOTP"
+    android:background="@color/darkest"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_imagen_fonde3"
+                android:id="@+id/img_fondo_otp"
+                android:src="@drawable/fondo3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text1_otp"
+                android:text="@string/txt_verifica_text1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_otp1"
+                android:fontFamily="@font/boring_sans_heavy"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text2_otp"
+                android:text="@string/txt_verifica_text2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_otp2"
+                android:fontFamily="@font/open_sans_regular"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/num_telefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_text_otp3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"/>
+
+                <Button
+                    android:id="@+id/link_editar_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="60dp"
+                    android:backgroundTint="@color/darkest"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:onClick="editar"
+                    android:text="@string/txt_verifica_link_editar"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_text_otp2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputOTP"
+                android:layout_width="@dimen/width_input_mediano"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:hintEnabled="true"
+                android:hint="@string/txt_verifica_otp"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="2dp"
+                app:errorEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="text|phone"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_text_input" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_guardar_otp"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/boton_redondo"
+                android:fontFamily="@font/boring_sans_bold"
+                android:onClick="main_rol"
+                android:text="@string/btn_text_continuar"
+                android:textSize="@dimen/size_text_btn" />
+
+            <Button
+                android:id="@+id/link_reenviar_otp"
+                android:backgroundTint="@color/darkest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/txt_verifica_link_reenviar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_otp3" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
