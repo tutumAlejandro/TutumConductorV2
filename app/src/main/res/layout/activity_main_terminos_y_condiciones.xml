@@ -83,14 +83,16 @@
                 android:textSize="16sp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"/>
+
             <Button
+                android:id="@+id/btn_guardar_terminos"
                 android:layout_width="@dimen/width_boton"
                 android:layout_height="@dimen/heigth_boton"
-                android:id="@+id/btn_guardar_terminos"
-                android:background="@drawable/boton_redondo"
-                android:text="@string/btn_text_guardar"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:background="@drawable/boton_redondo"
+                android:onClick="btn_guardar_terminos"
+                android:text="@string/btn_text_guardar" />
 
         </LinearLayout>
     </ScrollView>

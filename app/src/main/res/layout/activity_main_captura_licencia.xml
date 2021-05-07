@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/img_retroceso_ine"
+                    android:id="@+id/img_retroceso_licencia"
                     android:layout_width="@dimen/width_img_retroceso"
                     android:layout_height="@dimen/heigth_img_retroceso"
                     android:layout_marginStart="28dp"
@@ -125,8 +125,8 @@
                     android:id="@+id/img_frontal_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginStart="@dimen/margin_img_camara_border"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"
                     android:contentDescription="@string/imagenes"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -145,8 +145,8 @@
                     android:id="@+id/img_reverso_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
-                    android:layout_marginTop="44dp"
-                    android:layout_marginEnd="28dp"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"
+                    android:layout_marginEnd="@dimen/margin_img_camara_border"
                     android:contentDescription="@string/imagenes"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -166,17 +166,18 @@
                     android:id="@+id/icon_calendar_licencia"
                     android:layout_width="@dimen/width_heigth_icon_documents"
                     android:layout_height="@dimen/width_heigth_icon_documents"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="20dp"
+
                     android:src="@drawable/ic_baseline_edit_calendar_24"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/VigenciaLicencia"
-                    app:layout_constraintTop_toTopOf="@id/VigenciaLicencia"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/VigenciaLicencia" />
 
                 <EditText
                     android:id="@+id/VigenciaLicencia"
-                    android:layout_width="@dimen/width_boton"
+                    android:layout_width="@dimen/width_input_date"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
                     android:clickable="true"
                     android:focusable="false"
                     android:hint="@string/input_vigencia"
@@ -184,10 +185,9 @@
                     android:inputType="date"
                     android:singleLine="true"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/icon_calendar_licencia"
                     app:layout_constraintTop_toBottomOf="@+id/img_reverso_licencia"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="40dp"/>
+                    android:layout_marginStart="10dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button

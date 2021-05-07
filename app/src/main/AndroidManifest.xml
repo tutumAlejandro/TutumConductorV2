@@ -15,7 +15,7 @@
         <activity android:name=".MainCapturaTarjeton" />
         <activity android:name=".MainCapturaPoliza" />
         <activity android:name=".MainCapturaTarjetaCirculacion" />
-        <activity android:name=".MainCapturaCaracteristicas" />
+        <activity android:name=".MainCapturaCaracteristicas" android:theme="@style/InputTextBlack"/>
         <activity android:name=".MainCapturaLicencia" android:theme="@style/InputTextBlack"/>
         <activity android:name=".MainCapturaIne" />
         <activity android:name=".MainTerminosYCondiciones" />
