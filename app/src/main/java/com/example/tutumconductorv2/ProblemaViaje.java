@@ -6,16 +6,17 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class activity_historial_viajes extends AppCompatActivity {
+public class ProblemaViaje extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historial_viajes);
+        setContentView(R.layout.activity_problema__viaje);
     }
 
-    public void btnRegresar3(View V){
-        Intent intentIni = new Intent(activity_historial_viajes.this, Inicio.class);
+    public void btnRegresarayuda(View V){
+        Intent intentIni = new Intent(ProblemaViaje.this, activity_ayuda.class);
         startActivity(intentIni);
     }
+
 }

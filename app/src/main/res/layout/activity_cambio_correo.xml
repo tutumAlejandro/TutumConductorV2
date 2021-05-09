@@ -53,6 +53,7 @@
         android:layout_marginTop="4dp"
         android:contentDescription="@string/menu_fondo"
         android:src="@drawable/menufondo"
+        android:onClick="btnRegresarPerfil1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"

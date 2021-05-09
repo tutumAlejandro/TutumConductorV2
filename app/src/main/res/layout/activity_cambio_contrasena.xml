@@ -37,6 +37,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/arrow"
         android:backgroundTint="#FF9800"
+        android:onClick="btnRegresarPerfil2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"

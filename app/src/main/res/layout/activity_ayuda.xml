@@ -32,6 +32,7 @@
                     android:layout_marginTop="@dimen/separacion_boton_regreso"
                     android:contentDescription="@string/imagenes"
                     android:elevation="4dp"
+                    android:onClick="btnRegresar"
                     android:src="@drawable/flecha_retroceso"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
@@ -83,6 +84,7 @@
                     android:layout_marginTop="16dp"
                     android:clickable="true"
                     android:scaleType="fitXY"
+                    android:onClick="btnReportarProblema"
                     android:src="@drawable/btn_documentos2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
@@ -132,7 +134,7 @@
                     android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:scaleType="fitXY"
-                    android:onClick="tecnico"
+                    android:onClick="btnReporteTecnico"
                     android:src="@drawable/btn_documentos2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_Temas"></ImageView>
@@ -171,7 +173,7 @@
                     android:layout_marginTop="32dp"
                     android:clickable="true"
                     android:scaleType="fitXY"
-                    android:onClick="usarApp"
+                    android:onClick="btnUsarApp"
                     android:src="@drawable/btn_documentos2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnReportarProblema"></ImageView>

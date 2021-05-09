@@ -265,6 +265,10 @@
     <string name="txtLugarDestino2">Circunvalacion Nte</string>
     <string name="txtPrecio">$30</string>
 
+<!--    Ventana Como Usar App-->
+    <string name="txtUsarApp">Como usar Tutum Conductor</string>
+    <string name="txtApp">Usar nuestra app es súper sencillo, revisa el siguiente video y COMIENZA A CONDUCIR CON TUTUM </string>
+
     <string name="iniciosesion_backbutton" />
     <string name="iniciosesion_backgd" />
     <string name="iniciosesion_tutumlogo" />

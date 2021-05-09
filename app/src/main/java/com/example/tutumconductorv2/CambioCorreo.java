@@ -1,5 +1,6 @@
 package com.example.tutumconductorv2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,5 +48,10 @@ public class CambioCorreo extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void btnRegresarPerfil1(View V){
+        Intent intentIni = new Intent(CambioCorreo.this, activity_perfil.class);
+        startActivity(intentIni);
     }
 }

@@ -27,4 +27,9 @@ public class activity_perfil extends AppCompatActivity {
         Intent intentIni = new Intent(activity_perfil.this, CambioTelefono.class);
         startActivity(intentIni);
    }
+
+    public void btnRegresar1(View V){
+        Intent intentIni = new Intent(activity_perfil.this, Inicio.class);
+        startActivity(intentIni);
+    }
 }

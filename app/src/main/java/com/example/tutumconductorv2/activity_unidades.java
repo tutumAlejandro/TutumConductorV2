@@ -29,4 +29,9 @@ public class activity_unidades extends AppCompatActivity {
         //finish();
     }
 
+    public void btnRegresar4(View V){
+        Intent intentIni = new Intent(activity_unidades.this, Inicio.class);
+        startActivity(intentIni);
+    }
+
 }

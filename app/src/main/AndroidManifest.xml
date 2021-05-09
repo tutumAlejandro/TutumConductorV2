@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tutumconductorv2">
+
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -40,6 +44,10 @@
         <activity android:name=".CambioTelefono"/>
         <activity android:name=".CambioContrasena"/>
         <activity android:name=".CambioCorreo"/>
+        <activity android:name=".ReportarProblema"/>
+        <activity android:name=".ReportarProblemaTecnico"/>
+        <activity android:name=".ProblemaViaje"/>
+        <activity android:name=".ComoUsarApp"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

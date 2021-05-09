@@ -1,5 +1,6 @@
 package com.example.tutumconductorv2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,5 +48,10 @@ public class CambioContrasena extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void btnRegresarPerfil2(View V){
+        Intent intentIni = new Intent(CambioContrasena.this, activity_perfil.class);
+        startActivity(intentIni);
     }
 }
