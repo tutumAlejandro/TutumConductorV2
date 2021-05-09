@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,97 +16,136 @@ import java.util.Calendar;
 public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_tarjeta_circulacion;
-    private EditText vigenciaTarjeta;
-    private int year, month, day;
-    private String rol, VigTarjeta;
+    private EditText vigencia_tarjeta;
+    private String rol;
+    private String vig_tarjeta=" ";
+    private int day,month,year;
 
-    private boolean terminos,ine,licencia,caracteristicas,tarjeta,poliza,tarjeton;
+    private boolean terminos_tarjeta,ine_tarjeta,licencia_tarjeta,caracteristicas_tarjeta,tarjeta_tarjeta,poliza_tarjeta,tarjeton_tarjeta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_tarjeta_circulacion);
-
-        // Asignacion de las variables para los Intent
-        rol = getIntent().getStringExtra("rol");
-        terminos= getIntent().getBooleanExtra("terminos",false);
-        ine = getIntent().getBooleanExtra("ine",false);
-        licencia = getIntent().getBooleanExtra("licencia",false);
-        caracteristicas = getIntent().getBooleanExtra("caracteristicas",false);
-        tarjeta = getIntent().getBooleanExtra("tarjeta",false);
-        poliza = getIntent().getBooleanExtra("poliza",false);
-        tarjeton = getIntent().getBooleanExtra("tarjeton",false);
-
-        //Asociacion de los xml con la parte logica
         btn_regreso_tarjeta_circulacion = findViewById(R.id.img_retroceso_tarjeta);
-        vigenciaTarjeta = findViewById(R.id.VigenciaTarjetaCirculacion);
 
-        vigenciaTarjeta.setOnClickListener(this);
+        vigencia_tarjeta = findViewById(R.id.VigenciaTarjeta);
+        vigencia_tarjeta.setOnClickListener(this);
+
+        rol = getIntent().getStringExtra("rol");
+
+        if (rol.matches("Socio")) {
+            terminos_tarjeta = getIntent().getBooleanExtra("terminos", false);
+            ine_tarjeta = getIntent().getBooleanExtra("ine", false);
+            licencia_tarjeta = getIntent().getBooleanExtra("licencia", false);
+            caracteristicas_tarjeta = getIntent().getBooleanExtra("caracteristicas", false);
+            tarjeta_tarjeta = getIntent().getBooleanExtra("tarjeta", false);
+            poliza_tarjeta = getIntent().getBooleanExtra("poliza", false);
+            tarjeton_tarjeta = getIntent().getBooleanExtra("tarjeton", false);
+        } else {
+            terminos_tarjeta = getIntent().getBooleanExtra("terminos_conductor", false);
+            ine_tarjeta = getIntent().getBooleanExtra("ine_conductor", false);
+            licencia_tarjeta = getIntent().getBooleanExtra("licencia_conductor", false);
+            caracteristicas_tarjeta = getIntent().getBooleanExtra("caracteristicas_conductor", false);
+            tarjeta_tarjeta = getIntent().getBooleanExtra("tarjeta_conductor", false);
+            poliza_tarjeta = getIntent().getBooleanExtra("poliza_conductor", false);
+            tarjeton_tarjeta = getIntent().getBooleanExtra("tarjeton_conductor", false);
+        }
+
+
 
         btn_regreso_tarjeta_circulacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(rol.matches("Socio")){
-                    Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this,MainSocioDocumentos.class);
+                if (rol.matches("Socio")) {
+                    Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
+                    main_socio_documentos.putExtra("terminos", terminos_tarjeta);
+                    main_socio_documentos.putExtra("ine", ine_tarjeta);
+                    main_socio_documentos.putExtra("licencia", licencia_tarjeta);
+                    main_socio_documentos.putExtra("caracterisitcas", caracteristicas_tarjeta);
+                    main_socio_documentos.putExtra("tarjeta", false);
+                    main_socio_documentos.putExtra("poliza", poliza_tarjeta);
+                    main_socio_documentos.putExtra("tarjeton", tarjeton_tarjeta);
                     startActivity(main_socio_documentos);
                     finish();
-                }else if(rol.matches("Conductor"))
-                {
-                    Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this,MainConductorDocumentos.class);
+                } else {
+                    Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
+                    main_conductor_documentos.putExtra("terminos_conductor", terminos_tarjeta);
+                    main_conductor_documentos.putExtra("ine_conductor", ine_tarjeta);
+                    main_conductor_documentos.putExtra("licencia_conductor", licencia_tarjeta);
+                    main_conductor_documentos.putExtra("caracteristicas_conductor", caracteristicas_tarjeta);
+                    main_conductor_documentos.putExtra("tarjeta_conductor", false);
+                    main_conductor_documentos.putExtra("poliza_conductor", poliza_tarjeta);
+                    main_conductor_documentos.putExtra("tarjeton_conductor", tarjeton_tarjeta);
                     startActivity(main_conductor_documentos);
-                    finish();
-                }else{
-                    Intent main_snv_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSnvDocuemtos.class);
-                    startActivity(main_snv_documentos);
                     finish();
                 }
             }
         });
-
     }
 
     @Override
     public void onClick(View v) {
-        final Calendar c_vigencia = Calendar.getInstance();
-        year = c_vigencia.get(Calendar.YEAR);
-        month = c_vigencia.get(Calendar.MONTH);
-        day = c_vigencia.get(Calendar.DAY_OF_MONTH);
+        final Calendar calendario = Calendar.getInstance();
+        year = calendario.get(Calendar.YEAR);
+        month = calendario.get(Calendar.MONTH);
+        day = calendario.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                vigenciaTarjeta.setText(day + "/" + (month + 1) + "/" + year);
-                VigTarjeta = (day + "/" + (month + 1) + "/" + year);
+                vigencia_tarjeta.setText(day + "/" + (month + 1) + "/" + year);
+                vig_tarjeta = (dayOfMonth + "/" + (month + 1) + "/" + year);
             }
-        },day,month,year);
+        },year,month,day);
         datePickerDialog.show();
+    }
+
+    private boolean check_vigencia_licencia(String vigencia)
+    {
+        if (vigencia.isEmpty())
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     public void guarda_tarjeta(View v)
     {
-        if(VigTarjeta.isEmpty())
+        String vig = vigencia_tarjeta.getText().toString().trim();
+        if(!check_vigencia_licencia(vig))
         {
             return;
-        }else
-        {
+        }else {
             if(rol.matches("Socio"))
             {
                 Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                main_socio_documentos.putExtra("VigenciaTarjeta",VigTarjeta);
+                main_socio_documentos.putExtra("VigenciaTarjeta",vig);
+                main_socio_documentos.putExtra("terminos",terminos_tarjeta);
+                main_socio_documentos.putExtra("ine",ine_tarjeta);
+                main_socio_documentos.putExtra("licencia",licencia_tarjeta);
+                main_socio_documentos.putExtra("caracterisitcas",caracteristicas_tarjeta);
+                main_socio_documentos.putExtra("tarjeta",true);
+                main_socio_documentos.putExtra("poliza",poliza_tarjeta);
+                main_socio_documentos.putExtra("tarjeton",tarjeton_tarjeta);
                 startActivity(main_socio_documentos);
-
-            }else if(rol.matches("Conductor"))
+                finish();
+            }else
             {
                 Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                main_conductor_documentos.putExtra("VigenciaTarjeta",VigTarjeta);
+                main_conductor_documentos.putExtra("VigenciaTarjeta",vig);
+                main_conductor_documentos.putExtra("terminos_conductor",terminos_tarjeta);
+                main_conductor_documentos.putExtra("ine_conductor",ine_tarjeta);
+                main_conductor_documentos.putExtra("licencia_conductor",licencia_tarjeta);
+                main_conductor_documentos.putExtra("caracteristicas_conductor",caracteristicas_tarjeta);
+                main_conductor_documentos.putExtra("tarjeta_conductor",true);
+                main_conductor_documentos.putExtra("poliza_conductor",poliza_tarjeta);
+                main_conductor_documentos.putExtra("tarjeton_conductor",tarjeton_tarjeta);
                 startActivity(main_conductor_documentos);
-            }
-            else
-            {
-                Intent main_snv_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSnvDocuemtos.class);
-                main_snv_documentos.putExtra("VigenciaTarjeta",VigTarjeta);
+                finish();
             }
         }
-
     }
 }

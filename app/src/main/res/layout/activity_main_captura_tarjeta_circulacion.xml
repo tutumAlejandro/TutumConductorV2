@@ -17,6 +17,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:id="@+id/img_retroceso_tarjeta"
                     android:layout_width="@dimen/width_img_retroceso"
@@ -27,6 +28,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/flecha_retroceso" />
+
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="50dp"
@@ -37,56 +39,53 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
-                android:id="@+id/txt1_tarjeta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/open_sans_bold"
+                android:id="@+id/text1_tarjeta"
                 android:text="@string/txt_text1_tarjeta"
                 android:textColor="@color/black"
-                android:textSize="@dimen/size_text_head_capture" />
-
+                android:fontFamily="@font/open_sans_bold"
+                android:textSize="@dimen/size_text_head_capture"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"/>
             <TextView
-                android:id="@+id/text2_tarjeta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/open_sans_regular"
+                android:id="@+id/text2_tarjeta"
                 android:text="@string/txt_text2_tarjeta"
                 android:textColor="@color/black"
-                android:textSize="@dimen/size_text_head2_capture" />
-
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
             <TextView
-                android:id="@+id/text3_tarjeta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/open_sans_regular"
+                android:id="@+id/text3_tarjeta"
                 android:text="@string/txt_text3_tarjeta"
                 android:textColor="@color/black"
-                android:textSize="@dimen/size_text_body_capture" />
-
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
             <TextView
-                android:id="@+id/text4_tarjeta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/open_sans_regular"
+                android:id="@+id/text4_tarjeta"
                 android:text="@string/txt_text4_tarjeta"
                 android:textColor="@color/black"
-                android:textSize="@dimen/size_text_body_capture" />
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/imagenes_licencia"
+                android:id="@+id/imagenes_tarjeta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/img_frontal_tarjeta_circulacion"
+                    android:id="@+id/img_frontal_tarjeta"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginStart="@dimen/margin_img_camara_border_one"
@@ -98,29 +97,28 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txt_frontal_tarjeta_circulacion"
+                    android:id="@+id/txt_frontal_licencia"
                     android:text="@string/img_txt_frontal"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintStart_toStartOf="@id/img_frontal_tarjeta_circulacion"
-                    app:layout_constraintBottom_toTopOf="@id/img_frontal_tarjeta_circulacion"/>
+                    app:layout_constraintStart_toStartOf="@id/img_frontal_tarjeta"
+                    app:layout_constraintBottom_toTopOf="@id/img_frontal_tarjeta"/>
 
                 <ImageView
-                    android:id="@+id/icon_calendar_tarjeta_circulacion"
+                    android:id="@+id/icon_calendar_tarjeta"
                     android:layout_width="@dimen/width_heigth_icon_documents"
                     android:layout_height="@dimen/width_heigth_icon_documents"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="30dp"
                     android:contentDescription="@string/imagenes"
                     android:src="@drawable/ic_baseline_edit_calendar_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/VigenciaTarjetaCirculacion" />
+                    app:layout_constraintTop_toTopOf="@id/VigenciaTarjeta" />
 
                 <EditText
-                    android:id="@+id/VigenciaTarjetaCirculacion"
+                    android:id="@+id/VigenciaTarjeta"
                     android:layout_width="@dimen/width_input_date"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="40dp"
                     android:clickable="true"
                     android:focusable="false"
@@ -128,12 +126,10 @@
                     android:importantForAutofill="no"
                     android:inputType="date"
                     android:singleLine="true"
-                    android:textColorHighlight="@color/darkest"
-                    android:textColorHint="@color/darkest"
-                    android:textColorLink="@color/darkest"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/icon_calendar_tarjeta_circulacion"
-                    app:layout_constraintTop_toBottomOf="@+id/img_frontal_tarjeta_circulacion" />
+                    app:layout_constraintStart_toEndOf="@+id/icon_calendar_tarjeta"
+                    app:layout_constraintTop_toBottomOf="@+id/img_frontal_tarjeta"
+                    android:layout_marginStart="10dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
@@ -142,13 +138,12 @@
                 android:layout_height="@dimen/heigth_boton"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
                 android:background="@drawable/boton_redondo"
                 android:onClick="guarda_tarjeta"
                 android:text="@string/btn_text_guardar"
                 android:textColor="@color/white"
                 android:textSize="@dimen/size_text_btn" />
-
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
