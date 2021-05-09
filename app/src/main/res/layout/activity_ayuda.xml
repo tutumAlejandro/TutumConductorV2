@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_ayuda"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="126dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/FlechaAtrasAyuda"
+                    android:layout_width="50dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="@dimen/separacion_boton_regreso"
+                    android:layout_marginTop="@dimen/separacion_boton_regreso"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="4dp"
+                    android:src="@drawable/flecha_retroceso"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <ImageView
+                    android:id="@+id/img_cuadrado"
+                    android:layout_width="98dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/separacion_img_cuadros_top"
+                    android:src="@drawable/cuadros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtAyuda"
+                android:text="@string/txtAyuda"
+                android:fontFamily="@font/boring_sans_heavy"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_completar_registro"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Necesitas"
+                android:text="@string/txtPregunta"
+                android:fontFamily="@font/boring_sans_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_te_damos_bienvenida"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp">
+            </TextView>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="552dp">
+
+
+                <ImageView
+                    android:id="@+id/btnReportarProblemaTecnico"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtReportarProblema"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/btnReportarProblema"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toStartOf="@+id/btnReportarProblemaTecnico"
+                    app:layout_constraintTop_toTopOf="@+id/btnReportarProblemaTecnico" />
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante2"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnReportarProblemaTecnico"
+                    app:layout_constraintTop_toTopOf="@id/btnReportarProblemaTecnico" />
+
+
+                <TextView
+                    android:id="@+id/txt_Temas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/txtTemas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_te_damos_bienvenida"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnReportarProblemaTecnico"></TextView>
+
+                <ImageView
+                    android:id="@+id/btnReportarProblema"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:onClick="tecnico"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_Temas"></ImageView>
+
+
+                <TextView
+                    android:id="@+id/txtProblemaTecnico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/btnProblemaTecnico"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toStartOf="@+id/btnReportarProblema"
+                    app:layout_constraintTop_toTopOf="@+id/btnReportarProblema" />
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante9"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnReportarProblema"
+                    app:layout_constraintTop_toTopOf="@id/btnReportarProblema" />
+
+
+
+                <ImageView
+                    android:id="@+id/btnUsarApp"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:onClick="usarApp"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnReportarProblema"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtComoUsar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/btnUsarApp"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toStartOf="@+id/btnUsarApp"
+                    app:layout_constraintTop_toTopOf="@+id/btnUsarApp" />
+
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante3"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnUsarApp"
+                    app:layout_constraintTop_toTopOf="@id/btnUsarApp" />
+
+
+
+                <ImageView
+                    android:id="@+id/btnTerminoCondicion"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:onClick="terminos"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnUsarApp"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtTerCon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/btnTerCon"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toStartOf="@+id/btnTerminoCondicion"
+                    app:layout_constraintTop_toTopOf="@+id/btnTerminoCondicion" />
+
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante6"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnTerminoCondicion"
+                    app:layout_constraintTop_toTopOf="@id/btnTerminoCondicion" />
+
+                <!-- Sexto boton de la recepcion de documentos -->
+                <ImageView
+                    android:id="@+id/btnPoliticaPrivacidad"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:onClick="politica"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnTerminoCondicion"></ImageView>
+
+                <TextView
+                    android:id="@+id/txt_sig_paso7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/btnPrivacidad"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toStartOf="@+id/btnPoliticaPrivacidad"
+                    app:layout_constraintTop_toTopOf="@+id/btnPoliticaPrivacidad" />
+
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante7"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnPoliticaPrivacidad"
+                    app:layout_constraintTop_toTopOf="@id/btnPoliticaPrivacidad" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

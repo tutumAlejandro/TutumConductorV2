@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".CambioTelefono">
+
+    <ImageView
+        android:id="@+id/cambioTel_fondo2"
+        android:layout_width="289dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/cambiotel_fondo2"
+        android:src="@drawable/menufondo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cambioCorreo_fondo4"
+        android:layout_width="225dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="220dp"
+        android:contentDescription="@string/menu_fondo"
+        android:src="@drawable/fondofotouser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cambioTel_backbutton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/arrow"
+        android:backgroundTint="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cambioTel_fondo"
+        android:layout_width="225dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="220dp"
+        android:contentDescription="@string/cambiotel_fondo"
+        android:src="@drawable/fondofotouser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cambioTel_cancelBtn"
+        android:layout_width="165dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/btn"
+        android:backgroundTint="#9E9C9C"
+        android:fontFamily="@font/boring_sans_heavy"
+        android:text="@string/cambiotel_cancelbtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cambioTel_aceptarBtn"
+        android:layout_width="165dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/boring_sans_heavy"
+        android:text="@string/cambiotel_aceptarbtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/cambioTel_desc"
+        android:layout_width="334dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="172dp"
+        android:text="@string/cambiotel_desc"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cambioTel_telLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:text="@string/cambiotel_tellabel"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cambioTel_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:fontFamily="@font/boring_sans_heavy"
+        android:text="@string/cambiotel_titulo"
+        android:textColor="#020202"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/cambioTel_telText"
+        android:layout_width="333dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="288dp"
+        android:ems="10"
+        android:hint="@string/numero_telefonico"
+        android:importantForAutofill="no"
+        android:inputType="phone"
+        android:text="@string/cambiotel_teltext"
+        android:textColor="#000000"
+        android:textColorHint="#959595"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

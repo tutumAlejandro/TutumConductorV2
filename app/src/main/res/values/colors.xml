@@ -15,4 +15,9 @@
     <color name="error">#FFFF0000</color>
     <color name="ok">#FF088d30</color>
     <color name="gray">#FF686868</color>
+    <color name="Yelowl">#FFE4B621</color>
+    <color name="Yelowh">#FFDB9831</color>
+    <color name="light">#FFDCDCDC</color>
+    <color name="dark">#FF1F1F1F</color>
+
 </resources>
