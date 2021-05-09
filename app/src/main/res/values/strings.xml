@@ -265,9 +265,6 @@
     <string name="btnNuevoReporte">Crear Reporte</string>
     <string name="txtHistorial">Historial</string>
 
-    <!--Ventana Reportar Problema Tecnico-->
-    <string name="txtTecnico">Problema Técnico</string>
-
     <!--Ventana Unidades-->
     <string name="txtUnidades">Unidades</string>
     <string name="txtListadoUnidades">Listado de Unidades</string>
@@ -300,16 +297,35 @@
     <string name="txtLugarDestino2">Circunvalacion Nte</string>
     <string name="txtPrecio">$30</string>
 
-<!--    Ventana Como Usar App-->
+    <!--    Ventana Como Usar App-->
     <string name="txtUsarApp">Como usar Tutum Conductor</string>
     <string name="txtApp">Usar nuestra app es súper sencillo, revisa el siguiente video y COMIENZA A CONDUCIR CON TUTUM </string>
+
+    <!--    Ventana Termina de subir tus documentos-->
+    <string name="txtTermina">Termina de subir los datos del vehículo </string>
+    <string name="txtSubir">Debes de subir los siguientes documentos del vehículo para poder validarlo </string>
+    <string name="txtCompleto">PASOS COMPLETADOS</string>
+
+    <!--Ventana Detallas de Unidad-->
+    <string name="txtDetallesUnidad">Detalles de Unidad</string>
+    <string name="txtPlacas">Placas</string>
+    <string name="txtvehiculo">Vehículo</string>
+    <string name="txtCodigo">Código de Vehículo</string>
+    <string name="txtConductor1">Conductores</string>
+    <string name="labelPlaca">ADA-252-A</string>
+    <string name="labelVehiculo">Chevrolet Celebrity 2020</string>
+    <string name="labelCodigo">501259</string>
+    <string name="txtNoSocio">No tiene conductores asociados</string>
+
+<!--    Ventana Reportar Problema Tecnico-->
+    <string name="txtTecnico">Problema Técnico</string>
+
 
     <string name="iniciosesion_backbutton" />
     <string name="iniciosesion_backgd" />
     <string name="iniciosesion_tutumlogo" />
     <string name="iniciosesion_pswdtext">Constraseña</string>
     <string name="iniciosesion_emailtext">Correo Electrónico</string>
-
 
 
 </resources>

@@ -18,4 +18,9 @@ public class ReportarProblema extends AppCompatActivity {
         Intent intentIni = new Intent(ReportarProblema.this, activity_ayuda.class);
         startActivity(intentIni);
     }
+
+    public void btnNuevoReporte(View V){
+        Intent intentIni = new Intent(ReportarProblema.this, ProblemaViaje.class);
+        startActivity(intentIni);
+    }
 }

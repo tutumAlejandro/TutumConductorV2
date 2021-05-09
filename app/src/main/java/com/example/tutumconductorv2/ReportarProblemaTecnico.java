@@ -18,5 +18,8 @@ public class ReportarProblemaTecnico extends AppCompatActivity {
         Intent intentIni = new Intent(ReportarProblemaTecnico.this, activity_ayuda.class);
         startActivity(intentIni);
     }
-
+    public void btnNuevoTecnico(View V){
+        Intent intentIni = new Intent(ReportarProblemaTecnico.this, activity_problema_tecnico.class);
+        startActivity(intentIni);
+    }
 }

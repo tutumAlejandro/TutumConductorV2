@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_termina_subir_documento"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_retroceso_documentos_socio"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:onClick="btnUnidad5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flecha_retroceso"/>
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/cuadros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_documentos_usuario"
+                android:text="@string/txtTermina"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_bienvenida"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_documentos_text2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_pasos_restantes"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtSubir"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_completar"
+                android:fontFamily="@font/open_sans_regular"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"/>
+
+            <!-- Boton para la captura de la tarjeta -->
+            <ImageView
+                android:id="@+id/btn_tarjeta_socio"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_tarjeta_1"/>
+
+            <!-- Boton para la captura de la poliza -->
+            <ImageView
+                android:id="@+id/btn_poliza_socio"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_poliza_1"/>
+
+            <!-- Boton para la captura del tarjeton -->
+            <ImageView
+                android:id="@+id/btn_tarjeton_socio"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_tarjeton_1"/>
+
+            <!-- Boton para leer los terminos y condiciones ok-->
+
+            <ImageView
+                android:id="@+id/btn_terminos_socio_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_terminos_1"
+                android:visibility="gone" />
+
+            <!-- Boton para ine ok-->
+            <ImageView
+                android:id="@+id/btn_ine_socio_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_ine_1"
+                android:visibility="gone"/>
+
+            <!-- Boton para licencia ok-->
+            <ImageView
+                android:id="@+id/btn_licencia_socio_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_licencia_1"
+                android:visibility="gone"/>
+
+            <!-- Boton para caracteristicas ok-->
+            <ImageView
+                android:id="@+id/btn_caracteristicas_socio_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_caracteristicas_1"
+                android:visibility="gone"/>
+
+            <!-- Boton para tarjeta ok-->
+            <ImageView
+                android:id="@+id/btn_tarjeta_socio_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_tarjeta_1"
+                android:visibility="gone"/>
+
+            <!-- Boton para poliza ok-->
+            <ImageView
+                android:id="@+id/btn_poliza_socio_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_poliza_1"
+                android:visibility="gone"/>
+
+            <!-- Boton para poliza ok-->
+            <ImageView
+                android:id="@+id/btn_tarjeton_socio_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_tarjeton_1"
+                android:visibility="gone" />
+            <!--- Text View para prueba -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtCompleto"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_txt_pasos_restantes"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"/>
+            <!--- Text View para prueba -->
+
+            <ImageView
+                android:id="@+id/btn_caracteristicas_socio"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_caracteristicas_1"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

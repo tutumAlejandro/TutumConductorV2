@@ -9,14 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2">
-        <activity android:name=".MainTextoPoliticaPrivacidad"></activity>
+        <activity android:name=".activity_problema_tecnico"></activity>
+        <activity android:name=".caracteristicas_nueva_unidad" />
+        <activity android:name=".activity_detalle_unidad" />
+        <activity android:name=".activity_termina_subir_documento" />
+        <activity android:name=".MainTextoPoliticaPrivacidad" />
         <activity android:name=".MainTextoTerminosCondiciones" />
         <activity android:name=".MainCapturaCodigo" />
         <activity android:name=".MainCapturaTarjeton" />
         <activity android:name=".MainCapturaPoliza" />
         <activity android:name=".MainCapturaTarjetaCirculacion" />
         <activity android:name=".MainCapturaCaracteristicas" />
-        <activity android:name=".MainCapturaLicencia" android:theme="@style/InputTextBlack"/>
+        <activity
+            android:name=".MainCapturaLicencia"
+            android:theme="@style/InputTextBlack" />
         <activity android:name=".MainCapturaIne" />
         <activity android:name=".MainTerminosYCondiciones" />
         <activity android:name=".MainSnvDocuemtos" />
@@ -28,6 +34,21 @@
         <activity android:name=".MainInicioSesion" />
         <activity android:name=".MainRegistrate" />
         <activity android:name=".MainVentanaPrincipal" />
+        <activity android:name=".Main_IniciaSesion" />
+        <activity android:name=".ComoUsarApp" />
+        <activity android:name=".ReportarProblema" />
+        <activity android:name=".activity_ayuda" />
+        <activity android:name=".activity_perfil" />
+        <activity android:name=".activity_unidades" />
+        <activity android:name=".activity_historial_viajes" />
+        <activity android:name=".activity_ganancias" />
+        <activity android:name=".CambioCorreo" />
+        <activity android:name=".CambioContrasena" />
+        <activity android:name=".CambioTelefono" />
+        <activity android:name=".ProblemaViaje" />
+        <activity android:name=".ReportarProblemaTecnico" />
+        <activity android:name=".Inicio" />
+        <activity android:name=".caracteristicas_nueva_unidad" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

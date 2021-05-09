@@ -34,4 +34,19 @@ public class activity_unidades extends AppCompatActivity {
         startActivity(intentIni);
     }
 
+    public void btnNuevaUnidad(View V){
+        Intent intentIni = new Intent(activity_unidades.this, caracteristicas_nueva_unidad.class);
+        startActivity(intentIni);
+    }
+
+    public void btnTerminaSubirDoctos(View V){
+        Intent intentIni = new Intent(activity_unidades.this, activity_termina_subir_documento.class);
+        startActivity(intentIni);
+    }
+
+    public void btnDetallesUnidad(View V){
+        Intent intentIni = new Intent(activity_unidades.this, activity_detalle_unidad.class);
+        startActivity(intentIni);
+    }
+
 }
