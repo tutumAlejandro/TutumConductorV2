@@ -153,6 +153,7 @@
                     android:layout_width="@dimen/width_input_largo"
                     android:layout_height="40dp"
                     android:layout_marginTop="40dp"
+                    android:spinnerMode="dialog"
                     app:layout_constraintEnd_toEndOf="@+id/img_lateral_caracteristicas"
                     app:layout_constraintStart_toStartOf="@+id/img_reverso_caracteristicas"
                     app:layout_constraintTop_toBottomOf="@+id/img_reverso_caracteristicas" />

@@ -179,17 +179,19 @@
                     app:layout_constraintBottom_toTopOf="@id/img_reverso_licencia"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <Button
+                android:id="@+id/btn_guardar_licencia"
                 android:layout_width="@dimen/width_boton"
                 android:layout_height="@dimen/heigth_boton"
-                android:id="@+id/btn_guardar_licencia"
-                android:background="@drawable/boton_redondo"
-                android:text="@string/btn_text_guardar"
-                android:textColor="@color/white"
-                android:textSize="@dimen/size_text_btn"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"/>
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/boton_redondo"
+                android:onClick="guardar_ine"
+                android:text="@string/btn_text_guardar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_btn" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

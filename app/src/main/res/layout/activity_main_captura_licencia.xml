@@ -168,6 +168,7 @@
                     android:layout_height="@dimen/width_heigth_icon_documents"
                     android:layout_marginStart="20dp"
 
+                    android:contentDescription="@string/imagenes"
                     android:src="@drawable/ic_baseline_edit_calendar_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
