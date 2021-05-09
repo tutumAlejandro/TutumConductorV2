@@ -4,11 +4,14 @@
     <string name="socio">Socio</string>
     <string name="conductor">Conductor</string>
     <string name="snv">Sin Vehiculo</string>
+
     <!-- Strings tod para las imagenes-->
     <string name="imagenes">imagenes</string>
+
     <!-- Strings para la ventana de presentación-->
     <string name="txt_inicio_by">By</string>
     <string name="txt_inicio_tutum">Tutum®</string>
+
     <!-- Strings para los botones-->
     <string name="btn_text_inicio_sesion">INICIAR SESIÓN</string>
     <string name="btn_text_registrate">REGISTRATE</string>
@@ -17,33 +20,41 @@
     <string name="btn_text_conductor">Conductor</string>
     <string name="btn_text_snv">Conductor sin Vehículo</string>
     <string name="btn_text_guardar">Guardar</string>
+
+    <!-- Strings para los input Text Layout -->
     <string name="input_vigencia">Fecha de Vigencia</string>
     <string name="input_fabricante">Fabricante del Vehiculo</string>
     <string name="input_ano_vehiculo">Año del vehículo</string>
     <string name="input_matricula">Matricula</string>
+
     <!-- Strings para la ventana registrate-->
     <string name="txt_registrate_nombres">Nombre(s)</string>
     <string name="txt_registrate_apeido_paterno">Apellido Paterno</string>
     <string name="txt_registrate_apeido_materno">Apellido Materno</string>
     <string name="txt_registrate_email">Correo Electrónico</string>
     <string name="txt_registrate_pass">Contraseña</string>
+
     <!-- Strings para la ventana inicio de sesion-->
     <string name="txt_inicio_email">Correo Electrónico</string>
     <string name="txt_inicio_pass">Constraseña</string>
     <string name="txt_inicio_recupera">Recupera Contraseña</string>
+
     <!-- Strings para la ventana ingresa telefono-->
     <string name="txt_ingresa_text1">Ingresa tu Número de Teléfono Móvil</string>
     <string name="txt_ingresa_telefono">Teléfono Celular</string>
+
     <!-- Strings para la ventana verifica OTP-->
     <string name="txt_verifica_text1">OTP Verificación</string>
     <string name="txt_verifica_text2">Ingresar código de 6 dígitos mandado a:</string>
     <string name="txt_verifica_otp">Codigo OTP</string>
     <string name="txt_verifica_link_editar">Editar</string>
     <string name="txt_verifica_link_reenviar">REENVIAR CÓDIGO</string>
+
     <!-- Strings para la ventana seleccion rol conductor-->
     <string name="txt_rol_info_socio">Elige esta opción si, además de ser conductor de un vehículo,deseas que alguien más conduzca los vehículos que tu administras</string>
     <string name="txt_rol_info_conductor">Eres conductor y tienes un vehículo con las condiciones y reglamentaciones adecuadas para brindar el servicio de transporte</string>
     <string name="txt_rol_info_snv">Elige esta opción si cuentas con un código de manejo, un administrador te lo puede proporcionar</string>
+
     <!-- Strings para las ventanas de toma de documentos-->
     <string name="txt_documentos_text1">Completar Registro</string>
     <string name="txt_documentos_text2">PASOS RESTANTES</string>
@@ -78,7 +89,7 @@
     <string name="txt_text8_identificacion">(Ten cuidado con el flash al sacar la foto, ya que el reflejo podria impedir que veamos todos los datos con claridad).</string>
 
     <!-- Strings para la ventana de Licencia de conducir-->
-    <string name="txt_text1_licencia">Identificación Oficial INE</string>
+    <string name="txt_text1_licencia">Licencia para Conducir</string>
     <string name="txt_text2_licencia">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA. SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
     <string name="txt_text3_licencia">Carga una foto por cada lado de tu licencia de conducir VIGENTE.</string>
     <string name="txt_text4_licencia">Indicaciones:</string>
@@ -91,7 +102,30 @@
     <string name="txt_text2_caracteristicas">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
     <string name="txt_text3_caracteristicas">Selecciona la marca, modelo, año, placas y carga una fotografia frontal del vehiculo. Ten en cuenta que esta fotografia
     será la que vea el público, trata de que la foto tenga un ángulo frontal, con una buena visibilidad del autómovil y con visibilidad en la matricula.</string>
-
+    <string name="spinner_fabricante_vehiculo">Fabricante del Vehiculo</string>
+    <string-array name="Fabricantes">
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+        <item>Ford</item>
+        <item>Nissan</item>
+        <item>Honda</item>
+        <item>Hyundai</item>
+        <item>Chevrolet</item>
+        <item>Kia</item>
+        <item>Renault</item>
+        <item>Mercedes</item>
+        <item>Peugeot</item>
+        <item>BMW</item>
+        <item>Audi</item>
+        <item>Maruti</item>
+        <item>Mazda</item>
+        <item>Jeep</item>
+        <item>Fiat</item>
+        <item>Buick</item>
+        <item>Mitsubishi</item>
+        <item>Suzuki</item>
+        <item>Subaru</item>
+    </string-array>
     <!-- Strings para la ventana de tarjeta de circulación-->
     <string name="txt_text1_tarjeta">Tarjeta de circulación vigente</string>
     <string name="txt_text2_tarjeta">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
@@ -118,6 +152,7 @@
     <string name="img_txt_frontal">Frontal</string>
     <string name="img_txt_reverso">Reverso</string>
     <string name="img_txt_lateral">Lateral</string>
+    <string name="img_txt_trasera">Trasera</string>
 
     <!-- Navigation View -->
     <string name="perfil_btn">Perfil</string>

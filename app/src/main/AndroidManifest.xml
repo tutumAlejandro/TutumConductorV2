@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tutumconductorv2">
-
-
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -13,16 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2">
-        <activity android:name=".MainTextoPoliticaPrivacidad" />
+        <activity android:name=".MainTextoPoliticaPrivacidad"></activity>
         <activity android:name=".MainTextoTerminosCondiciones" />
         <activity android:name=".MainCapturaCodigo" />
         <activity android:name=".MainCapturaTarjeton" />
         <activity android:name=".MainCapturaPoliza" />
         <activity android:name=".MainCapturaTarjetaCirculacion" />
         <activity android:name=".MainCapturaCaracteristicas" />
-        <activity
-            android:name=".MainCapturaLicencia"
-            android:theme="@style/InputTextBlack" />
+        <activity android:name=".MainCapturaLicencia" android:theme="@style/InputTextBlack"/>
         <activity android:name=".MainCapturaIne" />
         <activity android:name=".MainTerminosYCondiciones" />
         <activity android:name=".MainSnvDocuemtos" />
@@ -33,21 +27,7 @@
         <activity android:name=".MainRegistroTelefono" />
         <activity android:name=".MainInicioSesion" />
         <activity android:name=".MainRegistrate" />
-        <activity android:name=".Main_IniciaSesion"/>
         <activity android:name=".MainVentanaPrincipal" />
-        <activity android:name=".Inicio"/>
-        <activity android:name=".activity_perfil"/>
-        <activity android:name=".activity_ayuda"/>
-        <activity android:name=".activity_historial_viajes"/>
-        <activity android:name=".activity_ganancias"/>
-        <activity android:name=".activity_unidades"/>
-        <activity android:name=".CambioTelefono"/>
-        <activity android:name=".CambioContrasena"/>
-        <activity android:name=".CambioCorreo"/>
-        <activity android:name=".ReportarProblema"/>
-        <activity android:name=".ReportarProblemaTecnico"/>
-        <activity android:name=".ProblemaViaje"/>
-        <activity android:name=".ComoUsarApp"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

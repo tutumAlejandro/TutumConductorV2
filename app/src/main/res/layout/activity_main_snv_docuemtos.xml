@@ -83,42 +83,9 @@
                     android:layout_marginStart="@dimen/margin_start_btn_documentos"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/btn_documentos2"
+                    android:src="@drawable/btn_terminos_y_condiciones_1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/siguiente_paso_snv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txt_btn_doc_sig_paso"
-                    android:textColor="@color/daysi"
-                    android:textSize="@dimen/size_text_head_btn"
-                    app:layout_constraintStart_toStartOf="@+id/btn_snv_terminos"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_terminos"/>
-
-                <TextView
-                    android:id="@+id/txt_docto_terminos_snv"
-                    android:layout_width="@dimen/width_text_body_btn"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_btn_doc_aceptar_terminos"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/size_text_body_btn"
-                    android:fontFamily="@font/open_sans_bold"
-                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_snv"
-                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_snv" />
-
-                <ImageView
-                    android:layout_width="@dimen/width_heigth_arrow_fwd"
-                    android:layout_height="@dimen/width_heigth_arrow_fwd"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/flecha_adelante"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_snv_terminos"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_terminos"/>
 
                 <!-- Boton para la captura de la Identificacion Oficial INE -->
                 <ImageView
@@ -128,42 +95,9 @@
                     android:layout_marginStart="@dimen/margin_start_btn_documentos"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/btn_documentos2"
+                    android:src="@drawable/btn_ine_1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_snv_terminos"/>
-
-                <TextView
-                    android:id="@+id/siguiente_paso_snv2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txt_btn_doc_listo_comenzar"
-                    android:textColor="@color/daysi"
-                    android:textSize="@dimen/size_text_head_btn"
-                    app:layout_constraintStart_toStartOf="@+id/btn_snv_ine"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_ine"/>
-
-                <TextView
-                    android:id="@+id/txt_docto_ine_snv"
-                    android:layout_width="@dimen/width_text_body_btn"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_btn_doc_ine"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/size_text_body_btn"
-                    android:fontFamily="@font/open_sans_bold"
-                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_snv2"
-                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_snv2" />
-
-                <ImageView
-                    android:layout_width="@dimen/width_heigth_arrow_fwd"
-                    android:layout_height="@dimen/width_heigth_arrow_fwd"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/flecha_adelante"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_snv_ine"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_ine"/>
 
                 <!-- Boton para la captura de la Licencia -->
 
@@ -174,42 +108,9 @@
                     android:layout_marginStart="@dimen/margin_start_btn_documentos"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/btn_documentos2"
+                    android:src="@drawable/btn_licencia_1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_snv_ine"/>
-
-                <TextView
-                    android:id="@+id/siguiente_paso_snv3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txt_btn_doc_listo_comenzar"
-                    android:textColor="@color/daysi"
-                    android:textSize="@dimen/size_text_head_btn"
-                    app:layout_constraintStart_toStartOf="@+id/btn_snv_licencia"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_licencia"/>
-
-                <TextView
-                    android:id="@+id/txt_docto_licencia_snv"
-                    android:layout_width="@dimen/width_text_body_btn"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_btn_doc_licencia"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/size_text_body_btn"
-                    android:fontFamily="@font/open_sans_bold"
-                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_snv3"
-                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_snv3" />
-
-                <ImageView
-                    android:layout_width="@dimen/width_heigth_arrow_fwd"
-                    android:layout_height="@dimen/width_heigth_arrow_fwd"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/flecha_adelante"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_snv_licencia"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_licencia"/>
 
                 <!-- Boton para la captura de la codigo del vehiculo -->
                 <ImageView
@@ -219,42 +120,10 @@
                     android:layout_marginStart="@dimen/margin_start_btn_documentos"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/btn_documentos2"
+                    android:src="@drawable/btn_codigo_vehiculo_1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_snv_licencia"/>
 
-                <TextView
-                    android:id="@+id/siguiente_paso_snv4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txt_btn_doc_listo_comenzar"
-                    android:textColor="@color/daysi"
-                    android:textSize="@dimen/size_text_head_btn"
-                    app:layout_constraintStart_toStartOf="@+id/btn_snv_codigo"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_codigo"/>
-
-                <TextView
-                    android:id="@+id/txt_docto_codigo_snv"
-                    android:layout_width="@dimen/width_text_body_btn"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_btn_doc_codigo"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/size_text_body_btn"
-                    android:fontFamily="@font/open_sans_bold"
-                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_snv4"
-                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_snv4" />
-
-                <ImageView
-                    android:layout_width="@dimen/width_heigth_arrow_fwd"
-                    android:layout_height="@dimen/width_heigth_arrow_fwd"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/flecha_adelante"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_snv_codigo"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_codigo"/>
                 <!-- Boton para la captura del tarjeton -->
 
                 <ImageView
@@ -264,42 +133,10 @@
                     android:layout_marginStart="@dimen/margin_start_btn_documentos"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/btn_documentos2"
+                    android:src="@drawable/btn_tarjeton_1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_snv_codigo"/>
 
-                <TextView
-                    android:id="@+id/siguiente_paso_snv5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txt_btn_doc_listo_comenzar"
-                    android:textColor="@color/daysi"
-                    android:textSize="@dimen/size_text_head_btn"
-                    app:layout_constraintStart_toStartOf="@+id/btn_snv_tarjeton"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_tarjeton"/>
-
-                <TextView
-                    android:id="@+id/txt_docto_tarjeton_snv"
-                    android:layout_width="@dimen/width_text_body_btn"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_btn_doc_tarjeton"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/size_text_body_btn"
-                    android:fontFamily="@font/open_sans_bold"
-                    app:layout_constraintStart_toStartOf="@+id/siguiente_paso_snv5"
-                    app:layout_constraintTop_toBottomOf="@+id/siguiente_paso_snv5" />
-
-                <ImageView
-                    android:layout_width="@dimen/width_heigth_arrow_fwd"
-                    android:layout_height="@dimen/width_heigth_arrow_fwd"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/flecha_adelante"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_snv_tarjeton"
-                    app:layout_constraintTop_toTopOf="@+id/btn_snv_tarjeton"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!--- Text View para prueba -->
                 <TextView

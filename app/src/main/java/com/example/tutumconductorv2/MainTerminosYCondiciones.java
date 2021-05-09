@@ -15,12 +15,21 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
 
     // Cadenas para revisar
     private String rol;
+    private boolean terminos,ine,licencia,caracteristicas,tarjeta,poliza,tarjeton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_terminos_y_condiciones);
         rol = getIntent().getStringExtra("rol");
+        terminos= getIntent().getBooleanExtra("terminos",false);
+        ine = getIntent().getBooleanExtra("ine",false);
+        licencia = getIntent().getBooleanExtra("licencia",false);
+        caracteristicas = getIntent().getBooleanExtra("caracteristicas",false);
+        tarjeta = getIntent().getBooleanExtra("tarjeta",false);
+        poliza = getIntent().getBooleanExtra("poliza",false);
+        tarjeton = getIntent().getBooleanExtra("tarjeton",false);
+
 
         btn_regreso_term = findViewById(R.id.img_retroceso_terminos_condiciones);
         _politica = findViewById(R.id.link_politica);
@@ -29,18 +38,27 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
         btn_regreso_term.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(rol.matches("socio"))
+                if(rol.matches("Socio"))
                 {
                     Intent main_docto_socio = new Intent(MainTerminosYCondiciones.this,MainSocioDocumentos.class);
+                    main_docto_socio.putExtra("terminos",false);
+                    main_docto_socio.putExtra("ine",ine);
+                    main_docto_socio.putExtra("licencia",licencia);
+                    main_docto_socio.putExtra("caracteristicas",caracteristicas);
+                    main_docto_socio.putExtra("tarjeta",tarjeta);
+                    main_docto_socio.putExtra("poliza",poliza);
+                    main_docto_socio.putExtra("tarjeton",tarjeton);
                     startActivity(main_docto_socio);
                     finish();
-                }else if(rol.matches("conductor"))
+                }else if(rol.matches("Conductor"))
                 {
                     Intent main_docto_conductor = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
+                    main_docto_conductor.putExtra("terminos_conductor","terminos");
                     startActivity(main_docto_conductor);
                     finish();
                 }else{
                     Intent main_docto_snv = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
+                    main_docto_snv.putExtra("terminos_snv","terminos");
                     startActivity(main_docto_snv);
                     finish();
                 }
@@ -68,21 +86,27 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
     }
     public void btn_guardar_terminos(View v)
     {
-        if(rol.matches("socio"))
+        if(rol.matches("Socio"))
         {
             Intent main_docto_socio = new Intent(MainTerminosYCondiciones.this,MainSocioDocumentos.class);
-            main_docto_socio.putExtra("check","terminos");
+            main_docto_socio.putExtra("terminos",true);
+            main_docto_socio.putExtra("ine",ine);
+            main_docto_socio.putExtra("licencia",licencia);
+            main_docto_socio.putExtra("caracteristicas",caracteristicas);
+            main_docto_socio.putExtra("tarjeta",tarjeta);
+            main_docto_socio.putExtra("poliza",poliza);
+            main_docto_socio.putExtra("tarjeton",tarjeton);
             startActivity(main_docto_socio);
             finish();
-        }else if(rol.matches("conductor"))
+        }else if(rol.matches("Conductor"))
         {
             Intent main_docto_conductor = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
-            main_docto_conductor.putExtra("check","terminos");
+            main_docto_conductor.putExtra("terminos",true);
             startActivity(main_docto_conductor);
             finish();
         }else{
             Intent main_docto_snv = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
-            main_docto_snv.putExtra("check","terminos");
+            main_docto_snv.putExtra("terminos_snv",true);
             startActivity(main_docto_snv);
             finish();
         }

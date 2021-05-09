@@ -133,56 +133,65 @@
                 android:text="@string/txt_text8_identificacion"
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_text_body_capture" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/imagenes"
+                android:id="@+id/imagenes_licencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
+                <ImageView
+                    android:id="@+id/img_frontal_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
-                    app:errorEnabled="true"
+                    android:layout_marginStart="@dimen/margin_img_camara_border"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"
+                    android:contentDescription="@string/imagenes"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp">
+                    app:srcCompat="@drawable/img_camara_tutum" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_frontal_licencia"
+                    android:text="@string/img_txt_frontal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_capture"
+                    app:layout_constraintStart_toStartOf="@id/img_frontal_licencia"
+                    app:layout_constraintBottom_toTopOf="@id/img_frontal_licencia"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:foreground="@drawable/img_camara_tutum"
-                        android:hint="hint" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <ImageView
+                    android:id="@+id/img_reverso_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:errorEnabled="true"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"
+                    android:layout_marginEnd="@dimen/margin_img_camara_border"
+                    android:contentDescription="@string/imagenes"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_camara_tutum" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_reverso_licencia"
+                    android:text="@string/img_txt_reverso"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_capture"
+                    app:layout_constraintStart_toStartOf="@id/img_reverso_licencia"
+                    app:layout_constraintBottom_toTopOf="@id/img_reverso_licencia"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:foreground="@drawable/img_camara_tutum"
-                        android:hint="Reverso" />
-                </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <Button
+                android:id="@+id/btn_guardar_licencia"
                 android:layout_width="@dimen/width_boton"
                 android:layout_height="@dimen/heigth_boton"
-                android:id="@+id/btn_guardar_licencia"
-                android:background="@drawable/boton_redondo"
-                android:text="@string/btn_text_guardar"
-                android:textColor="@color/white"
-                android:textSize="@dimen/size_text_btn"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"/>
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/boton_redondo"
+                android:onClick="guardar_ine"
+                android:text="@string/btn_text_guardar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_btn" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

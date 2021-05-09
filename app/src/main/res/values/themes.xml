@@ -3,12 +3,16 @@
     <style name="Theme.TutumConductorV2" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/darkest</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorPrimaryDark">@color/darkest</item>
         <item name="colorAccent">@color/white</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="InputTextBlack" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorAccent">@color/darkest</item>
+    </style>
+    <style name="BorderSpinner" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:strokeColor">@color/darkest</item>
+        <item name="android:strokeWidth">2.0</item>
     </style>
 </resources>
