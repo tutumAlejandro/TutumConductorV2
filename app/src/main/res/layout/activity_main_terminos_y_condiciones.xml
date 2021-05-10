@@ -92,7 +92,8 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/boton_redondo"
                 android:onClick="btn_guardar_terminos"
-                android:text="@string/btn_text_guardar" />
+                android:text="@string/btn_text_guardar"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
     </ScrollView>
