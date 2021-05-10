@@ -19,7 +19,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
     public void btn_inicia_sesion(View v)
     {
-        Intent main_inicio_sesion = new Intent(MainVentanaPrincipal.this,MainInicioSesion.class);
+        Intent main_inicio_sesion = new Intent(MainVentanaPrincipal.this,Main_IniciaSesion.class);
         startActivity(main_inicio_sesion);
     }
 }

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_perfil"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/btnFlechaAtrasPerfil"
+                    android:layout_width="37dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/separacion_boton_regreso"
+                    android:layout_marginTop="@dimen/separacion_boton_regreso"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="4dp"
+                    android:onClick="btnRegresar1"
+                    android:src="@drawable/flecha_retroceso"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <ImageView
+                    android:id="@+id/img_cuadrado"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/separacion_img_cuadros_top"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/cuadros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txtPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/boring_sans_heavy"
+                android:text="@string/txtPerfil"
+                android:textColor="@color/black"
+                android:textSize="24sp"></TextView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="966dp">
+
+                <ImageView
+                    android:id="@+id/btnNombre"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+
+
+                <TextView
+                    android:id="@+id/txtNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/boring_sans_light"
+                    android:text="@string/btnNombre"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_paso_recomendado"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
+                    app:layout_constraintTop_toTopOf="@+id/btnNombre" />
+
+                <TextView
+                    android:id="@+id/txt2_btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/txtConductor"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_texto_botones"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+
+
+                <ImageView
+                    android:id="@+id/imgIconoPerfil"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/profile_user"
+                    app:layout_constraintStart_toStartOf="@+id/btnNombre"
+                    app:layout_constraintTop_toTopOf="@id/btnNombre" />
+
+                <ImageView
+                    android:id="@+id/btnTelefono"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:onClick="acTelefono"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnNombre"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_light"
+                    android:text="@string/btnCelular"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconoTelefono"
+                    app:layout_constraintTop_toTopOf="@+id/btnTelefono" />
+
+                <TextView
+                    android:id="@+id/txtNumTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="@string/txtNumero"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_texto_botones"
+                    app:layout_constraintStart_toStartOf="@+id/txtTelefono"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante2"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnTelefono"
+                    app:layout_constraintTop_toTopOf="@id/btnTelefono" />
+
+                <ImageView
+                    android:id="@+id/imgIconoTelefono"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/profile_phone"
+                    app:layout_constraintStart_toStartOf="@+id/btnTelefono"
+                    app:layout_constraintTop_toTopOf="@id/btnTelefono" />
+
+
+                <!-- Tercer boton de la recepcion de documentos -->
+                <ImageView
+                    android:id="@+id/btnCorreo"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:onClick="actCorreo"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnTelefono"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtCorreo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_light"
+                    android:text="@string/btnCorreo"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconoCorreo"
+                    app:layout_constraintTop_toTopOf="@+id/btnCorreo" />
+
+                <TextView
+                    android:id="@+id/txtElectronico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/txtElectronico"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_texto_botones"
+                    app:layout_constraintStart_toStartOf="@+id/txtCorreo"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCorreo" />
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante3"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnCorreo"
+                    app:layout_constraintTop_toTopOf="@id/btnCorreo" />
+
+                <ImageView
+                    android:id="@+id/imgIconoCorreo"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/profile_mail"
+                    app:layout_constraintStart_toStartOf="@+id/btnCorreo"
+                    app:layout_constraintTop_toTopOf="@id/btnCorreo" />
+
+
+                <ImageView
+                    android:id="@+id/btnAcceso"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:onClick="actContrasena"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnCorreo"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtAcceso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_light"
+                    android:text="@string/btnAcceso"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconoPass"
+                    app:layout_constraintTop_toTopOf="@+id/btnAcceso" />
+
+                <TextView
+                    android:id="@+id/txt_Pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/txtPass"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_texto_botones"
+                    app:layout_constraintStart_toStartOf="@+id/txtAcceso"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAcceso" />
+
+                <ImageView
+                    android:id="@+id/img_flecha_adelante4"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@id/btnAcceso"
+                    app:layout_constraintTop_toTopOf="@id/btnAcceso" />
+
+                <ImageView
+                    android:id="@+id/imgIconoPass"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/profile_password"
+                    app:layout_constraintStart_toStartOf="@+id/btnAcceso"
+                    app:layout_constraintTop_toTopOf="@id/btnAcceso" />
+
+
+                <TextView
+                    android:id="@+id/txtAsociado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_heavy"
+                    android:text="@string/txtAsociado"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCalificacionConductor"
+                    tools:ignore="MissingConstraints"></TextView>
+
+                <ImageView
+                    android:id="@+id/btnCalificacionConductor"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnAcceso"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtCalConductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_light"
+                    android:text="@string/btnCalConductor"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconostar"
+                    app:layout_constraintTop_toTopOf="@+id/btnCalificacionConductor" />
+
+                <TextView
+                    android:id="@+id/NumCal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txtNumeroCal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_texto_botones"
+                    app:layout_constraintStart_toStartOf="@+id/txtCalConductor"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCalConductor" />
+
+
+                <ImageView
+                    android:id="@+id/imgIconostar"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/profile_star"
+                    app:layout_constraintStart_toStartOf="@+id/btnCalificacionConductor"
+                    app:layout_constraintTop_toTopOf="@id/btnCalificacionConductor" />
+
+
+                <ImageView
+                    android:id="@+id/btnDetalles"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAsociado"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtDetalles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="28dp"
+                    android:fontFamily="@font/boring_sans_light"
+                    android:text="@string/btnDetalles"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconocarro"
+                    app:layout_constraintTop_toTopOf="@+id/btnDetalles" />
+
+                <TextView
+                    android:id="@+id/txt_btn6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/txtModelo"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_texto_botones"
+                    app:layout_constraintStart_toStartOf="@+id/txtDetalles"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDetalles" />
+
+                <ImageView
+                    android:id="@+id/imgIconocarro"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/help_car"
+                    app:layout_constraintStart_toStartOf="@+id/btnDetalles"
+                    app:layout_constraintTop_toTopOf="@id/btnDetalles" />
+
+
+                <TextView
+                    android:id="@+id/txtAcerca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_heavy"
+                    android:text="@string/txtAcerca"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnDetalles"
+                    tools:ignore="MissingConstraints"></TextView>
+
+
+                <!-- Sexto boton de la recepcion de documentos -->
+
+                <ImageView
+                    android:id="@+id/btnCalificacionApp"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtAcerca"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtCalApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="28dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/btnCalificaApp"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconosta2"
+                    app:layout_constraintTop_toTopOf="@+id/btnCalificacionApp" />
+
+                <ImageView
+                    android:id="@+id/imgIconosta2"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/profile_star"
+                    app:layout_constraintStart_toStartOf="@+id/btnCalificacionApp"
+                    app:layout_constraintTop_toTopOf="@id/btnCalificacionApp" />
+
+
+                <ImageView
+                    android:id="@+id/btnCerrarSesion"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCalificacionApp"></ImageView>
+
+                <TextView
+                    android:id="@+id/txtCerrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="28dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/btnCerrarSesion"
+                    android:textColor="@color/darkest"
+                    android:textSize="@dimen/size_listo_comenzar"
+                    app:layout_constraintStart_toEndOf="@+id/imgIconCerrar"
+                    app:layout_constraintTop_toTopOf="@+id/btnCerrarSesion" />
+
+                <ImageView
+                    android:id="@+id/imgIconCerrar"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/logout"
+                    app:layout_constraintStart_toStartOf="@+id/btnCerrarSesion"
+                    app:layout_constraintTop_toTopOf="@id/btnCerrarSesion" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -154,4 +154,178 @@
     <string name="img_txt_lateral">Lateral</string>
     <string name="img_txt_trasera">Trasera</string>
 
+    <!-- Navigation View -->
+    <string name="perfil_btn">Perfil</string>
+    <string name="pago_btn">Métodos de Pago</string>
+    <string name="historial_btn">Historial de Viajes</string>
+    <string name="ajustes_btn">Ajustes</string>
+    <string name="ayuda_btn">Ayuda</string>
+    <string name="cerrarSesion">Cerrar Sesión</string>
+    <string name="perfil_img" />
+    <string name="pago_img" />
+    <string name="historial_img" />
+    <string name="ajustes_img" />
+    <string name="ayuda_img" />
+    <string name="cerrarSesion_img" />
+    <string name="fondo_img" />
+    <string name="puntos_img" />
+    <string name="user_img" />
+    <string name="bienvenida_label">Conductor</string>
+    <string name="pasajero_label">Tutum</string>
+    <string name="fondo_naranja" />
+    <string name="fondo_circle" />
+
+
+    <!--Ventana Cambio Contraseña-->
+    <string name="cambiocontra_titulo">Actualiza tu contraseña</string>
+    <string name="cambiocontra_desc">Tu nueva contraseña debe ser mayor a 8 caracteres</string>
+    <string name="cambiocontra_contralabel">Contraseña</string>
+    <string name="cambioContra_contrasena">Contraseña</string>
+    <string name="cambiocontra_cancelbtn">Cancelar</string>
+    <string name="cambiocontra_aceptarbtn">Aceptar</string>
+
+    <!--Ventana Cambio Correo-->
+    <string name="cambiocorreo_titulo">Actualiza tu correo</string>
+    <string name="cambiocorreo_correolabel">Correo electrónico</string>
+    <string name="cambioCorreo_correoText">Correo electrónico</string>
+    <string name="cambiocorreo_desc">Ingrese nuevo correo electrónico</string>
+    <string name="cambiocorreo_cancelbtn">Cancel</string>
+    <string name="cambiocorreo_aceptarbtn">Aceptar</string>
+
+    <!--Ventana Cambio Telefono-->
+    <string name="cambiotel_fondo2" />
+    <string name="cambiotel_fondo" />
+    <string name="cambiotel_titulo">Actualiza tu número telefónico</string>
+    <string name="cambiotel_desc">Ingresa tu nuevo número telefónico</string>
+    <string name="cambiotel_tellabel">Número</string>
+    <string name="cambiotel_teltext" />
+    <string name="numero_telefonico">Número telefónico</string>
+    <string name="cambiotel_cancelbtn">Cancelar</string>
+    <string name="cambiotel_aceptarbtn">Aceptar</string>
+
+
+    <!--Ventana Ayuda-->
+    <string name="txtAyuda">Ayuda</string>
+    <string name="txtPregunta">¿Necesitas ayuda acerca de un viaje?</string>
+    <string name="btnReportarProblema">Reportar un problema</string>
+    <string name="txtTemas">Todos los temas</string>
+    <string name="btnProblemaTecnico">Reportar un problema técnico</string>
+    <string name="btnUsarApp">Como usar la app</string>
+    <string name="btnTerCon">Términos y Condiciones</string>
+    <string name="btnPrivacidad">Política de Privacidad</string>
+    <string name="menu_fondo" />
+
+    <!--Ventana Perfil-->
+    <string name="txtPerfil">Perfil</string>
+    <string name="btnNombre">Nombre</string>
+    <string name="txtConductor">Conductor Tutum</string>
+    <string name="btnCelular">Teléfono Celular</string>
+    <string name="txtNumero">449-248-2572</string>
+    <string name="btnCorreo">Correo Electrónico</string>
+    <string name="txtElectronico">taxi@tutum.com</string>
+    <string name="btnAcceso">Acceso</string>
+    <string name="txtPass">********</string>
+    <string name="btnCalConductor">Tu Calificación como Conductor</string>
+    <string name="txtNumeroCal">4.8</string>
+    <string name="txtAsociado">Vehículo asociado</string>
+    <string name="btnDetalles">Detalles del Vehículo</string>
+    <string name="txtModelo">Chevrolet-Celebrity</string>
+    <string name="txtAcerca">Acerca</string>
+    <string name="btnCalificaApp">Califica la Aplicación</string>
+    <string name="btnCerrarSesion">Cerrar Sesión</string>
+
+    <!--Ventana Ganancias-->
+    <string name="txtGanancia">Ganancias</string>
+    <string name="btnTiempoTotal">Tiempo Total</string>
+    <string name="txtNumeroDias">66 días</string>
+    <string name="btnGananciaTotales">Ganancias totales</string>
+    <string name="txtDineroTotal">$818</string>
+    <string name="txtTotalViaje1">100 Viajes</string>
+    <string name="btnGananciaMes">Ganancias del mes</string>
+    <string name="txtDineroMes">$550</string>
+    <string name="txtTotalViaje2">80 Viajes</string>
+    <string name="btnGananciaSemana">Ganancias semanales</string>
+    <string name="txtDineroSemana">$250</string>
+    <string name="txtTotalViaje3">45 Viajes</string>
+    <string name="btnGananciasDia">Ganancias del día</string>
+    <string name="txtDineroDia">$50</string>
+    <string name="txtTotalViaje4">10 Viajes</string>
+    <string name="btnUltimaTarifa">Última tarifa</string>
+    <string name="txtDineroUltimaTarifa">$30</string>
+
+    <!--Ventana Reportar problema con el viaje-->
+    <string name="txtViaje">Problema en Viaje</string>
+    <string name="boxTitulo">Titulo</string>
+    <string name="boxDescripcion">Descripción</string>
+    <string name="btnEnviarPviaje">Enviar</string>
+    <string name="txtAdjuntar">Adjuntar Imagen</string>
+
+    <!--Ventana Reportar Problema-->
+    <string name="txtProblema">Problema en un Viaje</string>
+    <string name="btnNuevoReporte">Crear Reporte</string>
+    <string name="txtHistorial">Historial</string>
+
+    <!--Ventana Unidades-->
+    <string name="txtUnidades">Unidades</string>
+    <string name="txtListadoUnidades">Listado de Unidades</string>
+    <string name="txtMarca">Chevrolet 2020</string>
+    <string name="txtModeloUnidad">Modelo: Celebrity</string>
+    <string name="txtStatus">Aprobado</string>
+    <string name="txtStatus2">Termina de subir los documentos</string>
+
+    <!--nav_header_main-->
+    <string name="nav_header_title">Conductor Tutum</string>
+    <string name="nav_header_subtitle">conductor@tutum.com</string>
+
+    <!--app_bar_main-->
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_unidad">Unidades</string>
+    <string name="menu_historial">Historial</string>
+    <string name="menu_ganancias">Ganancias</string>
+    <string name="menu_ayuda">Ayuda</string>
+    <string name="CerrarSesion">Cerrar Sesion</string>
+
+    <!--Ventana Historial de viajes-->
+    <string name="txtHistorialViajes">Historial de Viajes</string>
+    <string name="txtEncuentro">PUNTO DE ENCUENTRO</string>
+    <string name="txtDestino">DESTINO</string>
+    <string name="txtFecha">Viernes 26</string>
+    <string name="txtFecha2">Marzo 21</string>
+    <string name="txtLugarEncuentro">Sierra del Laurel 420</string>
+    <string name="txtLugarEncuentro2">Bosques del Prado</string>
+    <string name="txtLugarDestino">Sauce 206</string>
+    <string name="txtLugarDestino2">Circunvalacion Nte</string>
+    <string name="txtPrecio">$30</string>
+
+    <!--    Ventana Como Usar App-->
+    <string name="txtUsarApp">Como usar Tutum Conductor</string>
+    <string name="txtApp">Usar nuestra app es súper sencillo, revisa el siguiente video y COMIENZA A CONDUCIR CON TUTUM </string>
+
+    <!--    Ventana Termina de subir tus documentos-->
+    <string name="txtTermina">Termina de subir los datos del vehículo </string>
+    <string name="txtSubir">Debes de subir los siguientes documentos del vehículo para poder validarlo </string>
+    <string name="txtCompleto">PASOS COMPLETADOS</string>
+
+    <!--Ventana Detallas de Unidad-->
+    <string name="txtDetallesUnidad">Detalles de Unidad</string>
+    <string name="txtPlacas">Placas</string>
+    <string name="txtvehiculo">Vehículo</string>
+    <string name="txtCodigo">Código de Vehículo</string>
+    <string name="txtConductor1">Conductores</string>
+    <string name="labelPlaca">ADA-252-A</string>
+    <string name="labelVehiculo">Chevrolet Celebrity 2020</string>
+    <string name="labelCodigo">501259</string>
+    <string name="txtNoSocio">No tiene conductores asociados</string>
+
+<!--    Ventana Reportar Problema Tecnico-->
+    <string name="txtTecnico">Problema Técnico</string>
+
+
+    <string name="iniciosesion_backbutton" />
+    <string name="iniciosesion_backgd" />
+    <string name="iniciosesion_tutumlogo" />
+    <string name="iniciosesion_pswdtext">Constraseña</string>
+    <string name="iniciosesion_emailtext">Correo Electrónico</string>
+
+
 </resources>

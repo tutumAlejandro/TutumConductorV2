@@ -22,6 +22,14 @@
     <dimen name="heigth_boton">50dp</dimen>
     <dimen name="size_text_btn">16sp</dimen>
 
+
+
+
+    <dimen name="separacion_boton_regreso">32dp</dimen>
+    <dimen name="separacion_img_cuadros_top">40dp</dimen>
+    <dimen name="separacion_img_cuadros_start">80dp</dimen>
+
+
     <!-- Medidas para los input Text Layout -->
     <dimen name="width_input_corto">140dp</dimen>
     <dimen name="width_input_largo">280dp</dimen>
@@ -64,5 +72,47 @@
     <dimen name="margin_img_camra_top">40dp</dimen>
     <dimen name="width_heigth_icon_documents">32dp</dimen>
     <dimen name="width_input_date">200dp</dimen>
+
+
+    <dimen name="ancho">280dp</dimen>
+    <!-- tamaño para el logo de tutum de la ventana inicial -->
+    <dimen name="ancho_logo">100dp</dimen>
+    <dimen name="largo_logo">240dp</dimen>
+
+    <!-- tamaño para la imagen con fondo blanco y logo de Tutum -->
+    <dimen name="largo_fondo_tutum">270dp</dimen>
+    <dimen name="ancho_fondo_tutum">160dp</dimen>
+    <!-- dimensiones para los botones normales -->
+    <dimen name="ancho_boton">250dp</dimen>
+    <dimen name="largo_boton">42dp</dimen>
+    <dimen name="size_btn">14sp</dimen>
+    <!-- dimensiones para los input text layout (email,contraseña) -->
+    <dimen name="largo_input_email">240dp</dimen>
+    <dimen name="ancho_input_email">30dp</dimen>
+    <!-- dimensiones para los input text Layout (nombre(s) y apeidos) -->
+    <dimen name="largo_input_nombres">120dp</dimen>
+    <!-- Dimensiones para la vista de registra telefono -->
+    <dimen name="largo_input_telefono">280dp</dimen>
+    <dimen name="separacion_boton_telefono">60dp</dimen>
+    <dimen name="size_text_telefono">16sp</dimen>
+
+    <!-- dimensiones para el menu de documentos -->
+    <dimen name="tamaño_botones_documentos_largo">270dp</dimen>
+    <dimen name="tamaño_botones_documentos_ancho">130dp</dimen>
+
+    <!-- dimensiones para el text de del menu documentos -->
+    <dimen name="size_completar_registro">16sp</dimen>
+    <dimen name="size_te_damos_bienvenida">18sp</dimen>
+    <dimen name="size_pasos_restantes">12sp</dimen>
+    <dimen name="size_debes_completar_registro">12sp</dimen>
+    <dimen name="size_paso_recomendado">12sp</dimen>
+    <dimen name="size_listo_comenzar">12sp</dimen>
+    <dimen name="size_texto_botones">14sp</dimen>
+
+    <dimen name="tamaño_img_flecha">32dp</dimen>
+    <dimen name="tamaño_texto">18sp</dimen>
+    <dimen name="tamaño_indicaciones_1">16sp</dimen>
+    <dimen name="tamaño_indicaciones_2">14sp</dimen>
+
 
 </resources>
