@@ -71,7 +71,8 @@
                 android:fontFamily="@font/boring_sans_bold"
                 android:onClick="main_otp"
                 android:text="@string/btn_text_continuar"
-                android:textSize="@dimen/size_text_btn" />
+                android:textSize="@dimen/size_text_btn"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </ScrollView>
 
