@@ -46,7 +46,6 @@ public class MainRolConductor extends AppCompatActivity {
         main_doc_snv.putExtra("licencia_snv",false);
         main_doc_snv.putExtra("codigo_snv",false);
         main_doc_snv.putExtra("tarjeton_snv",false);
-
         startActivity(main_doc_snv);
 
     }

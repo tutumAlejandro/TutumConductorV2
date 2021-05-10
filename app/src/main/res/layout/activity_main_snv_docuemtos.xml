@@ -72,72 +72,112 @@
                 android:fontFamily="@font/open_sans_regular"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"/>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/btn_snv_terminos"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_terminos_y_condiciones_1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <!-- Boton para la captura de la Identificacion Oficial INE -->
+            <ImageView
+                android:id="@+id/btn_snv_terminos"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_terminos_y_condiciones_1"/>
 
-                <!-- Boton para la captura de la Identificacion Oficial INE -->
-                <ImageView
-                    android:id="@+id/btn_snv_ine"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_ine_1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_snv_terminos"/>
+            <!-- Boton para la captura de la Identificacion Oficial INE -->
+            <ImageView
+                android:id="@+id/btn_snv_ine"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_ine_1"/>
 
-                <!-- Boton para la captura de la Licencia -->
+            <!-- Boton para la captura de la Licencia -->
+            <ImageView
+                android:id="@+id/btn_snv_licencia"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_licencia_1"/>
 
-                <ImageView
-                    android:id="@+id/btn_snv_licencia"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_licencia_1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_snv_ine"/>
+            <!-- Boton para la captura de la codigo del vehiculo -->
+            <ImageView
+                android:id="@+id/btn_snv_codigo"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_codigo_vehiculo_1"/>
 
-                <!-- Boton para la captura de la codigo del vehiculo -->
-                <ImageView
-                    android:id="@+id/btn_snv_codigo"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_codigo_vehiculo_1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_snv_licencia"/>
+            <!-- Boton para la captura del tarjeton -->
+            <ImageView
+                android:id="@+id/btn_snv_tarjeton"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_tarjeton_1"/>
 
-                <!-- Boton para la captura del tarjeton -->
+            <!-- Boton para la captura de los terminos ok-->
+            <ImageView
+                android:id="@+id/btn_snv_terminos_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_terminos_1"
+                android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/btn_snv_tarjeton"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_tarjeton_1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_snv_codigo"/>
+            <!-- Boton para la captura de la Identificacion Oficial INE -->
+            <ImageView
+                android:id="@+id/btn_snv_ine_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_ine_1"
+                android:visibility="gone" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Boton para la captura de la Licencia -->
+            <ImageView
+                android:id="@+id/btn_snv_licencia_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_licencia_1"
+                android:visibility="gone" />
+
+            <!-- Boton para la captura de la codigo del vehiculo -->
+            <ImageView
+                android:id="@+id/btn_snv_codigo_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_codigo_1"
+                android:visibility="gone" />
+
+            <!-- Boton para la captura del tarjeton -->
+            <ImageView
+                android:id="@+id/btn_snv_tarjeton_ok"
+                android:layout_width="@dimen/width_btn_documentos"
+                android:layout_height="@dimen/heigth_btn_documentos"
+                android:layout_marginStart="@dimen/margin_start_btn_documentos"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ok_tarjeton_1"
+                android:visibility="gone" />
+
             <!--- Text View para prueba -->
                 <TextView
                     android:layout_width="wrap_content"
