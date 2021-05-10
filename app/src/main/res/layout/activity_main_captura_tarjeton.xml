@@ -1,9 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainCapturaTarjeton">
+    tools:context=".MainCapturaTarjeton"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/img_retroceso_tarjeton"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:contentDescription="@string/todo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flecha_retroceso" />
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="32dp"
+                    android:contentDescription="@string/imagenes"
+                    android:src="@drawable/cuadros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text1_tarjeton"
+                android:text="@string/txt_text1_tarjeton"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_bold"
+                android:textSize="@dimen/size_text_head_capture"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text2_tarjeton"
+                android:text="@string/txt_text2_tarjeton"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text3_tarjeton"
+                android:text="@string/txt_text3_tarjeton"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text4_tarjeton"
+                android:text="@string/txt_text4_tarjeton"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text5_tarjeton"
+                android:text="@string/txt_text5_tarjeton"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text6_tarjeton"
+                android:text="@string/txt_text6_tarjeton"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text7_tarjeton"
+                android:text="@string/txt_text7_tarjeton"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="@dimen/size_text_body_capture"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imagenes_tarjeton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_frontal_tarjeton"
+                    android:layout_width="@dimen/width_img_camera"
+                    android:layout_height="@dimen/heigth_img_camara"
+                    android:layout_marginStart="@dimen/margin_img_camara_border_one"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"
+                    android:contentDescription="@string/imagenes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_camara_tutum" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_frontal_licencia"
+                    android:text="@string/img_txt_frontal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_capture"
+                    app:layout_constraintStart_toStartOf="@id/img_frontal_tarjeton"
+                    app:layout_constraintBottom_toTopOf="@id/img_frontal_tarjeton"/>
+
+                <ImageView
+                    android:id="@+id/icon_calendar_tarjeton"
+                    android:layout_width="@dimen/width_heigth_icon_documents"
+                    android:layout_height="@dimen/width_heigth_icon_documents"
+                    android:layout_marginStart="30dp"
+                    android:contentDescription="@string/imagenes"
+                    android:src="@drawable/ic_baseline_edit_calendar_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/VigenciaTarjeton" />
+
+                <EditText
+                    android:id="@+id/VigenciaTarjeton"
+                    android:layout_width="@dimen/width_input_date"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/input_vigencia"
+                    android:importantForAutofill="no"
+                    android:inputType="date"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/icon_calendar_tarjeton"
+                    app:layout_constraintTop_toBottomOf="@+id/img_frontal_tarjeton"
+                    android:layout_marginStart="10dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btn_guardar_tarjeton"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boton_redondo"
+                android:onClick="guarda_tarjeton"
+                android:text="@string/btn_text_guardar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_btn" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

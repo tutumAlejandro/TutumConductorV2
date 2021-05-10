@@ -123,6 +123,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_rol_conductor = new Intent(MainSocioDocumentos.this, MainRolConductor.class);
                 startActivity(main_rol_conductor);
+                finish();
             }
         });
         btn_terminos_socio.setOnClickListener(new View.OnClickListener() {
@@ -131,12 +132,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 Intent main_terminos_socio = new Intent(MainSocioDocumentos.this,MainTerminosYCondiciones.class);
                 main_terminos_socio.putExtra("rol",rol);
                 main_terminos_socio.putExtra("terminos",terminos);
-                main_terminos_socio.putExtra("ine",terminos);
-                main_terminos_socio.putExtra("licencia",terminos);
-                main_terminos_socio.putExtra("caracteristicas",terminos);
-                main_terminos_socio.putExtra("tarjeta",terminos);
-                main_terminos_socio.putExtra("poliza",terminos);
-                main_terminos_socio.putExtra("tarjeton",terminos);
+                main_terminos_socio.putExtra("ine",ine);
+                main_terminos_socio.putExtra("licencia",licencia);
+                main_terminos_socio.putExtra("caracteristicas",caracteristicas);
+                main_terminos_socio.putExtra("tarjeta",tarjeta);
+                main_terminos_socio.putExtra("poliza",poliza);
+                main_terminos_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_terminos_socio);
             }
         });
@@ -146,12 +147,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 Intent main_ine_socio = new Intent(MainSocioDocumentos.this, MainCapturaIne.class);
                 main_ine_socio.putExtra("rol",rol);
                 main_ine_socio.putExtra("terminos",terminos);
-                main_ine_socio.putExtra("ine",terminos);
-                main_ine_socio.putExtra("licencia",terminos);
-                main_ine_socio.putExtra("caracteristicas",terminos);
-                main_ine_socio.putExtra("tarjeta",terminos);
-                main_ine_socio.putExtra("poliza",terminos);
-                main_ine_socio.putExtra("tarjeton",terminos);
+                main_ine_socio.putExtra("ine",ine);
+                main_ine_socio.putExtra("licencia",licencia);
+                main_ine_socio.putExtra("caracteristicas",caracteristicas);
+                main_ine_socio.putExtra("tarjeta",tarjeta);
+                main_ine_socio.putExtra("poliza",poliza);
+                main_ine_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_ine_socio);
             }
         });
@@ -161,12 +162,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 Intent main_licencia_socio = new Intent(MainSocioDocumentos.this,MainCapturaLicencia.class);
                 main_licencia_socio.putExtra("rol",rol);
                 main_licencia_socio.putExtra("terminos",terminos);
-                main_licencia_socio.putExtra("ine",terminos);
-                main_licencia_socio.putExtra("licencia",terminos);
-                main_licencia_socio.putExtra("caracteristicas",terminos);
-                main_licencia_socio.putExtra("tarjeta",terminos);
-                main_licencia_socio.putExtra("poliza",terminos);
-                main_licencia_socio.putExtra("tarjeton",terminos);
+                main_licencia_socio.putExtra("ine",ine);
+                main_licencia_socio.putExtra("licencia",licencia);
+                main_licencia_socio.putExtra("caracteristicas",caracteristicas);
+                main_licencia_socio.putExtra("tarjeta",tarjeta);
+                main_licencia_socio.putExtra("poliza",poliza);
+                main_licencia_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_licencia_socio);
             }
         });
@@ -176,12 +177,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 Intent main_caracteristicas_socio = new Intent(MainSocioDocumentos.this, MainCapturaCaracteristicas.class);
                 main_caracteristicas_socio.putExtra("rol",rol);
                 main_caracteristicas_socio.putExtra("terminos",terminos);
-                main_caracteristicas_socio.putExtra("ine",terminos);
-                main_caracteristicas_socio.putExtra("licencia",terminos);
-                main_caracteristicas_socio.putExtra("caracteristicas",terminos);
-                main_caracteristicas_socio.putExtra("tarjeta",terminos);
-                main_caracteristicas_socio.putExtra("poliza",terminos);
-                main_caracteristicas_socio.putExtra("tarjeton",terminos);
+                main_caracteristicas_socio.putExtra("ine",ine);
+                main_caracteristicas_socio.putExtra("licencia",licencia);
+                main_caracteristicas_socio.putExtra("caracteristicas",caracteristicas);
+                main_caracteristicas_socio.putExtra("tarjeta",tarjeton);
+                main_caracteristicas_socio.putExtra("poliza",poliza);
+                main_caracteristicas_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_caracteristicas_socio);
             }
         });
@@ -191,12 +192,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 Intent main_tarjeta_socio = new Intent(MainSocioDocumentos.this, MainCapturaTarjetaCirculacion.class);
                 main_tarjeta_socio.putExtra("rol",rol);
                 main_tarjeta_socio.putExtra("terminos",terminos);
-                main_tarjeta_socio.putExtra("ine",terminos);
-                main_tarjeta_socio.putExtra("licencia",terminos);
-                main_tarjeta_socio.putExtra("caracteristicas",terminos);
-                main_tarjeta_socio.putExtra("tarjeta",terminos);
-                main_tarjeta_socio.putExtra("poliza",terminos);
-                main_tarjeta_socio.putExtra("tarjeton",terminos);
+                main_tarjeta_socio.putExtra("ine",ine);
+                main_tarjeta_socio.putExtra("licencia",licencia);
+                main_tarjeta_socio.putExtra("caracteristicas",caracteristicas);
+                main_tarjeta_socio.putExtra("tarjeta",tarjeta);
+                main_tarjeta_socio.putExtra("poliza",poliza);
+                main_tarjeta_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_tarjeta_socio);
             }
         });
@@ -206,12 +207,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 Intent main_poliza_socio = new Intent(MainSocioDocumentos.this, MainCapturaPoliza.class);
                 main_poliza_socio.putExtra("rol",rol);
                 main_poliza_socio.putExtra("terminos",terminos);
-                main_poliza_socio.putExtra("ine",terminos);
-                main_poliza_socio.putExtra("licencia",terminos);
-                main_poliza_socio.putExtra("caracteristicas",terminos);
-                main_poliza_socio.putExtra("tarjeta",terminos);
-                main_poliza_socio.putExtra("poliza",terminos);
-                main_poliza_socio.putExtra("tarjeton",terminos);
+                main_poliza_socio.putExtra("ine",ine);
+                main_poliza_socio.putExtra("licencia",licencia);
+                main_poliza_socio.putExtra("caracteristicas",caracteristicas);
+                main_poliza_socio.putExtra("tarjeta",tarjeta);
+                main_poliza_socio.putExtra("poliza",poliza);
+                main_poliza_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_poliza_socio);
             }
         });
@@ -221,12 +222,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 Intent main_tarjeton_socio = new Intent(MainSocioDocumentos.this, MainCapturaTarjeton.class);
                 main_tarjeton_socio.putExtra("rol",rol);
                 main_tarjeton_socio.putExtra("terminos",terminos);
-                main_tarjeton_socio.putExtra("ine",terminos);
-                main_tarjeton_socio.putExtra("licencia",terminos);
-                main_tarjeton_socio.putExtra("caracteristicas",terminos);
-                main_tarjeton_socio.putExtra("tarjeta",terminos);
-                main_tarjeton_socio.putExtra("poliza",terminos);
-                main_tarjeton_socio.putExtra("tarjeton",terminos);
+                main_tarjeton_socio.putExtra("ine",ine);
+                main_tarjeton_socio.putExtra("licencia",licencia);
+                main_tarjeton_socio.putExtra("caracteristicas",caracteristicas);
+                main_tarjeton_socio.putExtra("tarjeta",tarjeta);
+                main_tarjeton_socio.putExtra("poliza",poliza);
+                main_tarjeton_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_tarjeton_socio);
             }
         });
