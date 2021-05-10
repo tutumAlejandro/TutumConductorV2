@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="1000dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,10 +75,11 @@
                     android:id="@+id/imageView"
                     android:layout_width="185dp"
                     android:layout_height="189dp"
-                    app:srcCompat="@drawable/taxi"
-                    tools:layout_editor_absoluteX="113dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
+                    android:layout_marginTop="36dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/taxi" />
 
                 <TextView
                     android:id="@+id/txtPlaca"
@@ -100,6 +101,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="12dp"
                     android:scaleType="fitXY"
+                    android:text="@string/txtPlacas"
                     android:src="@drawable/btn_documentos2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtPlaca"></ImageView>
@@ -124,6 +126,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="12dp"
                     android:scaleType="fitXY"
+                    android:text="@string/txtPlacas"
                     android:src="@drawable/btn_documentos2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtVehiculo"></ImageView>
@@ -147,8 +150,10 @@
                     android:layout_height="61dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="12dp"
+                    android:cropToPadding="false"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    android:text="@string/txtPlacas"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtCodigo"></ImageView>
             </androidx.constraintlayout.widget.ConstraintLayout>
