@@ -66,7 +66,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                     Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
                     main_socio_documentos.putExtra("terminos", terminos_licencia);
                     main_socio_documentos.putExtra("ine", ine_licencia);
-                    main_socio_documentos.putExtra("licencia", licencia_licencia);
+                    main_socio_documentos.putExtra("licencia", false);
                     main_socio_documentos.putExtra("caracterisitcas", caracteristicas_licencia);
                     main_socio_documentos.putExtra("tarjeta", tarjeta_licencia);
                     main_socio_documentos.putExtra("poliza", poliza_licencia);
@@ -77,7 +77,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                     Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
                     main_conductor_documentos.putExtra("terminos_conductor", terminos_licencia);
                     main_conductor_documentos.putExtra("ine_conductor", ine_licencia);
-                    main_conductor_documentos.putExtra("licencia_conductor", licencia_licencia);
+                    main_conductor_documentos.putExtra("licencia_conductor", false);
                     main_conductor_documentos.putExtra("caracteristicas_conductor", caracteristicas_licencia);
                     main_conductor_documentos.putExtra("tarjeta_conductor", tarjeta_licencia);
                     main_conductor_documentos.putExtra("poliza_conductor", poliza_licencia);
@@ -88,7 +88,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                     Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
                     main_snv_documentos.putExtra("terminos_snv", terminos_licencia);
                     main_snv_documentos.putExtra("ine_snv", ine_licencia);
-                    main_snv_documentos.putExtra("licencia_snv", licencia_licencia);
+                    main_snv_documentos.putExtra("licencia_snv", false);
                     main_snv_documentos.putExtra("caracteristicas_snv", caracteristicas_licencia);
                     main_snv_documentos.putExtra("tarjeta_snv", tarjeta_licencia);
                     main_snv_documentos.putExtra("poliza_snv", poliza_licencia);
