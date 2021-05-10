@@ -94,7 +94,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                vigencia_tarjeta.setText(day + "/" + (month + 1) + "/" + year);
+                vigencia_tarjeta.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
                 vig_tarjeta = (dayOfMonth + "/" + (month + 1) + "/" + year);
             }
         },year,month,day);

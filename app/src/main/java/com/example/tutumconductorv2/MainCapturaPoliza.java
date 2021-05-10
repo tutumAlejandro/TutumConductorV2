@@ -94,7 +94,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                vigenciaPoliza.setText(day + "/" + (month +1) + "/" + year);
+                vigenciaPoliza.setText(dayOfMonth + "/" + (month +1) + "/" + year);
             }
         },year,month,day);
         datePickerDialog.show();

@@ -111,8 +111,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                vigenciaLicencia.setText(day + "/" + (month + 1) + "/" + year);
-                VigLicencia = (day + "/" + (month + 1) + "/" + year);
+                vigenciaLicencia.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                VigLicencia = (dayOfMonth + "/" + (month + 1) + "/" + year);
             }
         }, year, month, day);
         datePickerDialog.show();

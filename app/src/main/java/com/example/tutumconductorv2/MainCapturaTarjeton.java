@@ -108,7 +108,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                vigenciaTarjeton.setText(day + "/" + (month + 1) + "/" + year);
+                vigenciaTarjeton.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
             }
         },year,month,day);
         datePickerDialog.show();

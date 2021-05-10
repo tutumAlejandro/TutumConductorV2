@@ -106,7 +106,7 @@ public class MainCapturaIne extends AppCompatActivity {
         }else if(rol.matches("Conductor")){
             Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
             main_conductor_documentos.putExtra("terminos_conductor",terminos_ine);
-            main_conductor_documentos.putExtra("ine_conductor",false);
+            main_conductor_documentos.putExtra("ine_conductor",true);
             main_conductor_documentos.putExtra("licencia_conductor",licencia_ine);
             main_conductor_documentos.putExtra("caracteristicas_conductor",caracteristicas_ine);
             main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_ine);
@@ -118,7 +118,7 @@ public class MainCapturaIne extends AppCompatActivity {
         {
             Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
             main_snv_documentos.putExtra("terminos_snv",terminos_ine);
-            main_snv_documentos.putExtra("ine_snv",false);
+            main_snv_documentos.putExtra("ine_snv",true);
             main_snv_documentos.putExtra("licencia_snv",licencia_ine);
             main_snv_documentos.putExtra("caracteristicas_snv",caracteristicas_ine);
             main_snv_documentos.putExtra("tarjeta_snv",tarjeta_ine);
