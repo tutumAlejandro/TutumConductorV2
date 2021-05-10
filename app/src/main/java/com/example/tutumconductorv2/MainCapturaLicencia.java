@@ -140,7 +140,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             if(rol.matches("Socio"))
             {
                 Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
-                main_socio_documentos.putExtra("VigenciaLicencia",VigLicencia);
+                main_socio_documentos.putExtra("VigenciaLicencia",vig);
                 main_socio_documentos.putExtra("terminos",terminos_licencia);
                 main_socio_documentos.putExtra("ine",ine_licencia);
                 main_socio_documentos.putExtra("licencia",true);
@@ -153,7 +153,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             }else if(rol.matches("Conductor"))
             {
                 Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
-                main_conductor_documentos.putExtra("VigenciaLicencia",VigLicencia);
+                main_conductor_documentos.putExtra("VigenciaLicencia",vig);
                 main_conductor_documentos.putExtra("terminos_conductor",terminos_licencia);
                 main_conductor_documentos.putExtra("ine_conductor",ine_licencia);
                 main_conductor_documentos.putExtra("licencia_conductor",true);
@@ -167,6 +167,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             else
             {
                 Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
+                main_snv_documentos.putExtra("VigenciaLicencia",vig);
                 main_snv_documentos.putExtra("terminos_snv",terminos_licencia);
                 main_snv_documentos.putExtra("ine_snv",ine_licencia);
                 main_snv_documentos.putExtra("licencia_snv",true);
@@ -174,7 +175,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 main_snv_documentos.putExtra("tarjeta_snv",tarjeta_licencia);
                 main_snv_documentos.putExtra("poliza_snv",poliza_licencia);
                 main_snv_documentos.putExtra("tarjeton_snv",tarjeton_licencia);
-                main_snv_documentos.putExtra("VigenciaLicencia",VigLicencia);
+                startActivity(main_snv_documentos);
+                finish();
             }
         }
     }
