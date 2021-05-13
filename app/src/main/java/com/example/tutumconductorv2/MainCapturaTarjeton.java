@@ -20,7 +20,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
     private String rol;
     private String VigTarjeton= "";
 
-    private boolean terminos_tarjeton, ine_tarjeton, licencia_tarjeton, caracteristicas_tarjeton, tarjeta_tarjeton, poliza_tarjeton, tarjeton_tarjeton;
+    private boolean terminos_tarjeton, ine_tarjeton, licencia_tarjeton, caracteristicas_tarjeton, tarjeta_tarjeton, poliza_tarjeton, tarjeton_tarjeton,codigo_tarjeton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             tarjeta_tarjeton = getIntent().getBooleanExtra("tarjeta", false);
             poliza_tarjeton = getIntent().getBooleanExtra("poliza", false);
             tarjeton_tarjeton = getIntent().getBooleanExtra("tarjeton", false);
+            codigo_tarjeton = getIntent().getBooleanExtra("codigo",false);
         } else if (rol.matches("Conductor")) {
             terminos_tarjeton = getIntent().getBooleanExtra("terminos_conductor", false);
             ine_tarjeton = getIntent().getBooleanExtra("ine_conductor", false);
@@ -43,6 +44,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             tarjeta_tarjeton = getIntent().getBooleanExtra("tarjeta_conductor", false);
             poliza_tarjeton= getIntent().getBooleanExtra("poliza_conductor", false);
             tarjeton_tarjeton = getIntent().getBooleanExtra("tarjeton_conductor", false);
+            codigo_tarjeton = getIntent().getBooleanExtra("codigo_conductor",false);
         } else {
             terminos_tarjeton = getIntent().getBooleanExtra("terminos_snv", false);
             ine_tarjeton = getIntent().getBooleanExtra("ine_snv", false);
@@ -51,6 +53,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             tarjeta_tarjeton = getIntent().getBooleanExtra("tarjeta_snv", false);
             poliza_tarjeton = getIntent().getBooleanExtra("poliza_snv", false);
             tarjeton_tarjeton = getIntent().getBooleanExtra("tarjeton_snv", false);
+            codigo_tarjeton = getIntent().getBooleanExtra("codigo_snv",false);
         }
         vigenciaTarjeton = findViewById(R.id.VigenciaTarjeton);
         btn_regreso_tarjeton = findViewById(R.id.img_retroceso_tarjeton);
@@ -68,6 +71,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                     main_socio_documentos.putExtra("tarjeta", tarjeta_tarjeton);
                     main_socio_documentos.putExtra("poliza", poliza_tarjeton);
                     main_socio_documentos.putExtra("tarjeton", false);
+                    main_socio_documentos.putExtra("codigo",codigo_tarjeton);
                     startActivity(main_socio_documentos);
                     finish();
                 } else if (rol.matches("Conductor")) {
@@ -78,7 +82,8 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                     main_conductor_documentos.putExtra("caracteristicas_conductor", caracteristicas_tarjeton);
                     main_conductor_documentos.putExtra("tarjeta_conductor", tarjeta_tarjeton);
                     main_conductor_documentos.putExtra("poliza_conductor", poliza_tarjeton);
-                    main_conductor_documentos.putExtra("tarjeton_conductor", tarjeton_tarjeton);
+                    main_conductor_documentos.putExtra("tarjeton_conductor", false);
+                    main_conductor_documentos.putExtra("codigo_conductor", codigo_tarjeton);
                     startActivity(main_conductor_documentos);
                     finish();
                 } else {
@@ -90,6 +95,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                     main_snv_documentos.putExtra("tarjeta_snv", tarjeta_tarjeton);
                     main_snv_documentos.putExtra("poliza_snv", poliza_tarjeton);
                     main_snv_documentos.putExtra("tarjeton_snv", false);
+                    main_snv_documentos.putExtra("codigo_snv",codigo_tarjeton);
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -143,6 +149,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                 main_socio_documentos.putExtra("tarjeta",tarjeta_tarjeton);
                 main_socio_documentos.putExtra("poliza",poliza_tarjeton);
                 main_socio_documentos.putExtra("tarjeton",true);
+                main_socio_documentos.putExtra("codigo",codigo_tarjeton);
                 startActivity(main_socio_documentos);
                 finish();
             }else if(rol.matches("Conductor"))
@@ -156,6 +163,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                 main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_tarjeton);
                 main_conductor_documentos.putExtra("poliza_conductor",poliza_tarjeton);
                 main_conductor_documentos.putExtra("tarjeton_conductor",true);
+                main_conductor_documentos.putExtra("codigo_conductor", codigo_tarjeton);
                 startActivity(main_conductor_documentos);
                 finish();
             }
@@ -170,6 +178,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                 main_snv_documentos.putExtra("tarjeta_snv",tarjeta_tarjeton);
                 main_snv_documentos.putExtra("poliza_snv",poliza_tarjeton);
                 main_snv_documentos.putExtra("tarjeton_snv",true);
+                main_snv_documentos.putExtra("codigo_snv",codigo_tarjeton);
                 startActivity(main_snv_documentos);
                 finish();
             }

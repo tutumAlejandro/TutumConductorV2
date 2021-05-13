@@ -26,6 +26,7 @@
     <string name="input_fabricante">Fabricante del Vehiculo</string>
     <string name="input_ano_vehiculo">Año del vehículo</string>
     <string name="input_matricula">Matricula</string>
+    <string name="input_codigo">Código del Vehículo</string>
 
     <!-- Strings para la ventana registrate-->
     <string name="txt_registrate_nombres">Nombre(s)</string>
@@ -103,29 +104,7 @@
     <string name="txt_text3_caracteristicas">Selecciona la marca, modelo, año, placas y carga una fotografia frontal del vehiculo. Ten en cuenta que esta fotografia
     será la que vea el público, trata de que la foto tenga un ángulo frontal, con una buena visibilidad del autómovil y con visibilidad en la matricula.</string>
     <string name="spinner_fabricante_vehiculo">Fabricante del Vehiculo</string>
-    <string-array name="Fabricantes">
-        <item>Toyota</item>
-        <item>Volkswagen</item>
-        <item>Ford</item>
-        <item>Nissan</item>
-        <item>Honda</item>
-        <item>Hyundai</item>
-        <item>Chevrolet</item>
-        <item>Kia</item>
-        <item>Renault</item>
-        <item>Mercedes</item>
-        <item>Peugeot</item>
-        <item>BMW</item>
-        <item>Audi</item>
-        <item>Maruti</item>
-        <item>Mazda</item>
-        <item>Jeep</item>
-        <item>Fiat</item>
-        <item>Buick</item>
-        <item>Mitsubishi</item>
-        <item>Suzuki</item>
-        <item>Subaru</item>
-    </string-array>
+
     <!-- Strings para la ventana de tarjeta de circulación-->
     <string name="txt_text1_tarjeta">Tarjeta de circulación vigente</string>
     <string name="txt_text2_tarjeta">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
@@ -146,6 +125,11 @@
     <string name="txt_text5_tarjeton">-Documento en original.</string>
     <string name="txt_text6_tarjeton">-En la imagen debe verse claramente toda la información.</string>
     <string name="txt_text7_tarjeton">(Ten cuidado con el flash al sacar la foto, ya que el reflejo podria impedir que veamos todos los datos con claridad).</string>
+
+    <!-- Strings para la ventana de caracteristicas-->
+    <string name="txt_text1_codigo">Código de vehículo</string>
+    <string name="txt_text2_codigo">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
+    <string name="txt_text3_codigo">Este código te lo proporciona un Socio Administrador, el código está vinculado, con él podrás completar tu registro.</string>
     <string name="todo">TODO</string>
 
     <!-- cadenas para las image view de los documentos-->
@@ -153,6 +137,30 @@
     <string name="img_txt_reverso">Reverso</string>
     <string name="img_txt_lateral">Lateral</string>
     <string name="img_txt_trasera">Trasera</string>
+
+    <!-- Strings para test del traslado de informacion entre ventanas-->
+        <string name="test_terminos_y_condiciones">Terminos ok</string>
+        <string name="test_ine">Ine OK</string>
+        <string name="test_licencia">Licencia OK:</string>
+        <string name="test_caracteristicas">Caracteristicas OK:</string>
+        <string name="test_tarjeta">Tarjeta de ciruclación OK:</string>
+        <string name="test_poliza">Poliza de Seguro OK:</string>
+        <string name="test_tarjeton">Tarjeton OK:</string>
+        <string name="test_codigo">Codigo OK:</string>
+    <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Navigation View -->
     <string name="perfil_btn">Perfil</string>
@@ -317,7 +325,7 @@
     <string name="labelCodigo">501259</string>
     <string name="txtNoSocio">No tiene conductores asociados</string>
 
-<!--    Ventana Reportar Problema Tecnico-->
+    <!--    Ventana Reportar Problema Tecnico-->
     <string name="txtTecnico">Problema Técnico</string>
 
 

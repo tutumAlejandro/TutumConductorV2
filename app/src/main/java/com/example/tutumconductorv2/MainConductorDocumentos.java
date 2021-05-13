@@ -26,7 +26,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
     private ImageView btn_tarjeton_conductor_ok;
 
     private String rol= "Conductor";
-    private boolean terminos_conductor, ine_conductor, licencia_conductor, caracteristicas_conductor, tarjeta_conductor, poliza_conductor, tarjeton_conductor;
+    private boolean terminos_conductor, ine_conductor, licencia_conductor, caracteristicas_conductor, tarjeta_conductor, poliza_conductor, tarjeton_conductor, codigo_conductor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +58,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
         tarjeta_conductor = getIntent().getBooleanExtra("tarjeta_conductor",false);
         poliza_conductor = getIntent().getBooleanExtra("poliza_conductor",false);
         tarjeton_conductor = getIntent().getBooleanExtra("tarjeton_conductor",false);
+        codigo_conductor = false;
 
 
 
@@ -138,6 +139,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
                 main_terminos_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
                 main_terminos_conductor.putExtra("poliza_conductor",poliza_conductor);
                 main_terminos_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
+                main_terminos_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_terminos_conductor);
             }
         });
@@ -153,6 +155,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
                 main_ine_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
                 main_ine_conductor.putExtra("poliza_conductor",poliza_conductor);
                 main_ine_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
+                main_ine_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_ine_conductor);
             }
         });
@@ -168,6 +171,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
                 main_licencia_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
                 main_licencia_conductor.putExtra("poliza_conductor",poliza_conductor);
                 main_licencia_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
+                main_licencia_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_licencia_conductor);
             }
         });
@@ -228,6 +232,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
                 main_tarjeton_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
                 main_tarjeton_conductor.putExtra("poliza_conductor",poliza_conductor);
                 main_tarjeton_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
+                main_tarjeton_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_tarjeton_conductor);
             }
         });

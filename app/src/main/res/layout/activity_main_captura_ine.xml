@@ -181,7 +181,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/btn_guardar_licencia"
+                android:id="@+id/btn_guardar_ine"
                 android:layout_width="@dimen/width_boton"
                 android:layout_height="@dimen/heigth_boton"
                 android:layout_gravity="center"

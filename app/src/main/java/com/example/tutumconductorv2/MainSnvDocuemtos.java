@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainSnvDocuemtos extends AppCompatActivity {
 
@@ -16,8 +17,11 @@ public class MainSnvDocuemtos extends AppCompatActivity {
     private ImageView btn_tarjeton_snv;
     // botones ok
     private ImageView btn_terminos_snv_ok, btn_ine_snv_ok, btn_licencia_snv_ok, btn_codigo_snv_ok, btn_tarjeton_snv_ok;
+    // text view para mostrar datos bien
+    private TextView txt_terminos,txt_ine, txt_licencia, txt_codigo, txt_tarjeton;
     private boolean terminos_snv, ine_snv, licencia_snv, codigo_snv, tarjeton_snv, caracteristicas_snv, tarjeta_snv, poliza_snv;
     private String rol="snv";
+    private String vig_licencia,codigo,vig_tarjeton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +41,23 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         btn_codigo_snv_ok = findViewById(R.id.btn_snv_codigo_ok);
         btn_tarjeton_snv_ok = findViewById(R.id.btn_snv_tarjeton_ok);
 
+        /* Asosiacion de los txt view para los documentos*/
+        txt_terminos = findViewById(R.id.TxViewTerminosSnv);
+        txt_ine = findViewById(R.id.TxViewIneSnv);
+        txt_licencia = findViewById(R.id.TxViewLicenciaSnv);
+        txt_codigo = findViewById(R.id.TxViewCodigoSnv);
+        txt_tarjeton = findViewById(R.id.TxViewTarjetonSnv);
+        /**/
+
         // Obtencion de las cadenas de control para mostrar o ocultar los botones de los documentos
         terminos_snv= getIntent().getBooleanExtra("terminos_snv",false);
         ine_snv = getIntent().getBooleanExtra("ine_snv",false);
         licencia_snv = getIntent().getBooleanExtra("licencia_snv",false);
         codigo_snv = getIntent().getBooleanExtra("codigo_snv",false);
         tarjeton_snv = getIntent().getBooleanExtra("tarjeton_snv",false);
+        vig_licencia = getIntent().getStringExtra("VigenciaLicencia");
+        vig_tarjeton = getIntent().getStringExtra("VigenciaTarjeton");
+        codigo = getIntent().getStringExtra("codigo");
         caracteristicas_snv = false;
         tarjeta_snv = false;
         poliza_snv = false;
@@ -51,6 +66,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         if(terminos_snv){
             btn_terminos_snv.setVisibility(View.GONE);
             btn_terminos_snv_ok.setVisibility(View.VISIBLE);
+            txt_terminos.setVisibility(View.VISIBLE);
         }else{
             btn_terminos_snv.setVisibility(View.VISIBLE);
         }
@@ -59,6 +75,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         if(ine_snv){
             btn_ine_snv.setVisibility(View.GONE);
             btn_ine_snv_ok.setVisibility(View.VISIBLE);
+            txt_ine.setVisibility(View.VISIBLE);
         }else{
             btn_ine_snv.setVisibility(View.VISIBLE);
         }
@@ -66,6 +83,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         if(licencia_snv){
             btn_licencia_snv.setVisibility(View.GONE);
             btn_licencia_snv_ok.setVisibility(View.VISIBLE);
+            txt_licencia.setVisibility(View.VISIBLE);
+            txt_licencia.setText("Licencia OK:" + vig_licencia);
+
         }else{
             btn_licencia_snv.setVisibility(View.VISIBLE);
         }
@@ -74,8 +94,19 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         if(tarjeton_snv){
             btn_tarjeton_snv.setVisibility(View.GONE);
             btn_tarjeton_snv_ok.setVisibility(View.VISIBLE);
+            txt_tarjeton.setVisibility(View.VISIBLE);
+            txt_tarjeton.setText("Tarjeton OK:" + vig_tarjeton);
         }else{
             btn_tarjeton_snv.setVisibility(View.VISIBLE);
+        }
+        if(codigo_snv){
+            btn_codigo_snv.setVisibility(View.GONE);
+            btn_codigo_snv_ok.setVisibility(View.VISIBLE);
+            txt_codigo.setVisibility(View.VISIBLE);
+            txt_codigo.setText("Codigo OK:"+codigo);
+
+        }else{
+            btn_codigo_snv.setVisibility(View.VISIBLE);
         }
 
 
@@ -87,6 +118,16 @@ public class MainSnvDocuemtos extends AppCompatActivity {
                 finish();
             }
         });
+
+        if(terminos_snv & ine_snv & licencia_snv & codigo_snv & tarjeton_snv)
+        {
+            /*Aqui poner el metodo o la implementacion del Json para subir la solicitud del servidor
+            *
+            * */
+            Intent documentos_ok_snv = new Intent(MainSnvDocuemtos.this, MainDocumentosOkSnv.class);
+            startActivity(documentos_ok_snv);
+            finish();
+        }
 
         btn_terminos_snv.setOnClickListener(new View.OnClickListener() {
             @Override

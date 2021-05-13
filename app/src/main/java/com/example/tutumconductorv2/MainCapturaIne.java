@@ -13,7 +13,7 @@ public class MainCapturaIne extends AppCompatActivity {
 
     private ImageView btn_retroceso_ine;
     private String rol;
-    private boolean terminos_ine,ine_ine,licencia_ine,caracteristicas_ine,tarjeta_ine,poliza_ine,tarjeton_ine;
+    private boolean terminos_ine,ine_ine,licencia_ine,caracteristicas_ine,tarjeta_ine,poliza_ine,tarjeton_ine,codigo_ine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public class MainCapturaIne extends AppCompatActivity {
             tarjeta_ine = getIntent().getBooleanExtra("tarjeta",false);
             poliza_ine = getIntent().getBooleanExtra("poliza",false);
             tarjeton_ine = getIntent().getBooleanExtra("tarjeton",false);
+            codigo_ine  = getIntent().getBooleanExtra("codigo",false);
         }else if(rol.matches("Conductor")){
             terminos_ine = getIntent().getBooleanExtra("terminos_conductor",false);
             ine_ine = getIntent().getBooleanExtra("ine_conductor",false);
@@ -37,6 +38,7 @@ public class MainCapturaIne extends AppCompatActivity {
             tarjeta_ine = getIntent().getBooleanExtra("tarjeta_conductor",false);
             poliza_ine = getIntent().getBooleanExtra("poliza_conductor",false);
             tarjeton_ine = getIntent().getBooleanExtra("tarjeton_conductor",false);
+            codigo_ine  = getIntent().getBooleanExtra("codigo_conductor",false);
         }else{
             terminos_ine = getIntent().getBooleanExtra("terminos_snv",false);
             ine_ine = getIntent().getBooleanExtra("ine_snv",false);
@@ -45,6 +47,7 @@ public class MainCapturaIne extends AppCompatActivity {
             tarjeta_ine = getIntent().getBooleanExtra("tarjeta_snv",false);
             poliza_ine = getIntent().getBooleanExtra("poliza_snv",false);
             tarjeton_ine = getIntent().getBooleanExtra("tarjeton_snv",false);
+            codigo_ine  = getIntent().getBooleanExtra("codigo_snv",false);
         }
 
         btn_retroceso_ine = findViewById(R.id.img_retroceso_ine);
@@ -61,6 +64,7 @@ public class MainCapturaIne extends AppCompatActivity {
                     main_socio_documentos.putExtra("tarjeta",tarjeta_ine);
                     main_socio_documentos.putExtra("poliza",poliza_ine);
                     main_socio_documentos.putExtra("tarjeton",tarjeton_ine);
+                    main_socio_documentos.putExtra("codigo",codigo_ine);
                     startActivity(main_socio_documentos);
                     finish();
                 }else if(rol.matches("Conductor")){
@@ -72,6 +76,7 @@ public class MainCapturaIne extends AppCompatActivity {
                     main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_ine);
                     main_conductor_documentos.putExtra("poliza_conductor",poliza_ine);
                     main_conductor_documentos.putExtra("tarjeton_conductor",tarjeton_ine);
+                    main_conductor_documentos.putExtra("codigo_conductor",codigo_ine);
                     startActivity(main_conductor_documentos);
                     finish();
                 }else{
@@ -83,6 +88,7 @@ public class MainCapturaIne extends AppCompatActivity {
                     main_snv_documentos.putExtra("tarjeta_snv",tarjeta_ine);
                     main_snv_documentos.putExtra("poliza_snv",poliza_ine);
                     main_snv_documentos.putExtra("tarjeton_snv",tarjeton_ine);
+                    main_snv_documentos.putExtra("codigo_snv",codigo_ine);
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -101,6 +107,7 @@ public class MainCapturaIne extends AppCompatActivity {
             main_socio_documentos.putExtra("tarjeta",tarjeta_ine);
             main_socio_documentos.putExtra("poliza",poliza_ine);
             main_socio_documentos.putExtra("tarjeton",tarjeton_ine);
+            main_socio_documentos.putExtra("codigo",codigo_ine);
             startActivity(main_socio_documentos);
             finish();
         }else if(rol.matches("Conductor")){
@@ -112,6 +119,7 @@ public class MainCapturaIne extends AppCompatActivity {
             main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_ine);
             main_conductor_documentos.putExtra("poliza_conductor",poliza_ine);
             main_conductor_documentos.putExtra("tarjeton_conductor",tarjeton_ine);
+            main_conductor_documentos.putExtra("codigo_conductor",codigo_ine);
             startActivity(main_conductor_documentos);
             finish();
         }else
@@ -124,6 +132,7 @@ public class MainCapturaIne extends AppCompatActivity {
             main_snv_documentos.putExtra("tarjeta_snv",tarjeta_ine);
             main_snv_documentos.putExtra("poliza_snv",poliza_ine);
             main_snv_documentos.putExtra("tarjeton_snv",tarjeton_ine);
+            main_snv_documentos.putExtra("codigo_snv",codigo_ine);
             startActivity(main_snv_documentos);
             finish();
         }
