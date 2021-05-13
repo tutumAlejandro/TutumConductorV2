@@ -185,6 +185,51 @@
                     android:text="@string/snv"
                     android:textColor="@color/black"
                     android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/TxViewTerminosSnv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_terminos_y_condiciones"
+                android:textColor="@color/darkest"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/TxViewIneSnv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_ine"
+                android:textColor="@color/darkest"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/TxViewLicenciaSnv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_licencia"
+                android:textColor="@color/darkest"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/TxViewCodigoSnv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_codigo"
+                android:textColor="@color/darkest"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/TxViewTarjetonSnv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_tarjeton"
+                android:textColor="@color/darkest"
+                android:textSize="16sp"
+                android:visibility="gone"/>
             <!--- Text View para prueba -->
         </LinearLayout>
     </ScrollView>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "246501236312",
+    "project_id": "tutumapp-853df",
+    "storage_bucket": "tutumapp-853df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246501236312:android:0d2f31c4a3b3e1bb02b42d",
+        "android_client_info": {
+          "package_name": "com.example.tutumconductorv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246501236312-t26b9gr08gv6pprpm1cjmjedi342mrci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4awedKvG4ijFJFlJ_27ISyahRfkKYwJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246501236312-t26b9gr08gv6pprpm1cjmjedi342mrci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -15,8 +15,8 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
 
     // Cadenas para revisar
     private String rol;
-    private boolean terminos_terminos, ine_terminos, licencia_terminos, caracteristicas_terminos, tarjeta_terminos, poliza_terminos, tarjeton_terminos;
-
+    private boolean terminos_terminos, ine_terminos, licencia_terminos, caracteristicas_terminos, tarjeta_terminos, poliza_terminos, tarjeton_terminos, codigo_terminos;
+    private String vigLicencia_ine, vigTarjeta_ine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             tarjeta_terminos = getIntent().getBooleanExtra("tarjeta",false);
             poliza_terminos = getIntent().getBooleanExtra("poliza",false);
             tarjeton_terminos = getIntent().getBooleanExtra("tarjeton",false);
+            codigo_terminos = getIntent().getBooleanExtra("codigo",false);
         }else if(rol.matches("Conductor")){
             terminos_terminos = getIntent().getBooleanExtra("terminos_conductor",false);
             ine_terminos = getIntent().getBooleanExtra("ine_conductor",false);
@@ -40,6 +41,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             tarjeta_terminos = getIntent().getBooleanExtra("tarjeta_conductor",false);
             poliza_terminos = getIntent().getBooleanExtra("poliza_conductor",false);
             tarjeton_terminos = getIntent().getBooleanExtra("tarjeton_conductor",false);
+            codigo_terminos = getIntent().getBooleanExtra("codigo_conductor",false);
         }else{
             terminos_terminos = getIntent().getBooleanExtra("terminos_snv",false);
             ine_terminos = getIntent().getBooleanExtra("ine_snv",false);
@@ -48,6 +50,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             tarjeta_terminos = getIntent().getBooleanExtra("tarjeta_snv",false);
             poliza_terminos = getIntent().getBooleanExtra("poliza_snv",false);
             tarjeton_terminos = getIntent().getBooleanExtra("tarjeton_snv",false);
+            codigo_terminos = getIntent().getBooleanExtra("codigo_snv",false);
         }
 
 
@@ -67,6 +70,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
                     main_socio_documentos.putExtra("tarjeta",tarjeta_terminos);
                     main_socio_documentos.putExtra("poliza",poliza_terminos);
                     main_socio_documentos.putExtra("tarjeton",tarjeton_terminos);
+                    main_socio_documentos.putExtra("codigo",codigo_terminos);
                     startActivity(main_socio_documentos);
                     finish();
                 }else if(rol.matches("Conductor")){
@@ -78,6 +82,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
                     main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_terminos);
                     main_conductor_documentos.putExtra("poliza_conductor",poliza_terminos);
                     main_conductor_documentos.putExtra("tarjeton_conductor",tarjeton_terminos);
+                    main_conductor_documentos.putExtra("codigo_conductor",codigo_terminos);
                     startActivity(main_conductor_documentos);
                     finish();
                 }else{
@@ -89,6 +94,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
                     main_snv_documentos.putExtra("tarjeta_snv",tarjeta_terminos);
                     main_snv_documentos.putExtra("poliza_snv",poliza_terminos);
                     main_snv_documentos.putExtra("tarjeton_snv",tarjeton_terminos);
+                    main_snv_documentos.putExtra("codigo_snv",codigo_terminos);
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -126,6 +132,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             main_socio_documentos.putExtra("tarjeta",tarjeta_terminos);
             main_socio_documentos.putExtra("poliza",poliza_terminos);
             main_socio_documentos.putExtra("tarjeton",tarjeton_terminos);
+            main_socio_documentos.putExtra("codigo",codigo_terminos);
             startActivity(main_socio_documentos);
             finish();
         }else if(rol.matches("Conductor")){
@@ -137,6 +144,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_terminos);
             main_conductor_documentos.putExtra("poliza_conductor",poliza_terminos);
             main_conductor_documentos.putExtra("tarjeton_conductor",tarjeton_terminos);
+            main_conductor_documentos.putExtra("codigo_conductor",codigo_terminos);
             startActivity(main_conductor_documentos);
             finish();
         }else{
@@ -148,6 +156,7 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             main_snv_documentos.putExtra("tarjeta_snv",tarjeta_terminos);
             main_snv_documentos.putExtra("poliza_snv",poliza_terminos);
             main_snv_documentos.putExtra("tarjeton_snv",tarjeton_terminos);
+            main_snv_documentos.putExtra("codigo_snv",codigo_terminos);
             startActivity(main_snv_documentos);
             finish();
         }

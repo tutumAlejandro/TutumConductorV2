@@ -13,8 +13,17 @@
         <item name="android:colorActivatedHighlight">@color/darkest</item>
         <item name="android:colorFocusedHighlight">@color/darkest</item>
     </style>
+    <style name="InputTextWhite" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorAccent">@color/darkest</item>
+        <item name="android:colorActivatedHighlight">@color/darkest</item>
+        <item name="android:colorFocusedHighlight">@color/darkest</item>
+    </style>
     <style name="BorderSpinner" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:strokeColor">@color/darkest</item>
         <item name="android:strokeWidth">2.0</item>
+    </style>
+    <style name="ErrorInputText" parent="Theme.AppCompat">
+        <item name="android:strokeColor">@color/error</item>
+        <item name="android:textColorHint">@color/error</item>
     </style>
 </resources>

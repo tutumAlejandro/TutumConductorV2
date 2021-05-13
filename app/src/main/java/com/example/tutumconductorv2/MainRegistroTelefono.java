@@ -31,6 +31,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
         ApeidoM = getIntent().getStringExtra("ApeidoM");
         Email = getIntent().getStringExtra("Email");
         Password = getIntent().getStringExtra("Password");
+        
     }
     private boolean check_telefono(String num_telefono)
     {

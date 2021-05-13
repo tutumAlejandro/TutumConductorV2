@@ -26,7 +26,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
     private ImageView btn_tarjeton_socio_ok;
 
     private String rol= "Socio";
-    private boolean terminos,ine,licencia,caracteristicas,tarjeta,poliza,tarjeton;
+    private boolean terminos,ine,licencia,caracteristicas,tarjeta,poliza,tarjeton,codigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
         tarjeta = getIntent().getBooleanExtra("tarjeta",false);
         poliza = getIntent().getBooleanExtra("poliza",false);
         tarjeton = getIntent().getBooleanExtra("tarjeton",false);
+        codigo = false;
 
 
         // if para mostrar o ocultar el boton de terminos y condiciones
@@ -138,6 +139,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_terminos_socio.putExtra("tarjeta",tarjeta);
                 main_terminos_socio.putExtra("poliza",poliza);
                 main_terminos_socio.putExtra("tarjeton",tarjeton);
+                main_terminos_socio.putExtra("codigo",codigo);
                 startActivity(main_terminos_socio);
             }
         });
@@ -153,6 +155,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_ine_socio.putExtra("tarjeta",tarjeta);
                 main_ine_socio.putExtra("poliza",poliza);
                 main_ine_socio.putExtra("tarjeton",tarjeton);
+                main_ine_socio.putExtra("codigo",codigo);
                 startActivity(main_ine_socio);
             }
         });
@@ -168,6 +171,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_licencia_socio.putExtra("tarjeta",tarjeta);
                 main_licencia_socio.putExtra("poliza",poliza);
                 main_licencia_socio.putExtra("tarjeton",tarjeton);
+                main_licencia_socio.putExtra("codigo",codigo);
                 startActivity(main_licencia_socio);
             }
         });
@@ -228,6 +232,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_tarjeton_socio.putExtra("tarjeta",tarjeta);
                 main_tarjeton_socio.putExtra("poliza",poliza);
                 main_tarjeton_socio.putExtra("tarjeton",tarjeton);
+                main_tarjeton_socio.putExtra("codigo",codigo);
                 startActivity(main_tarjeton_socio);
             }
         });

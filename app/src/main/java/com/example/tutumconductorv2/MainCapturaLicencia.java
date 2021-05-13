@@ -22,7 +22,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
     private String rol;
     private String VigLicencia = " ";
 
-    private boolean terminos_licencia, ine_licencia, licencia_licencia, caracteristicas_licencia, tarjeta_licencia, poliza_licencia, tarjeton_licencia;
+    private boolean terminos_licencia, ine_licencia, licencia_licencia, caracteristicas_licencia, tarjeta_licencia, poliza_licencia, tarjeton_licencia,codigo_licencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             tarjeta_licencia = getIntent().getBooleanExtra("tarjeta", false);
             poliza_licencia = getIntent().getBooleanExtra("poliza", false);
             tarjeton_licencia = getIntent().getBooleanExtra("tarjeton", false);
+            codigo_licencia = getIntent().getBooleanExtra("codigo",false);
         } else if (rol.matches("Conductor")) {
             terminos_licencia = getIntent().getBooleanExtra("terminos_conductor", false);
             ine_licencia = getIntent().getBooleanExtra("ine_conductor", false);
@@ -45,6 +46,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             tarjeta_licencia = getIntent().getBooleanExtra("tarjeta_conductor", false);
             poliza_licencia = getIntent().getBooleanExtra("poliza_conductor", false);
             tarjeton_licencia = getIntent().getBooleanExtra("tarjeton_conductor", false);
+            codigo_licencia = getIntent().getBooleanExtra("codigo_conductor",false);
         } else {
             terminos_licencia = getIntent().getBooleanExtra("terminos_snv", false);
             ine_licencia = getIntent().getBooleanExtra("ine_snv", false);
@@ -53,7 +55,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             tarjeta_licencia = getIntent().getBooleanExtra("tarjeta_snv", false);
             poliza_licencia = getIntent().getBooleanExtra("poliza_snv", false);
             tarjeton_licencia = getIntent().getBooleanExtra("tarjeton_snv", false);
-
+            codigo_licencia = getIntent().getBooleanExtra("codigo_snv",false);
         }
         vigenciaLicencia = findViewById(R.id.VigenciaLicencia);
         btn_regreso_licencia = findViewById(R.id.img_retroceso_licencia);
@@ -71,6 +73,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                     main_socio_documentos.putExtra("tarjeta", tarjeta_licencia);
                     main_socio_documentos.putExtra("poliza", poliza_licencia);
                     main_socio_documentos.putExtra("tarjeton", tarjeton_licencia);
+                    main_socio_documentos.putExtra("codigo",codigo_licencia);
                     startActivity(main_socio_documentos);
                     finish();
                 } else if (rol.matches("Conductor")) {
@@ -82,6 +85,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                     main_conductor_documentos.putExtra("tarjeta_conductor", tarjeta_licencia);
                     main_conductor_documentos.putExtra("poliza_conductor", poliza_licencia);
                     main_conductor_documentos.putExtra("tarjeton_conductor", tarjeton_licencia);
+                    main_conductor_documentos.putExtra("codigo_conductor",codigo_licencia);
                     startActivity(main_conductor_documentos);
                     finish();
                 } else {
@@ -93,6 +97,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                     main_snv_documentos.putExtra("tarjeta_snv", tarjeta_licencia);
                     main_snv_documentos.putExtra("poliza_snv", poliza_licencia);
                     main_snv_documentos.putExtra("tarjeton_snv", tarjeton_licencia);
+                    main_snv_documentos.putExtra("codigo_snv",codigo_licencia);
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -148,6 +153,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 main_socio_documentos.putExtra("tarjeta",tarjeta_licencia);
                 main_socio_documentos.putExtra("poliza",poliza_licencia);
                 main_socio_documentos.putExtra("tarjeton",tarjeton_licencia);
+                main_socio_documentos.putExtra("codigo",codigo_licencia);
                 startActivity(main_socio_documentos);
                 finish();
             }else if(rol.matches("Conductor"))
@@ -161,6 +167,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_licencia);
                 main_conductor_documentos.putExtra("poliza_conductor",poliza_licencia);
                 main_conductor_documentos.putExtra("tarjeton_conductor",tarjeton_licencia);
+                main_conductor_documentos.putExtra("codigo_conductor",codigo_licencia);
                 startActivity(main_conductor_documentos);
                 finish();
             }
@@ -175,6 +182,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 main_snv_documentos.putExtra("tarjeta_snv",tarjeta_licencia);
                 main_snv_documentos.putExtra("poliza_snv",poliza_licencia);
                 main_snv_documentos.putExtra("tarjeton_snv",tarjeton_licencia);
+                main_snv_documentos.putExtra("codigo_snv",codigo_licencia);
                 startActivity(main_snv_documentos);
                 finish();
             }
