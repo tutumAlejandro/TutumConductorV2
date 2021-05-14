@@ -126,20 +126,17 @@
                     android:layout_marginBottom="10dp"/>
                </androidx.constraintlayout.widget.ConstraintLayout>
             <Button
-                android:id="@+id/btnRproblema"
-                android:layout_width="@dimen/ancho_boton"
-                android:layout_height="@dimen/largo_boton"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="15dp"
-                android:backgroundTint="@color/daysi"
-                android:backgroundTintMode="add"
-                android:foregroundTint="#A11919"
-                android:text="@string/btnEnviarPviaje"
-                android:textColor="@color/black"
-                app:cornerRadius="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recupera_contraseña" />
+                android:id="@+id/btn_guardar_registro"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/boton_redondo"
+                android:text="@string/btn_text_continuar"
+                android:fontFamily="@font/boring_sans_bold"
+                android:textSize="@dimen/size_text_btn"
+                android:textColor="@color/white"/>
 
 
         </LinearLayout>

@@ -19,7 +19,7 @@ public class ReportarProblemaTecnico extends AppCompatActivity {
         startActivity(intentIni);
     }
     public void btnNuevoTecnico(View V){
-        Intent intentIni = new Intent(ReportarProblemaTecnico.this, activity_problema_tecnico.class);
+        Intent intentIni = new Intent(ReportarProblemaTecnico.this, activity_chat_reporte.class);
         startActivity(intentIni);
     }
 }

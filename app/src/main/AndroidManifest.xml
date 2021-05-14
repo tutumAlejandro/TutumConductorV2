@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2">
-        <activity android:name=".MainDocumentosOkSnv"></activity>
+        <activity android:name=".activity_chat_reporte"></activity>
+        <activity android:name=".MainDocumentosOkSnv" />
         <activity android:name=".MainTextoPoliticaPrivacidad" />
         <activity android:name=".MainTextoTerminosCondiciones" />
         <activity
@@ -55,7 +56,11 @@
         <activity android:name=".ProblemaViaje" />
         <activity android:name=".MainVentanaPrincipal" />
         <activity android:name=".Main_IniciaSesion" />
+        <activity android:name=".ReportarProblema" />
+        <activity android:name=".ReportarProblemaTecnico" />
+        <activity android:name=".activity_ganancias" />
         <activity android:name=".Inicio" />
+        <activity android:name=".activity_chat_reporte"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

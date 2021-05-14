@@ -139,27 +139,15 @@
     <string name="img_txt_trasera">Trasera</string>
 
     <!-- Strings para test del traslado de informacion entre ventanas-->
-        <string name="test_terminos_y_condiciones">Terminos ok</string>
-        <string name="test_ine">Ine OK</string>
-        <string name="test_licencia">Licencia OK:</string>
-        <string name="test_caracteristicas">Caracteristicas OK:</string>
-        <string name="test_tarjeta">Tarjeta de ciruclación OK:</string>
-        <string name="test_poliza">Poliza de Seguro OK:</string>
-        <string name="test_tarjeton">Tarjeton OK:</string>
-        <string name="test_codigo">Codigo OK:</string>
+    <string name="test_terminos_y_condiciones">Terminos ok</string>
+    <string name="test_ine">Ine OK</string>
+    <string name="test_licencia">Licencia OK:</string>
+    <string name="test_caracteristicas">Caracteristicas OK:</string>
+    <string name="test_tarjeta">Tarjeta de ciruclación OK:</string>
+    <string name="test_poliza">Poliza de Seguro OK:</string>
+    <string name="test_tarjeton">Tarjeton OK:</string>
+    <string name="test_codigo">Codigo OK:</string>
     <!-- -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Navigation View -->
@@ -272,6 +260,7 @@
     <string name="txtProblema">Problema en un Viaje</string>
     <string name="btnNuevoReporte">Crear Reporte</string>
     <string name="txtHistorial">Historial</string>
+    <string name="txtTitulo">Prueba de Reporte</string>
 
     <!--Ventana Unidades-->
     <string name="txtUnidades">Unidades</string>

@@ -9,11 +9,13 @@
 
     <ImageView
         android:id="@+id/cambioContra_fondo"
-        android:layout_width="225dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="220dp"
+        android:layout_width="228dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="4dp"
         android:contentDescription="@string/menu_fondo"
         android:src="@drawable/fondofotouser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +48,7 @@
 
     <TextView
         android:id="@+id/cambioContra_titulo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
         android:fontFamily="@font/boring_sans_heavy"
@@ -60,20 +62,20 @@
 
     <TextView
         android:id="@+id/cambioContra_desc"
-        android:layout_width="334dp"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="@string/cambiocontra_desc"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cambioContra_titulo" />
 
     <EditText
         android:id="@+id/cambioContra_pswd"
-        android:layout_width="343dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
         android:ems="10"
@@ -93,7 +95,7 @@
 
     <TextView
         android:id="@+id/cambioContra_contraLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/cambiocontra_contralabel"
@@ -103,34 +105,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cambioContra_desc" />
 
-   <Button
+
+    <Button
         android:id="@+id/cambioContra_aceptarBtn"
         android:layout_width="165dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="300dp"
         android:background="@drawable/boton_redondo"
         android:fontFamily="@font/boring_sans_heavy"
         android:text="@string/cambiocontra_aceptarbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.849"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toEndOf="@+id/cambioContra_cancelBtn"
+        app:layout_constraintTop_toBottomOf="@+id/cambioContra_pswd"
+        app:layout_constraintVertical_bias="0.195" />
 
     <Button
         android:id="@+id/cambioContra_cancelBtn"
         android:layout_width="165dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="300dp"
         android:background="@drawable/btn"
         android:backgroundTint="#9E9C9C"
         android:fontFamily="@font/boring_sans_heavy"
         android:text="@string/cambiocontra_cancelbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cambioContra_pswd"
+        app:layout_constraintVertical_bias="0.193" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

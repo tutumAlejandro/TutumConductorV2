@@ -23,7 +23,11 @@
         android:background="@color/white"
         android:fitsSystemWindows="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white">
@@ -67,6 +71,8 @@
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bienvenida_label" />
+
+
 
             <Button
                 android:id="@+id/button_sign_out"
@@ -271,8 +277,8 @@
                 android:id="@+id/imagen_fondo_perfin_n"
                 android:layout_width="279dp"
                 android:layout_height="288dp"
-                android:layout_marginStart="112dp"
-                android:layout_marginBottom="516dp"
+                android:layout_marginStart="104dp"
+                android:layout_marginBottom="572dp"
                 android:contentDescription="@string/fondo_naranja"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -292,6 +298,8 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        </ScrollView>
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
