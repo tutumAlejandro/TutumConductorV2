@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.google.android.material.textfield.TextInputEditText;
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainCapturaCodigo extends AppCompatActivity {

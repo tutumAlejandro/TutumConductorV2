@@ -1,10 +1,13 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
 
 public class MainConductorDocumentos extends AppCompatActivity {
 

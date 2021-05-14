@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
 public class MainTerminosYCondiciones extends AppCompatActivity {
 

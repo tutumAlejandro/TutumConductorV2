@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
+
 public class MainVentanaPrincipal extends AppCompatActivity {
 
     @Override
@@ -14,7 +16,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
     public void btn_registrate(View v)
     {
-        Intent main_registrate = new Intent(MainVentanaPrincipal.this,MainRegistrate.class);
+        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
         startActivity(main_registrate);
     }
     public void btn_inicia_sesion(View v)

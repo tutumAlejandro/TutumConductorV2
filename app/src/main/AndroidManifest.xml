@@ -9,37 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2">
-        <activity android:name=".MainDocumentosOkSnv"></activity>
-        <activity android:name=".MainTextoPoliticaPrivacidad" />
-        <activity android:name=".MainTextoTerminosCondiciones" />
+        <activity android:name=".Registro.menus_rol.MainDocumentosOkSnv"></activity>
+        <activity android:name=".Registro.documentos_conductor.MainTextoPoliticaPrivacidad" />
+        <activity android:name=".Registro.documentos_conductor.MainTextoTerminosCondiciones" />
         <activity
-            android:name=".MainCapturaCodigo"
+            android:name=".Registro.documentos_conductor.MainCapturaCodigo"
             android:theme="@style/InputTextWhite" />
         <activity
-            android:name=".MainCapturaTarjeton"
+            android:name=".Registro.documentos_conductor.MainCapturaTarjeton"
             android:theme="@style/InputTextBlack" />
         <activity
-            android:name=".MainCapturaPoliza"
+            android:name=".Registro.documentos_conductor.MainCapturaPoliza"
             android:theme="@style/InputTextBlack" />
         <activity
-            android:name=".MainCapturaTarjetaCirculacion"
+            android:name=".Registro.documentos_conductor.MainCapturaTarjetaCirculacion"
             android:theme="@style/InputTextBlack" />
         <activity
-            android:name=".MainCapturaCaracteristicas"
+            android:name=".Registro.documentos_conductor.MainCapturaCaracteristicas"
             android:theme="@style/InputTextBlack" />
         <activity
-            android:name=".MainCapturaLicencia"
+            android:name=".Registro.documentos_conductor.MainCapturaLicencia"
             android:theme="@style/InputTextBlack" />
-        <activity android:name=".MainCapturaIne" />
-        <activity android:name=".MainTerminosYCondiciones" />
-        <activity android:name=".MainSnvDocuemtos" />
-        <activity android:name=".MainConductorDocumentos" />
-        <activity android:name=".MainSocioDocumentos" />
-        <activity android:name=".MainRolConductor" />
-        <activity android:name=".MainOTP" />
-        <activity android:name=".MainRegistroTelefono" />
+        <activity android:name=".Registro.documentos_conductor.MainCapturaIne" />
+        <activity android:name=".Registro.documentos_conductor.MainTerminosYCondiciones" />
+        <activity android:name=".Registro.menus_rol.MainSnvDocuemtos" />
+        <activity android:name=".Registro.documentos_conductor.MainConductorDocumentos" />
+        <activity android:name=".Registro.menus_rol.MainSocioDocumentos" />
+        <activity android:name=".Registro.menus_rol.MainRolConductor" />
+        <activity android:name=".Registro.datos_personales.MainOTP" />
+        <activity android:name=".Registro.datos_personales.MainRegistroTelefono" />
         <activity android:name=".MainInicioSesion" />
-        <activity android:name=".MainRegistrate" />
+        <activity android:name=".Registro.datos_personales.MainRegistrate" />
         <activity android:name=".activity_ayuda" />
         <activity android:name=".activity_detalle_unidad" />
         <activity android:name=".activity_historial_viajes" />

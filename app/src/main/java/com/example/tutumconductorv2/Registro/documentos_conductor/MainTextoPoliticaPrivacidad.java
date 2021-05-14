@@ -1,7 +1,9 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.tutumconductorv2.R;
 
 public class MainTextoPoliticaPrivacidad extends AppCompatActivity {
 
