@@ -1,7 +1,6 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -10,6 +9,9 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
 import java.util.Calendar;
 

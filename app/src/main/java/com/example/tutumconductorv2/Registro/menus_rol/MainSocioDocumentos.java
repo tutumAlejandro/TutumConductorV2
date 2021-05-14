@@ -1,10 +1,19 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.menus_rol;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCaracteristicas;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaIne;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaLicencia;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaPoliza;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjetaCirculacion;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjeton;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainTerminosYCondiciones;
 
 public class MainSocioDocumentos extends AppCompatActivity {
 
@@ -25,7 +34,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
     private ImageView btn_poliza_socio_ok;
     private ImageView btn_tarjeton_socio_ok;
 
-    private String rol= "Socio";
+    private static String rol= "Socio";
     private boolean terminos,ine,licencia,caracteristicas,tarjeta,poliza,tarjeton,codigo;
 
     @Override
@@ -92,6 +101,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_caracteristicas_socio_ok.setVisibility(View.VISIBLE);
         }else{
             btn_caracteristicas_socio.setVisibility(View.VISIBLE);
+            btn_tarjeton_socio.setVisibility(View.GONE);
         }
 
         // if para mostrar o ocultar el boton de la tarjeta
@@ -100,6 +110,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_tarjeta_socio_ok.setVisibility(View.VISIBLE);
         }else{
             btn_tarjeta_socio.setVisibility(View.VISIBLE);
+            btn_tarjeton_socio.setVisibility(View.GONE);
         }
 
         // if para mostrar o ocultar el boton de la poliza
@@ -108,6 +119,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_poliza_socio_ok.setVisibility(View.VISIBLE);
         }else{
             btn_poliza_socio.setVisibility(View.VISIBLE);
+            btn_tarjeton_socio.setVisibility(View.GONE);
         }
 
         // if para mostrar o ocultar el boton del tarjeton
@@ -116,6 +128,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_tarjeton_socio_ok.setVisibility(View.VISIBLE);
         }else{
             btn_tarjeton_socio.setVisibility(View.VISIBLE);
+            btn_tarjeton_socio.setVisibility(View.GONE);
         }
 
 
@@ -130,7 +143,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
         btn_terminos_socio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main_terminos_socio = new Intent(MainSocioDocumentos.this,MainTerminosYCondiciones.class);
+                Intent main_terminos_socio = new Intent(MainSocioDocumentos.this, MainTerminosYCondiciones.class);
                 main_terminos_socio.putExtra("rol",rol);
                 main_terminos_socio.putExtra("terminos",terminos);
                 main_terminos_socio.putExtra("ine",ine);
@@ -141,6 +154,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_terminos_socio.putExtra("tarjeton",tarjeton);
                 main_terminos_socio.putExtra("codigo",codigo);
                 startActivity(main_terminos_socio);
+                finish();
             }
         });
         btn_ine_socio.setOnClickListener(new View.OnClickListener() {
@@ -157,12 +171,13 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_ine_socio.putExtra("tarjeton",tarjeton);
                 main_ine_socio.putExtra("codigo",codigo);
                 startActivity(main_ine_socio);
+                finish();
             }
         });
         btn_licencia_socio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main_licencia_socio = new Intent(MainSocioDocumentos.this,MainCapturaLicencia.class);
+                Intent main_licencia_socio = new Intent(MainSocioDocumentos.this, MainCapturaLicencia.class);
                 main_licencia_socio.putExtra("rol",rol);
                 main_licencia_socio.putExtra("terminos",terminos);
                 main_licencia_socio.putExtra("ine",ine);
@@ -173,6 +188,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_licencia_socio.putExtra("tarjeton",tarjeton);
                 main_licencia_socio.putExtra("codigo",codigo);
                 startActivity(main_licencia_socio);
+                finish();
             }
         });
         btn_caracteristicas_socio.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +204,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_caracteristicas_socio.putExtra("poliza",poliza);
                 main_caracteristicas_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_caracteristicas_socio);
+                finish();
             }
         });
         btn_tarjeta_socio.setOnClickListener(new View.OnClickListener() {
@@ -203,6 +220,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_tarjeta_socio.putExtra("poliza",poliza);
                 main_tarjeta_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_tarjeta_socio);
+                finish();
             }
         });
         btn_poliza_socio.setOnClickListener(new View.OnClickListener() {
@@ -218,6 +236,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_poliza_socio.putExtra("poliza",poliza);
                 main_poliza_socio.putExtra("tarjeton",tarjeton);
                 startActivity(main_poliza_socio);
+                finish();
             }
         });
         btn_tarjeton_socio.setOnClickListener(new View.OnClickListener() {
@@ -234,6 +253,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 main_tarjeton_socio.putExtra("tarjeton",tarjeton);
                 main_tarjeton_socio.putExtra("codigo",codigo);
                 startActivity(main_tarjeton_socio);
+                finish();
             }
         });
     }

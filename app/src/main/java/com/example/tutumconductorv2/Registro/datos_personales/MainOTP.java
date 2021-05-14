@@ -1,8 +1,17 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.datos_personales;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.BD_registro.conexionSQLiteHelper;
+import com.example.tutumconductorv2.Registro.BD_registro.entidades_registro;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.utilidades;
+import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,12 +24,6 @@ public class MainOTP extends AppCompatActivity {
     private TextView Reenviar;
     private TextView num_tel;
     // variables para almacenar los datos del registro
-    private String Nombres;
-    private String ApeidoP;
-    private String ApeidoM;
-    private String Email;
-    private String Password;
-    private String Telefono;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,24 +35,20 @@ public class MainOTP extends AppCompatActivity {
         num_tel = findViewById(R.id.num_telefono);
 
         // Metodos para obtener los valores del registro
-        Nombres = getIntent().getStringExtra("Nombres");
-        ApeidoP = getIntent().getStringExtra("ApeidoP");
-        ApeidoM = getIntent().getStringExtra("ApeidoM");
-        Email = getIntent().getStringExtra("Email");
-        Password = getIntent().getStringExtra("Password");
-        Telefono = getIntent().getStringExtra("Telefono");
+        conexionSQLiteHelper conexion = new conexionSQLiteHelper(this,"datos_usuario",null,1);
+        SQLiteDatabase db = conexion.getReadableDatabase();
 
-        num_tel.setText(Telefono);
+        Cursor c = db.rawQuery("select Telefono from Registro_Usuario", null);
+        if(c.moveToFirst())
+          {
+              num_tel.setText(c.getString(0));
+          }
 
         Editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent main_registro_telefono = new Intent(MainOTP.this, MainRegistroTelefono.class);
-                main_registro_telefono.putExtra("Nombres",Nombres);
-                main_registro_telefono.putExtra("ApeidoP",ApeidoP);
-                main_registro_telefono.putExtra("ApeidoM",ApeidoM);
-                main_registro_telefono.putExtra("Email",Email);
-                main_registro_telefono.putExtra("Password",Password);
+                db.delete(utilidades.TABLA_REGISTRO,utilidades.CAMPO_TELEFONO,null);
                 startActivity(main_registro_telefono);
                 finish();
             }
@@ -76,11 +75,6 @@ public class MainOTP extends AppCompatActivity {
     public void editar(View v)
     {
         Intent main_registro_telefono = new Intent(MainOTP.this, MainRegistroTelefono.class);
-        main_registro_telefono.putExtra("Nombres",Nombres);
-        main_registro_telefono.putExtra("ApeidoP",ApeidoP);
-        main_registro_telefono.putExtra("ApeidoM",ApeidoM);
-        main_registro_telefono.putExtra("Email",Email);
-        main_registro_telefono.putExtra("Password",Password);
         startActivity(main_registro_telefono);
         finish();
     }
@@ -93,12 +87,6 @@ public class MainOTP extends AppCompatActivity {
         }else
         {
             Intent main_rol = new Intent(MainOTP.this, MainRolConductor.class);
-            main_rol.putExtra("Nombres",Nombres);
-            main_rol.putExtra("ApeidoP",ApeidoP);
-            main_rol.putExtra("ApeidoM",ApeidoM);
-            main_rol.putExtra("Email",Email);
-            main_rol.putExtra("Password",Password);
-            main_rol.putExtra("Telefono",Telefono);
             startActivity(main_rol);
         }
     }

@@ -1,10 +1,8 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +10,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import java.util.Calendar;
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
-import static android.app.AlertDialog.*;
+import java.util.Calendar;
 
 public class MainCapturaPoliza extends AppCompatActivity implements View.OnClickListener {
 

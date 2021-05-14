@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCaracteristicas;
+
 public class activity_unidades extends AppCompatActivity {
 
     @Override
@@ -17,7 +19,7 @@ public class activity_unidades extends AppCompatActivity {
 
     public void addUnidad(View view)
     {
-        Intent nuevaUnidad = new Intent(activity_unidades.this, MainCapturaCaracteristicas .class);
+        Intent nuevaUnidad = new Intent(activity_unidades.this, MainCapturaCaracteristicas.class);
         startActivity(nuevaUnidad);
         //finish();
     }

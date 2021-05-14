@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.menus_rol;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCodigo;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaIne;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaLicencia;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjeton;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainTerminosYCondiciones;
 
 public class MainSnvDocuemtos extends AppCompatActivity {
 
@@ -132,7 +139,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         btn_terminos_snv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main_terminos_snv = new Intent(MainSnvDocuemtos.this,MainTerminosYCondiciones.class);
+                Intent main_terminos_snv = new Intent(MainSnvDocuemtos.this, MainTerminosYCondiciones.class);
                 main_terminos_snv.putExtra("rol",rol);
                 main_terminos_snv.putExtra("terminos_snv",terminos_snv);
                 main_terminos_snv.putExtra("ine_snv",ine_snv);
@@ -164,7 +171,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         btn_licencia_snv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main_licencia_snv = new Intent(MainSnvDocuemtos.this,MainCapturaLicencia.class);
+                Intent main_licencia_snv = new Intent(MainSnvDocuemtos.this, MainCapturaLicencia.class);
                 main_licencia_snv.putExtra("rol",rol);
                 main_licencia_snv.putExtra("terminos_snv",terminos_snv);
                 main_licencia_snv.putExtra("ine_snv",ine_snv);
@@ -180,7 +187,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         btn_codigo_snv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main_codigo_snv = new Intent(MainSnvDocuemtos.this,MainCapturaCodigo.class);
+                Intent main_codigo_snv = new Intent(MainSnvDocuemtos.this, MainCapturaCodigo.class);
                 main_codigo_snv.putExtra("rol",rol);
                 main_codigo_snv.putExtra("terminos_snv",terminos_snv);
                 main_codigo_snv.putExtra("ine_snv",ine_snv);

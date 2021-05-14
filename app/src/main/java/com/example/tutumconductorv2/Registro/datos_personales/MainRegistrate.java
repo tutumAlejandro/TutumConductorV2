@@ -1,27 +1,30 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.datos_personales;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import androidx.annotation.ColorInt;
+
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.BD_registro.conexionSQLiteHelper;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.utilidades;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainRegistrate extends AppCompatActivity {
 
-    private TextInputLayout nombres;
-    private TextInputLayout apeidop;
-    private TextInputLayout apeidom;
-    private TextInputLayout email;
-    private TextInputLayout pass;
+    private TextInputLayout nombres,apeidop,apeidom,email,pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_registrate);
+
 
         nombres = findViewById(R.id.InputNombres);
         apeidop = findViewById(R.id.InputApeidoP);
@@ -31,52 +34,22 @@ public class MainRegistrate extends AppCompatActivity {
 
     }
 
-    private boolean check_nombre(String nom)
-    {
-        if(nom.isEmpty())
-        {
-            nombres.setErrorEnabled(true);
-            nombres.setErrorTextColor(ColorStateList.valueOf(Color.RED));
-            nombres.setError("Campo Requerido");
-            return false;
-        }
-        else {
-            nombres.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean check_apeidop(String app)
+    private boolean check_field(String app, TextInputLayout campo)
     {
         if(app.isEmpty())
         {
-            apeidop.setErrorEnabled(true);
-            apeidop.setErrorTextColor(ColorStateList.valueOf(Color.RED));
-            apeidop.setError("Campo Requerido");
+            campo.setErrorEnabled(true);
+            campo.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            campo.setError("Campo Requerido");
             return false;
         }
         else
         {
-            apeidop.setErrorEnabled(false);
+            campo.setErrorEnabled(false);
             return true;
         }
     }
-    private boolean check_apeidom(String apm)
-    {
-        if(apm.isEmpty())
-        {
-            apeidom.setErrorEnabled(true);
-            apeidom.setErrorTextColor(ColorStateList.valueOf(Color.RED));
-            apeidom.setError("Campo Requerido");
-            return false;
-        }
-        else
-        {
-            apeidom.setErrorEnabled(false);
-            return true;
-        }
-    }
-    private boolean check_email(String correo)
+    private boolean check_field_email(String correo, TextInputLayout campo)
     {
         if(correo.isEmpty())
         {
@@ -96,7 +69,7 @@ public class MainRegistrate extends AppCompatActivity {
             return true;
         }
     }
-    private boolean check_password(String contraseña)
+    private boolean check_field_pass(String contraseña,TextInputLayout campo)
     {
         if(contraseña.isEmpty())
         {
@@ -126,18 +99,27 @@ public class MainRegistrate extends AppCompatActivity {
         String Email = email.getEditText().getText().toString().trim();
         String Password = pass.getEditText().getText().toString().trim();
 
-        if(!check_nombre(Nombres)  | !check_apeidop(ApeidoP) | !check_email(Email) | ! check_password(Password))
+        if(!check_field(Nombres, nombres)  | !check_field(ApeidoP, apeidop) | !check_field_email(Email, apeidom) | ! check_field_pass(Password,pass))
         {
             return;
         }else
         {
             Intent main_registro_telefono = new Intent(MainRegistrate.this, MainRegistroTelefono.class);
-            main_registro_telefono.putExtra("Nombres",Nombres);
-            main_registro_telefono.putExtra("ApeidoP",ApeidoP);
-            main_registro_telefono.putExtra("ApeidoM",ApeidoM);
-            main_registro_telefono.putExtra("Email",Email);
-            main_registro_telefono.putExtra("Password",Password);
+            conexionSQLiteHelper conexion = new conexionSQLiteHelper(this,"datos_usuario",null,1); //datos_usuario es el nombre de la base de datos
+            SQLiteDatabase db = conexion.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(utilidades.CAMPO_NOMBRE,Nombres);
+            values.put(utilidades.CAMPO_APEIDO_PATERNO,ApeidoP);
+            values.put(utilidades.CAMPO_APEIDO_MATERNO,ApeidoM);
+            values.put(utilidades.CAMPO_EMAIL,Email);
+            values.put(utilidades.CAMPO_CONTRASEÑA,Password);
+
+            db.insert(utilidades.TABLA_REGISTRO,null,values); // Insertamos los datos en la tabla
+            db.close(); // Por norma general se debe cerrar la base de datos
+            Toast.makeText(this,"Datos Guardados",Toast.LENGTH_SHORT);
+
             startActivity(main_registro_telefono);
+            finish();
         }
     }
 

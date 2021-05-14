@@ -1,8 +1,10 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.menus_rol;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.tutumconductorv2.R;
 
 public class MainDocumentosOkSnv extends AppCompatActivity {
 
