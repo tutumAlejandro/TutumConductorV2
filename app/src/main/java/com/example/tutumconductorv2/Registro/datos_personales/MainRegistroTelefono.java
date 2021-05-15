@@ -1,31 +1,39 @@
 package com.example.tutumconductorv2.Registro.datos_personales;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.conexionSQLiteHelper;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.utilidades;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainRegistroTelefono extends AppCompatActivity {
 
     private TextInputLayout telefono;
-
+    private TextView test_nom,test_app,test_apm,test_email, test_pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_registro_telefono);
         telefono = findViewById(R.id.InputTelefono);
+        /**/
+        test_nom = findViewById(R.id.test_tel_nombre);
+        test_app= findViewById(R.id.test_tel_app);
+        test_apm = findViewById(R.id.test_tel_apm);
+        test_email = findViewById(R.id.test_tel_email);
+        test_pass = findViewById(R.id.test_tel_pass);
+        /**/
+        test_nom.setText(cadenas_registro.nombres);
+        test_app.setText(cadenas_registro.apeido_paterno);
+        test_apm.setText(cadenas_registro.apeido_materno);
+        test_email.setText(cadenas_registro.email);
+        test_pass.setText(cadenas_registro.password);
 
-        // Metodos para obtener los valores del registro
-        
     }
     private boolean check_telefono(String num_telefono)
     {
@@ -49,24 +57,12 @@ public class MainRegistroTelefono extends AppCompatActivity {
     }
     public void main_otp(View v)
     {
-        String num = telefono.getEditText().getText().toString().trim();
-        if(!check_telefono(num))
+        if(!check_telefono(telefono.getEditText().getText().toString().trim()))
         {
             return;
         }
         else{
             Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
-
-            conexionSQLiteHelper conexion = new conexionSQLiteHelper(this,"datos_usuario",null,1);
-            SQLiteDatabase db = conexion.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(utilidades.CAMPO_TELEFONO,num);
-            db.insert(utilidades.TABLA_REGISTRO,null,values);
-            db.close();
-
-            /* Poner metodo para subir el Json a la base de datos para ver si el telefono o el correo electronico ya estan registrados */
-
-            // Si todoo sale bien iniciar la activity del otp
             startActivity(main_otp);
             finish();
         }

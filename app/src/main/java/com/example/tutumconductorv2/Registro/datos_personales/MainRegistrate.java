@@ -7,14 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.conexionSQLiteHelper;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.utilidades;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Toast;
 
 public class MainRegistrate extends AppCompatActivity {
 
@@ -24,14 +22,11 @@ public class MainRegistrate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_registrate);
-
-
         nombres = findViewById(R.id.InputNombres);
         apeidop = findViewById(R.id.InputApeidoP);
         apeidom = findViewById(R.id.InputApeidoM);
         email = findViewById(R.id.InputCorreo);
         pass = findViewById(R.id.InputContraseña);
-
     }
 
     private boolean check_field(String app, TextInputLayout campo)
@@ -93,31 +88,23 @@ public class MainRegistrate extends AppCompatActivity {
 
     public void btn_registro(View v)
     {
-        String Nombres = nombres.getEditText().getText().toString().trim();
-        String ApeidoP = apeidop.getEditText().getText().toString().trim();
-        String ApeidoM = apeidom.getEditText().getText().toString().trim();
-        String Email = email.getEditText().getText().toString().trim();
-        String Password = pass.getEditText().getText().toString().trim();
-
-        if(!check_field(Nombres, nombres)  | !check_field(ApeidoP, apeidop) | !check_field_email(Email, apeidom) | ! check_field_pass(Password,pass))
+        if(!check_field(nombres.getEditText().getText().toString().trim(), nombres)  |
+                !check_field(apeidop.getEditText().getText().toString().trim(), apeidop) |
+                !check_field_email(email.getEditText().getText().toString().trim(), email) |
+                ! check_field_pass(pass.getEditText().getText().toString().trim(),pass))
         {
             return;
         }else
         {
             Intent main_registro_telefono = new Intent(MainRegistrate.this, MainRegistroTelefono.class);
-            conexionSQLiteHelper conexion = new conexionSQLiteHelper(this,"datos_usuario",null,1); //datos_usuario es el nombre de la base de datos
-            SQLiteDatabase db = conexion.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(utilidades.CAMPO_NOMBRE,Nombres);
-            values.put(utilidades.CAMPO_APEIDO_PATERNO,ApeidoP);
-            values.put(utilidades.CAMPO_APEIDO_MATERNO,ApeidoM);
-            values.put(utilidades.CAMPO_EMAIL,Email);
-            values.put(utilidades.CAMPO_CONTRASEÑA,Password);
 
-            db.insert(utilidades.TABLA_REGISTRO,null,values); // Insertamos los datos en la tabla
-            db.close(); // Por norma general se debe cerrar la base de datos
-            Toast.makeText(this,"Datos Guardados",Toast.LENGTH_SHORT);
+            //Creacion de la base de datos para el registro
 
+            cadenas_registro.nombres = nombres.getEditText().getText().toString().trim();
+            cadenas_registro.apeido_paterno = apeidop.getEditText().getText().toString().trim();
+            cadenas_registro.apeido_materno = apeidom.getEditText().getText().toString().trim();
+            cadenas_registro.email = email.getEditText().getText().toString().trim();
+            cadenas_registro.password =pass.getEditText().getText().toString().trim();
             startActivity(main_registro_telefono);
             finish();
         }
