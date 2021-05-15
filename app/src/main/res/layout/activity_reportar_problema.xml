@@ -58,18 +58,18 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="562dp">
+                android:layout_height="665dp">
 
 
                 <ImageView
                     android:id="@+id/btnCrearReporte"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="52dp"
                     android:onClick="btnNuevoReporte"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
 
@@ -118,6 +118,51 @@
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnCrearReporte"></TextView>
+
+                <ImageView
+                    android:id="@+id/btnHistorialReporte"
+                    android:layout_width="350dp"
+                    android:layout_height="78dp"
+                    android:layout_marginTop="132dp"
+                    android:onClick="btnHistorial"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCrearReporte"></ImageView>
+
+                <TextView
+                    android:id="@+id/txthistorial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/boring_sans_bold"
+                    android:text="@string/txtTitulo"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toEndOf="@+id/imgIcon"
+                    app:layout_constraintTop_toTopOf="@+id/btnHistorialReporte" />
+
+                <ImageView
+                    android:id="@+id/imgIcon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/profile_user"
+                    app:layout_constraintStart_toStartOf="@+id/btnHistorialReporte"
+                    app:layout_constraintTop_toTopOf="@+id/btnHistorialReporte" />
+
+                <ImageView
+                    android:id="@+id/img_flecha"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="30dp"
+                    android:src="@drawable/triangulo_flecha"
+                    app:layout_constraintEnd_toEndOf="@+id/btnHistorialReporte"
+                    app:layout_constraintTop_toTopOf="@+id/btnHistorialReporte" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

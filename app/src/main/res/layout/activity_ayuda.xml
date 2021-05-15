@@ -47,7 +47,7 @@
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtAyuda"
                 android:text="@string/txtAyuda"
@@ -58,7 +58,7 @@
                 android:layout_marginTop="20dp">
             </TextView>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_Necesitas"
                 android:text="@string/txtPregunta"
@@ -78,14 +78,14 @@
 
                 <ImageView
                     android:id="@+id/btnReportarProblemaTecnico"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="16dp"
                     android:clickable="true"
-                    android:scaleType="fitXY"
                     android:onClick="btnReportarProblema"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
 
@@ -117,25 +117,26 @@
                     android:id="@+id/txt_Temas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/boring_sans_bold"
                     android:text="@string/txtTemas"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_te_damos_bienvenida"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.086"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnReportarProblemaTecnico"></TextView>
 
                 <ImageView
                     android:id="@+id/btnReportarProblema"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:clickable="true"
-                    android:scaleType="fitXY"
                     android:onClick="btnReporteTecnico"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_Temas"></ImageView>
 
@@ -164,17 +165,16 @@
                     app:layout_constraintTop_toTopOf="@id/btnReportarProblema" />
 
 
-
                 <ImageView
                     android:id="@+id/btnUsarApp"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
                     android:clickable="true"
-                    android:scaleType="fitXY"
                     android:onClick="btnUsarApp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnReportarProblema"></ImageView>
 
@@ -203,17 +203,16 @@
                     app:layout_constraintTop_toTopOf="@id/btnUsarApp" />
 
 
-
                 <ImageView
                     android:id="@+id/btnTerminoCondicion"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:clickable="true"
-                    android:scaleType="fitXY"
                     android:onClick="terminos"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnUsarApp"></ImageView>
 
@@ -244,14 +243,14 @@
                 <!-- Sexto boton de la recepcion de documentos -->
                 <ImageView
                     android:id="@+id/btnPoliticaPrivacidad"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:clickable="true"
-                    android:scaleType="fitXY"
                     android:onClick="politica"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnTerminoCondicion"></ImageView>
 

@@ -19,4 +19,6 @@ public class ProblemaViaje extends AppCompatActivity {
         startActivity(intentIni);
     }
 
+
+
 }
