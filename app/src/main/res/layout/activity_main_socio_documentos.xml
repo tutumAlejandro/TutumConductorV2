@@ -77,155 +77,660 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"/>
             <!-- despliege de los botones -->
-            <!-- Boton para leer los terminos y condiciones -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- Declaracion de un boton con sin imagenes -->
 
-            <ImageView
-                android:id="@+id/btn_terminos_socio"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_terminos_y_condiciones_1" />
+                <!-- Botones Terminos y Condiciones Socio -->
+                <Button
+                    android:id="@+id/button1_socio"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/txt_btn1_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_sig_paso"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button1_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio" />
+                <TextView
+                    android:id="@+id/body_btn1"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_aceptar_terminos"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintBottom_toBottomOf="@+id/button1_socio"
+                    app:layout_constraintStart_toStartOf="@+id/button1_socio" />
+                <ImageView
+                    android:id="@+id/fwd_socio_1"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button1_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio"/>
 
-            <!-- Boton para la captura de la Identificacion Oficial INE -->
-            <ImageView
-                android:id="@+id/btn_ine_socio"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_ine_1" />
+                <!-- Botones INE -->
+                <Button
+                    android:id="@+id/button2_socio"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button1_socio" />
+                <TextView
+                    android:id="@+id/txt_btn2_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button2_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio" />
+                <TextView
+                    android:id="@+id/body_btn2"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_ine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button2_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_2"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button2_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio"/>
 
-            <!-- Boton para la captura de la Licencia -->
+                <!-- Boton Licencia -->
+                <Button
+                    android:id="@+id/button3_socio"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button2_socio" />
+                <TextView
+                    android:id="@+id/txt_btn3_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button3_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio" />
+                <TextView
+                    android:id="@+id/body_btn3"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_licencia"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button3_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_3"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button3_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio"/>
 
-            <ImageView
-                android:id="@+id/btn_licencia_socio"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_licencia_1"/>
+                <!-- Boton Caracteristicas -->
+                <Button
+                    android:id="@+id/button4_socio"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button3_socio" />
+                <TextView
+                    android:id="@+id/txt_btn4_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button4_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio" />
+                <TextView
+                    android:id="@+id/body_btn4"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_caracteristicas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button4_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_4"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button4_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio"/>
 
-            <!-- Boton para la captura de las caracteristicas del vehiculo -->
-            <ImageView
-                android:id="@+id/btn_caracteristicas_socio"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_caracteristicas_1"/>
+                <!-- Boton Tarjeta -->
+                <Button
+                    android:id="@+id/button5_socio"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button4_socio" />
+                <TextView
+                    android:id="@+id/txt_btn5_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button5_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio" />
+                <TextView
+                    android:id="@+id/body_btn5"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button5_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_5"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button5_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio"/>
 
-            <!-- Boton para la captura de la tarjeta -->
-            <ImageView
-                android:id="@+id/btn_tarjeta_socio"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_tarjeta_1"/>
+                <!-- Boton Poliza -->
+                <Button
+                    android:id="@+id/button6_socio"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button5_socio" />
+                <TextView
+                    android:id="@+id/txt_btn6_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button6_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button6_socio" />
+                <TextView
+                    android:id="@+id/body_btn6"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_poliza"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button6_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_6"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button6_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button6_socio"/>
 
-            <!-- Boton para la captura de la poliza -->
-            <ImageView
-                android:id="@+id/btn_poliza_socio"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_poliza_1"/>
+                <!-- Boton Tarjeton -->
+                <Button
+                    android:id="@+id/button7_socio"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button6_socio" />
+                <TextView
+                    android:id="@+id/txt_btn7_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button7_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio" />
+                <TextView
+                    android:id="@+id/body_btn7"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeton"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button7_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_7"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button7_socio"
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio"/>
 
-            <!-- Boton para la captura del tarjeton -->
-            <ImageView
-                android:id="@+id/btn_tarjeton_socio"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_tarjeton_1"/>
+                <!-- Despliege de los botones para cuando se suben los documentos bien -->
 
-            <!-- Boton para leer los terminos y condiciones ok-->
+                <!-- Botones Terminos y Condiciones Socio ok-->
+                <Button
+                    android:id="@+id/button1_socio_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button7_socio" />
+                <TextView
+                    android:id="@+id/txt_btn1_head_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button1_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio_ok" />
+                <TextView
+                    android:id="@+id/body_btn1_ok"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_aceptar_terminos"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintBottom_toBottomOf="@+id/button1_socio_ok"
+                    app:layout_constraintStart_toStartOf="@+id/button1_socio_ok" />
+                <ImageView
+                    android:id="@+id/fwd_socio_1_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button1_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio_ok" />
 
-            <ImageView
-                android:id="@+id/btn_terminos_socio_ok"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_terminos_1"
-                android:visibility="gone" />
+                <!-- Botones INE ok-->
+                <Button
+                    android:id="@+id/button2_socio_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button1_socio_ok" />
+                <TextView
+                    android:id="@+id/txt_btn2_head_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button2_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio_ok" />
+                <TextView
+                    android:id="@+id/body_btn2_ok"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_ine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button2_socio_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_ok"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_2_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button2_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio_ok"/>
 
-            <!-- Boton para ine ok-->
-            <ImageView
-                android:id="@+id/btn_ine_socio_ok"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_ine_1"
-                android:visibility="gone"/>
+                <!-- Boton Licencia ok-->
+                <Button
+                    android:id="@+id/button3_socio_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button2_socio_ok" />
+                <TextView
+                    android:id="@+id/txt_btn3_head_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button3_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio_ok" />
+                <TextView
+                    android:id="@+id/body_btn3_ok"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_licencia"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button3_socio_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_ok"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_3_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button3_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio_ok"/>
 
-            <!-- Boton para licencia ok-->
-            <ImageView
-                android:id="@+id/btn_licencia_socio_ok"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_licencia_1"
-                android:visibility="gone"/>
+                <!-- Boton Caracteristicas ok-->
+                <Button
+                    android:id="@+id/button4_socio_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button3_socio_ok" />
+                <TextView
+                    android:id="@+id/txt_btn4_head_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button4_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio_ok" />
+                <TextView
+                    android:id="@+id/body_btn4_ok"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_caracteristicas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button4_socio_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_ok"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_4_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button4_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio_ok"/>
 
-            <!-- Boton para caracteristicas ok-->
-            <ImageView
-                android:id="@+id/btn_caracteristicas_socio_ok"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_caracteristicas_1"
-                android:visibility="gone"/>
+                <!-- Boton Tarjeta ok-->
+                <Button
+                    android:id="@+id/button5_socio_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button4_socio_ok" />
+                <TextView
+                    android:id="@+id/txt_btn5_head_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button5_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio_ok" />
+                <TextView
+                    android:id="@+id/body_btn5_ok"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button5_socio_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_ok"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_5_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button5_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio_ok"/>
 
-            <!-- Boton para tarjeta ok-->
-            <ImageView
-                android:id="@+id/btn_tarjeta_socio_ok"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_tarjeta_1"
-                android:visibility="gone"/>
+                <!-- Boton Poliza ok-->
+                <Button
+                    android:id="@+id/button6_socio_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button5_socio_ok" />
+                <TextView
+                    android:id="@+id/txt_btn6_head_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button6_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button6_socio_ok" />
+                <TextView
+                    android:id="@+id/body_btn6_ok"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_poliza"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button6_socio_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_ok"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_6_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button6_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button6_socio_ok"/>
 
-            <!-- Boton para poliza ok-->
-            <ImageView
-                android:id="@+id/btn_poliza_socio_ok"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_poliza_1"
-                android:visibility="gone"/>
+                <!-- Boton Tarjeton ok-->
+                <Button
+                    android:id="@+id/button7_socio_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button6_socio_ok" />
+                <TextView
+                    android:id="@+id/txt_btn7_head_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button7_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio_ok" />
+                <TextView
+                    android:id="@+id/body_btn7_ok"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeton"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button7_socio_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_ok"/>
+                <ImageView
+                    android:id="@+id/fwd_socio_7_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button7_socio_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio_ok"/>
 
-            <!-- Boton para poliza ok-->
-            <ImageView
-                android:id="@+id/btn_tarjeton_socio_ok"
-                android:layout_width="@dimen/width_btn_documentos"
-                android:layout_height="@dimen/heigth_btn_documentos"
-                android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_tarjeton_1"
-                android:visibility="gone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <!--- Text View para prueba -->
             <TextView
                 android:layout_width="wrap_content"
