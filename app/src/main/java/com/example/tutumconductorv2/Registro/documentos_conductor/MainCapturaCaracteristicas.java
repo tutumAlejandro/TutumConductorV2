@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
 public class MainCapturaCaracteristicas extends AppCompatActivity {

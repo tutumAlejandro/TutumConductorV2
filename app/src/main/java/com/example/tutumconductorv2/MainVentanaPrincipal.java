@@ -10,8 +10,6 @@ import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
 
 public class MainVentanaPrincipal extends AppCompatActivity {
 
-    private static String TempDataRegister = "TempData";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

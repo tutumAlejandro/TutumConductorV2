@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.documentos_conductor;
+package com.example.tutumconductorv2.Registro.menus_rol;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,7 +7,14 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCaracteristicas;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaIne;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaLicencia;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaPoliza;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjetaCirculacion;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjeton;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainTerminosYCondiciones;
 
 public class MainConductorDocumentos extends AppCompatActivity {
 
@@ -29,7 +36,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
     private ImageView btn_tarjeton_conductor_ok;
 
     private String rol= "Conductor";
-    private boolean terminos_conductor, ine_conductor, licencia_conductor, caracteristicas_conductor, tarjeta_conductor, poliza_conductor, tarjeton_conductor, codigo_conductor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,19 +61,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
         btn_tarjeton_conductor_ok = findViewById(R.id.btn_tarjeton_conductor_ok);
 
         // Obtencion de las cadenas de control para mostrar o ocultar los botones de los documentos
-        terminos_conductor= getIntent().getBooleanExtra("terminos_conductor",false);
-        ine_conductor = getIntent().getBooleanExtra("ine_conductor",false);
-        licencia_conductor = getIntent().getBooleanExtra("licencia_conductor",false);
-        caracteristicas_conductor = getIntent().getBooleanExtra("caracteristicas_conductor",false);
-        tarjeta_conductor = getIntent().getBooleanExtra("tarjeta_conductor",false);
-        poliza_conductor = getIntent().getBooleanExtra("poliza_conductor",false);
-        tarjeton_conductor = getIntent().getBooleanExtra("tarjeton_conductor",false);
-        codigo_conductor = false;
-
-
 
         // if para mostrar o ocultar el boton de terminos y condiciones
-        if(terminos_conductor){
+        /*
+        if(cadenas_registro.check_terminos2){
             btn_terminos_conductor.setVisibility(View.GONE);
             btn_terminos_conductor_ok.setVisibility(View.VISIBLE);
         }else{
@@ -74,14 +72,14 @@ public class MainConductorDocumentos extends AppCompatActivity {
         }
 
         // if para mostrar o ocultar el boton de INE
-        if(ine_conductor){
+        if(cadenas_registro.check_ine2){
             btn_ine_conductor.setVisibility(View.GONE);
             btn_ine_conductor_ok.setVisibility(View.VISIBLE);
         }else{
             btn_ine_conductor.setVisibility(View.VISIBLE);
         }
         // if para mostrar o ocultar el boton de Licencia
-        if(licencia_conductor){
+        if(cadenas_registro.check_licencia2){
             btn_licencia_conductor.setVisibility(View.GONE);
             btn_licencia_conductor_ok.setVisibility(View.VISIBLE);
         }else{
@@ -89,7 +87,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
         }
 
         // if para mostrar o ocultar el boton de las caracteristicas
-        if(caracteristicas_conductor){
+        if(cadenas_registro.check_caracterisitcas2){
             btn_caracteristicas_conductor.setVisibility(View.GONE);
             btn_caracteristicas_conductor_ok.setVisibility(View.VISIBLE);
         }else{
@@ -97,7 +95,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
         }
 
         // if para mostrar o ocultar el boton de la tarjeta
-        if(tarjeta_conductor){
+        if(cadenas_registro.check_tarjeta2){
             btn_tarjeta_conductor.setVisibility(View.GONE);
             btn_tarjeta_conductor_ok.setVisibility(View.VISIBLE);
         }else{
@@ -105,7 +103,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
         }
 
         // if para mostrar o ocultar el boton de la poliza
-        if(poliza_conductor){
+        if(cadenas_registro.check_poliza2){
             btn_poliza_conductor.setVisibility(View.GONE);
             btn_poliza_conductor_ok.setVisibility(View.VISIBLE);
         }else{
@@ -113,18 +111,17 @@ public class MainConductorDocumentos extends AppCompatActivity {
         }
 
         // if para mostrar o ocultar el boton del tarjeton
-        if(tarjeton_conductor){
+        if(cadenas_registro.check_tarjeton2){
             btn_tarjeton_conductor.setVisibility(View.GONE);
             btn_tarjeton_conductor_ok.setVisibility(View.VISIBLE);
         }else{
             btn_tarjeton_conductor.setVisibility(View.VISIBLE);
         }
-
+        */
         btn_regreso_conductor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent main_rol_conductor = new Intent(MainConductorDocumentos.this, MainRolConductor.class);
-                /*  Pasar los datos del registro entre ventanas*/
                 startActivity(main_rol_conductor);
                 finish();
             }
@@ -135,14 +132,6 @@ public class MainConductorDocumentos extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_terminos_conductor = new Intent(MainConductorDocumentos.this, MainTerminosYCondiciones.class);
                 main_terminos_conductor.putExtra("rol", rol);
-                main_terminos_conductor.putExtra("terminos_conductor",terminos_conductor);
-                main_terminos_conductor.putExtra("ine_conductor",ine_conductor);
-                main_terminos_conductor.putExtra("licencia_conductor",terminos_conductor);
-                main_terminos_conductor.putExtra("caracteristicas_conductor",caracteristicas_conductor);
-                main_terminos_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
-                main_terminos_conductor.putExtra("poliza_conductor",poliza_conductor);
-                main_terminos_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
-                main_terminos_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_terminos_conductor);
             }
         });
@@ -151,30 +140,14 @@ public class MainConductorDocumentos extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_ine_conductor = new Intent(MainConductorDocumentos.this, MainCapturaIne.class);
                 main_ine_conductor.putExtra("rol",rol);
-                main_ine_conductor.putExtra("terminos_conductor",terminos_conductor);
-                main_ine_conductor.putExtra("ine_conductor",ine_conductor);
-                main_ine_conductor.putExtra("licencia_conductor",terminos_conductor);
-                main_ine_conductor.putExtra("caracteristicas_conductor",caracteristicas_conductor);
-                main_ine_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
-                main_ine_conductor.putExtra("poliza_conductor",poliza_conductor);
-                main_ine_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
-                main_ine_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_ine_conductor);
             }
         });
         btn_licencia_conductor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main_licencia_conductor = new Intent(MainConductorDocumentos.this,MainCapturaLicencia.class);
+                Intent main_licencia_conductor = new Intent(MainConductorDocumentos.this, MainCapturaLicencia.class);
                 main_licencia_conductor.putExtra("rol",rol);
-                main_licencia_conductor.putExtra("terminos_conductor",terminos_conductor);
-                main_licencia_conductor.putExtra("ine_conductor",ine_conductor);
-                main_licencia_conductor.putExtra("licencia_conductor",terminos_conductor);
-                main_licencia_conductor.putExtra("caracteristicas_conductor",caracteristicas_conductor);
-                main_licencia_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
-                main_licencia_conductor.putExtra("poliza_conductor",poliza_conductor);
-                main_licencia_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
-                main_licencia_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_licencia_conductor);
             }
         });
@@ -183,13 +156,6 @@ public class MainConductorDocumentos extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_caracteristicas_conductor = new Intent(MainConductorDocumentos.this, MainCapturaCaracteristicas.class);
                 main_caracteristicas_conductor.putExtra("rol",rol);
-                main_caracteristicas_conductor.putExtra("terminos_conductor",terminos_conductor);
-                main_caracteristicas_conductor.putExtra("ine_conductor",ine_conductor);
-                main_caracteristicas_conductor.putExtra("licencia_conductor",terminos_conductor);
-                main_caracteristicas_conductor.putExtra("caracteristicas_conductor",caracteristicas_conductor);
-                main_caracteristicas_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
-                main_caracteristicas_conductor.putExtra("poliza_conductor",poliza_conductor);
-                main_caracteristicas_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
                 startActivity(main_caracteristicas_conductor);
             }
         });
@@ -198,13 +164,6 @@ public class MainConductorDocumentos extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_tarjeta_conductor = new Intent(MainConductorDocumentos.this, MainCapturaTarjetaCirculacion.class);
                 main_tarjeta_conductor.putExtra("rol",rol);
-                main_tarjeta_conductor.putExtra("terminos_conductor",terminos_conductor);
-                main_tarjeta_conductor.putExtra("ine_conductor",ine_conductor);
-                main_tarjeta_conductor.putExtra("licencia_conductor",terminos_conductor);
-                main_tarjeta_conductor.putExtra("caracteristicas_conductor",caracteristicas_conductor);
-                main_tarjeta_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
-                main_tarjeta_conductor.putExtra("poliza_conductor",poliza_conductor);
-                main_tarjeta_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
                 startActivity(main_tarjeta_conductor);
             }
         });
@@ -213,13 +172,6 @@ public class MainConductorDocumentos extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_poliza_conductor = new Intent(MainConductorDocumentos.this, MainCapturaPoliza.class);
                 main_poliza_conductor.putExtra("rol",rol);
-                main_poliza_conductor.putExtra("terminos_conductor",terminos_conductor);
-                main_poliza_conductor.putExtra("ine_conductor",ine_conductor);
-                main_poliza_conductor.putExtra("licencia_conductor",terminos_conductor);
-                main_poliza_conductor.putExtra("caracteristicas_conductor",caracteristicas_conductor);
-                main_poliza_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
-                main_poliza_conductor.putExtra("poliza_conductor",poliza_conductor);
-                main_poliza_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
                 startActivity(main_poliza_conductor);
             }
         });
@@ -228,14 +180,6 @@ public class MainConductorDocumentos extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_tarjeton_conductor = new Intent(MainConductorDocumentos.this, MainCapturaTarjeton.class);
                 main_tarjeton_conductor.putExtra("rol",rol);
-                main_tarjeton_conductor.putExtra("terminos_conductor",terminos_conductor);
-                main_tarjeton_conductor.putExtra("ine_conductor",ine_conductor);
-                main_tarjeton_conductor.putExtra("licencia_conductor",terminos_conductor);
-                main_tarjeton_conductor.putExtra("caracteristicas_conductor",caracteristicas_conductor);
-                main_tarjeton_conductor.putExtra("tarjeta_conductor",tarjeta_conductor);
-                main_tarjeton_conductor.putExtra("poliza_conductor",poliza_conductor);
-                main_tarjeton_conductor.putExtra("tarjeton_conductor",tarjeton_conductor);
-                main_tarjeton_conductor.putExtra("codigo_conductor",codigo_conductor);
                 startActivity(main_tarjeton_conductor);
             }
         });

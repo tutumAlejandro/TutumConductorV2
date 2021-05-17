@@ -1,9 +1,7 @@
 package com.example.tutumconductorv2.Registro.datos_personales;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 
 import com.example.tutumconductorv2.R;

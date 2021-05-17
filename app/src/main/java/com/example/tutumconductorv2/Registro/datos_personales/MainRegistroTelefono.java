@@ -63,6 +63,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
         }
         else{
             Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
+            cadenas_registro.telefono= telefono.getEditText().getText().toString().trim();
             startActivity(main_otp);
             finish();
         }
