@@ -50,6 +50,9 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:<version>'
+    //Scanner
+    implementation 'com.journeyapps:zxing-android-embedded:3.2.0'
+    implementation 'com.google.zxing:core:3.3.0'
 
 
 }

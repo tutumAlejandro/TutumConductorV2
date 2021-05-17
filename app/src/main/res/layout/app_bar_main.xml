@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@android:drawable/ic_menu_sort_by_size" />
+        app:navigationIcon="@drawable/menu_bar" />
 
     <include layout="@layout/content_main"/>
 

@@ -64,13 +64,12 @@
                     android:id="@+id/btnNombre"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
-
 
 
                 <TextView
@@ -113,11 +112,11 @@
                     android:id="@+id/btnTelefono"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
                     android:onClick="acTelefono"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnNombre"></ImageView>
 
@@ -171,11 +170,11 @@
                     android:id="@+id/btnCorreo"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
                     android:onClick="actCorreo"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnTelefono"></ImageView>
 
@@ -228,11 +227,11 @@
                     android:id="@+id/btnAcceso"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
                     android:onClick="actContrasena"
+                    android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnCorreo"></ImageView>
 
@@ -285,12 +284,13 @@
                     android:id="@+id/txtAsociado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/boring_sans_heavy"
                     android:text="@string/txtAsociado"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.199"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnCalificacionConductor"
                     tools:ignore="MissingConstraints"></TextView>
@@ -299,10 +299,10 @@
                     android:id="@+id/btnCalificacionConductor"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnAcceso"></ImageView>
 
@@ -346,10 +346,10 @@
                     android:id="@+id/btnDetalles"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtAsociado"></ImageView>
 
@@ -388,31 +388,31 @@
                     app:layout_constraintTop_toTopOf="@id/btnDetalles" />
 
 
+                <!-- Sexto boton de la recepcion de documentos -->
+
                 <TextView
                     android:id="@+id/txtAcerca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/boring_sans_heavy"
                     android:text="@string/txtAcerca"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.085"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnDetalles"
                     tools:ignore="MissingConstraints"></TextView>
-
-
-                <!-- Sexto boton de la recepcion de documentos -->
 
                 <ImageView
                     android:id="@+id/btnCalificacionApp"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txtAcerca"></ImageView>
 
@@ -444,10 +444,10 @@
                     android:id="@+id/btnCerrarSesion"
                     android:layout_width="350dp"
                     android:layout_height="78dp"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="24dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnCalificacionApp"></ImageView>
 

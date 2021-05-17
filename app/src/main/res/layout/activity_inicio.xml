@@ -273,18 +273,19 @@
                 app:layout_constraintTop_toTopOf="@+id/button_unidad"
                 app:srcCompat="@drawable/iconmonstr_coin" />
 
-            <ImageView
-                android:id="@+id/imagen_fondo_perfin_n"
-                android:layout_width="279dp"
-                android:layout_height="288dp"
-                android:layout_marginStart="104dp"
-                android:layout_marginBottom="572dp"
-                android:contentDescription="@string/fondo_naranja"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/template" />
+    <ImageView
+        android:id="@+id/imagen_fondo_perfin_n"
+        android:layout_width="211dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="136dp"
+        android:contentDescription="@string/fondo_naranja"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/template" />
 
-            <ImageView
+    <ImageView
                 android:id="@+id/imagen_fondo_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -19,11 +19,13 @@ public class ComoUsarApp extends AppCompatActivity {
 
        videoView = (VideoView) findViewById(R.id.videoView3);
 
+
         Uri uri = Uri.parse("https://www.youtube.com/watch?v=CJ5sIEqYJ6Q&t=73s");
         videoView.setMediaController(new MediaController(this));
         videoView.setVideoURI(uri);
         videoView.requestFocus();
         videoView.start();
+        videoView.isPlaying();
 
     }
 

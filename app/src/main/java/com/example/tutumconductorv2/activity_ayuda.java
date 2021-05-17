@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 
 public class activity_ayuda extends AppCompatActivity {
 
@@ -36,7 +35,9 @@ public class activity_ayuda extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentWebTerm = new Intent(Intent.ACTION_VIEW, Uri.parse(url_terminos));
+                finish();
                 startActivity(intentWebTerm);
+
             }
         });
 
@@ -45,41 +46,39 @@ public class activity_ayuda extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentWebTerm = new Intent(Intent.ACTION_VIEW, Uri.parse(url_privacidad));
+                finish();
                 startActivity(intentWebTerm);
+
             }
         });
-
-
-//        btnReportarProblema.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent problema = new Intent(activity_ayuda.this, ReportarProblema.class);
-//                startActivity(problema);
-//
-//            }
-//        });
-
-
 
     }
 
     public void btnRegresar(View V){
         Intent intentIni = new Intent(activity_ayuda.this, Inicio.class);
+        finish();
         startActivity(intentIni);
+
     }
 
     public void btnReportarProblema(View V){
         Intent intentIni = new Intent(activity_ayuda.this, ReportarProblema.class);
+        finish();
         startActivity(intentIni);
+
     }
 
     public void btnReporteTecnico(View V){
         Intent intentIni = new Intent(activity_ayuda.this, ReportarProblemaTecnico.class);
+        finish();
         startActivity(intentIni);
+
     }
 
     public void btnUsarApp(View V){
         Intent intentIni = new Intent(activity_ayuda.this, ComoUsarApp.class);
+        finish();
         startActivity(intentIni);
+
     }
 }
