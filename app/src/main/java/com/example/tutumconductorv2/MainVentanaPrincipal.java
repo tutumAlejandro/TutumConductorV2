@@ -20,7 +20,6 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     {
         Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
         startActivity(main_registrate);
-        finish();
     }
     public void btn_inicia_sesion(View v)
     {

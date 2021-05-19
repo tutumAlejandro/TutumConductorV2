@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -18,7 +19,6 @@ public class MainCapturaCodigo extends AppCompatActivity {
     private TextInputLayout codigo_vehiculo;
     private ImageView btn_regreso_codigo;
 
-    private boolean terminos_codigo, ine_codigo, licencia_codigo, caracteristicas_codigo, tarjeta_codigo, poliza_codigo, tarjeton_codigo, codigo_codigo;
     private String rol;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +26,6 @@ public class MainCapturaCodigo extends AppCompatActivity {
         setContentView(R.layout.activity_main_captura_codigo);
 
         rol = getIntent().getStringExtra("rol");
-        terminos_codigo = getIntent().getBooleanExtra("terminos_snv", false);
-        ine_codigo = getIntent().getBooleanExtra("ine_snv", false);
-        licencia_codigo = getIntent().getBooleanExtra("licencia_snv",false);
-        caracteristicas_codigo = false;
-        tarjeta_codigo = false;
-        poliza_codigo = false;
-        tarjeton_codigo = getIntent().getBooleanExtra("tarjeton_snv",false);
-        codigo_codigo = false;
 
         btn_regreso_codigo = findViewById(R.id.img_retroceso_codigo);
         codigo_vehiculo = findViewById(R.id.InputCodigo);
@@ -42,14 +34,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent main_snv_documentos = new Intent(MainCapturaCodigo.this, MainSnvDocuemtos.class);
-                main_snv_documentos.putExtra("terminos_snv",terminos_codigo);
-                main_snv_documentos.putExtra("ine_snv",ine_codigo);
-                main_snv_documentos.putExtra("licencia_snv",licencia_codigo);
-                main_snv_documentos.putExtra("caracteristicas_snv",caracteristicas_codigo);
-                main_snv_documentos.putExtra("tarjeta_snv",tarjeta_codigo);
-                main_snv_documentos.putExtra("poliza_snv",poliza_codigo);
-                main_snv_documentos.putExtra("tarjeton_snv",tarjeton_codigo);
-                main_snv_documentos.putExtra("codigo_snv",false);
+                cadenas_documentos.check_codigo3=false;
                 startActivity(main_snv_documentos);
                 finish();
             }
@@ -84,14 +69,8 @@ public class MainCapturaCodigo extends AppCompatActivity {
             return;
         }else{
             Intent main_snv_documentos = new Intent(MainCapturaCodigo.this,MainSnvDocuemtos.class);
-            main_snv_documentos.putExtra("codigo",code2);
-            main_snv_documentos.putExtra("terminos_snv",terminos_codigo);
-            main_snv_documentos.putExtra("ine_snv",ine_codigo);
-            main_snv_documentos.putExtra("caracteristicas_snv",caracteristicas_codigo);
-            main_snv_documentos.putExtra("tarjeta_snv",tarjeta_codigo);
-            main_snv_documentos.putExtra("poliza_snv",poliza_codigo);
-            main_snv_documentos.putExtra("tarjeton_snv",tarjeton_codigo);
-            main_snv_documentos.putExtra("codigo_snv",true);
+            cadenas_documentos.check_codigo3=true;
+            cadenas_documentos.Codigo=code2;
             startActivity(main_snv_documentos);
             finish();
         }

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
@@ -38,14 +39,17 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             public void onClick(View v) {
                 if(rol.matches("Socio")){
                     Intent main_socio_documentos = new Intent(MainTerminosYCondiciones.this, MainSocioDocumentos.class);
+                    cadenas_documentos.check_terminos1 = false;
                     startActivity(main_socio_documentos);
                     finish();
                 }else if(rol.matches("Conductor")){
                     Intent main_conductor_documentos = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
+                    cadenas_documentos.check_terminos2 = false;
                     startActivity(main_conductor_documentos);
                     finish();
                 }else{
                     Intent main_snv_documentos = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
+                    cadenas_documentos.check_terminos3 = false;
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -77,14 +81,17 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
 
         if(rol.matches("Socio")){
             Intent main_socio_documentos = new Intent(MainTerminosYCondiciones.this, MainSocioDocumentos.class);
+            cadenas_documentos.check_terminos1 = true;
             startActivity(main_socio_documentos);
             finish();
         }else if(rol.matches("Conductor")){
             Intent main_conductor_documentos = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
+            cadenas_documentos.check_terminos2 = true;
             startActivity(main_conductor_documentos);
             finish();
         }else{
             Intent main_snv_documentos = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
+            cadenas_documentos.check_terminos3 = true;
             startActivity(main_snv_documentos);
             finish();
         }

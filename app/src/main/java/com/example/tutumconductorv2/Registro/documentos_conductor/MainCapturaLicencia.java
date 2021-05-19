@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
@@ -25,41 +26,11 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
     private String rol;
     private String VigLicencia = " ";
 
-    private boolean terminos_licencia, ine_licencia, licencia_licencia, caracteristicas_licencia, tarjeta_licencia, poliza_licencia, tarjeton_licencia,codigo_licencia;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_licencia);
         rol = getIntent().getStringExtra("rol");
-        if (rol.matches("Socio")) {
-            terminos_licencia = getIntent().getBooleanExtra("terminos", false);
-            ine_licencia = getIntent().getBooleanExtra("ine", false);
-            licencia_licencia = getIntent().getBooleanExtra("licencia", false);
-            caracteristicas_licencia = getIntent().getBooleanExtra("caracteristicas", false);
-            tarjeta_licencia = getIntent().getBooleanExtra("tarjeta", false);
-            poliza_licencia = getIntent().getBooleanExtra("poliza", false);
-            tarjeton_licencia = getIntent().getBooleanExtra("tarjeton", false);
-            codigo_licencia = getIntent().getBooleanExtra("codigo",false);
-        } else if (rol.matches("Conductor")) {
-            terminos_licencia = getIntent().getBooleanExtra("terminos_conductor", false);
-            ine_licencia = getIntent().getBooleanExtra("ine_conductor", false);
-            licencia_licencia = getIntent().getBooleanExtra("licencia_conductor", false);
-            caracteristicas_licencia = getIntent().getBooleanExtra("caracteristicas_conductor", false);
-            tarjeta_licencia = getIntent().getBooleanExtra("tarjeta_conductor", false);
-            poliza_licencia = getIntent().getBooleanExtra("poliza_conductor", false);
-            tarjeton_licencia = getIntent().getBooleanExtra("tarjeton_conductor", false);
-            codigo_licencia = getIntent().getBooleanExtra("codigo_conductor",false);
-        } else {
-            terminos_licencia = getIntent().getBooleanExtra("terminos_snv", false);
-            ine_licencia = getIntent().getBooleanExtra("ine_snv", false);
-            licencia_licencia = getIntent().getBooleanExtra("licencia_snv", false);
-            caracteristicas_licencia = getIntent().getBooleanExtra("caracteristicas_snv", false);
-            tarjeta_licencia = getIntent().getBooleanExtra("tarjeta_snv", false);
-            poliza_licencia = getIntent().getBooleanExtra("poliza_snv", false);
-            tarjeton_licencia = getIntent().getBooleanExtra("tarjeton_snv", false);
-            codigo_licencia = getIntent().getBooleanExtra("codigo_snv",false);
-        }
         vigenciaLicencia = findViewById(R.id.VigenciaLicencia);
         btn_regreso_licencia = findViewById(R.id.img_retroceso_licencia);
 
@@ -69,38 +40,17 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
-                    main_socio_documentos.putExtra("terminos", terminos_licencia);
-                    main_socio_documentos.putExtra("ine", ine_licencia);
-                    main_socio_documentos.putExtra("licencia", false);
-                    main_socio_documentos.putExtra("caracterisitcas", caracteristicas_licencia);
-                    main_socio_documentos.putExtra("tarjeta", tarjeta_licencia);
-                    main_socio_documentos.putExtra("poliza", poliza_licencia);
-                    main_socio_documentos.putExtra("tarjeton", tarjeton_licencia);
-                    main_socio_documentos.putExtra("codigo",codigo_licencia);
+                    cadenas_documentos.check_licencia1=false;
                     startActivity(main_socio_documentos);
                     finish();
                 } else if (rol.matches("Conductor")) {
                     Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
-                    main_conductor_documentos.putExtra("terminos_conductor", terminos_licencia);
-                    main_conductor_documentos.putExtra("ine_conductor", ine_licencia);
-                    main_conductor_documentos.putExtra("licencia_conductor", false);
-                    main_conductor_documentos.putExtra("caracteristicas_conductor", caracteristicas_licencia);
-                    main_conductor_documentos.putExtra("tarjeta_conductor", tarjeta_licencia);
-                    main_conductor_documentos.putExtra("poliza_conductor", poliza_licencia);
-                    main_conductor_documentos.putExtra("tarjeton_conductor", tarjeton_licencia);
-                    main_conductor_documentos.putExtra("codigo_conductor",codigo_licencia);
+                    cadenas_documentos.check_licencia2=false;
                     startActivity(main_conductor_documentos);
                     finish();
                 } else {
                     Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
-                    main_snv_documentos.putExtra("terminos_snv", terminos_licencia);
-                    main_snv_documentos.putExtra("ine_snv", ine_licencia);
-                    main_snv_documentos.putExtra("licencia_snv", false);
-                    main_snv_documentos.putExtra("caracteristicas_snv", caracteristicas_licencia);
-                    main_snv_documentos.putExtra("tarjeta_snv", tarjeta_licencia);
-                    main_snv_documentos.putExtra("poliza_snv", poliza_licencia);
-                    main_snv_documentos.putExtra("tarjeton_snv", tarjeton_licencia);
-                    main_snv_documentos.putExtra("codigo_snv",codigo_licencia);
+                    cadenas_documentos.check_licencia3=false;
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -148,44 +98,23 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             if(rol.matches("Socio"))
             {
                 Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
-                main_socio_documentos.putExtra("VigenciaLicencia",vig);
-                main_socio_documentos.putExtra("terminos",terminos_licencia);
-                main_socio_documentos.putExtra("ine",ine_licencia);
-                main_socio_documentos.putExtra("licencia",true);
-                main_socio_documentos.putExtra("caracterisitcas",caracteristicas_licencia);
-                main_socio_documentos.putExtra("tarjeta",tarjeta_licencia);
-                main_socio_documentos.putExtra("poliza",poliza_licencia);
-                main_socio_documentos.putExtra("tarjeton",tarjeton_licencia);
-                main_socio_documentos.putExtra("codigo",codigo_licencia);
+                cadenas_documentos.vigLicencia=vig;
+                cadenas_documentos.check_licencia1=true;
                 startActivity(main_socio_documentos);
                 finish();
             }else if(rol.matches("Conductor"))
             {
                 Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
-                main_conductor_documentos.putExtra("VigenciaLicencia",vig);
-                main_conductor_documentos.putExtra("terminos_conductor",terminos_licencia);
-                main_conductor_documentos.putExtra("ine_conductor",ine_licencia);
-                main_conductor_documentos.putExtra("licencia_conductor",true);
-                main_conductor_documentos.putExtra("caracteristicas_conductor",caracteristicas_licencia);
-                main_conductor_documentos.putExtra("tarjeta_conductor",tarjeta_licencia);
-                main_conductor_documentos.putExtra("poliza_conductor",poliza_licencia);
-                main_conductor_documentos.putExtra("tarjeton_conductor",tarjeton_licencia);
-                main_conductor_documentos.putExtra("codigo_conductor",codigo_licencia);
+                cadenas_documentos.vigLicencia=vig;
+                cadenas_documentos.check_licencia2=true;
                 startActivity(main_conductor_documentos);
                 finish();
             }
             else
             {
                 Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
-                main_snv_documentos.putExtra("VigenciaLicencia",vig);
-                main_snv_documentos.putExtra("terminos_snv",terminos_licencia);
-                main_snv_documentos.putExtra("ine_snv",ine_licencia);
-                main_snv_documentos.putExtra("licencia_snv",true);
-                main_snv_documentos.putExtra("caracteristicas_snv",caracteristicas_licencia);
-                main_snv_documentos.putExtra("tarjeta_snv",tarjeta_licencia);
-                main_snv_documentos.putExtra("poliza_snv",poliza_licencia);
-                main_snv_documentos.putExtra("tarjeton_snv",tarjeton_licencia);
-                main_snv_documentos.putExtra("codigo_snv",codigo_licencia);
+                cadenas_documentos.vigLicencia=vig;
+                cadenas_documentos.check_licencia3=true;
                 startActivity(main_snv_documentos);
                 finish();
             }

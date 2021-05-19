@@ -6,20 +6,22 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-
         android:allowBackup="true"
-
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2">
-        <activity android:name=".Registro.menus_rol.MainDocumentosOkSnv"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Registro.documentos_conductor.MainTextoPoliticaPrivacidad"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.documentos_conductor.MainTextoTerminosCondiciones"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".Registro.menus_rol.MainConductorDocumentos"></activity>
+        <activity
+            android:name=".Registro.menus_rol.MainDocumentosOkSnv"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.documentos_conductor.MainTextoPoliticaPrivacidad"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.documentos_conductor.MainTextoTerminosCondiciones"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Registro.documentos_conductor.MainCapturaCodigo"
             android:theme="@style/InputTextWhite" />
@@ -38,74 +40,105 @@
         <activity
             android:name=".Registro.documentos_conductor.MainCapturaLicencia"
             android:theme="@style/InputTextBlack" />
-        <activity android:name=".Registro.documentos_conductor.MainCapturaIne"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.documentos_conductor.MainTerminosYCondiciones"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.menus_rol.MainSnvDocuemtos"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.documentos_conductor.MainConductorDocumentos"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.menus_rol.MainSocioDocumentos"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.menus_rol.MainRolConductor"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.datos_personales.MainOTP"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.datos_personales.MainRegistroTelefono"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MainInicioSesion"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Registro.datos_personales.MainRegistrate"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_ayuda"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_detalle_unidad"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_historial_viajes"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_perfil"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_problema_tecnico"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_termina_subir_documento"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_unidades"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CambioContrasena"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CambioCorreo"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CambioTelefono"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".caracteristicas_nueva_unidad"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ComoUsarApp"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ProblemaViaje"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MainVentanaPrincipal"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Main_IniciaSesion"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Inicio"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Registro.documentos_conductor.MainCapturaIne"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.documentos_conductor.MainTerminosYCondiciones"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.menus_rol.MainSnvDocuemtos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.documentos_conductor.MainConductorDocumentos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.menus_rol.MainSocioDocumentos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.menus_rol.MainRolConductor"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.datos_personales.MainOTP"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.datos_personales.MainRegistroTelefono"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainInicioSesion"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro.datos_personales.MainRegistrate"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_ayuda"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_detalle_unidad"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_historial_viajes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_perfil"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_problema_tecnico"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_termina_subir_documento"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_unidades"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CambioContrasena"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CambioCorreo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CambioTelefono"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".caracteristicas_nueva_unidad"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ComoUsarApp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProblemaViaje"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainVentanaPrincipal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Main_IniciaSesion"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Inicio"
+            android:screenOrientation="portrait" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"
-                    android:screenOrientation="portrait"/>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_ganancias"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ReportarProblema"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ReportarProblemaTecnico"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity_chat_reporte"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity_ganancias"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReportarProblema"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReportarProblemaTecnico"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity_chat_reporte"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

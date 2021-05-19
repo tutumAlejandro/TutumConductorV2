@@ -5,251 +5,789 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Registro.menus_rol.MainConductorDocumentos"
-    android:background="@color/white"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="@color/white">
     <ScrollView
-        android:id="@+id/scroll_conductor_documentos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <ImageView
                     android:id="@+id/img_retroceso_documentos_conductor"
                     android:layout_width="@dimen/width_img_retroceso"
                     android:layout_height="@dimen/heigth_img_retroceso"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="28dp"
-                    android:contentDescription="@string/todo"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/flecha_retroceso" />
-
+                    app:srcCompat="@drawable/flecha_retroceso"/>
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="32dp"
-                    android:contentDescription="@string/todo"
                     android:src="@drawable/cuadros"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/text_completar_el_registro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/open_sans_bold"
                 android:text="@string/txt_documentos_text1"
-                android:textColor="@color/black"
-                android:textSize="@dimen/size_txt_completar" />
-
+                android:textColor="@color/darkest"
+                android:textSize="@dimen/size_txt_completar_registro"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
             <TextView
-                android:id="@+id/text_documentos_usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/open_sans_bold"
+                android:id="@+id/text_documentos_usuario"
                 android:text="@string/btn_text_registrate"
                 android:textColor="@color/black"
-                android:textSize="@dimen/size_txt_bienvenida" />
-
+                android:textSize="@dimen/size_txt_bienvenida"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/open_sans_bold"
                 android:text="@string/txt_documentos_text2"
                 android:textColor="@color/black"
-                android:textSize="@dimen/size_txt_pasos_restantes" />
-
+                android:textSize="@dimen/size_txt_pasos_restantes"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/open_sans_regular"
                 android:text="@string/txt_documentos_text3"
                 android:textColor="@color/black"
-                android:textSize="@dimen/size_txt_completar" />
-                <!-- Boton para leer los terminos y condiciones -->
+                android:textSize="@dimen/size_txt_completar"
+                android:fontFamily="@font/open_sans_regular"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"/>
+            <!-- despliege de los botones -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- Declaracion de un boton con sin imagenes -->
 
-                <ImageView
-                    android:id="@+id/btn_terminos_conductor"
+                <!-- Botones Terminos y Condiciones Socio -->
+                <Button
+                    android:id="@+id/button1_conductor"
                     android:layout_width="@dimen/width_btn_documentos"
                     android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_terminos_y_condiciones_1" />
-
-                <!-- Boton para la captura de la Identificacion Oficial INE -->
-                <ImageView
-                    android:id="@+id/btn_ine_conductor"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_ine_1"/>
-
-                <!-- Boton para la captura de la Licencia -->
-
-                <ImageView
-                    android:id="@+id/btn_licencia_conductor"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_licencia_1"/>
-
-                <!-- Boton para la captura de las caracteristicas del vehiculo -->
-                <ImageView
-                    android:id="@+id/btn_caracteristicas_conductor"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_caracteristicas_1"/>
-
-                <!-- Boton para la captura de la tarjeta -->
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    android:onClick="terminos_conductor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/txt_btn1_head_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_sig_paso"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button1_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button1_conductor" />
+                <TextView
+                    android:id="@+id/body_btn1_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_aceptar_terminos"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintBottom_toBottomOf="@+id/button1_conductor"
+                    app:layout_constraintStart_toStartOf="@+id/button1_conductor" />
 
                 <ImageView
-                    android:id="@+id/btn_tarjeta_conductor"
+                    android:id="@+id/fwd_conductor_1"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button1_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button1_conductor" />
+
+                <!-- Botones INE -->
+                <Button
+                    android:id="@+id/button2_conductor"
                     android:layout_width="@dimen/width_btn_documentos"
                     android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_tarjeta_1"/>
-
-                <!-- Boton para la captura de la poliza -->
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    android:onClick="ine_conductor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button1_conductor" />
+                <TextView
+                    android:id="@+id/txt_btn2_head_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button2_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button2_conductor" />
+                <TextView
+                    android:id="@+id/body_btn2_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_ine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button2_conductor"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_conductor"/>
 
                 <ImageView
-                    android:id="@+id/btn_poliza_conductor"
+                    android:id="@+id/fwd_conductor_2"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button2_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button2_conductor" />
+
+                <!-- Boton Licencia -->
+                <Button
+                    android:id="@+id/button3_conductor"
                     android:layout_width="@dimen/width_btn_documentos"
                     android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_poliza_1"/>
-
-                <!-- Boton para la captura del tarjeton -->
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    android:onClick="licencia_conductor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button2_conductor" />
+                <TextView
+                    android:id="@+id/txt_btn3_head_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button3_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button3_conductor" />
+                <TextView
+                    android:id="@+id/body_btn3_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_licencia"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button3_conductor"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_conductor"/>
 
                 <ImageView
-                    android:id="@+id/btn_tarjeton_conductor"
+                    android:id="@+id/fwd_conductor_3"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button3_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button3_conductor" />
+
+                <!-- Boton Caracteristicas -->
+                <Button
+                    android:id="@+id/button4_conductor"
                     android:layout_width="@dimen/width_btn_documentos"
                     android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_tarjeton_1"/>
-
-                <!-- Boton para leer los terminos y condiciones ok-->
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    android:onClick="caracteristicas_conductor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button3_conductor" />
+                <TextView
+                    android:id="@+id/txt_btn4_head_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button4_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button4_conductor" />
+                <TextView
+                    android:id="@+id/body_btn4_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_caracteristicas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button4_conductor"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_conductor"/>
 
                 <ImageView
-                    android:id="@+id/btn_terminos_conductor_ok"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ok_terminos_1"
-                    android:visibility="gone" />
+                    android:id="@+id/fwd_conductor_4"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button4_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button4_conductor" />
 
-                <!-- Boton para la captura de la Identificacion Oficial INE -->
-                <ImageView
-                    android:id="@+id/btn_ine_conductor_ok"
+                <!-- Boton Tarjeta -->
+                <Button
+                    android:id="@+id/button5_conductor"
                     android:layout_width="@dimen/width_btn_documentos"
                     android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ok_ine_1"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    android:onClick="tarjeta_conductor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button4_conductor" />
+                <TextView
+                    android:id="@+id/txt_btn5_head_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button5_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button5_conductor" />
+                <TextView
+                    android:id="@+id/body_btn5_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button5_conductor"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_conductor"/>
+
+                <ImageView
+                    android:id="@+id/fwd_conductor_5"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button5_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button5_conductor" />
+
+                <!-- Boton Poliza -->
+                <Button
+                    android:id="@+id/button6_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    android:onClick="poliz_conductor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button5_conductor" />
+                <TextView
+                    android:id="@+id/txt_btn6_head_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button6_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button6_conductor" />
+                <TextView
+                    android:id="@+id/body_btn6_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_poliza"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button6_conductor"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_conductor"/>
+
+                <ImageView
+                    android:id="@+id/fwd_conductor_6"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button6_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button6_conductor" />
+
+                <!-- Boton Tarjeton -->
+                <Button
+                    android:id="@+id/button7_conductor"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    android:onClick="tarjeton_conductor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button6_conductor" />
+                <TextView
+                    android:id="@+id/txt_btn7_head_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/daysi"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button7_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button7_conductor" />
+                <TextView
+                    android:id="@+id/body_btn7_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeton"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button7_conductor"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_conductor"/>
+
+                <ImageView
+                    android:id="@+id/fwd_conductor_7"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/flecha_adelante"
+                    app:layout_constraintEnd_toEndOf="@+id/button7_conductor"
+                    app:layout_constraintTop_toTopOf="@+id/button7_conductor" />
+
+                <!-- Despliege de los botones para cuando se suben los documentos bien -->
+
+                <!-- Botones Terminos y Condiciones Socio ok-->
+                <Button
+                    android:id="@+id/button1_conductor_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button7_conductor"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/txt_btn1_head_ok_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button1_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button1_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body_btn1_ok_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_aceptar_terminos"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintBottom_toBottomOf="@+id/button1_conductor_ok"
+                    app:layout_constraintStart_toStartOf="@+id/button1_conductor_ok"
                     android:visibility="gone"/>
 
-                <!-- Boton para la captura de la Licencia -->
-
                 <ImageView
-                    android:id="@+id/btn_licencia_conductor_ok"
+                    android:id="@+id/fwd_conductor_1_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/button1_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button1_conductor_ok" />
+
+                <!-- Botones INE ok-->
+                <Button
+                    android:id="@+id/button2_conductor_ok"
                     android:layout_width="@dimen/width_btn_documentos"
                     android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ok_licencia_1"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button1_conductor_ok"
                     android:visibility="gone"/>
-
-                <!-- Boton para la captura de las caracteristicas del vehiculo -->
-                <ImageView
-                    android:id="@+id/btn_caracteristicas_conductor_ok"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ok_caracteristicas_1"
+                <TextView
+                    android:id="@+id/txt_btn2_head_ok_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button2_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button2_conductor_ok"
                     android:visibility="gone"/>
-
-                <!-- Boton para la captura de la tarjeta -->
-
-                <ImageView
-                    android:id="@+id/btn_tarjeta_conductor_ok"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ok_tarjeta_1"
+                <TextView
+                    android:id="@+id/body_btn2_ok_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_ine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button2_conductor_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_ok_conductor"
                     android:visibility="gone"/>
-
-                <!-- Boton para la captura de la poliza -->
-
-                <ImageView
-                    android:id="@+id/btn_poliza_conductor_ok"
-                    android:layout_width="@dimen/width_btn_documentos"
-                    android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ok_poliza_1"
-                    android:visibility="gone"/>
-
-                <!-- Boton para la captura del tarjeton -->
 
                 <ImageView
-                    android:id="@+id/btn_tarjeton_conductor_ok"
+                    android:id="@+id/fwd_conductor_2_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/button2_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button2_conductor_ok" />
+
+                <!-- Boton Licencia ok-->
+                <Button
+                    android:id="@+id/button3_conductor_ok"
                     android:layout_width="@dimen/width_btn_documentos"
                     android:layout_height="@dimen/heigth_btn_documentos"
-                    android:layout_marginStart="@dimen/margin_start_btn_documentos"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ok_tarjeton_1"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button2_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/txt_btn3_head_ok_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button3_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button3_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body_btn3_ok_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_licencia"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button3_conductor_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_ok_conductor"
                     android:visibility="gone"/>
 
-            <!--- Text View para prueba -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/conductor"
-                android:textColor="@color/black"
-                android:textSize="16sp"></TextView>
+                <ImageView
+                    android:id="@+id/fwd_conductor_3_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/button3_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button3_conductor_ok" />
 
-            <!--- Text View para prueba -->
+                <!-- Boton Caracteristicas ok-->
+                <Button
+                    android:id="@+id/button4_conductor_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button3_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/txt_btn4_head_ok_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button4_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button4_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body_btn4_ok_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_caracteristicas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button4_conductor_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_ok_conductor"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/fwd_conductor_4_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/button4_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button4_conductor_ok" />
+
+                <!-- Boton Tarjeta ok-->
+                <Button
+                    android:id="@+id/button5_conductor_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button4_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/txt_btn5_head_ok_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button5_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button5_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body_btn5_ok_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button5_conductor_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_ok_conductor"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/fwd_conductor_5_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/button5_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button5_conductor_ok" />
+
+                <!-- Boton Poliza ok-->
+                <Button
+                    android:id="@+id/button6_conductor_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button5_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/txt_btn6_head_ok_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button6_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button6_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body_btn6_ok_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_poliza"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button6_conductor_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_ok_conductor"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/fwd_conductor_6_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    app:layout_constraintEnd_toEndOf="@+id/button6_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button6_conductor_ok" />
+
+                <!-- Boton Tarjeton ok-->
+                <Button
+                    android:id="@+id/button7_conductor_ok"
+                    android:layout_width="@dimen/width_btn_documentos"
+                    android:layout_height="@dimen/heigth_btn_documentos"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_documentos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button6_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/txt_btn7_head_ok_conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_listo_comenzar"
+                    android:textColor="@color/ok"
+                    android:textSize="@dimen/size_text_head_btn"
+                    app:layout_constraintStart_toStartOf="@+id/button7_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button7_conductor_ok"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body_btn7_ok_conductor"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeton"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button7_conductor_ok"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_ok_conductor"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/fwd_conductor_7_ok"
+                    android:layout_width="@dimen/width_heigth_arrow_fwd"
+                    android:layout_height="@dimen/width_heigth_arrow_fwd"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/imagenes"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/button7_conductor_ok"
+                    app:layout_constraintTop_toTopOf="@+id/button7_conductor_ok" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

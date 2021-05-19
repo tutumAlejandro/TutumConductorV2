@@ -90,6 +90,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
+                    android:onClick="terminos_socio"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
                 <TextView
@@ -137,6 +138,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
+                    android:onClick="ine_socio"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button1_socio" />
                 <TextView
@@ -183,6 +185,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
+                    android:onClick="licencia_socio"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button2_socio" />
                 <TextView
@@ -229,6 +232,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
+                    android:onClick="caracterisitcas_socio"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button3_socio" />
                 <TextView
@@ -275,6 +279,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
+                    android:onClick="tarjeta_socio"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button4_socio" />
                 <TextView
@@ -321,6 +326,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
+                    android:onClick="poliza_socio"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button5_socio" />
                 <TextView
@@ -367,6 +373,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
+                    android:onClick="tarjeton_socio"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button6_socio" />
                 <TextView
@@ -416,7 +423,8 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button7_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button7_socio"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txt_btn1_head_ok"
                     android:layout_width="wrap_content"
@@ -429,7 +437,8 @@
                     android:textColor="@color/ok"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button1_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button1_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/body_btn1_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -442,7 +451,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintBottom_toBottomOf="@+id/button1_socio_ok"
-                    app:layout_constraintStart_toStartOf="@+id/button1_socio_ok" />
+                    app:layout_constraintStart_toStartOf="@+id/button1_socio_ok"
+                    android:visibility="gone"/>
                 <ImageView
                     android:id="@+id/fwd_socio_1_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -452,7 +462,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button1_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button1_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio_ok"
+                    android:visibility="gone"/>
 
                 <!-- Botones INE ok-->
                 <Button
@@ -463,7 +474,8 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button1_socio_ok" />
+                    app:layout_constraintTop_toBottomOf="@id/button1_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txt_btn2_head_ok"
                     android:layout_width="wrap_content"
@@ -476,7 +488,8 @@
                     android:textColor="@color/ok"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button2_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button2_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/body_btn2_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -488,7 +501,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button2_socio_ok"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_ok"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_ok"
+                    android:visibility="gone"/>
                 <ImageView
                     android:id="@+id/fwd_socio_2_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -498,7 +512,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button2_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button2_socio_ok"/>
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio_ok"
+                    android:visibility="gone"/>
 
                 <!-- Boton Licencia ok-->
                 <Button
@@ -509,7 +524,8 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button2_socio_ok" />
+                    app:layout_constraintTop_toBottomOf="@id/button2_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txt_btn3_head_ok"
                     android:layout_width="wrap_content"
@@ -522,7 +538,8 @@
                     android:textColor="@color/ok"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button3_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button3_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/body_btn3_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -544,7 +561,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button3_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button3_socio_ok"/>
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio_ok"
+                    android:visibility="gone"/>
 
                 <!-- Boton Caracteristicas ok-->
                 <Button
@@ -555,7 +573,8 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button3_socio_ok" />
+                    app:layout_constraintTop_toBottomOf="@id/button3_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txt_btn4_head_ok"
                     android:layout_width="wrap_content"
@@ -568,7 +587,8 @@
                     android:textColor="@color/ok"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button4_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button4_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/body_btn4_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -580,7 +600,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button4_socio_ok"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_ok"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_ok"
+                    android:visibility="gone"/>
                 <ImageView
                     android:id="@+id/fwd_socio_4_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -590,7 +611,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button4_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button4_socio_ok"/>
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio_ok"
+                    android:visibility="gone"/>
 
                 <!-- Boton Tarjeta ok-->
                 <Button
@@ -601,7 +623,8 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button4_socio_ok" />
+                    app:layout_constraintTop_toBottomOf="@id/button4_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txt_btn5_head_ok"
                     android:layout_width="wrap_content"
@@ -614,7 +637,8 @@
                     android:textColor="@color/ok"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button5_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button5_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/body_btn5_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -626,7 +650,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button5_socio_ok"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_ok"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_ok"
+                    android:visibility="gone"/>
                 <ImageView
                     android:id="@+id/fwd_socio_5_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -636,7 +661,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button5_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button5_socio_ok"/>
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio_ok"
+                    android:visibility="gone"/>
 
                 <!-- Boton Poliza ok-->
                 <Button
@@ -647,7 +673,8 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button5_socio_ok" />
+                    app:layout_constraintTop_toBottomOf="@id/button5_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txt_btn6_head_ok"
                     android:layout_width="wrap_content"
@@ -660,7 +687,8 @@
                     android:textColor="@color/ok"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button6_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button6_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button6_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/body_btn6_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -672,7 +700,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button6_socio_ok"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_ok"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_ok"
+                    android:visibility="gone"/>
                 <ImageView
                     android:id="@+id/fwd_socio_6_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -693,7 +722,8 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button6_socio_ok" />
+                    app:layout_constraintTop_toBottomOf="@id/button6_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txt_btn7_head_ok"
                     android:layout_width="wrap_content"
@@ -706,7 +736,8 @@
                     android:textColor="@color/ok"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button7_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button7_socio_ok" />
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio_ok"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/body_btn7_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -718,7 +749,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button7_socio_ok"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_ok"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_ok"
+                    android:visibility="gone"/>
                 <ImageView
                     android:id="@+id/fwd_socio_7_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -728,7 +760,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button7_socio_ok"
-                    app:layout_constraintTop_toTopOf="@+id/button7_socio_ok"/>
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio_ok"
+                    android:visibility="gone"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!--- Text View para prueba -->
