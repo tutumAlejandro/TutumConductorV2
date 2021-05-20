@@ -148,18 +148,31 @@
                     app:layout_constraintBottom_toTopOf="@+id/btn_caracteristicas_lateral"
                     app:layout_constraintStart_toStartOf="@+id/btn_caracteristicas_lateral" />
 
-                <Spinner
-                    android:id="@+id/spFabricantes"
-                    android:layout_width="@dimen/width_input_largo"
-                    android:layout_height="40dp"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_trasera"
-                    android:layout_marginStart="@dimen/margin_img_camara_border"
-                    android:layout_marginTop="@dimen/margin_img_camra_top"/>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+            <Spinner
+                android:id="@+id/spFabricantes"
+                android:layout_width="@dimen/width_input_mediano"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_img_camra_top"
+                android:clickable="true"
+                android:spinnerMode="dialog" />
+            <Spinner
+                android:id="@+id/spModelo"
+                android:layout_width="@dimen/width_input_mediano"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/margin_img_camra_top"
+                android:spinnerMode="dialog"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/test_fabs"
+                android:textSize="16sp"
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/black"/>
 
             <Button
                 android:id="@+id/btn_guardar_licencia"
@@ -169,6 +182,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/boton_redondo"
+
                 android:text="@string/btn_text_guardar"
                 android:textColor="@color/white"
                 android:textSize="@dimen/size_text_btn" />
