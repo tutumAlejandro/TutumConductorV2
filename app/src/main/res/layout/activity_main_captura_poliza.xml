@@ -83,25 +83,27 @@
                 android:id="@+id/imagenes_poliza"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/img_frontal_poliza"
+
+                <ImageButton
+                    android:id="@+id/btn_img_poliza"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginStart="@dimen/margin_img_camara_border_one"
                     android:layout_marginTop="@dimen/margin_img_camra_top"
-                    android:contentDescription="@string/imagenes"
+                    android:background="@color/fondo_captura_img"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_camara_tutum" />
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
                 <TextView
+                    android:id="@+id/txt_frontal_licencia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txt_frontal_licencia"
                     android:text="@string/img_txt_frontal"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintStart_toStartOf="@id/img_frontal_poliza"
-                    app:layout_constraintBottom_toTopOf="@id/img_frontal_poliza"/>
+                    app:layout_constraintBottom_toTopOf="@+id/btn_img_poliza"
+                    app:layout_constraintStart_toStartOf="@+id/btn_img_poliza" />
 
                 <ImageView
                     android:id="@+id/icon_calendar_poliza"
@@ -119,7 +121,7 @@
                     android:layout_width="@dimen/width_input_date"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:focusable="false"
                     android:hint="@string/input_vigencia"
@@ -132,7 +134,7 @@
                     android:textColorLink="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon_calendar_poliza"
-                    app:layout_constraintTop_toBottomOf="@+id/img_frontal_poliza" />
+                    app:layout_constraintTop_toBottomOf="@+id/btn_img_poliza" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button

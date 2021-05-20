@@ -19,5 +19,6 @@
     <color name="Yelowh">#FFDB9831</color>
     <color name="light">#FFDCDCDC</color>
     <color name="dark">#FF1F1F1F</color>
+    <color name="fondo_captura_img">#FFDCEFDB</color>
 
 </resources>

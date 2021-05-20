@@ -121,45 +121,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/img_frontal_licencia"
+                <ImageButton
+                    android:id="@+id/btn_frontal_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginStart="@dimen/margin_img_camara_border"
                     android:layout_marginTop="@dimen/margin_img_camra_top"
+                    android:background="@color/fondo_captura_img"
                     android:contentDescription="@string/imagenes"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_camara_tutum" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_frontal_licencia"
-                    android:text="@string/img_txt_frontal"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintStart_toStartOf="@id/img_frontal_licencia"
-                    app:layout_constraintBottom_toTopOf="@id/img_frontal_licencia"/>
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
-                <ImageView
-                    android:id="@+id/img_reverso_licencia"
+                <ImageButton
+                    android:id="@+id/btn_reverso_licencia"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginTop="@dimen/margin_img_camra_top"
                     android:layout_marginEnd="@dimen/margin_img_camara_border"
+                    android:background="@color/fondo_captura_img"
                     android:contentDescription="@string/imagenes"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_camara_tutum" />
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
                 <TextView
+                    android:id="@+id/txt_frontal_licencia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/img_txt_frontal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_capture"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_frontal_licencia"
+                    app:layout_constraintStart_toStartOf="@+id/btn_frontal_licencia" />
+
+                <TextView
                     android:id="@+id/txt_reverso_licencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/img_txt_reverso"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintStart_toStartOf="@id/img_reverso_licencia"
-                    app:layout_constraintBottom_toTopOf="@id/img_reverso_licencia"/>
+                    app:layout_constraintBottom_toTopOf="@+id/btn_reverso_licencia"
+                    app:layout_constraintStart_toStartOf="@+id/btn_reverso_licencia" />
 
 
                 <ImageView
@@ -178,8 +182,8 @@
                     android:id="@+id/VigenciaLicencia"
                     android:layout_width="@dimen/width_input_date"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="16dp"
                     android:clickable="true"
                     android:focusable="false"
                     android:hint="@string/input_vigencia"
@@ -192,7 +196,8 @@
                     android:textColorLink="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon_calendar_licencia"
-                    app:layout_constraintTop_toBottomOf="@+id/img_reverso_licencia" />
+                    app:layout_constraintTop_toBottomOf="@+id/btn_frontal_licencia"
+                    app:layout_constraintVertical_bias="1.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button

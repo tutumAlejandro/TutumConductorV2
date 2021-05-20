@@ -83,16 +83,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/img_frontal_caracteristicas"
+                <ImageButton
+                    android:id="@+id/btn_caracteristicas_frontal"
+                    android:layout_width="@dimen/width_img_camera"
+                    android:layout_height="@dimen/heigth_img_camara"
+                    android:layout_marginStart="@dimen/margin_img_camara_border_one"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"
+                    android:background="@color/fondo_captura_img"
+                    android:contentDescription="@string/imagenes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
+                <ImageButton
+                    android:id="@+id/btn_caracteristicas_trasera"
+                    android:layout_width="@dimen/width_img_camera"
+                    android:layout_height="@dimen/heigth_img_camara"
+                    android:layout_marginStart="@dimen/margin_img_camara_border"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"
+                    android:background="@color/fondo_captura_img"
+                    android:contentDescription="@string/imagenes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_frontal"
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
+                <ImageButton
+                    android:id="@+id/btn_caracteristicas_lateral"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginTop="@dimen/margin_img_camra_top"
-                    android:contentDescription="@string/imagenes"
+                    android:layout_marginEnd="@dimen/margin_img_camara_border"
+                    android:background="@color/fondo_captura_img"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_camara_tutum" />
+                    app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_frontal"
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
                 <TextView
                     android:id="@+id/txt_frontal_caracteristicas"
@@ -101,20 +125,8 @@
                     android:text="@string/img_txt_frontal"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintBottom_toTopOf="@id/img_frontal_caracteristicas"
-                    app:layout_constraintStart_toStartOf="@id/img_frontal_caracteristicas" />
-
-                <ImageView
-                    android:id="@+id/img_reverso_caracteristicas"
-                    android:layout_width="@dimen/width_img_camera"
-                    android:layout_height="@dimen/heigth_img_camara"
-                    android:layout_marginStart="@dimen/margin_img_camara_border"
-                    android:layout_marginTop="@dimen/margin_img_camra_top"
-                    android:layout_marginEnd="@dimen/margin_img_camara_border"
-                    android:contentDescription="@string/imagenes"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_frontal_caracteristicas"
-                    app:srcCompat="@drawable/img_camara_tutum" />
+                    app:layout_constraintBottom_toTopOf="@+id/btn_caracteristicas_frontal"
+                    app:layout_constraintStart_toStartOf="@+id/btn_caracteristicas_frontal" />
 
                 <TextView
                     android:id="@+id/txt_reverso_caracteristicas"
@@ -123,20 +135,8 @@
                     android:text="@string/img_txt_trasera"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintBottom_toTopOf="@id/img_reverso_caracteristicas"
-                    app:layout_constraintStart_toStartOf="@id/img_reverso_caracteristicas" />
-
-                <ImageView
-                    android:id="@+id/img_lateral_caracteristicas"
-                    android:layout_width="@dimen/width_img_camera"
-                    android:layout_height="@dimen/heigth_img_camara"
-                    android:layout_marginStart="@dimen/margin_img_camara_border"
-                    android:layout_marginTop="@dimen/margin_img_camra_top"
-                    android:layout_marginEnd="@dimen/margin_img_camara_border"
-                    android:contentDescription="@string/imagenes"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_frontal_caracteristicas"
-                    app:srcCompat="@drawable/img_camara_tutum" />
+                    app:layout_constraintBottom_toTopOf="@+id/btn_caracteristicas_trasera"
+                    app:layout_constraintStart_toStartOf="@+id/btn_caracteristicas_trasera" />
 
                 <TextView
                     android:id="@+id/txt_lateral_caracteristicas"
@@ -145,18 +145,18 @@
                     android:text="@string/img_txt_lateral"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintBottom_toTopOf="@id/img_lateral_caracteristicas"
-                    app:layout_constraintStart_toStartOf="@id/img_lateral_caracteristicas" />
+                    app:layout_constraintBottom_toTopOf="@+id/btn_caracteristicas_lateral"
+                    app:layout_constraintStart_toStartOf="@+id/btn_caracteristicas_lateral" />
 
                 <Spinner
                     android:id="@+id/spFabricantes"
                     android:layout_width="@dimen/width_input_largo"
                     android:layout_height="40dp"
-                    android:layout_marginTop="40dp"
                     android:spinnerMode="dialog"
-                    app:layout_constraintEnd_toEndOf="@+id/img_lateral_caracteristicas"
-                    app:layout_constraintStart_toStartOf="@+id/img_reverso_caracteristicas"
-                    app:layout_constraintTop_toBottomOf="@+id/img_reverso_caracteristicas" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_trasera"
+                    android:layout_marginStart="@dimen/margin_img_camara_border"
+                    android:layout_marginTop="@dimen/margin_img_camra_top"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
