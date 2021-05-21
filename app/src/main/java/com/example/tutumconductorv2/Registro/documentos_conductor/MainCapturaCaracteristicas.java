@@ -171,6 +171,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                            public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Buick":{m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Buick);
                           spModelo.setAdapter(m1);
+                            cadenas_documentos.fabricante=fabricantes[position];
                           spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                           @Override
                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -180,6 +181,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                           public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Chevrolet": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Chevrolet);
                                spModelo.setAdapter(m1);
+                               cadenas_documentos.fabricante=fabricantes[position];
                                spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                @Override
                                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -189,6 +191,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Fiat": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Fiat);
                           spModelo.setAdapter(m1);
+                          cadenas_documentos.fabricante=fabricantes[position];
                           spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                           @Override
                           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -198,6 +201,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                           public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Ford": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Ford);
                           spModelo.setAdapter(m1);
+                          cadenas_documentos.fabricante=fabricantes[position];
                           spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                               @Override
                               public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -207,6 +211,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                               public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Honda": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Honda);
                            spModelo.setAdapter(m1);
+                           cadenas_documentos.fabricante=fabricantes[position];
                            spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                            @Override
                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -216,6 +221,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                            public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Hyundai": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Hyundai);
                              spModelo.setAdapter(m1);
+                             cadenas_documentos.fabricante=fabricantes[position];
                              spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                              @Override
                              public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -225,6 +231,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                              public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Kia": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Kia);
                          spModelo.setAdapter(m1);
+                         cadenas_documentos.fabricante=fabricantes[position];
                          spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                          @Override
                          public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -234,6 +241,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                          public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Mazda": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mazda);
                            spModelo.setAdapter(m1);
+                           cadenas_documentos.fabricante=fabricantes[position];
                            spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                @Override
                                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -243,6 +251,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                               public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Mercedes Benz": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mercedez_Benz);
                                    spModelo.setAdapter(m1);
+                                   cadenas_documentos.fabricante=fabricantes[position];
                                    spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                         @Override
                                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -252,6 +261,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                         public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Mitsubishi": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mitsubishi);
                                 spModelo.setAdapter(m1);
+                                cadenas_documentos.fabricante=fabricantes[position];
                                 spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                         @Override
                                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -261,6 +271,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                         public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Nissan": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Nissan);
                             spModelo.setAdapter(m1);
+                            cadenas_documentos.fabricante=fabricantes[position];
                             spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                        @Override
                                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -270,6 +281,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                        public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Peugeot": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Peugeot);
                              spModelo.setAdapter(m1);
+                             cadenas_documentos.fabricante=fabricantes[position];
                              spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                        @Override
                                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -279,6 +291,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                       public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Renault": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Renault);
                              spModelo.setAdapter(m1);
+                             cadenas_documentos.fabricante=fabricantes[position];
                              spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                        @Override
                                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -288,6 +301,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                         public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Subaru": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Subaru);
                             spModelo.setAdapter(m1);
+                            cadenas_documentos.fabricante=fabricantes[position];
                             spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                                   public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -297,6 +311,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                   public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Suzuki": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Susuki);
                             spModelo.setAdapter(m1);
+                            cadenas_documentos.fabricante=fabricantes[position];
                             spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                               public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -306,6 +321,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Toyota": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Toyota);
                             spModelo.setAdapter(m1);
+                             cadenas_documentos.fabricante=fabricantes[position];
                             spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                  @Override
                                  public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -315,6 +331,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                                   public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
             case "Volkswagen": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Volkswagen);
                                 spModelo.setAdapter(m1);
+                                 cadenas_documentos.fabricante=fabricantes[position];
                                 spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                  @Override
                                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
