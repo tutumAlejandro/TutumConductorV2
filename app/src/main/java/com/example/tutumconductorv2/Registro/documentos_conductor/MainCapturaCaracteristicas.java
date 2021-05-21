@@ -144,25 +144,184 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         switch (fabricantes[position])
         {
             case "Fabricante del Vehiculo": {spModelo.setAdapter(m1);}break;
-            case "Audi": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_audi);spModelo.setAdapter(m1);}break;
-            case "BMW":  {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_BW);spModelo.setAdapter(m1);}break;
-            case "Buick":{m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Buick);spModelo.setAdapter(m1);}break;
-            case "Chevrolet": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Chevrolet);spModelo.setAdapter(m1);}break;
-            case "Fiat": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Fiat);spModelo.setAdapter(m1);}break;
-            case "Ford": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Ford);spModelo.setAdapter(m1);}break;
-            case "Honda": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Honda);spModelo.setAdapter(m1);}break;
-            case "Hyundai": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Hyundai);spModelo.setAdapter(m1);}break;
-            case "Kia": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Kia);spModelo.setAdapter(m1);}break;
-            case "Mazda": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mazda);spModelo.setAdapter(m1);}break;
-            case "Mercedes Benz": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mercedez_Benz);spModelo.setAdapter(m1);}break;
-            case "Mitsubishi": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mitsubishi);spModelo.setAdapter(m1);}break;
-            case "Nissan": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Nissan);spModelo.setAdapter(m1);}break;
-            case "Peugeot": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Peugeot);spModelo.setAdapter(m1);}break;
-            case "Renault": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Renault);spModelo.setAdapter(m1);}break;
-            case "Subaru": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Subaru);spModelo.setAdapter(m1);}break;
-            case "Suzuki": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Susuki);spModelo.setAdapter(m1);}break;
-            case "Toyota": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Toyota);spModelo.setAdapter(m1);}break;
-            case "Volkswagen": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Volkswagen);spModelo.setAdapter(m1);}break;
+            case "Audi": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_audi);
+                          spModelo.setAdapter(m1);
+                          cadenas_documentos.fabricante=fabricantes[position];
+                          spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                              @Override
+                              public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                  cadenas_documentos.modelo=modelos_audi[i];
+                              }
+
+                              @Override
+                              public void onNothingSelected(AdapterView<?> parent) {
+
+                              }
+                          } ); }break;
+            case "BMW":  {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_BW);
+                          spModelo.setAdapter(m1);
+                          cadenas_documentos.fabricante=fabricantes[position];
+                          spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                          @Override
+                          public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                          cadenas_documentos.modelo=modelos_BW[i];
+                            }
+
+                           @Override
+                           public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Buick":{m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Buick);
+                          spModelo.setAdapter(m1);
+                          spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                          @Override
+                           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                              cadenas_documentos.modelo=modelos_Buick[i]; }
+
+                          @Override
+                          public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Chevrolet": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Chevrolet);
+                               spModelo.setAdapter(m1);
+                               spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                               @Override
+                               public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                               cadenas_documentos.modelo=modelos_Chevrolet[i];
+                               }
+                               @Override
+                               public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Fiat": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Fiat);
+                          spModelo.setAdapter(m1);
+                          spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                          @Override
+                          public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                          cadenas_documentos.modelo=modelos_Fiat[i];
+                          }
+                          @Override
+                          public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Ford": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Ford);
+                          spModelo.setAdapter(m1);
+                          spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                              @Override
+                              public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                              cadenas_documentos.modelo=modelos_Ford[i];
+                              }
+                              @Override
+                              public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Honda": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Honda);
+                           spModelo.setAdapter(m1);
+                           spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                           @Override
+                           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            cadenas_documentos.modelo=modelos_Honda[i];
+                           }
+                           @Override
+                           public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Hyundai": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Hyundai);
+                             spModelo.setAdapter(m1);
+                             spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                             @Override
+                             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                              cadenas_documentos.modelo=modelos_Hyundai[i];
+                             }
+                              @Override
+                             public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Kia": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Kia);
+                         spModelo.setAdapter(m1);
+                         spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                         @Override
+                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                          cadenas_documentos.modelo=modelos_Kia[i];
+                         }
+                         @Override
+                         public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Mazda": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mazda);
+                           spModelo.setAdapter(m1);
+                           spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                               @Override
+                               public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                cadenas_documentos.modelo=modelos_Mazda[i];
+                                }
+                              @Override
+                              public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Mercedes Benz": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mercedez_Benz);
+                                   spModelo.setAdapter(m1);
+                                   spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                        @Override
+                                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                        cadenas_documentos.modelo=modelos_Mercedez_Benz[i];
+                                        }
+                                        @Override
+                                        public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Mitsubishi": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Mitsubishi);
+                                spModelo.setAdapter(m1);
+                                spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                        @Override
+                                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                        cadenas_documentos.modelo=modelos_Mitsubishi[i];
+                                         }
+                                        @Override
+                                        public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Nissan": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Nissan);
+                            spModelo.setAdapter(m1);
+                            spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                       @Override
+                                       public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                       cadenas_documentos.modelo=modelos_Nissan[i];
+                                       }
+                                       @Override
+                                       public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Peugeot": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Peugeot);
+                             spModelo.setAdapter(m1);
+                             spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                       @Override
+                                       public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                           cadenas_documentos.modelo=modelos_Peugeot[i];
+                                       }
+                                       @Override
+                                      public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Renault": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Renault);
+                             spModelo.setAdapter(m1);
+                             spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                       @Override
+                                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                            cadenas_documentos.modelo=modelos_Renault[i];
+                                         }
+                                         @Override
+                                        public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Subaru": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Subaru);
+                            spModelo.setAdapter(m1);
+                            spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                                  public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                     cadenas_documentos.modelo=modelos_Subaru[i];
+                                  }
+                            @Override
+                                  public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Suzuki": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Susuki);
+                            spModelo.setAdapter(m1);
+                            spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                              public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                               cadenas_documentos.modelo=modelos_Susuki[i];
+                               }
+                            @Override
+                               public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Toyota": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Toyota);
+                            spModelo.setAdapter(m1);
+                            spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                 @Override
+                                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                   cadenas_documentos.modelo=modelos_Toyota[i];
+                                  }
+                                 @Override
+                                  public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
+            case "Volkswagen": {m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Volkswagen);
+                                spModelo.setAdapter(m1);
+                                spModelo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                 @Override
+                                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                    cadenas_documentos.modelo=modelos_Volkswagen[i];
+                                    }
+                                 @Override
+                                     public void onNothingSelected(AdapterView<?> parent) {} } ); }break;
         }
     }
 
@@ -180,6 +339,8 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             if (rol.matches("Socio"))
             {
                 Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
+                cadenas_documentos.anio=mod;
+                cadenas_documentos.matricula=matricula;
                 cadenas_documentos.check_caracteristicas1= true;
                 startActivity(main_socio_documentos);
                 finish();

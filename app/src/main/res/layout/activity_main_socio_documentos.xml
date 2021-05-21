@@ -775,43 +775,49 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/num_terminos"
+                android:id="@+id/test_viglicen"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/num_ine"
+                android:id="@+id/test_fabricantes"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/num_licencia"
+                android:id="@+id/test_modelos"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/num_caracteristicas"
+                android:id="@+id/test_anio"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/num_tarjeta"
+                android:id="@+id/test_matricula"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/num_poliza"
+                android:id="@+id/test_vigtarjeta"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/num_tarjeton"
+                android:id="@+id/test_vig_poliza"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/test_vig_tarjeton"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
 

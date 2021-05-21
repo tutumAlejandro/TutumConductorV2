@@ -29,6 +29,8 @@ public class MainSocioDocumentos extends AppCompatActivity {
     private TextView btn_bd1,btn_bd2,btn_bd3,btn_bd4,btn_bd5,btn_bd6,btn_bd7,btn_bd1_ok,btn_bd2_ok,btn_bd3_ok,btn_bd4_ok,btn_bd5_ok,btn_bd6_ok,btn_bd7_ok;
     private static String rol= "Socio";
 
+    private TextView tst_lic,vig_tarjeta,vig_poliza,vig_tarjeton,tst_fabricante,tst_modelo,tst_anio,tst_matricula;
+
     @Override
     //txt_btn1_head
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +97,26 @@ public class MainSocioDocumentos extends AppCompatActivity {
         btn_bd5_ok = findViewById(R.id.body_btn5_ok);
         btn_bd6_ok = findViewById(R.id.body_btn6_ok);
         btn_bd7_ok = findViewById(R.id.body_btn7_ok);
+
+        // Text View de prueba para corroborar la captura de datos
+        tst_lic = findViewById(R.id.test_viglicen);
+        tst_fabricante = findViewById(R.id.test_fabricantes);
+        tst_modelo = findViewById(R.id.test_modelos);
+        tst_anio = findViewById(R.id.test_anio);
+        tst_matricula = findViewById(R.id.test_matricula);
+        vig_tarjeta = findViewById(R.id.test_vigtarjeta);
+        vig_poliza = findViewById(R.id.test_vig_poliza);
+        vig_tarjeton = findViewById(R.id.test_vig_tarjeton);
+
+        tst_lic.setText("Vigencia Licencia:"+cadenas_documentos.vigLicencia);
+        tst_fabricante.setText("fabricante:"+cadenas_documentos.fabricante);
+        tst_modelo.setText("modelo:"+cadenas_documentos.modelo);
+        tst_anio.setText("Año:"+cadenas_documentos.anio);
+        tst_matricula.setText("Matricula:"+cadenas_documentos.matricula);
+        vig_tarjeta.setText("Vigencia Tarjeta:"+cadenas_documentos.vigTarjeta);
+        vig_poliza.setText("Vigenia Poliza: "+cadenas_documentos.vigPoliza);
+        vig_tarjeton.setText("Vigencia Tarjeton:"+cadenas_documentos.vigTarjeton);
+
 
 
         //Condicionales para ver si ya se subio algun documento
