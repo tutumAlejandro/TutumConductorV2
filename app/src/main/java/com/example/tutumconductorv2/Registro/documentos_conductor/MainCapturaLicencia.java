@@ -1,9 +1,13 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -33,6 +37,9 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         rol = getIntent().getStringExtra("rol");
         vigenciaLicencia = findViewById(R.id.VigenciaLicencia);
         btn_regreso_licencia = findViewById(R.id.img_retroceso_licencia);
+
+        if (ContextCompat.checkSelfPermission(MainCapturaLicencia.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainCapturaLicencia.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainCapturaLicencia.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
 
         vigenciaLicencia.setOnClickListener(this);
         btn_regreso_licencia.setOnClickListener(new View.OnClickListener() {

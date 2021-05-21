@@ -1,8 +1,12 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
+import android.Manifest;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -117,6 +121,8 @@ public class MainSocioDocumentos extends AppCompatActivity {
         vig_poliza.setText("Vigenia Poliza: "+cadenas_documentos.vigPoliza);
         vig_tarjeton.setText("Vigencia Tarjeton:"+cadenas_documentos.vigTarjeton);
 
+        if (ContextCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainSocioDocumentos.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
 
 
         //Condicionales para ver si ya se subio algun documento

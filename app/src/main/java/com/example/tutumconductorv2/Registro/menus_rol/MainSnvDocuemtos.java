@@ -1,7 +1,12 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
+import android.Manifest;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -88,7 +93,12 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         bd_ok_snv4 = findViewById(R.id.body_btn4_ok_snv);
         bd_ok_snv5 = findViewById(R.id.body_btn5_ok_snv);
 
-       if(!cadenas_documentos.check_terminos3){
+        if (ContextCompat.checkSelfPermission(MainSnvDocuemtos.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainSnvDocuemtos.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainSnvDocuemtos.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
+
+
+
+        if(!cadenas_documentos.check_terminos3){
             btn1_snv.setVisibility(View.VISIBLE);
             fwd_snv1.setVisibility(View.VISIBLE);
             hd_snv1.setVisibility(View.VISIBLE);

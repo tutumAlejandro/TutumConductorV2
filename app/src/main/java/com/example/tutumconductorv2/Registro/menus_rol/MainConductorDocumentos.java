@@ -1,8 +1,12 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -103,6 +107,11 @@ public class MainConductorDocumentos extends AppCompatActivity {
         bd_ok_conductor5 = findViewById(R.id.body_btn5_ok_conductor);
         bd_ok_conductor6 = findViewById(R.id.body_btn6_ok_conductor);
         bd_ok_conductor7 = findViewById(R.id.body_btn7_ok_conductor);
+
+        if (ContextCompat.checkSelfPermission(MainConductorDocumentos.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainConductorDocumentos.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainConductorDocumentos.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
+
+
 
         if(!cadenas_documentos.check_terminos2){
             btn1_conductor.setVisibility(View.VISIBLE);

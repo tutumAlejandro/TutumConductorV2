@@ -1,8 +1,12 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -75,6 +79,10 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
         //Declaracion del vector que va a contener los fabricantes de vehiculos
         fabs = findViewById(R.id.test_fabs);
+
+        if (ContextCompat.checkSelfPermission(MainCapturaCaracteristicas.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainCapturaCaracteristicas.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainCapturaCaracteristicas.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
+        }
 
         btn_retroceso_caracteristicas.setOnClickListener(new View.OnClickListener() {
             @Override
