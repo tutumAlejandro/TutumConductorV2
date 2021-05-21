@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".Registro.documentos_conductor.MainCapturaCaracteristicas">
 
@@ -150,29 +149,66 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <Spinner
                 android:id="@+id/spFabricantes"
-                android:layout_width="@dimen/width_input_mediano"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/width_input_largo"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin_img_camra_top"
                 android:clickable="true"
                 android:spinnerMode="dialog" />
+
             <Spinner
                 android:id="@+id/spModelo"
-                android:layout_width="@dimen/width_input_mediano"
+                android:layout_width="@dimen/width_input_largo"
                 android:layout_height="40dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin_img_camra_top"
-                android:spinnerMode="dialog"
-                android:layout_gravity="center" />
+                android:dropDownWidth="match_parent"
+                android:spinnerMode="dropdown" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_modelo"
+                android:layout_width="@dimen/width_input_largo"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="@string/txt_input_modelo_auto"
+                app:counterEnabled="true"
+                app:counterMaxLength="6"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_matricula"
+                android:layout_width="@dimen/width_input_largo"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="@string/txt_input_matricula1"
+                app:counterEnabled="true"
+                app:counterMaxLength="6"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <TextView
+                android:id="@+id/test_fabs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/test_fabs"
-                android:textSize="16sp"
                 android:fontFamily="@font/open_sans_bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/btn_guardar_licencia"
@@ -182,7 +218,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/boton_redondo"
-
+                android:onClick="guarda_caracterisitcas"
                 android:text="@string/btn_text_guardar"
                 android:textColor="@color/white"
                 android:textSize="@dimen/size_text_btn" />

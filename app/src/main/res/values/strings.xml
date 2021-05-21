@@ -130,6 +130,9 @@
     <string name="txt_text1_codigo">Código de vehículo</string>
     <string name="txt_text2_codigo">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
     <string name="txt_text3_codigo">Este código te lo proporciona un Socio Administrador, el código está vinculado, con él podrás completar tu registro.</string>
+    <string name="txt_input_modelo_auto">Año del Vehículo</string>
+    <string name="txt_input_matricula1">Matrícula del Vehículo</string>
+    <string name="txt_input_matricula2">Placas</string>
     <string name="todo">TODO</string>
 
     <!-- cadenas para las image view de los documentos-->

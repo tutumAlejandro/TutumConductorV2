@@ -3,6 +3,8 @@ package com.example.tutumconductorv2.Registro.documentos_conductor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,12 +18,15 @@ import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class MainCapturaCaracteristicas extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spFabs,spModelo;
 
     private ImageView btn_retroceso_caracteristicas;
+    private TextInputLayout model_input, matricula_input;
+
     private TextView fabs;
 
     private String rol;
@@ -50,12 +55,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     private String [] nulo ={"Modelo"};
 
     ArrayAdapter <String> m1;
-    ArrayAdapter <String> m2;
-    ArrayAdapter <String> m3;
-    ArrayAdapter <String> m4;
-    ArrayAdapter <String> m5;
-    ArrayAdapter <String> m6;
-    ArrayAdapter <String> m7;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,9 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         btn_retroceso_caracteristicas = findViewById(R.id.img_retroceso_caracteristicas);
         spFabs = (Spinner)findViewById(R.id.spFabricantes);
         spModelo = (Spinner)findViewById(R.id.spModelo);
+
+        model_input = findViewById(R.id.input_modelo);
+        matricula_input = findViewById(R.id.input_matricula);
 
         spFabs.setOnItemSelectedListener(this);
 
@@ -92,22 +95,52 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_style_1,fabricantes);
          m1 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,nulo);
-         m2 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_audi);
-         m3 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_BW);
-         m4 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Buick);
-         m5 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Chevrolet);
         spFabs.setAdapter(adapter);
         spModelo.setAdapter(m1);
+    }
 
-
-
-
+    private boolean check_model(String year)
+    {
+        if (year.isEmpty()){
+            model_input.setErrorEnabled(true);
+            model_input.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            model_input.setError("Campo Requerido");
+            return false;
+        }else if(Integer.parseInt(year)<2012)
+        {
+            model_input.setErrorEnabled(true);
+            model_input.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            model_input.setError("Solo vehiculos con atiguedad menor a 10 años");
+            return false;
+        }
+        else {
+            model_input.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean check_matricula(String matricula)
+    {
+        if (matricula.isEmpty()){
+            matricula_input.setErrorEnabled(true);
+            matricula_input.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            matricula_input.setError("Campo Requerido");
+            return false;
+        }
+        else if (matricula.length() >= 7)
+        {
+            matricula_input.setErrorEnabled(true);
+            matricula_input.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            matricula_input.setError("Formato Invalido");
+            return false;
+        }else {
+            matricula_input.setErrorEnabled(false);
+            return true;
+        }
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
        // Toast.makeText(this,"fabricante: "+fabricantes[position],Toast.LENGTH_LONG).show(); // si jala esta pendejada
-        m5 = new ArrayAdapter<String>(this,R.layout.spinner_style_1,modelos_Chevrolet);
         switch (fabricantes[position])
         {
             case "Fabricante del Vehiculo": {spModelo.setAdapter(m1);}break;
@@ -136,5 +169,26 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    public void guarda_caracterisitcas(View view)
+    {
+        String matricula = matricula_input.getEditText().getText().toString().trim();
+        String mod = model_input.getEditText().getText().toString().trim();
+        if(!check_matricula(matricula) | !check_model(mod)){
+            return;
+        }else {
+            if (rol.matches("Socio"))
+            {
+                Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
+                cadenas_documentos.check_caracteristicas1= true;
+                startActivity(main_socio_documentos);
+                finish();
+            }else{
+                Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
+                cadenas_documentos.check_caracteristicas2 = true;
+                startActivity(main_conductor_documentos);
+                finish();
+            }
+        }
     }
 }

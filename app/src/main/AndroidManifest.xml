@@ -37,7 +37,7 @@
             android:theme="@style/InputTextBlack" />
         <activity
             android:name=".Registro.documentos_conductor.MainCapturaCaracteristicas"
-            android:theme="@style/InputTextBlack" />
+            android:theme="@style/InputTextBlack"/>
         <activity
             android:name=".Registro.documentos_conductor.MainCapturaLicencia"
             android:theme="@style/InputTextBlack" />
