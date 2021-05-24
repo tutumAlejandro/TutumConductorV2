@@ -3,16 +3,21 @@ package com.example.tutumconductorv2.Registro.documentos_conductor;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,12 +29,18 @@ import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainCapturaCaracteristicas extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spFabs,spModelo;
 
     private ImageView btn_retroceso_caracteristicas;
     private TextInputLayout model_input, matricula_input;
+    private ImageButton btn_frente_carac,btn_trasera_carac,btn_lateral_carac;
 
     private TextView fabs;
 
@@ -60,6 +71,10 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     ArrayAdapter <String> m1;
 
+    private String mCurrentPhotoPath;
+    static final int REQUEST_TAKE_PHOTO = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +88,10 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
         model_input = findViewById(R.id.input_modelo);
         matricula_input = findViewById(R.id.input_matricula);
+
+        btn_frente_carac = findViewById(R.id.btn_caracteristicas_frontal);
+        btn_trasera_carac = findViewById(R.id.btn_caracteristicas_trasera);
+        btn_lateral_carac = findViewById(R.id.btn_caracteristicas_lateral);
 
         spFabs.setOnItemSelectedListener(this);
 
@@ -98,6 +117,26 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                     startActivity(main_conductor_documentos);
                     finish();
                 }
+            }
+        });
+
+        btn_frente_carac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tomarFoto(view,"frente_vehiculo");
+            }
+        });
+
+        btn_trasera_carac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tomarFoto(view,"trasera_vehiculo");
+            }
+        });
+        btn_lateral_carac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tomarFoto(view,"lateral_vehiculo");
             }
         });
 
@@ -374,6 +413,36 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 cadenas_documentos.check_caracteristicas2 = true;
                 startActivity(main_conductor_documentos);
                 finish();
+            }
+        }
+    }
+
+    private File createImageFile(String nombreFoto) throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = nombreFoto + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
+
+        mCurrentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+    public void tomarFoto(View view,String nomFoto) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile(nomFoto);
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.fileprovider", photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
         }
     }

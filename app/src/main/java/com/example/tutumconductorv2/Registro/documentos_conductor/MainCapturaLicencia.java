@@ -3,15 +3,20 @@ package com.example.tutumconductorv2.Registro.documentos_conductor;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.tutumconductorv2.R;
@@ -20,15 +25,24 @@ import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainCapturaLicencia extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_licencia;
     private EditText vigenciaLicencia;
+    private ImageButton licencia_frente, licencia_reverso;
+
     private int year, month, day;
     private String rol;
-    private String VigLicencia = " ";
+
+    private String mCurrentPhotoPath;
+    static final int REQUEST_TAKE_PHOTO = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +51,10 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         rol = getIntent().getStringExtra("rol");
         vigenciaLicencia = findViewById(R.id.VigenciaLicencia);
         btn_regreso_licencia = findViewById(R.id.img_retroceso_licencia);
+
+        licencia_frente = findViewById(R.id.btn_frontal_licencia);
+        licencia_reverso = findViewById(R.id.btn_reverso_licencia);
+
 
         if (ContextCompat.checkSelfPermission(MainCapturaLicencia.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainCapturaLicencia.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainCapturaLicencia.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
@@ -64,6 +82,20 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             }
         });
 
+        licencia_frente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tomarFoto(v,"licencia_frontal");
+            }
+        });
+
+        licencia_reverso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tomarFoto(v,"licencia_reverso");
+            }
+        });
+
     }
 
     @Override
@@ -77,7 +109,6 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 vigenciaLicencia.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                VigLicencia = (dayOfMonth + "/" + (month + 1) + "/" + year);
             }
         }, year, month, day);
         datePickerDialog.show();
@@ -124,6 +155,37 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 cadenas_documentos.check_licencia3=true;
                 startActivity(main_snv_documentos);
                 finish();
+            }
+        }
+    }
+
+
+    private File createImageFile(String nombreFoto) throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = nombreFoto + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
+
+        mCurrentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+    public void tomarFoto(View view,String nomFoto) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile(nomFoto);
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.fileprovider", photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -34,6 +36,8 @@ public class MainCapturaIne extends AppCompatActivity {
     private String rol;
     private ImageButton ine_reverso, ine_frontal;
 
+    static final int REQUEST_TAKE_PHOTO = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,7 @@ public class MainCapturaIne extends AppCompatActivity {
         rol = getIntent().getStringExtra("rol");
 
         ine_frontal = findViewById(R.id.btn_frontal_ine);
+        ine_reverso = findViewById(R.id.btn_reverso_ine);
 
         btn_retroceso_ine = findViewById(R.id.img_retroceso_ine);
 
@@ -67,6 +72,20 @@ public class MainCapturaIne extends AppCompatActivity {
                     startActivity(main_snv_documentos);
                     finish();
                 }
+            }
+        });
+
+        ine_frontal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tomarFoto(v,"ine_frontal");
+            }
+        });
+        ine_reverso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tomarFoto(v,"ine_reverso");
+
             }
         });
     }
@@ -94,10 +113,10 @@ public class MainCapturaIne extends AppCompatActivity {
     }
 
     String mCurrentPhotoPath;
-    private File createImageFile() throws IOException {
+    private File createImageFile(String nombreFoto) throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "Backup_" + timeStamp + "_";
+        String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName, ".jpg", storageDir);
 
@@ -105,15 +124,15 @@ public class MainCapturaIne extends AppCompatActivity {
         return image;
     }
 
-    static final int REQUEST_TAKE_PHOTO = 1;
-    public void tomarFoto(View view) {
+
+    public void tomarFoto(View view,String nomFoto) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             // Create the File where the photo should go
             File photoFile = null;
             try {
-                photoFile = createImageFile();
+                photoFile = createImageFile(nomFoto);
             } catch (IOException ex) {
                 // Error occurred while creating the File
             }
@@ -122,18 +141,29 @@ public class MainCapturaIne extends AppCompatActivity {
                 Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                galleryAddPic();
             }
         }
     }
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    private void galleryAddPic() {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(mCurrentPhotoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
+    }
+
+    /*
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ine_frontal.setImageBitmap(imageBitmap);
         }
-    }
-
+    }*/
 
 }
