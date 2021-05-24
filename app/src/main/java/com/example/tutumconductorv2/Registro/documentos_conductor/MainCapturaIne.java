@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,7 +35,8 @@ public class MainCapturaIne extends AppCompatActivity {
 
     private ImageView btn_retroceso_ine;
     private String rol;
-    private ImageButton ine_reverso, ine_frontal;
+    //private ImageButton ine_reverso;
+    private ImageView ine_reverso,ine_frontal;
     private boolean check_ine_reverso=false;
     private boolean check_ine_frontal=false;
 
@@ -82,6 +84,7 @@ public class MainCapturaIne extends AppCompatActivity {
             public void onClick(View v) {
                 tomarFoto(v,"ine_frontal");
                 check_ine_frontal=true;
+                setPic(ine_frontal);
             }
         });
         ine_reverso.setOnClickListener(new View.OnClickListener() {
@@ -89,9 +92,12 @@ public class MainCapturaIne extends AppCompatActivity {
             public void onClick(View v) {
                 tomarFoto(v,"ine_reverso");
                 check_ine_reverso=true;
+                setPic(ine_frontal);
             }
         });
+
     }
+
 
 
     public void guardar_ine (View V)
@@ -162,6 +168,31 @@ public class MainCapturaIne extends AppCompatActivity {
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
     }
+
+    private void setPic(ImageView boton) {
+        // Get the dimensions of the View
+        int targetW = ine_frontal.getWidth();
+        int targetH = ine_frontal.getHeight();
+
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        // Determine how much to scale down the image
+        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        boton.setImageBitmap(bitmap);
+    }
+
 
 
 }
