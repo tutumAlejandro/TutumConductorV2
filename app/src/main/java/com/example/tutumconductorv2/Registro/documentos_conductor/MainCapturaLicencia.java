@@ -39,6 +39,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
 
     private int year, month, day;
     private String rol;
+    private boolean check_licencia_frente = false;
+    private boolean check_licencia_reverso = false;
 
     private String mCurrentPhotoPath;
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -86,6 +88,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View v) {
                 tomarFoto(v,"licencia_frontal");
+                check_licencia_frente = true;
             }
         });
 
@@ -93,6 +96,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View v) {
                 tomarFoto(v,"licencia_reverso");
+                check_licencia_reverso = true;
             }
         });
 
@@ -129,7 +133,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
     public void guarda_licencia(View v)
     {
         String vig = vigenciaLicencia.getText().toString().trim();
-        if(!check_vigencia_licencia(vig))
+        if(!check_vigencia_licencia(vig) | !check_licencia_frente | !check_licencia_reverso)
         {
             return;
         }else {

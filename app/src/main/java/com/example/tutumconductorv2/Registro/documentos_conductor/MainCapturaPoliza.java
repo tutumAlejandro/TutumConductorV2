@@ -34,6 +34,8 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
     private int year, month, day;
     private String rol;
 
+    private boolean check_poliza= false;
+
     private String mCurrentPhotoPath;
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -72,6 +74,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
                 tomarFoto(v,"poliza");
+                check_poliza = true;
             }
         });
     }
@@ -92,7 +95,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
         datePickerDialog.show();
     }
 
-    private boolean check_vigencia_licencia(String vigencia)
+    private boolean check_vigencia_poliza(String vigencia)
     {
         if (vigencia.isEmpty())
         {
@@ -106,7 +109,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
     public void guarda_poliza(View v)
     {
         String vig = vigenciaPoliza.getText().toString().trim();
-        if(!check_vigencia_licencia(vig))
+        if(!check_vigencia_poliza(vig) | !check_poliza)
         {
             return;
         }else {

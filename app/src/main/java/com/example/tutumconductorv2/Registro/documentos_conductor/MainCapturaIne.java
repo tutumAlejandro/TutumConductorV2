@@ -35,6 +35,8 @@ public class MainCapturaIne extends AppCompatActivity {
     private ImageView btn_retroceso_ine;
     private String rol;
     private ImageButton ine_reverso, ine_frontal;
+    private boolean check_ine_reverso=false;
+    private boolean check_ine_frontal=false;
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -79,13 +81,14 @@ public class MainCapturaIne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tomarFoto(v,"ine_frontal");
+                check_ine_frontal=true;
             }
         });
         ine_reverso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tomarFoto(v,"ine_reverso");
-
+                check_ine_reverso=true;
             }
         });
     }
@@ -93,23 +96,28 @@ public class MainCapturaIne extends AppCompatActivity {
 
     public void guardar_ine (View V)
     {
-        if(rol.matches("Socio")){
-            Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
-            cadenas_documentos.check_ine1=true;
-            startActivity(main_socio_documentos);
-            finish();
-        }else if(rol.matches("Conductor")){
-            Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
-            cadenas_documentos.check_ine2=true;
-            startActivity(main_conductor_documentos);
-            finish();
-        }else
-        {
-            Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
-            cadenas_documentos.check_ine3=true;
-            startActivity(main_snv_documentos);
-            finish();
+        if(check_ine_frontal && check_ine_reverso){
+            if(rol.matches("Socio")){
+                Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
+                cadenas_documentos.check_ine1=true;
+                startActivity(main_socio_documentos);
+                finish();
+            }else if(rol.matches("Conductor")){
+                Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
+                cadenas_documentos.check_ine2=true;
+                startActivity(main_conductor_documentos);
+                finish();
+            }else
+            {
+                Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
+                cadenas_documentos.check_ine3=true;
+                startActivity(main_snv_documentos);
+                finish();
+            }
+        }else{
+            return;
         }
+
     }
 
     String mCurrentPhotoPath;
@@ -142,6 +150,7 @@ public class MainCapturaIne extends AppCompatActivity {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
                 galleryAddPic();
+
             }
         }
     }
@@ -154,16 +163,5 @@ public class MainCapturaIne extends AppCompatActivity {
         this.sendBroadcast(mediaScanIntent);
     }
 
-    /*
-    @SuppressLint("MissingSuperCall")
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            ine_frontal.setImageBitmap(imageBitmap);
-        }
-    }*/
 
 }

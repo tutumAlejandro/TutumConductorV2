@@ -71,6 +71,10 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     ArrayAdapter <String> m1;
 
+    private boolean check_carac_frente = false;
+    private boolean check_carac_reverso = false;
+    private boolean check_carac_lateral = false;
+
     private String mCurrentPhotoPath;
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -124,6 +128,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             @Override
             public void onClick(View view) {
                 tomarFoto(view,"frente_vehiculo");
+                check_carac_frente=true;
             }
         });
 
@@ -131,12 +136,14 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             @Override
             public void onClick(View view) {
                 tomarFoto(view,"trasera_vehiculo");
+                check_carac_reverso=true;
             }
         });
         btn_lateral_carac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tomarFoto(view,"lateral_vehiculo");
+                check_carac_lateral = true;
             }
         });
 
@@ -152,6 +159,11 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             model_input.setErrorEnabled(true);
             model_input.setErrorTextColor(ColorStateList.valueOf(Color.RED));
             model_input.setError("Campo Requerido");
+            return false;
+        }else if(year.length() > 4){
+            model_input.setErrorEnabled(true);
+            model_input.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            model_input.setError("Formato Invalido");
             return false;
         }else if(Integer.parseInt(year)<2012)
         {
@@ -397,7 +409,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     {
         String matricula = matricula_input.getEditText().getText().toString().trim();
         String mod = model_input.getEditText().getText().toString().trim();
-        if(!check_matricula(matricula) | !check_model(mod)){
+        if(!check_matricula(matricula) | !check_model(mod) | !check_carac_frente | !check_carac_reverso | !check_carac_lateral){
             return;
         }else {
             if (rol.matches("Socio"))

@@ -38,6 +38,8 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
+    private boolean check_tarjeta = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +75,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
             @Override
             public void onClick(View v) {
                 tomarFoto(v,"tarjeta_circulacion");
+                check_tarjeta = true;
             }
         });
     }
@@ -93,7 +96,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         datePickerDialog.show();
     }
 
-    private boolean check_vigencia_licencia(String vigencia)
+    private boolean check_vigencia_tarjeta(String vigencia)
     {
         if (vigencia.isEmpty())
         {
@@ -107,7 +110,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
     public void guarda_tarjeta(View v)
     {
         String vig = vigencia_tarjeta.getText().toString().trim();
-        if(!check_vigencia_licencia(vig))
+        if(!check_vigencia_tarjeta(vig) | !check_tarjeta)
         {
             return;
         }else {

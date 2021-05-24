@@ -39,6 +39,8 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
+    private boolean check_tarjeton = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +79,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View v) {
                 tomarFoto(v,"Tarjeton");
+                check_tarjeton = true;
             }
         });
 
@@ -112,7 +115,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
     public void guarda_tarjeton(View v)
     {
         String vig = vigenciaTarjeton.getText().toString().trim();
-        if(!check_vigencia_Tarjeton(vig))
+        if(!check_vigencia_Tarjeton(vig) | !check_tarjeton)
         {
             return;
         }else {
