@@ -271,6 +271,10 @@ public class MainSocioDocumentos extends AppCompatActivity {
             }
         });
 
+        if(cadenas_documentos.check_ine1 & cadenas_documentos.check_licencia1 & cadenas_documentos.check_caracteristicas1 & cadenas_documentos.check_tarjeta1 & cadenas_documentos.check_poliza1 & cadenas_documentos.check_tarjeton1){
+            
+        }
+
     }
     public void terminos_socio(View view)
     {

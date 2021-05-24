@@ -4,18 +4,14 @@
     package="com.example.tutumconductorv2">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permisos para el uso de la camara -->
+    <uses-feature
+        android:name="android.hardware.Camera"
+        android:required="true" /> <!-- Permisos para el uso de la escritura en la memoria externa -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Permisos para el uso del GPS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <!-- Permisos para el uso de la camara -->
-    <uses-feature android:name="android.hardware.Camera" android:required="true"/>
-
-    <!-- Permisos para el uso de la escritura en la memoria externa -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <!-- Permisos para el uso del GPS -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-feature android:name="android.hardware.location.gps"/>
-
+    <uses-feature android:name="android.hardware.location.gps" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +20,9 @@
         android:roundIcon="@mipmap/launcher_tutum_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2">
-        <activity android:name=".Registro.menus_rol.MainConductorDocumentos"></activity>
+        <activity android:name=".Registro.menus_rol.MainConductorDocumentosOk"></activity>
+        <activity android:name=".Registro.menus_rol.MainDocumentosSocioOk" />
+        <activity android:name=".Registro.menus_rol.MainConductorDocumentos" />
         <activity
             android:name=".Registro.menus_rol.MainDocumentosOkSnv"
             android:screenOrientation="portrait" />
@@ -48,14 +46,14 @@
             android:theme="@style/InputTextBlack" />
         <activity
             android:name=".Registro.documentos_conductor.MainCapturaCaracteristicas"
-            android:theme="@style/InputTextBlack"/>
+            android:theme="@style/InputTextBlack" />
         <activity
             android:name=".Registro.documentos_conductor.MainCapturaLicencia"
             android:theme="@style/InputTextBlack" />
         <activity
             android:name=".Registro.documentos_conductor.MainCapturaIne"
             android:screenOrientation="portrait"
-            android:theme="@style/InputTextBlack"/>
+            android:theme="@style/InputTextBlack" />
         <activity
             android:name=".Registro.documentos_conductor.MainTerminosYCondiciones"
             android:screenOrientation="portrait" />
@@ -162,15 +160,14 @@
         </provider>
         -->
         <provider
-            android:authorities="com.example.android.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.android.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-                <meta-data
-                    android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/file_paths">
-                </meta-data>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
-
     </application>
+
 </manifest>
