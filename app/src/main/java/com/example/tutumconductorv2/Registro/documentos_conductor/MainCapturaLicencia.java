@@ -170,7 +170,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
+        File image = File.createTempFile(imageFileName, ".png", storageDir);
 
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
@@ -258,7 +258,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             int photoH = bmOptions.outHeight;
 
             // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+            int scaleFactor = Math.min(photoW/(targetW*4), photoH/(targetH*4));
 
             // Decode the image file into a Bitmap sized to fill the View
             bmOptions.inJustDecodeBounds = false;
