@@ -33,7 +33,7 @@ import java.util.Date;
 public class MainCapturaPoliza extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_poliza;
-    private ImageView btn_poliza;
+    private ImageButton btn_poliza;
     private EditText vigenciaPoliza;
     private int year, month, day;
     private String rol;
@@ -45,6 +45,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    int factor = 32;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,7 +145,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".png", storageDir);
+        File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
 
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
@@ -194,7 +195,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
         int photoH = bmOptions.outHeight;
 
         // Determine how much to scale down the image
-        int scaleFactor = Math.min(photoW/(targetW*4), photoH/(targetH*4));
+        int scaleFactor = Math.min(photoW/(targetW*64), photoH/(targetH*64));
 
         // Decode the image file into a Bitmap sized to fill the View
         bmOptions.inJustDecodeBounds = false;
@@ -232,7 +233,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
             int photoH = bmOptions.outHeight;
 
             // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW/(targetW*4), photoH/(targetH*4));
+            int scaleFactor = Math.min(photoW/(targetW*factor), photoH/(targetH*factor));
 
             // Decode the image file into a Bitmap sized to fill the View
             bmOptions.inJustDecodeBounds = false;

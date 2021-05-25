@@ -84,6 +84,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
+    int factor = 32;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -444,7 +445,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".png", storageDir);
+        File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
 
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
@@ -481,29 +482,6 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         this.sendBroadcast(mediaScanIntent);
     }
 
-    private void setPic(ImageView boton) {
-        // Get the dimensions of the View
-        int targetW = boton.getWidth();
-        int targetH = boton.getHeight();
-
-        // Get the dimensions of the bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
-
-        // Determine how much to scale down the image
-        int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
-
-        // Decode the image file into a Bitmap sized to fill the View
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
-
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        boton.setImageBitmap(bitmap);
-    }
 
     public void seleccionarImagen() {
         Intent galeria = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
@@ -532,7 +510,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             int photoH = bmOptions.outHeight;
 
             // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW/(targetW*32), photoH/(targetH*32));
+            int scaleFactor = Math.min(photoW/(targetW*factor), photoH/(targetH*factor));
 
             // Decode the image file into a Bitmap sized to fill the View
             bmOptions.inJustDecodeBounds = false;

@@ -33,7 +33,7 @@ import java.util.Date;
 public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_tarjeta_circulacion;
-    private ImageView btn_tarjeta;
+    private ImageButton btn_tarjeta;
     private EditText vigencia_tarjeta;
     private String rol;
     private int day,month,year;
@@ -43,6 +43,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
+    int factor = 32;
 
     private boolean check_tarjeta = false;
 
@@ -145,7 +146,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".png", storageDir);
+        File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
 
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
@@ -210,7 +211,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
             int photoH = bmOptions.outHeight;
 
             // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW/(targetW*4), photoH/(targetH*4));
+            int scaleFactor = Math.min(photoW/(targetW*factor), photoH/(targetH*factor));
 
             // Decode the image file into a Bitmap sized to fill the View
             bmOptions.inJustDecodeBounds = false;
