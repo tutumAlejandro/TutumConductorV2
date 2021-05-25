@@ -87,6 +87,7 @@ public class MainCapturaIne extends AppCompatActivity {
             public void onClick(View v) {
                 codigoBoton=1;
                 tomarFoto(v,"ine_frontal");
+                //setPic(ine_frontal);
                 check_ine_frontal=true;
             }
         });
@@ -95,6 +96,7 @@ public class MainCapturaIne extends AppCompatActivity {
             public void onClick(View v) {
                 codigoBoton=2;
                 tomarFoto(v,"ine_reverso");
+                //setPic(ine_frontal);
                 check_ine_reverso=true;
             }
         });
@@ -212,10 +214,30 @@ public class MainCapturaIne extends AppCompatActivity {
                 }
             });
 
-            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
-            if (codigoBoton == 1) {
+            //Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+            // Get the dimensions of the View
+            int targetW = ine_frontal.getWidth();
+            int targetH = ine_frontal.getHeight();
+
+            // Get the dimensions of the bitmap
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            // Determine how much to scale down the image
+            int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+
+            // Decode the image file into a Bitmap sized to fill the View
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            if (codigoBoton == 1){
                 ine_frontal.setImageBitmap(bitmap);
-            }else{
+            }else {
                 ine_reverso.setImageBitmap(bitmap);
             }
         }
