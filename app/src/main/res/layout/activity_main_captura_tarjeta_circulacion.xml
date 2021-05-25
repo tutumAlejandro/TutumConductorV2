@@ -91,10 +91,9 @@
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginStart="@dimen/margin_img_camara_border_one"
                     android:layout_marginTop="@dimen/margin_img_camra_top"
-                    android:background="@color/fondo_captura_img"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+                    app:srcCompat="@drawable/img_camara_tutum" />
 
                 <TextView
                     android:id="@+id/txt_frontal_licencia"
