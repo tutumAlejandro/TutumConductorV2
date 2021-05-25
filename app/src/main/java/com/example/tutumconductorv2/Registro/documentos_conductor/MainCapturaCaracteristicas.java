@@ -44,7 +44,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     private ImageView btn_retroceso_caracteristicas;
     private TextInputLayout model_input, matricula_input;
-    private ImageButton btn_frente_carac,btn_trasera_carac,btn_lateral_carac;
+    private ImageView btn_frente_carac,btn_trasera_carac,btn_lateral_carac;
 
     private TextView fabs;
 

@@ -33,7 +33,7 @@ import java.util.Date;
 public class MainCapturaPoliza extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_poliza;
-    private ImageButton btn_poliza;
+    private ImageView btn_poliza;
     private EditText vigenciaPoliza;
     private int year, month, day;
     private String rol;

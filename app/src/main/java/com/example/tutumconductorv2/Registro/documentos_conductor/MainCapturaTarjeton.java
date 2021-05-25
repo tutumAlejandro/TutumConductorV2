@@ -34,7 +34,7 @@ import java.util.Date;
 public class MainCapturaTarjeton extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_tarjeton;
-    private ImageButton btn_tarjeton;
+    private ImageView btn_tarjeton;
     private EditText vigenciaTarjeton;
     private int year, month, day;
     private String rol;

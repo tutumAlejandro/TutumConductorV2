@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_caracteristicas_frontal"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
@@ -94,7 +94,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_caracteristicas_trasera"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
@@ -106,7 +106,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_frontal"
                     app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_caracteristicas_lateral"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"

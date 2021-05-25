@@ -33,7 +33,7 @@ import java.util.Date;
 public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_tarjeta_circulacion;
-    private ImageButton btn_tarjeta;
+    private ImageView btn_tarjeta;
     private EditText vigencia_tarjeta;
     private String rol;
     private int day,month,year;

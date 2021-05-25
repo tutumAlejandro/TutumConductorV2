@@ -39,7 +39,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
 
     private ImageView btn_regreso_licencia;
     private EditText vigenciaLicencia;
-    private ImageButton licencia_frente, licencia_reverso;
+    private ImageView licencia_frente, licencia_reverso;
 
     private int year, month, day;
     private String rol;
