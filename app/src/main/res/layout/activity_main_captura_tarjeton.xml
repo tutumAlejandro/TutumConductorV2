@@ -123,7 +123,7 @@
                     android:layout_marginTop="@dimen/margin_img_camra_top"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_camara_tutum" />
+                    app:srcCompat="@drawable/img_camara_2" />
 
                 <TextView
                     android:id="@+id/txt_frontal_licencia"

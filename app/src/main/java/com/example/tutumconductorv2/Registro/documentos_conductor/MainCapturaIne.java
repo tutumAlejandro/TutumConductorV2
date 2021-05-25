@@ -235,9 +235,9 @@ public class MainCapturaIne extends AppCompatActivity {
             bmOptions.inPurgeable = true;
 
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-            if (codigoBoton == 1){
+            if (codigoBoton == 1) {
                 ine_frontal.setImageBitmap(bitmap);
-            }else {
+            } else {
                 ine_reverso.setImageBitmap(bitmap);
             }
         }

@@ -232,7 +232,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
             int photoH = bmOptions.outHeight;
 
             // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+            int scaleFactor = Math.min(photoW/(targetW*4), photoH/(targetH*4));
 
             // Decode the image file into a Bitmap sized to fill the View
             bmOptions.inJustDecodeBounds = false;
