@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -42,6 +43,8 @@ public class MainCapturaIne extends AppCompatActivity {
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    int SELEC_IMAGEN = 200;
+    int codigoBoton = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,17 +85,17 @@ public class MainCapturaIne extends AppCompatActivity {
         ine_frontal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                codigoBoton=1;
                 tomarFoto(v,"ine_frontal");
                 check_ine_frontal=true;
-                setPic(ine_frontal);
             }
         });
         ine_reverso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                codigoBoton=2;
                 tomarFoto(v,"ine_reverso");
                 check_ine_reverso=true;
-                setPic(ine_frontal);
             }
         });
 
@@ -193,6 +196,28 @@ public class MainCapturaIne extends AppCompatActivity {
         boton.setImageBitmap(bitmap);
     }
 
+    public void seleccionarImagen(){
+        Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(galeria,SELEC_IMAGEN);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE) {
+            MediaScannerConnection.scanFile(MainCapturaIne.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                @Override
+                public void onScanCompleted(String s, Uri uri) {
 
+                }
+            });
+
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+            if (codigoBoton == 1) {
+                ine_frontal.setImageBitmap(bitmap);
+            }else{
+                ine_reverso.setImageBitmap(bitmap);
+            }
+        }
+    }
 }

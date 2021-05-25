@@ -175,7 +175,7 @@
                 android:layout_marginTop="20dp"
                 android:hint="@string/txt_input_modelo_auto"
                 app:counterEnabled="true"
-                app:counterMaxLength="6"
+                app:counterMaxLength="4"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText

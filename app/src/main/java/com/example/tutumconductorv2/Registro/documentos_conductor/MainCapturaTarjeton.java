@@ -1,10 +1,14 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,9 +39,10 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
     private int year, month, day;
     private String rol;
 
-    private String mCurrentPhotoPath;
+
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    int SELEC_IMAGEN = 200;
 
     private boolean check_tarjeton = false;
 
@@ -144,6 +149,9 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             }
         }
     }
+
+    String mCurrentPhotoPath;
+
     private File createImageFile(String nombreFoto) throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -154,7 +162,9 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
-    public void tomarFoto(View view,String nomFoto) {
+
+
+    public void tomarFoto(View view, String nomFoto) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -167,10 +177,65 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.fileprovider", photoFile);
+                Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                galleryAddPic();
+
             }
+        }
+    }
+
+    private void galleryAddPic() {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(mCurrentPhotoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
+    }
+
+    private void setPic(ImageView boton) {
+        // Get the dimensions of the View
+        int targetW = boton.getWidth();
+        int targetH = boton.getHeight();
+
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        // Determine how much to scale down the image
+        int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        boton.setImageBitmap(bitmap);
+    }
+
+    public void seleccionarImagen() {
+        Intent galeria = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(galeria, SELEC_IMAGEN);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE) {
+            MediaScannerConnection.scanFile(MainCapturaTarjeton.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                @Override
+                public void onScanCompleted(String s, Uri uri) {
+
+                }
+            });
+
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+            btn_tarjeton.setImageBitmap(bitmap);
         }
     }
 }
