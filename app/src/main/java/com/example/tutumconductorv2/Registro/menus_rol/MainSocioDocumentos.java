@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.tutumconductorv2.R;
 //import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCaracteristicas;
 import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaIne;
 import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaLicencia;
@@ -33,7 +34,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
     private TextView btn_bd1,btn_bd2,btn_bd3,btn_bd4,btn_bd5,btn_bd6,btn_bd7,btn_bd1_ok,btn_bd2_ok,btn_bd3_ok,btn_bd4_ok,btn_bd5_ok,btn_bd6_ok,btn_bd7_ok;
     private static String rol= "Socio";
 
-    private TextView tst_lic,vig_tarjeta,vig_poliza,vig_tarjeton,tst_fabricante,tst_modelo,tst_anio,tst_matricula;
+    private TextView tst_lic,vig_tarjeta,vig_poliza,vig_tarjeton,tst_fabricante,tst_modelo,tst_anio,tst_matricula,test_nombre,test_app,test_apm,test_email,test_pass,test_telefono;
 
     @Override
     //txt_btn1_head
@@ -112,6 +113,13 @@ public class MainSocioDocumentos extends AppCompatActivity {
         vig_poliza = findViewById(R.id.test_vig_poliza);
         vig_tarjeton = findViewById(R.id.test_vig_tarjeton);
 
+        test_nombre = findViewById(R.id.test_vig_nombres);
+        test_app = findViewById(R.id.test_vig_app);
+        test_apm = findViewById(R.id.test_vig_apm);
+        test_email = findViewById(R.id.test_vig_correo);
+        test_pass =findViewById(R.id.test_vig_pass);
+        test_telefono = findViewById(R.id.test_vig_telefono);
+
         tst_lic.setText("Vigencia Licencia:"+cadenas_documentos.vigLicencia);
         tst_fabricante.setText("fabricante:"+cadenas_documentos.fabricante);
         tst_modelo.setText("modelo:"+cadenas_documentos.modelo);
@@ -120,6 +128,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
         vig_tarjeta.setText("Vigencia Tarjeta:"+cadenas_documentos.vigTarjeta);
         vig_poliza.setText("Vigenia Poliza: "+cadenas_documentos.vigPoliza);
         vig_tarjeton.setText("Vigencia Tarjeton:"+cadenas_documentos.vigTarjeton);
+        test_nombre.setText("Nombre:"+ cadenas_registro.nombres);
+        test_app.setText("Apeido Paterno:"+cadenas_registro.apeido_paterno);
+        test_apm.setText("Apeido Materno:"+cadenas_registro.apeido_materno);
+        test_email.setText("Email:"+cadenas_registro.email);
+        test_pass.setText("Password"+cadenas_registro.password);
+        test_telefono.setText("Telefono"+cadenas_registro.telefono);
 
         if (ContextCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainSocioDocumentos.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
