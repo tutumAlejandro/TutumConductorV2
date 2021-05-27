@@ -45,7 +45,7 @@
     <string name="txt_ingresa_telefono">Teléfono Celular</string>
 
     <!-- Strings para los pop-up del registro de telefono -->
-    <string name="txt_pre_registro_ok">Información agregada correctamente</string>
+    <string name="txt_pre_registro_ok">Número de telefono y correo electrónic agregados correctamente</string>
     <string name="txt_pre_registro_fail">Lo sentimos, este número de teléfono y/o correo electrónico ya está siendo utilizado, intenta con otro</string>
 
     <!-- Strings para la ventana verifica OTP-->

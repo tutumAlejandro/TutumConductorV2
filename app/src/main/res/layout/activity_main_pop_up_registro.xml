@@ -12,7 +12,11 @@
         android:layout_height="wrap_content"
         android:textColor="@color/ok"
         android:textSize="@dimen/size_paso_recomendado"
-        android:text=""
-        android:fontFamily="@font/open_sans_semibold"/>
+        android:text="@string/txt_pre_registro_ok"
+        android:fontFamily="@font/open_sans_semibold"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
 </LinearLayout>

@@ -2,7 +2,9 @@ package com.example.tutumconductorv2.Registro.datos_personales;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 
 import com.example.tutumconductorv2.R;
@@ -19,6 +21,15 @@ public class MainPopUpRegistroFail extends AppCompatActivity {
         int ancho = medidasVentana.widthPixels;
         int alto = medidasVentana.heightPixels;
 
-        getWindow().setLayout((int)(ancho * 0.8),(int)(alto * 0.3));
+        getWindow().setLayout((int)(ancho * 1),(int)(alto * 0.45));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run()
+            {
+                Intent main_otp = new Intent(MainPopUpRegistroFail.this, MainRegistroTelefono.class);
+                startActivity(main_otp);
+                finish();
+            }
+        },1000);
     }
 }

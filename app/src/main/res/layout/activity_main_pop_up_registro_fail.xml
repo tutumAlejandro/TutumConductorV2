@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registro.datos_personales.MainPopUpRegistroFail">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".Registro.datos_personales.MainPopUpRegistroFail"
+    android:background="@color/darkest"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/error"
+        android:textSize="@dimen/size_paso_recomendado"
+        android:text="@string/txt_pre_registro_fail"
+        android:fontFamily="@font/open_sans_semibold"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+</LinearLayout>

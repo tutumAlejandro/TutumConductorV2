@@ -76,16 +76,29 @@ public class MainRegistroTelefono extends AppCompatActivity {
         String tel = telefono.getEditText().getText().toString().trim();
         test_tel.setText(tel);
 
-        if (!check_telefono(tel)) return;
+        if (!check_telefono(tel))
+            {
+                Intent main_popup_fail = new Intent(MainRegistroTelefono.this, MainPopUpRegistroFail.class);
+                startActivity(main_popup_fail);
+              return;
+            }
             else {
                     cadenas_registro.telefono = tel;
                     realizarPost();
                     cadenas_registro.check_registro=res;
-                    if(res1.matches("true")) {return;}
+                    if(!res1.matches("true"))
+                    {
+                        Intent main_popup = new Intent(MainRegistroTelefono.this,MainPopUpRegistroFail.class);
+                        startActivity(main_popup);
+                        finish();
+                        return;
+                    }
                     else{
                             test_check.setText("true");
-                            Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
-                            startActivity(main_otp);
+                            Intent main_popup_ok = new Intent(MainRegistroTelefono.this,MainPopUpRegistro.class);
+                            startActivity(main_popup_ok);
+                            //Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
+                            //startActivity(main_otp);
                             finish();
                     }
 
