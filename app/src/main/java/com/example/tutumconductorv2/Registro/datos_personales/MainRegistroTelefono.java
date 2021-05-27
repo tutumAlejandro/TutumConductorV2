@@ -78,19 +78,20 @@ public class MainRegistroTelefono extends AppCompatActivity {
 
         if (!check_telefono(tel))
             {
-                Intent main_popup_fail = new Intent(MainRegistroTelefono.this, MainPopUpRegistroFail.class);
-                startActivity(main_popup_fail);
               return;
             }
             else {
                     cadenas_registro.telefono = tel;
-                    realizarPost();
+
+                    if (cadenas_registro.edit_phone) realizarPost();
+                    else editPhoneNumber();
+
                     cadenas_registro.check_registro=res;
                     if(!res1.matches("true"))
                     {
                         Intent main_popup = new Intent(MainRegistroTelefono.this,MainPopUpRegistroFail.class);
                         startActivity(main_popup);
-                        finish();
+                        tel="";
                         return;
                     }
                     else{
@@ -106,13 +107,12 @@ public class MainRegistroTelefono extends AppCompatActivity {
     }
 
     public void realizarPost()  {
-
         String url = "https://www.tutumapps.com/api/driver/registryDriver";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
 
-            jsonObject.put("name",cadenas_registro.nombres+cadenas_registro.apeido_paterno+cadenas_registro.apeido_materno);
+            jsonObject.put("name",cadenas_registro.nombres+" "+cadenas_registro.apeido_paterno+" "+cadenas_registro.apeido_materno);
             jsonObject.put("email",cadenas_registro.email);
             jsonObject.put("phone",cadenas_registro.telefono);
             jsonObject.put("password",cadenas_registro.password);
@@ -144,5 +144,40 @@ public class MainRegistroTelefono extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+    public void editPhoneNumber(){
+        String url = "https://www.tutumapps.com/api/driver/updateRegistryPhone";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+
+            jsonObject.put("email",cadenas_registro.email);
+            jsonObject.put("phone",cadenas_registro.telefono);
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Satisfactorio"+response);
+                    try {
+                        res1=response.getString("success");
+                        test_check.setText(response.getString("success"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }

@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 
 public class MainPopUpRegistroFail extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class MainPopUpRegistroFail extends AppCompatActivity {
         DisplayMetrics medidasVentana = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(medidasVentana);
 
+
         int ancho = medidasVentana.widthPixels;
         int alto = medidasVentana.heightPixels;
 
@@ -26,10 +28,9 @@ public class MainPopUpRegistroFail extends AppCompatActivity {
             @Override
             public void run()
             {
-                Intent main_otp = new Intent(MainPopUpRegistroFail.this, MainRegistroTelefono.class);
-                startActivity(main_otp);
                 finish();
             }
         },1000);
+
     }
 }

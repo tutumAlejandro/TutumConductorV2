@@ -52,6 +52,7 @@ public class MainOTP extends AppCompatActivity {
             public void onClick(View v) {
                 Intent main_registro_telefono = new Intent(MainOTP.this, MainRegistroTelefono.class);
                 cadenas_registro.telefono="";
+                cadenas_registro.edit_phone= false;
                 startActivity(main_registro_telefono);
                 finish();
             }

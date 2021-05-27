@@ -10,6 +10,7 @@ public class cadenas_registro {
     public static String telefono="";
 
     public static boolean check_registro;
+    public static boolean edit_phone=true;
 
     public cadenas_registro() {
     }
