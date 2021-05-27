@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
@@ -23,9 +21,6 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainRegistroTelefono extends AppCompatActivity {
 
@@ -81,39 +76,50 @@ public class MainRegistroTelefono extends AppCompatActivity {
             Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
             cadenas_registro.telefono = telefono.getEditText().getText().toString().trim();
             realizarPost();
-            startActivity(main_otp);
-            finish();
+            if(cadenas_registro.check_registro){
+                startActivity(main_otp);
+                finish();
+            }else{
+                //Intent main_popup_fail = new Intent(MainRegistroTelefono.this, MainPopUpRegistroFail.class);
+            }
+
         }
     }
 
     public void realizarPost()  {
-        String url = "http://192.168.1.107:8000/api/driver/registryDriver";
+        String url = "https://www.tutumapps.com/api/driver/registryDriver";
         try {
-                RequestQueue requestQueue = Volley.newRequestQueue(this);
-                final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
 
-                    jsonObject.put("name",cadenas_registro.nombres+cadenas_registro.apeido_paterno+cadenas_registro.apeido_materno);
-                    jsonObject.put("email",cadenas_registro.email);
-                    jsonObject.put("phone",cadenas_registro.telefono);
-                    jsonObject.put("password",cadenas_registro.password);
-                    jsonObject.put("status","1");
+            jsonObject.put("name",cadenas_registro.nombres+cadenas_registro.apeido_paterno+cadenas_registro.apeido_materno);
+            jsonObject.put("email",cadenas_registro.email);
+            jsonObject.put("phone",cadenas_registro.telefono);
+            jsonObject.put("password",cadenas_registro.password);
+            jsonObject.put("status","ok");
 
-                    final String requestBody = jsonObject.toString();
+            final String requestBody = jsonObject.toString();
 
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Log.d("My Tag","Satisfactorio"+response);
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Satisfactorio"+response);
+                    try {
+                        boolean respuesta = response.getBoolean("success");
+                        cadenas_registro.check_registro = respuesta;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
-                            Log.d("My Tag","Error"+error);
-                        }
-                    });
-                    requestQueue.add(request);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
         }catch (JSONException e){
             e.printStackTrace();
         }

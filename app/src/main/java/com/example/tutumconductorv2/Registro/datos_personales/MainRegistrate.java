@@ -104,7 +104,7 @@ public class MainRegistrate extends AppCompatActivity {
             cadenas_registro.email = email.getEditText().getText().toString().trim();
             cadenas_registro.password =pass.getEditText().getText().toString().trim();
             startActivity(main_registro_telefono);
-            finish();
+            //finish();
         }
     }
 
