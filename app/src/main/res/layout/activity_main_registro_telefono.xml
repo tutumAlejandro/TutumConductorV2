@@ -103,6 +103,18 @@
                 android:id="@+id/test_tel_pass"
                 android:textSize="16sp"
                 android:textColor="@color/daysi"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/test_tel_tel"
+                android:textSize="16sp"
+                android:textColor="@color/daysi"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/test_tel_check"
+                android:textSize="16sp"
+                android:textColor="@color/daysi"/>
 
         </LinearLayout>
     </ScrollView>

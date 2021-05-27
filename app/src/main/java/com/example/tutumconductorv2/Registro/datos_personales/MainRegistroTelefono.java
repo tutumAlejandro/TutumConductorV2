@@ -25,9 +25,10 @@ import org.json.JSONObject;
 public class MainRegistroTelefono extends AppCompatActivity {
 
     private TextInputLayout telefono;
-    private TextView test_nom, test_app, test_apm, test_email, test_pass;
+    private TextView test_nom, test_app, test_apm, test_email, test_pass,test_tel,test_check;
     private RequestQueue queue;
-
+    private boolean res=false;
+    private String res1="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
         test_apm = findViewById(R.id.test_tel_apm);
         test_email = findViewById(R.id.test_tel_email);
         test_pass = findViewById(R.id.test_tel_pass);
+        test_tel = findViewById(R.id.test_tel_tel);
+        test_check = findViewById(R.id.test_tel_check);
         /**/
         test_nom.setText(cadenas_registro.nombres);
         test_app.setText(cadenas_registro.apeido_paterno);
@@ -70,23 +73,27 @@ public class MainRegistroTelefono extends AppCompatActivity {
     }
 
     public void main_otp(View v) {
-        if (!check_telefono(telefono.getEditText().getText().toString().trim())) {
-            return;
-        } else {
-            Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
-            cadenas_registro.telefono = telefono.getEditText().getText().toString().trim();
-            realizarPost();
-            if(cadenas_registro.check_registro){
-                startActivity(main_otp);
-                finish();
-            }else{
-                //Intent main_popup_fail = new Intent(MainRegistroTelefono.this, MainPopUpRegistroFail.class);
-            }
+        String tel = telefono.getEditText().getText().toString().trim();
+        test_tel.setText(tel);
+
+        if (!check_telefono(tel)) return;
+            else {
+                    cadenas_registro.telefono = tel;
+                    realizarPost();
+                    cadenas_registro.check_registro=res;
+                    if(res1.matches("true")) {return;}
+                    else{
+                            test_check.setText("true");
+                            Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
+                            startActivity(main_otp);
+                            finish();
+                    }
 
         }
     }
 
     public void realizarPost()  {
+
         String url = "https://www.tutumapps.com/api/driver/registryDriver";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -105,8 +112,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     Log.d("My Tag","Satisfactorio"+response);
                     try {
-                        boolean respuesta = response.getBoolean("success");
-                        cadenas_registro.check_registro = respuesta;
+                        res1=response.getString("success");
+                        test_check.setText(response.getString("success"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
