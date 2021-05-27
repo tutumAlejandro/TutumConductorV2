@@ -105,7 +105,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     Log.d("My Tag","Satisfactorio"+response);
                     try {
-                        boolean respuesta = !response.getBoolean("success");
+                        boolean respuesta = response.getBoolean("success");
                         cadenas_registro.check_registro = respuesta;
                     } catch (JSONException e) {
                         e.printStackTrace();
