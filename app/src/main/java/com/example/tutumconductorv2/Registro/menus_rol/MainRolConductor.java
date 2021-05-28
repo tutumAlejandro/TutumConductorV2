@@ -28,7 +28,7 @@ public class MainRolConductor extends AppCompatActivity {
 
     }
     public void main_doctos_socio(View v) {
-        realizarPostRol('0','1','1',0,'1');
+        realizarPostSocio();
         Intent main_doc_socio = new Intent(MainRolConductor.this, MainSocioDocumentos.class);
         cadenas_documentos.check_terminos1=false;
         cadenas_documentos.check_ine1=false;
@@ -42,7 +42,7 @@ public class MainRolConductor extends AppCompatActivity {
     }
     public void main_doctos_conductor(View v)
     {
-        realizarPostRol('0','1','1',1,'0');
+        realizarPostConductor();
         Intent main_conductor_doctos = new Intent(MainRolConductor.this, MainConductorDocumentos.class);
         cadenas_documentos.check_terminos2=false;
         cadenas_documentos.check_ine2=false;
@@ -56,7 +56,7 @@ public class MainRolConductor extends AppCompatActivity {
     }
     public void main_doctos_snv(View v)
     {
-        realizarPostRol('0','1','0',0,'0');
+        realizarPostSnv();
         Intent main_doc_snv = new Intent(MainRolConductor.this, MainSnvDocuemtos.class);
         cadenas_documentos.check_terminos3=false;
         cadenas_documentos.check_ine3=false;
@@ -69,16 +69,77 @@ public class MainRolConductor extends AppCompatActivity {
     }
 
 
-    public void realizarPostRol(char status,char conf_phone,char type,int only,char terms) {
+    public void realizarPostSocio() {
         String url = "https://tutumapps.com/api/driver/updateRegistryFields";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
-            jsonObject.put("status",status);
-            jsonObject.put("confirmation_phone",conf_phone);
-            jsonObject.put("type",type);
-            jsonObject.put("only",only);
+            jsonObject.put("status",'0');
+            jsonObject.put("confirmation_phone",'1');
+            jsonObject.put("type",'1');
+            jsonObject.put("only",'0');
+            jsonObject.put("terms_confirmation","1");
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void realizarPostConductor() {
+        String url = "https://tutumapps.com/api/driver/updateRegistryFields";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("status",'0');
+            jsonObject.put("confirmation_phone",'1');
+            jsonObject.put("type",'0');
+            jsonObject.put("only",'1');
+            jsonObject.put("terms_confirmation","1");
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void realizarPostSnv() {
+        String url = "https://tutumapps.com/api/driver/updateRegistryFields";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("status",'0');
+            jsonObject.put("confirmation_phone",'1');
+            jsonObject.put("terms_confirmation","1");
 
             final String requestBody = jsonObject.toString();
 
