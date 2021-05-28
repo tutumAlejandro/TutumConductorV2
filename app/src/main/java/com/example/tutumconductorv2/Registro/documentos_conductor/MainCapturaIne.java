@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,11 +22,21 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +56,11 @@ public class MainCapturaIne extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
-    int factor = 32;
+    int factor = 4;
+
+    private RequestQueue queue;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +68,7 @@ public class MainCapturaIne extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainCapturaIne.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
         }
+        queue = Volley.newRequestQueue(this);
 
         rol = getIntent().getStringExtra("rol");
 
@@ -88,6 +104,7 @@ public class MainCapturaIne extends AppCompatActivity {
             public void onClick(View v) {
                 codigoBoton=1;
                 tomarFoto(v,"ine_frontal");
+                //galleryAddPic();
                 //setPic(ine_frontal);
                 check_ine_frontal=true;
             }
@@ -97,6 +114,7 @@ public class MainCapturaIne extends AppCompatActivity {
             public void onClick(View v) {
                 codigoBoton=2;
                 tomarFoto(v,"ine_reverso");
+                //galleryAddPic();
                 //setPic(ine_frontal);
                 check_ine_reverso=true;
             }
@@ -110,17 +128,20 @@ public class MainCapturaIne extends AppCompatActivity {
     {
         if(check_ine_frontal && check_ine_reverso){
             if(rol.matches("Socio")){
+                realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
                 cadenas_documentos.check_ine1=true;
                 startActivity(main_socio_documentos);
                 finish();
             }else if(rol.matches("Conductor")){
+                realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
                 cadenas_documentos.check_ine2=true;
                 startActivity(main_conductor_documentos);
                 finish();
             }else
             {
+                realizarPost();
                 Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
                 cadenas_documentos.check_ine3=true;
                 startActivity(main_snv_documentos);
@@ -243,6 +264,34 @@ public class MainCapturaIne extends AppCompatActivity {
                 ine_reverso.setImageBitmap(bitmap);
                 ine_frontal.setBackgroundColor(0x00000000);
             }
+        }
+    }
+
+    public void realizarPost() {
+        String url = "https://tutumapps.com/api/driver/uploadRegistriLicense";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("img_front",mCurrentPhotoPath);
+            jsonObject.put("img_back",mCurrentPhotoPath);
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
