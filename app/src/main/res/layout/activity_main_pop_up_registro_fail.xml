@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Registro.datos_personales.MainPopUpRegistroFail"
+    android:layout_gravity="bottom"
     android:background="@color/darkest"
     android:orientation="vertical">
     <TextView
+        android:id="@+id/registro_msg_fail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/error"

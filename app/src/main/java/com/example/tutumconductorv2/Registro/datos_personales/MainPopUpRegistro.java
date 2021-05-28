@@ -29,10 +29,10 @@ public class MainPopUpRegistro extends AppCompatActivity {
             @Override
             public void run()
             {
-                Intent main_otp = new Intent(MainPopUpRegistro.this, MainOTP.class);
+                Intent main_otp = new Intent(MainPopUpRegistro.this,MainOTP.class);
                 startActivity(main_otp);
                 finish();
             }
-        },1000);
+        },4000);
     }
 }

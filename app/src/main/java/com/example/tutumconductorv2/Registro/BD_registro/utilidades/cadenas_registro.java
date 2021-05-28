@@ -9,8 +9,9 @@ public class cadenas_registro {
     public static String password="";
     public static String telefono="";
 
-    public static boolean check_registro;
+    public static String check_registro="";
     public static boolean edit_phone=true;
+    public static String msg_fail="";
 
     public cadenas_registro() {
     }

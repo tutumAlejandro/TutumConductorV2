@@ -6,19 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.widget.TextView;
 
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 
 public class MainPopUpRegistroFail extends AppCompatActivity {
-
+    private TextView msg_fail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_pop_up_registro_fail);
         DisplayMetrics medidasVentana = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(medidasVentana);
-
+        msg_fail = findViewById(R.id.registro_msg_fail);
 
         int ancho = medidasVentana.widthPixels;
         int alto = medidasVentana.heightPixels;
@@ -30,7 +31,7 @@ public class MainPopUpRegistroFail extends AppCompatActivity {
             {
                 finish();
             }
-        },1000);
+        },4000);
 
     }
 }
