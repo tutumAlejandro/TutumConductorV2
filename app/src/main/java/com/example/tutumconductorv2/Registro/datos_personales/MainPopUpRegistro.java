@@ -33,6 +33,6 @@ public class MainPopUpRegistro extends AppCompatActivity {
                 startActivity(main_otp);
                 finish();
             }
-        },4000);
+        },2000);
     }
 }

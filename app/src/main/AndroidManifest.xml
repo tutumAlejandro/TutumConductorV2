@@ -5,13 +5,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permisos para el uso de la camara -->
-    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-feature
-        android:name="android.hardware.Camera"
-        android:required="true" /> <!-- Permisos para el uso de la escritura en la memoria externa -->
+    <!-- ___________________________Inicio Apartado 2______________________________________________________-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.Camera" android:required="true" /> <!-- Permisos para el uso de la escritura en la memoria externa -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Permisos para el uso del GPS -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- ___________________________Fin Apartado 2______________________________________________________-->
+
+    <!-- Permisos para el uso del GPS -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location.gps" />
@@ -168,6 +170,7 @@
             </meta-data>
         </provider>
         -->
+        <!-- ____________________________ Inicio Apartado 3 __________________________________ -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.android.fileprovider"
@@ -177,6 +180,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <!-- ____________________________ Fin Apartado 3 __________________________________ -->
     </application>
 
 </manifest>

@@ -146,9 +146,9 @@
                     android:layout_marginTop="@dimen/margin_img_camra_top"
                     android:background="@color/fondo_captura_img"
                     android:contentDescription="@string/imagenes"
+                    android:src="@drawable/ic_baseline_add_a_photo_24"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:id="@+id/btn_reverso_ine"

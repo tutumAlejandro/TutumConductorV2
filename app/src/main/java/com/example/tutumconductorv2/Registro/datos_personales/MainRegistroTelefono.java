@@ -107,6 +107,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         //test_check.setText(response.getString("success"));
+                        Log.d("My Tag","Respuesta"+ response);
                         if(response.getString("success").matches("true"))
                         {
                             Intent main_popup = new Intent(MainRegistroTelefono.this, MainPopUpRegistro.class);

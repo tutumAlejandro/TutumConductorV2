@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -17,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -38,9 +40,11 @@ import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 
 public class MainCapturaIne extends AppCompatActivity {
@@ -56,10 +60,12 @@ public class MainCapturaIne extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
-    int factor = 4;
+    int factor = 1;
 
     private RequestQueue queue;
 
+    private String image_code1="";
+    private String image_code2="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,13 +76,15 @@ public class MainCapturaIne extends AppCompatActivity {
         }
         queue = Volley.newRequestQueue(this);
 
+        // Bandera para saber el rol de la solicitud
         rol = getIntent().getStringExtra("rol");
 
+        //Asociacion de la parte grafica con la parte logica
         ine_frontal = findViewById(R.id.btn_frontal_ine);
         ine_reverso = findViewById(R.id.btn_reverso_ine);
-
         btn_retroceso_ine = findViewById(R.id.img_retroceso_ine);
 
+        //Declaración de las funciones al hacer clic en la imagen de retroceso y las imagenes frontal y trasera de la INE/IFE
         btn_retroceso_ine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,14 +106,11 @@ public class MainCapturaIne extends AppCompatActivity {
                 }
             }
         });
-
         ine_frontal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 codigoBoton=1;
-                tomarFoto(v,"ine_frontal");
-                //galleryAddPic();
-                //setPic(ine_frontal);
+                tomarFoto(v,"ine_frente");
                 check_ine_frontal=true;
             }
         });
@@ -113,9 +118,7 @@ public class MainCapturaIne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 codigoBoton=2;
-                tomarFoto(v,"ine_reverso");
-                //galleryAddPic();
-                //setPic(ine_frontal);
+                tomarFoto(v,"ine_frente");
                 check_ine_reverso=true;
             }
         });
@@ -139,8 +142,7 @@ public class MainCapturaIne extends AppCompatActivity {
                 cadenas_documentos.check_ine2=true;
                 startActivity(main_conductor_documentos);
                 finish();
-            }else
-            {
+            }else {
                 realizarPost();
                 Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
                 cadenas_documentos.check_ine3=true;
@@ -150,131 +152,108 @@ public class MainCapturaIne extends AppCompatActivity {
         }else{
             return;
         }
-
     }
 
-    String mCurrentPhotoPath;
+    /** Pasos para crear abrir la camara del telefono, capturar una imagen y mostrar su previsualización
+     *
+     * 1.- Primero debemos añadir los permisos de uso de la camara y almacenamiento externo de la aplicación
+     *     ver en el AndroidManifest.xml el apartado 2
+     * 2.- Segundo se debe añadir los paths(rutas de almacenamiento de las imagenes) ver apartado 3 y crear
+     *     el archivo file_paths.xml (puede tener el nombre que quieras pero debe ser igual al que se
+     *     definio en el manifest apartado 3)
+     */
+
+
+    String mCurrentPhotoPath; //path donde se va a almacenar las imagenes
     private File createImageFile(String nombreFoto) throws IOException {
-        // Create an image file name
+        // Funcion para crear un archivo del tipo imagen y asignación de un nombre anti-colisiones(evita que tengan el mismo nombre repetido)
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
-
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
 
-
-    public void tomarFoto(View view,String nomFoto) {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile(nomFoto);
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.fileprovider", photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-                galleryAddPic();
-
-            }
+    // En la funcion onActivityResult es donde se activa la camara y se almacena la imagen
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //Primero se pregunta se el resultado fue correcto y si hay una solicitud de captura de imagen
+        if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE){
+            MediaScannerConnection.scanFile(MainCapturaIne.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                @Override
+                public void onScanCompleted(String s, Uri uri) { }
+            });
         }
-    }
-
-    private void galleryAddPic() {
-        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        File f = new File(mCurrentPhotoPath);
-        Uri contentUri = Uri.fromFile(f);
-        mediaScanIntent.setData(contentUri);
-        this.sendBroadcast(mediaScanIntent);
-    }
-
-    private void setPic(ImageView boton) {
-        // Get the dimensions of the View
+        // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
         int targetW = ine_frontal.getWidth();
         int targetH = ine_frontal.getHeight();
 
-        // Get the dimensions of the bitmap
+        //Obtener las dimensiones del Bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = true;
 
         int photoW = bmOptions.outWidth;
         int photoH = bmOptions.outHeight;
 
-        // Determine how much to scale down the image
-        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+        //Determinar el factor de escalamiento de la imagenes bitmap
+        int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
 
-        // Decode the image file into a Bitmap sized to fill the View
+        //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
         bmOptions.inJustDecodeBounds = false;
         bmOptions.inSampleSize = scaleFactor;
         bmOptions.inPurgeable = true;
 
         Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        boton.setImageBitmap(bitmap);
+        if(codigoBoton==1){
+            ine_frontal.setImageBitmap(bitmap);
+            ine_frontal.setBackgroundColor(0x00000000);
+            ByteArrayOutputStream array = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+            byte[] imageByte = array.toByteArray();
+            image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+        }else{
+            ine_reverso.setImageBitmap(bitmap);
+            ine_reverso.setBackgroundColor(0x00000000);
+            ByteArrayOutputStream array = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+            byte[] imageByte = array.toByteArray();
+            image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+        }
+
     }
+    public void tomarFoto(View view,String nomFoto){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-    public void seleccionarImagen(){
-        Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(galeria,SELEC_IMAGEN);
-    }
+        if(takePictureIntent.resolveActivity(getPackageManager()) != null){
+            File photoFile = null;
+            try {
+                photoFile = createImageFile(nomFoto);
+            }catch (IOException e){
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE) {
-            MediaScannerConnection.scanFile(MainCapturaIne.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
-                @Override
-                public void onScanCompleted(String s, Uri uri) {
-
-                }
-            });
-
-            //Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
-            // Get the dimensions of the View
-            int targetW = ine_frontal.getWidth();
-            int targetH = ine_frontal.getHeight();
-
-            // Get the dimensions of the bitmap
-            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-            bmOptions.inJustDecodeBounds = true;
-
-            int photoW = bmOptions.outWidth;
-            int photoH = bmOptions.outHeight;
-
-            // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW/(targetW*factor), photoH/(targetH*factor));
-
-            // Decode the image file into a Bitmap sized to fill the View
-            bmOptions.inJustDecodeBounds = false;
-            bmOptions.inSampleSize = scaleFactor;
-            bmOptions.inPurgeable = true;
-
-            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-            if (codigoBoton == 1) {
-                ine_frontal.setImageBitmap(bitmap);
-                ine_frontal.setBackgroundColor(0x00000000);
-            } else {
-                ine_reverso.setImageBitmap(bitmap);
-                ine_frontal.setBackgroundColor(0x00000000);
+            }
+            if(photoFile != null){
+                Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.fileprovider", photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI);
+                startActivityForResult(takePictureIntent,REQUEST_TAKE_PHOTO);
+                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                File f = new File(mCurrentPhotoPath);
+                Uri contentUri = Uri.fromFile(f);
+                mediaScanIntent.setData(contentUri);
+                this.sendBroadcast(mediaScanIntent);
             }
         }
     }
 
     public void realizarPost() {
-        String url = "https://tutumapps.com/api/driver/uploadRegistriLicense";
+        String url = "https://tutumapps.com/api/driver/uploadRegistryINE";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
-            jsonObject.put("img_front",mCurrentPhotoPath);
-            jsonObject.put("img_back",mCurrentPhotoPath);
+            jsonObject.put("img_front",image_code1);
+            jsonObject.put("img_back",image_code2);
 
             final String requestBody = jsonObject.toString();
 
@@ -290,8 +269,10 @@ public class MainCapturaIne extends AppCompatActivity {
                     Log.d("My Tag","Error"+error);
                 }
             });
+            requestQueue.add(request);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }
