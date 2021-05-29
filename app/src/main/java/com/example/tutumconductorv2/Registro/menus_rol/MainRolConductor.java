@@ -75,11 +75,11 @@ public class MainRolConductor extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
-            jsonObject.put("status",'0');
+            jsonObject.put("status","0");
+            jsonObject.put("type","1");
+            jsonObject.put("only",0);
             jsonObject.put("confirmation_phone",'1');
-            jsonObject.put("type",'1');
-            jsonObject.put("only",'0');
-            jsonObject.put("terms_confirmation","1");
+            jsonObject.put("terms_confirmation","0");
 
             final String requestBody = jsonObject.toString();
 
@@ -106,11 +106,11 @@ public class MainRolConductor extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
-            jsonObject.put("status",'0');
+            jsonObject.put("status","0");
+            jsonObject.put("type","1");
+            jsonObject.put("only",1);
             jsonObject.put("confirmation_phone",'1');
-            jsonObject.put("type",'0');
-            jsonObject.put("only",'1');
-            jsonObject.put("terms_confirmation","1");
+            jsonObject.put("terms_confirmation","0");
 
             final String requestBody = jsonObject.toString();
 
@@ -137,9 +137,11 @@ public class MainRolConductor extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
-            jsonObject.put("status",'0');
+            jsonObject.put("status","0");
+            jsonObject.put("type","0");
+            jsonObject.put("only",1);
             jsonObject.put("confirmation_phone",'1');
-            jsonObject.put("terms_confirmation","1");
+            jsonObject.put("terms_confirmation","0");
 
             final String requestBody = jsonObject.toString();
 

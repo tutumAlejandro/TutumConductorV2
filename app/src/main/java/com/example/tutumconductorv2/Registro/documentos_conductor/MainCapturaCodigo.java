@@ -6,13 +6,23 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
+import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.json.JSONObject;
 
 public class MainCapturaCodigo extends AppCompatActivity {
 
@@ -20,6 +30,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
     private ImageView btn_regreso_codigo;
 
     private String rol;
+    private String code2="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +75,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
 
     public void btn_guardar_codigo(View v)
     {
-        String code2 = codigo_vehiculo.getEditText().getText().toString().trim();
+        code2 = codigo_vehiculo.getEditText().getText().toString().trim();
         if(!check_codigo(code2)){
             return;
         }else{
@@ -73,6 +84,33 @@ public class MainCapturaCodigo extends AppCompatActivity {
             cadenas_documentos.Codigo=code2;
             startActivity(main_snv_documentos);
             finish();
+        }
+    }
+    public void realizarPost() {
+        String url = "https://tutumapps.com/api/driver/uploadVehicleCode";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("vehicle_code",code2);
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
