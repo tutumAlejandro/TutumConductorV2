@@ -184,7 +184,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
@@ -223,7 +223,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         btn_tarjeton.setImageBitmap(bitmap);
         btn_tarjeton.setBackgroundColor(0x00000000);
         ByteArrayOutputStream array = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
         byte[] imageByte = array.toByteArray();
         image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 

@@ -170,7 +170,7 @@ public class MainCapturaIne extends AppCompatActivity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
@@ -210,14 +210,14 @@ public class MainCapturaIne extends AppCompatActivity {
             ine_frontal.setImageBitmap(bitmap);
             ine_frontal.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else{
             ine_reverso.setImageBitmap(bitmap);
             ine_reverso.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
             byte[] imageByte = array.toByteArray();
             image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }

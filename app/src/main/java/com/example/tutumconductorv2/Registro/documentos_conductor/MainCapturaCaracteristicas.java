@@ -475,7 +475,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = nombreFoto + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
@@ -515,21 +515,21 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             btn_frente_carac.setImageBitmap(bitmap);
             btn_frente_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else if(codigoBoton ==2){
             btn_trasera_carac.setImageBitmap(bitmap);
             btn_trasera_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
             byte[] imageByte = array.toByteArray();
             image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else {
             btn_lateral_carac.setImageBitmap(bitmap);
             btn_lateral_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
             byte[] imageByte = array.toByteArray();
             image_code3 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 
