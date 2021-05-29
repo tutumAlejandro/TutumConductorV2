@@ -96,6 +96,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
     int factor = 1;
+    int year=0;
 
 
     private String image_code1="";
@@ -437,11 +438,13 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     {
         matricula = matricula_input.getEditText().getText().toString().trim();
         mod = model_input.getEditText().getText().toString().trim();
+        year = Integer.parseInt(mod);
         if(!check_matricula(matricula) | !check_model(mod) | !check_carac_frente | !check_carac_reverso | !check_carac_lateral){
             return;
         }else {
             if (rol.matches("Socio"))
             {
+                realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
                 cadenas_documentos.anio=mod;
                 cadenas_documentos.matricula=matricula;
@@ -449,6 +452,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 startActivity(main_socio_documentos);
                 finish();
             }else{
+                realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
                 cadenas_documentos.anio=mod;
                 cadenas_documentos.matricula=matricula;
@@ -515,21 +519,21 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             btn_frente_carac.setImageBitmap(bitmap);
             btn_frente_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,30,array);
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else if(codigoBoton ==2){
             btn_trasera_carac.setImageBitmap(bitmap);
             btn_trasera_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,30,array);
             byte[] imageByte = array.toByteArray();
             image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else {
             btn_lateral_carac.setImageBitmap(bitmap);
             btn_lateral_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,30,array);
             byte[] imageByte = array.toByteArray();
             image_code3 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 
@@ -566,7 +570,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
             jsonObject.put("vehicle_model_id",20);
-            jsonObject.put("vehicle_year",Integer.parseInt(mod));
+            jsonObject.put("vehicle_year",year);
             jsonObject.put("vehicle_plates",matricula);
             jsonObject.put("img_front",image_code1);
             jsonObject.put("img_back",image_code2);
