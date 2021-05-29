@@ -560,7 +560,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     }
 
     public void realizarPost() {
-        String url = "https://tutumapps.com/api/driver/uploadRegistriLicense";
+        String url = "https://tutumapps.com/api/driver/uploadVehicleDetails";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();

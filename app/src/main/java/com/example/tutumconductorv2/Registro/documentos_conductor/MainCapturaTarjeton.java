@@ -259,7 +259,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
             jsonObject.put("img_front",image_code1);
-            jsonObject.put("circulation_card_expiry",vigencia);
+            jsonObject.put("control_card_expiry",vigencia);
 
             final String requestBody = jsonObject.toString();
 
