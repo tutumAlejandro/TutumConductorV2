@@ -52,7 +52,8 @@ public class MainCapturaIne extends AppCompatActivity {
     private ImageView btn_retroceso_ine;
     private String rol;
     //private ImageButton ine_reverso;
-    private ImageButton ine_reverso,ine_frontal;
+    private ImageView ine_reverso,ine_frontal;
+    //private ImageButton ine_frontal;
     private boolean check_ine_reverso=false;
     private boolean check_ine_frontal=false;
 
@@ -60,7 +61,7 @@ public class MainCapturaIne extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
-    int factor = 1;
+    int factor = 128;
 
     private RequestQueue queue;
 
@@ -206,6 +207,7 @@ public class MainCapturaIne extends AppCompatActivity {
         bmOptions.inPurgeable = true;
 
         Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+
         if(codigoBoton==1){
             ine_frontal.setImageBitmap(bitmap);
             ine_frontal.setBackgroundColor(0x00000000);
