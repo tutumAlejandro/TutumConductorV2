@@ -152,7 +152,26 @@
                 android:text="@string/btn_text_continuar"
                 android:fontFamily="@font/boring_sans_bold"
                 android:textSize="@dimen/size_text_btn"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/test_terminos"
+                android:text="@string/txt_link_terminos"
+                android:textSize="16sp"
+                android:textColor="@color/daysi"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/test_politica"
+                android:text="@string/txt_link_politica"
+                android:textSize="16sp"
+                android:textColor="@color/daysi"
+                android:visibility="gone"/>
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

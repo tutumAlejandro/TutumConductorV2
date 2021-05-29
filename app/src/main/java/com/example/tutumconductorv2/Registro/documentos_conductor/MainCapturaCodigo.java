@@ -79,6 +79,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
         if(!check_codigo(code2)){
             return;
         }else{
+            realizarPost();
             Intent main_snv_documentos = new Intent(MainCapturaCodigo.this,MainSnvDocuemtos.class);
             cadenas_documentos.check_codigo3=true;
             cadenas_documentos.Codigo=code2;

@@ -72,7 +72,6 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
                 Intent main_politica = new Intent(MainTerminosYCondiciones.this, MainTextoPoliticaPrivacidad.class);
                 main_politica.putExtra("rol",rol);
                 startActivity(main_politica);
-                finish();
             }
         });
         _terminos.setOnClickListener(new View.OnClickListener() {

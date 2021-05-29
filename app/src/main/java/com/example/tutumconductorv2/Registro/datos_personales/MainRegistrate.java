@@ -6,15 +6,20 @@ import android.graphics.Color;
 
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainTextoPoliticaPrivacidad;
+import com.example.tutumconductorv2.Registro.documentos_conductor.MainTextoTerminosCondiciones;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainRegistrate extends AppCompatActivity {
 
     private TextInputLayout nombres,apeidop,apeidom,email,pass;
+
+    private TextView terminos,politica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,26 @@ public class MainRegistrate extends AppCompatActivity {
         apeidom = findViewById(R.id.InputApeidoM);
         email = findViewById(R.id.InputCorreo);
         pass = findViewById(R.id.InputContraseña);
+
+        terminos = findViewById(R.id.test_terminos);
+        politica = findViewById(R.id.test_politica);
+
+        terminos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent main_terminos = new Intent(MainRegistrate.this, MainTextoTerminosCondiciones.class);
+                main_terminos.putExtra("rol","Socio");
+                startActivity(main_terminos);
+            }
+        });
+        politica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent main_terminos = new Intent(MainRegistrate.this, MainTextoPoliticaPrivacidad.class);
+                main_terminos.putExtra("rol","Socio");
+                startActivity(main_terminos);
+            }
+        });
     }
 
     private boolean check_field(String app, TextInputLayout campo)
