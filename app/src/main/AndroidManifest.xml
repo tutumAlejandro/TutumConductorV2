@@ -5,14 +5,14 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permisos para el uso de la camara -->
-
-    <!-- ___________________________Inicio Apartado 2______________________________________________________-->
+    <!-- ___________________________Inicio Apartado 2______________________________________________________ -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.Camera" android:required="true" /> <!-- Permisos para el uso de la escritura en la memoria externa -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!-- ___________________________Fin Apartado 2______________________________________________________-->
 
+    <uses-feature
+        android:name="android.hardware.Camera"
+        android:required="true" /> <!-- Permisos para el uso de la escritura en la memoria externa -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- ___________________________Fin Apartado 2______________________________________________________ -->
     <!-- Permisos para el uso del GPS -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -26,11 +26,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Registro.datos_personales.MainPopUpRegistroFail"
-                  android:theme="@style/ThemePopUp">
-        </activity>
-        <activity android:name=".Registro.datos_personales.MainPopUpRegistro"
-                  android:theme="@style/ThemePopUp"/>
+        <activity android:name=".Registro.menus_rol.MainDocumentosOkConductor"></activity>
+        <activity android:name=".Registro.menus_rol.MainDocumentosOkSocio" />
+        <activity
+            android:name=".Registro.datos_personales.MainPopUpRegistroFail"
+            android:theme="@style/ThemePopUp" />
+        <activity
+            android:name=".Registro.datos_personales.MainPopUpRegistro"
+            android:theme="@style/ThemePopUp" />
         <activity android:name=".Registro.menus_rol.MainConductorDocumentosOk" />
         <activity android:name=".Registro.menus_rol.MainDocumentosSocioOk" />
         <activity android:name=".Registro.menus_rol.MainConductorDocumentos" />
@@ -180,7 +183,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <!-- ____________________________ Fin Apartado 3 __________________________________ -->
     </application>
 
 </manifest>

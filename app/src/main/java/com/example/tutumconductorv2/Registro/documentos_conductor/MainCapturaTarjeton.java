@@ -45,7 +45,7 @@ import java.util.Date;
 public class MainCapturaTarjeton extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_tarjeton;
-    private ImageButton btn_tarjeton;
+    private ImageView btn_tarjeton;
     private EditText vigenciaTarjeton;
     private int year, month, day;
     private String rol;
@@ -56,7 +56,8 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
-    int factor = 1;
+    int factor = 2;
+    int quality_image=30;
 
     private boolean check_tarjeton = false;
 
@@ -223,7 +224,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         btn_tarjeton.setImageBitmap(bitmap);
         btn_tarjeton.setBackgroundColor(0x00000000);
         ByteArrayOutputStream array = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
         byte[] imageByte = array.toByteArray();
         image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 

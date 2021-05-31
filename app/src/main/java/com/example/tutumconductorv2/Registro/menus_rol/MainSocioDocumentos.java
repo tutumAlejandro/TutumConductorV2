@@ -8,11 +8,18 @@ import androidx.core.content.ContextCompat;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
 //import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
@@ -24,6 +31,8 @@ import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaPol
 import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjetaCirculacion;
 import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjeton;
 import com.example.tutumconductorv2.Registro.documentos_conductor.MainTerminosYCondiciones;
+
+import org.json.JSONObject;
 
 public class MainSocioDocumentos extends AppCompatActivity {
 
@@ -286,7 +295,9 @@ public class MainSocioDocumentos extends AppCompatActivity {
         });
 
         if(cadenas_documentos.check_ine1 & cadenas_documentos.check_licencia1 & cadenas_documentos.check_caracteristicas1 & cadenas_documentos.check_tarjeta1 & cadenas_documentos.check_poliza1 & cadenas_documentos.check_tarjeton1){
-            
+            Intent main_socio_ok = new Intent(MainSocioDocumentos.this,MainDocumentosSocioOk.class);
+            startActivity(main_socio_ok);
+            finish();
         }
 
     }
@@ -295,21 +306,21 @@ public class MainSocioDocumentos extends AppCompatActivity {
         Intent main_terminos_socio = new Intent(MainSocioDocumentos.this,MainTerminosYCondiciones.class);
         main_terminos_socio.putExtra("rol",rol);
         startActivity(main_terminos_socio);
-        finish();
+        //finish();
     }
     public void ine_socio(View view)
     {
         Intent main_ine_socio = new Intent(MainSocioDocumentos.this,MainCapturaIne.class);
         main_ine_socio.putExtra("rol",rol);
         startActivity(main_ine_socio);
-        finish();
+        //finish();
     }
     public void licencia_socio(View view)
     {
         Intent main_licencia_socio = new Intent(MainSocioDocumentos.this, MainCapturaLicencia.class);
         main_licencia_socio.putExtra("rol",rol);
         startActivity(main_licencia_socio);
-        finish();
+        //finish();
 
     }
     public void caracterisitcas_socio(View view)
@@ -317,28 +328,55 @@ public class MainSocioDocumentos extends AppCompatActivity {
         Intent main_caracteristicas_socio = new Intent(MainSocioDocumentos.this, MainCapturaCaracteristicas.class);
         main_caracteristicas_socio.putExtra("rol",rol);
         startActivity(main_caracteristicas_socio);
-        finish();
+        //finish();
     }
     public void tarjeta_socio(View view)
     {
         Intent main_tarjeta_socio = new Intent(MainSocioDocumentos.this, MainCapturaTarjetaCirculacion.class);
         main_tarjeta_socio.putExtra("rol",rol);
         startActivity(main_tarjeta_socio);
-        finish();
+        //finish();
     }
     public void poliza_socio(View view)
     {
         Intent main_poliza_socio = new Intent(MainSocioDocumentos.this, MainCapturaPoliza.class);
         main_poliza_socio.putExtra("rol",rol);
         startActivity(main_poliza_socio);
-        finish();
+        //finish();
     }
     public void tarjeton_socio(View view)
     {
         Intent main_tarjeton_socio = new Intent(MainSocioDocumentos.this, MainCapturaTarjeton.class);
         main_tarjeton_socio.putExtra("rol",rol);
         startActivity(main_tarjeton_socio);
-        finish();
+        //finish();
     }
+    /*public void realizarPost() {
+        String url = "https://tutumapps.com/api/driver/uploadRegistryINE";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone", cadenas_registro.telefono);
+
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
 
 }

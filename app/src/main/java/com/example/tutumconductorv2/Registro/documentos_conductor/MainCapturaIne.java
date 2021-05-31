@@ -61,7 +61,8 @@ public class MainCapturaIne extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
-    int factor = 128;
+    int factor = 2;
+    int quality_image=30;
 
     private RequestQueue queue;
 
@@ -212,14 +213,14 @@ public class MainCapturaIne extends AppCompatActivity {
             ine_frontal.setImageBitmap(bitmap);
             ine_frontal.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else{
             ine_reverso.setImageBitmap(bitmap);
             ine_reverso.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }

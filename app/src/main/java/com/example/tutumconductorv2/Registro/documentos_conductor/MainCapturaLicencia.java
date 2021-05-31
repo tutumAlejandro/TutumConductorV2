@@ -50,7 +50,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
 
     private ImageView btn_regreso_licencia;
     private EditText vigenciaLicencia;
-    private ImageButton licencia_frente, licencia_reverso;
+    private ImageView licencia_frente, licencia_reverso;
 
     private int year, month, day;
     private String rol;
@@ -62,7 +62,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
-    int factor = 1;
+    int factor = 2;
+    int quality_image=30;
 
     private RequestQueue queue;
 
@@ -241,14 +242,14 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             licencia_frente.setImageBitmap(bitmap);
             licencia_frente.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else{
             licencia_reverso.setImageBitmap(bitmap);
             licencia_reverso.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }

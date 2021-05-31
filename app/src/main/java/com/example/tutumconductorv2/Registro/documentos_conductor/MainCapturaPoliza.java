@@ -44,7 +44,7 @@ import java.util.Date;
 public class MainCapturaPoliza extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_poliza;
-    private ImageButton btn_poliza;
+    private ImageView btn_poliza;
     private EditText vigenciaPoliza;
     private int year, month, day;
     private String rol;
@@ -57,7 +57,8 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    int factor = 1;
+    int factor = 2;
+    int quality_image=30;
     private RequestQueue queue;
 
     @Override
@@ -209,7 +210,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
         btn_poliza.setImageBitmap(bitmap);
         btn_poliza.setBackgroundColor(0x00000000);
         ByteArrayOutputStream array = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
         byte[] imageByte = array.toByteArray();
         image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 

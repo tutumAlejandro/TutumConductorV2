@@ -146,9 +146,11 @@
                     android:layout_marginTop="@dimen/margin_img_camra_top"
                     android:background="@color/fondo_captura_img"
                     android:contentDescription="@string/imagenes"
+                    android:scaleType="center"
                     android:src="@drawable/ic_baseline_add_a_photo_24"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
                 <ImageView
                     android:id="@+id/btn_reverso_ine"
@@ -158,6 +160,7 @@
                     android:layout_marginEnd="@dimen/margin_img_camara_border"
                     android:background="@color/fondo_captura_img"
                     android:contentDescription="@string/imagenes"
+                    android:scaleType="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@drawable/ic_baseline_add_a_photo_24" />

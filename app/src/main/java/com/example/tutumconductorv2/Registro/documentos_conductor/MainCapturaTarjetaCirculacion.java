@@ -44,7 +44,7 @@ import java.util.Date;
 public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_regreso_tarjeta_circulacion;
-    private ImageButton btn_tarjeta;
+    private ImageView btn_tarjeta;
     private EditText vigencia_tarjeta;
     private String rol;
     private String vigencia="";
@@ -55,7 +55,8 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
-    int factor = 1;
+    int factor = 2;
+    int quality_image=30;
 
     private boolean check_tarjeta = false;
 
@@ -209,7 +210,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         btn_tarjeta.setImageBitmap(bitmap);
         btn_tarjeta.setBackgroundColor(0x00000000);
         ByteArrayOutputStream array = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,50,array);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
         byte[] imageByte = array.toByteArray();
         image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 

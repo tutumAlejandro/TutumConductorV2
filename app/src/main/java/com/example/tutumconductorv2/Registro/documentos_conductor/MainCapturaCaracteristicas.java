@@ -55,7 +55,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     private ImageView btn_retroceso_caracteristicas;
     private TextInputLayout model_input, matricula_input;
-    private ImageButton btn_frente_carac,btn_trasera_carac,btn_lateral_carac;
+    private ImageView btn_frente_carac,btn_trasera_carac,btn_lateral_carac;
 
     private TextView fabs;
 
@@ -95,9 +95,9 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
-    int factor = 1;
+    int factor = 2;
     int year=0;
-
+    int quality_image=30;
 
     private String image_code1="";
     private String image_code2="";
@@ -519,21 +519,21 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             btn_frente_carac.setImageBitmap(bitmap);
             btn_frente_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,30,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else if(codigoBoton ==2){
             btn_trasera_carac.setImageBitmap(bitmap);
             btn_trasera_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,30,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }else {
             btn_lateral_carac.setImageBitmap(bitmap);
             btn_lateral_carac.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,30,array);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code3 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 
@@ -569,7 +569,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
-            jsonObject.put("vehicle_model_id",20);
+            jsonObject.put("vehicle_model_id",5);
             jsonObject.put("vehicle_year",year);
             jsonObject.put("vehicle_plates",matricula);
             jsonObject.put("img_front",image_code1);

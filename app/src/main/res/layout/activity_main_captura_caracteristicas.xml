@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_caracteristicas_frontal"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
@@ -90,11 +90,12 @@
                     android:layout_marginTop="@dimen/margin_img_camra_top"
                     android:background="@color/fondo_captura_img"
                     android:contentDescription="@string/imagenes"
+                    android:scaleType="center"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/ic_baseline_add_a_photo_24" />
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_caracteristicas_trasera"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
@@ -102,17 +103,19 @@
                     android:layout_marginTop="@dimen/margin_img_camra_top"
                     android:background="@color/fondo_captura_img"
                     android:contentDescription="@string/imagenes"
+                    android:scaleType="center"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_frontal"
                     app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_caracteristicas_lateral"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginTop="@dimen/margin_img_camra_top"
                     android:layout_marginEnd="@dimen/margin_img_camara_border"
                     android:background="@color/fondo_captura_img"
+                    android:scaleType="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_caracteristicas_frontal"
                     app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
