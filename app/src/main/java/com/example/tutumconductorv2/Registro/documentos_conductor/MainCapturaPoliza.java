@@ -57,7 +57,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    int factor = 2;
+    int factor = 1;
     int quality_image=30;
     private RequestQueue queue;
 

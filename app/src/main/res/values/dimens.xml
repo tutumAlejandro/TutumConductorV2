@@ -114,5 +114,10 @@
     <dimen name="tamaño_indicaciones_1">16sp</dimen>
     <dimen name="tamaño_indicaciones_2">14sp</dimen>
 
+    <!-- dimensiones para la ventana ok documentos -->
+    <dimen name="width_txt_ok_documentos">200dp</dimen>
+    <dimen name="margin_end_ok_documentos">30dp</dimen>
+    <dimen name="width_heigth_check_ok_botones">24dp</dimen>
+
 
 </resources>

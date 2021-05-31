@@ -26,20 +26,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Registro.menus_rol.MainDocumentosOkConductor"></activity>
-        <activity android:name=".Registro.menus_rol.MainDocumentosOkSocio" />
+        <activity android:name=".Registro.menus_rol.MainDocumentosOk"></activity>
         <activity
             android:name=".Registro.datos_personales.MainPopUpRegistroFail"
             android:theme="@style/ThemePopUp" />
         <activity
             android:name=".Registro.datos_personales.MainPopUpRegistro"
             android:theme="@style/ThemePopUp" />
-        <activity android:name=".Registro.menus_rol.MainConductorDocumentosOk" />
-        <activity android:name=".Registro.menus_rol.MainDocumentosSocioOk" />
         <activity android:name=".Registro.menus_rol.MainConductorDocumentos" />
-        <activity
-            android:name=".Registro.menus_rol.MainDocumentosOkSnv"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".Registro.documentos_conductor.MainTextoPoliticaPrivacidad"
             android:screenOrientation="portrait" />

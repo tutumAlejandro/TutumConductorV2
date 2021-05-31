@@ -145,6 +145,19 @@
     <string name="img_txt_lateral">Lateral</string>
     <string name="img_txt_trasera">Trasera</string>
 
+    <!-- Strings para MainDocumentosOk -->
+    <string name="txt_documentos_entregados_head">Documentos Entregados</string>
+    <string name="txt_documentos_entregados_body">Hemos recibido tu documentación, nuestro equipo pronto lo revisará.</string>
+    <string name="txt_revision_head">En Revisión</string>
+    <string name="txt_revision_body">Nuestro equipo esta revisando tus documentos.</string>
+    <string name="txt_aprobado_head">APROBADO</string>
+    <string name="txt_aprobado_body">Te notificaremos la fecha para la recepción de tu documentación de forma física.</string>
+    <string name="txt_error_info_head">Completa tu información</string>
+    <string name="txt_error_info_body">Documentación ilegible.</string>
+    <string name="txt_cita_head">Cita</string>
+    <string name="txt_cita_body1">Reúna la documentación de forma física para presentarse en las oficinas.</string>
+
+
     <!-- Strings para test del traslado de informacion entre ventanas-->
     <string name="test_terminos_y_condiciones">Terminos ok</string>
     <string name="test_ine">Ine OK</string>

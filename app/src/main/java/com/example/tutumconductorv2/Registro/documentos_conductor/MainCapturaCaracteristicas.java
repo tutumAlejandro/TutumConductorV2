@@ -95,7 +95,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
-    int factor = 2;
+    int factor = 1;
     int year=0;
     int quality_image=30;
 
@@ -575,7 +575,6 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             jsonObject.put("img_front",image_code1);
             jsonObject.put("img_back",image_code2);
             jsonObject.put("img_side",image_code3);
-            int nulol = 0;
 
 
             final String requestBody = jsonObject.toString();

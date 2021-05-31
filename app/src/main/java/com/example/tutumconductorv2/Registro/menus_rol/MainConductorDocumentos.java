@@ -234,6 +234,14 @@ public class MainConductorDocumentos extends AppCompatActivity {
                 finish();
             }
         });
+
+        if(cadenas_documentos.check_ine2 & cadenas_documentos.check_licencia2 & cadenas_documentos.check_caracteristicas2 & cadenas_documentos.check_tarjeta2 & cadenas_documentos.check_poliza2 & cadenas_documentos.check_tarjeton2){
+
+            Intent main_documentos_ok = new Intent(MainConductorDocumentos.this, MainDocumentosOk.class);
+            main_documentos_ok.putExtra("rol",rol);
+            startActivity(main_documentos_ok);
+            finish();
+        }
     }
 
     public void terminos_conductor(View view){

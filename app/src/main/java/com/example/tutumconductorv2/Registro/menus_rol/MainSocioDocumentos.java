@@ -42,6 +42,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
     private TextView btn_hd1,btn_hd2,btn_hd3,btn_hd4,btn_hd5,btn_hd6,btn_hd7,btn_hd1_ok,btn_hd2_ok,btn_hd3_ok,btn_hd4_ok,btn_hd5_ok,btn_hd6_ok,btn_hd7_ok;
     private TextView btn_bd1,btn_bd2,btn_bd3,btn_bd4,btn_bd5,btn_bd6,btn_bd7,btn_bd1_ok,btn_bd2_ok,btn_bd3_ok,btn_bd4_ok,btn_bd5_ok,btn_bd6_ok,btn_bd7_ok;
     private static String rol= "Socio";
+    private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
     private TextView tst_lic,vig_tarjeta,vig_poliza,vig_tarjeton,tst_fabricante,tst_modelo,tst_anio,tst_matricula,test_nombre,test_app,test_apm,test_email,test_pass,test_telefono;
 
@@ -295,12 +296,18 @@ public class MainSocioDocumentos extends AppCompatActivity {
         });
 
         if(cadenas_documentos.check_ine1 & cadenas_documentos.check_licencia1 & cadenas_documentos.check_caracteristicas1 & cadenas_documentos.check_tarjeta1 & cadenas_documentos.check_poliza1 & cadenas_documentos.check_tarjeton1){
-            Intent main_socio_ok = new Intent(MainSocioDocumentos.this,MainDocumentosSocioOk.class);
-            startActivity(main_socio_ok);
+
+            Intent main_documentos_ok = new Intent(MainSocioDocumentos.this, MainDocumentosOk.class);
+            main_documentos_ok.putExtra("rol",rol);
+            startActivity(main_documentos_ok);
             finish();
         }
+        realizarPost(url_timeline);
 
     }
+
+
+
     public void terminos_socio(View view)
     {
         Intent main_terminos_socio = new Intent(MainSocioDocumentos.this,MainTerminosYCondiciones.class);
@@ -351,8 +358,8 @@ public class MainSocioDocumentos extends AppCompatActivity {
         startActivity(main_tarjeton_socio);
         //finish();
     }
-    /*public void realizarPost() {
-        String url = "https://tutumapps.com/api/driver/uploadRegistryINE";
+
+    public void realizarPost(String url) {
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
@@ -377,6 +384,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
 }

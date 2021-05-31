@@ -19,6 +19,8 @@ public class MainOTP extends AppCompatActivity {
     private TextView Reenviar;
     private TextView num_tel;
     private TextView test_nom,test_app, test_apm, test_email, test_pass, test_tel;
+
+    private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
     // variables para almacenar los datos del registro
 
     @Override

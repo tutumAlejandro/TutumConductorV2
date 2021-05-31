@@ -186,6 +186,14 @@ public class MainSnvDocuemtos extends AppCompatActivity {
                 finish();
             }
         });
+
+        if(cadenas_documentos.check_ine3 & cadenas_documentos.check_licencia3 & cadenas_documentos.check_codigo3 & cadenas_documentos.check_tarjeton3){
+
+            Intent main_documentos_ok = new Intent(MainSnvDocuemtos.this, MainDocumentosOk.class);
+            main_documentos_ok.putExtra("rol",rol);
+            startActivity(main_documentos_ok);
+            finish();
+        }
     }
     public void terminos_snv(View view){
         Intent main_terminos_snv = new Intent(MainSnvDocuemtos.this, MainTerminosYCondiciones.class);

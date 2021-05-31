@@ -55,7 +55,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int SELEC_IMAGEN = 200;
-    int factor = 2;
+    int factor = 1;
     int quality_image=30;
 
     private boolean check_tarjeta = false;

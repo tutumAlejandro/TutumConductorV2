@@ -32,6 +32,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
     private boolean res=false;
     private String res1="";
     private String tel="";
+    private String url_registro="https://www.tutumapps.com/api/driver/registryDriver";
+    private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +83,14 @@ public class MainRegistroTelefono extends AppCompatActivity {
        if(!check_telefono(tel)){
             return;
        }else {
-           if(!cadenas_registro.edit_phone)editPhoneNumber();
-           else realizarPost();
+           if(!cadenas_registro.edit_phone){editPhoneNumber();realizarPost(url_timeline);}
+           else {realizarPost(url_registro);realizarPost(url_timeline);}
        }
     }
 
-    public void realizarPost()  {
+    public void realizarPost(String url)  {
 
-        String url = "https://www.tutumapps.com/api/driver/registryDriver";
+        String url1 = url;
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
@@ -110,6 +112,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
                         Log.d("My Tag","Respuesta"+ response);
                         if(response.getString("success").matches("true"))
                         {
+                            Log.d("My Tag","Exito!!!: "+response);
                             Intent main_popup = new Intent(MainRegistroTelefono.this, MainPopUpRegistro.class);
                             startActivity(main_popup);
                         }else
