@@ -108,8 +108,6 @@ public class MainRegistroTelefono extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        //test_check.setText(response.getString("success"));
-                        Log.d("My Tag","Respuesta"+ response);
                         if(response.getString("success").matches("true"))
                         {
                             Log.d("My Tag","Exito!!!: "+response);
