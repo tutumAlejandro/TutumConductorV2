@@ -156,6 +156,7 @@
     <string name="txt_error_info_body">Documentación ilegible.</string>
     <string name="txt_cita_head">Cita</string>
     <string name="txt_cita_body1">Reúna la documentación de forma física para presentarse en las oficinas.</string>
+    <string name="txt_cita_body3">Llévame Ahora</string>
 
 
     <!-- Strings para test del traslado de informacion entre ventanas-->

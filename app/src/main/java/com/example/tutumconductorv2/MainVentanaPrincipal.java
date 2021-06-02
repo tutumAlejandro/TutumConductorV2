@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
+import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
 public class MainVentanaPrincipal extends AppCompatActivity {
 
@@ -20,6 +22,10 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     {
         Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
         startActivity(main_registrate);
+
+        /*Intent main_documentos_ok = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
+        startActivity(main_documentos_ok);
+        finish();*/
     }
     public void btn_inicia_sesion(View v)
     {
