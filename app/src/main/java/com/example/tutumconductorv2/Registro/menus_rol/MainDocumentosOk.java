@@ -34,6 +34,8 @@ public class MainDocumentosOk extends AppCompatActivity {
 
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
+    private String url2= "https://tutumapps.com/plataforma/models";
+
     private SwipeRefreshLayout refresh;
     private TextView txt_rch_hd,txt_rch_bd,txt_aprb_hd,txt_aprb_bd;
     private TextView txt_cita_hd,txt_cita_bd1, txt_cita_bd2,txt_cita_bd3;
@@ -77,7 +79,7 @@ public class MainDocumentosOk extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 realizarPost(url_timeline);
-
+                realizarPost2();
             }
         });
         btn_rechazo.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +108,7 @@ public class MainDocumentosOk extends AppCompatActivity {
         try {
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
                 final JSONObject jsonObject = new JSONObject();
-                jsonObject.put("phone","4495846875");
+                jsonObject.put("phone",cadenas_registro.telefono);
                 final String requestBody = jsonObject.toString(); // Con esta cadena podemos ver que mandamos dentro del JSON
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                     @Override
@@ -199,6 +201,30 @@ public class MainDocumentosOk extends AppCompatActivity {
         txt_cita_hd.setVisibility(View.VISIBLE);
         txt_cita_bd1.setVisibility(View.VISIBLE);
         btn_cita .setVisibility(View.VISIBLE);
+    }
+    public void realizarPost2() {
+        String url = url2;
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

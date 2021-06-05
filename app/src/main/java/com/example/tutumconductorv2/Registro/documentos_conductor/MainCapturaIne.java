@@ -257,7 +257,7 @@ public class MainCapturaIne extends AppCompatActivity {
             jsonObject.put("phone", cadenas_registro.telefono);
             jsonObject.put("img_front",image_code1);
             jsonObject.put("img_back",image_code2);
-
+            Log.d("valor imagen ","Valor"+image_code1);
             final String requestBody = jsonObject.toString();
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {

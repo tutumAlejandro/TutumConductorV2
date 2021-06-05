@@ -58,7 +58,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     private ImageView btn_frente_carac,btn_trasera_carac,btn_lateral_carac;
 
     private TextView fabs;
-
+    private int model_id=0;
     private String rol;
     private String [] fabricantes = {"Fabricante del Vehiculo","Audi","BMW", "Buick", "Chevrolet", "Fiat", "Ford", "Honda", "Hyundai", "Kia",
             "Mazda", "Mercedes Benz", "Mitsubishi", "Nissan", "Peugeot", "Renault","Subaru", "Suzuki","Toyota","Volkswagen"};
@@ -434,11 +434,455 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    private void model_id_vehicle(){
+        switch (cadenas_documentos.modelo) {
+            //Modelos Audi
+            case "A1":
+                model_id = 1;
+                break;
+            case "A2":
+                model_id = 2;
+                break;
+            case "A3":
+                model_id = 3;
+                break;
+            case "A4":
+                model_id = 4;
+                break;
+            case "A5":
+                model_id = 5;
+                break;
+            case "A6":
+                model_id = 6;
+                break;
+            case "A7":
+                model_id = 7;
+                break;
+            case "A8":
+                model_id = 8;
+                break;
+            case "Q2":
+                model_id = 9;
+                break;
+            case "Q3":
+                model_id = 10;
+                break;
+            case "Q5":
+                model_id = 11;
+                break;
+            case "Q7":
+                model_id = 12;
+                break;
+            case "Q8":
+                model_id = 13;
+                break;
+            case "TT":
+                model_id = 14;
+                break;
+            case "R8":
+                model_id = 15;
+                break;
+            //Modelos BMW
+            case "Serie 1":
+                model_id = 16;
+                break;
+            case "Serie 2":
+                model_id = 17;
+                break;
+            case "Serie 3":
+                model_id = 18;
+                break;
+            case "Serie 4":
+                model_id = 19;
+                break;
+            case "Serie 5":
+                model_id = 20;
+                break;
+            case "Serie 7":
+                model_id = 21;
+                break;
+            case "Serie 8":
+                model_id = 22;
+                break;
+            case "X1":
+                model_id = 23;
+                break;
+            case "X2":
+                model_id = 24;
+                break;
+            case "X3":
+                model_id = 25;
+                break;
+            case "X4":
+                model_id = 26;
+                break;
+            case "X5":
+                model_id = 27;
+                break;
+            case "X6":
+                model_id = 28;
+                break;
+            case "X7":
+                model_id = 29;
+                break;
+            case "M2 Competition":
+                model_id = 30;
+                break;
+            case "M3 Competition":
+                model_id = 31;
+                break;
+            case "M4 Competition":
+                model_id = 32;
+                break;
+            case "i3":
+                model_id = 33;
+                break;
+            case "i8":
+                model_id = 34;
+                break;
+            case "Z4":
+                model_id = 35;
+                break;
+            //Modelos Buick
+            case "Encore":
+                model_id = 36;
+                break;
+            case "ENVISION":
+                model_id = 37;
+                break;
+            case "Enclave":
+                model_id = 38;
+                break;
+            //Modelos Chevrolet
+            case "Beat":
+                model_id = 39;
+                break;
+            case "Spark":
+                model_id = 40;
+                break;
+            case "Aveo":
+                model_id = 41;
+                break;
+            case "Onix":
+                model_id = 42;
+                break;
+            case "Cavalier":
+                model_id = 43;
+                break;
+            case "Cheyenne":
+                model_id = 44;
+                break;
+            case "Camaro":
+                model_id = 45;
+                break;
+            case "Colorado":
+                model_id = 46;
+                break;
+            case "Corvette":
+                model_id = 47;
+                break;
+            case "Tahoe":
+                model_id = 48;
+                break;
+            case "Silverado":
+                model_id = 49;
+                break;
+            case "Suburban":
+                model_id = 50;
+                break;
+            case "Blazer":
+                model_id = 51;
+                break;
+            // Modelos Fiat
+            case "Mobi":
+                model_id = 52;
+                break;
+            case "Uno":
+                model_id = 53;
+                break;
+            case "Argo":
+                model_id = 54;
+                break;
+            case "Ducato":
+                model_id = 55;
+                break;
+            //Modelos Ford
+            case "Figo":
+                model_id = 56;
+                break;
+            case "Fusion":
+                model_id = 57;
+                break;
+            case "Escape":
+                model_id = 58;
+                break;
+            case "Edge":
+                model_id = 59;
+                break;
+            case "Explorer":
+                model_id = 60;
+                break;
+            case "Expedition":
+                model_id = 61;
+                break;
+            case "Mustang":
+                model_id = 62;
+                break;
+            case "GT":
+                model_id = 63;
+                break;
+            //Modelos Honda
+            case "Accord":
+                model_id = 64;
+                break;
+            case "BR-V":
+                model_id = 65;
+                break;
+            case "City":
+                model_id = 66;
+                break;
+            case "Civic":
+                model_id = 67;
+                break;
+            case "CR-V":
+                model_id = 68;
+                break;
+            case "HR-V":
+                model_id = 69;
+                break;
+            case "Insight":
+                model_id = 70;
+                break;
+            case "Odyssey":
+                model_id = 71;
+                break;
+            case "Pilot":
+                model_id = 72;
+                break;
+
+            case "Grand i10":
+                model_id = 73;
+                break;
+            case "Accent":
+                model_id = 74;
+                break;
+            case "Elantra":
+                model_id = 75;
+                break;
+            case "Ioniq":
+                model_id = 76;
+                break;
+
+            case "Forte":
+                model_id = 77;
+                break;
+            case "Optima":
+                model_id = 78;
+                break;
+            case "New Sportage":
+                model_id = 79;
+                break;
+            case "Niro":
+                model_id = 80;
+                break;
+            case "Rio":
+                model_id = 81;
+                break;
+            case "Sedona":
+                model_id = 82;
+                break;
+            case "Seltos":
+                model_id = 83;
+                break;
+            case "Sorento":
+                model_id = 84;
+                break;
+            case "Soul":
+                model_id = 85;
+                break;
+            case "Stinger":
+                model_id = 86;
+                break;
+            //Modelos Mazda
+            case "Mazda 2":
+                model_id = 87;
+                break;
+            case "Mazda 3":
+                model_id = 88;
+                break;
+            case "Mazda 6":
+                model_id = 89;
+                break;
+
+            case "Clase A":
+                model_id = 90;
+                break;
+            case "Clase C":
+                model_id = 91;
+                break;
+            case "Clase E":
+                model_id = 92;
+                break;
+            case "Clase S":
+                model_id = 93;
+                break;
+
+            case "Mirage G4":
+                model_id = 94;
+                break;
+            case "Montero":
+                model_id = 95;
+                break;
+            case "Outlander":
+                model_id = 96;
+                break;
+
+            case "Altima":
+                model_id = 97;
+                break;
+            case "GTR":
+                model_id = 98;
+                break;
+            case "March":
+                model_id = 99;
+                break;
+            case "Sentra":
+                model_id = 100;
+                break;
+            case "Strail":
+                model_id = 101;
+                break;
+            case "Tsuru":
+                model_id = 102;
+                break;
+            case "Versa":
+                model_id = 103;
+                break;
+            case "V-Drive":
+                model_id = 104;
+                break;
+            case "370z":
+                model_id = 105;
+                break;
+            //modelos_Peugeot
+            case "208":
+                model_id = 106;
+                break;
+            case "301":
+                model_id = 107;
+                break;
+            case "2008":
+                model_id = 108;
+                break;
+            case "3008":
+                model_id = 109;
+                break;
+            case "5008":
+                model_id = 110;
+                break;
+            case "Rifter":
+                model_id = 111;
+            case "Partner":
+                model_id = 112;
+                break;
+            //modelos_Renault = {
+            case "Captur":
+                model_id = 113;
+                break;
+            case "Duster":
+                model_id = 114;
+                break;
+            case "Kwid":
+                model_id = 115;
+                break;
+            case "Koleos":
+                model_id = 116;
+                break;
+            case "Oroch":
+                model_id = 117;
+                break;
+            //modelos_Subaru
+            case "Subaru BRZ":
+                model_id = 118;
+                break;
+            case "Subaru Forester":
+                model_id = 119;
+                break;
+            case "Subaru WRX/Sti":
+                model_id = 120;
+                break;
+            case "Subaru XV":
+                model_id = 121;
+                break;
+            //modelos_Susuki
+            case "Ciaz":
+                model_id = 122;
+                break;
+            case "Ertiga":
+                model_id = 123;
+                break;
+            case "Ignis":
+                model_id = 124;
+                break;
+            case "Jimny":
+                model_id = 125;
+                break;
+            case "S-Cross":
+                model_id = 126;
+                break;
+            case "Swift":
+                model_id = 127;
+                break;
+            case "Vitara":
+                model_id = 128;
+                break;
+            //modelos_Toyota
+            case "Avanza":
+                model_id = 129;
+                break;
+            case "Camry":
+                model_id = 130;
+                break;
+            case "Corolla":
+                model_id = 131;
+                break;
+            case "Higlander":
+                model_id = 132;
+                break;
+            case "Prius":
+                model_id = 134;
+                break;
+            case "Rav4":
+                model_id = 135;
+                break;
+            case "Sienna":
+                model_id = 136;
+                break;
+            case "Yaris":
+                model_id = 137;
+                break;
+            //modelos_Volkswagen
+            case "Cross Sport": model_id=138;break;
+            case "Golf": model_id=139;break;
+            case "Jetta": model_id=140;break;
+            case "Polo": model_id=141;break;
+            case "Saveiro": model_id=142;break;
+            case "Taos": model_id=143;break;
+            case "T-Cross": model_id=144;break;
+            case "Teramont": model_id=145;break;
+            case "Tiguan": model_id=146;break;
+            case "Vento": model_id=147;break;
+            case "Virtus": model_id=148;break;
+
+        }
+    }
     public void guarda_caracterisitcas(View view)
     {
         matricula = matricula_input.getEditText().getText().toString().trim();
         mod = model_input.getEditText().getText().toString().trim();
         year = Integer.parseInt(mod);
+
         if(!check_matricula(matricula) | !check_model(mod) | !check_carac_frente | !check_carac_reverso | !check_carac_lateral){
             return;
         }else {
@@ -565,11 +1009,12 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     public void realizarPost() {
         String url = "https://tutumapps.com/api/driver/uploadVehicleDetails";
+        model_id_vehicle();
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", cadenas_registro.telefono);
-            jsonObject.put("vehicle_model_id",5);
+            jsonObject.put("vehicle_model_id",model_id);
             jsonObject.put("vehicle_year",year);
             jsonObject.put("vehicle_plates",matricula);
             jsonObject.put("img_front",image_code1);
