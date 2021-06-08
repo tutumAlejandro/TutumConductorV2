@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
 import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
+import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
 public class MainContinuarRegistro extends AppCompatActivity {
 
@@ -37,9 +40,12 @@ public class MainContinuarRegistro extends AppCompatActivity {
         switch (state)
         {
             case 1: {State.setText("(Registro de Teléfono)");}break;
-            case 2: { State.setText("(Confirmación el código OTP)");}break;
-            case 3: {State.setText("(Selección del rol)"); }break;
-            case 4: {State.setText("(Documentos entregados)");}break;
+            case 2: {State.setText("(Confirmación el código OTP)");}break;
+            case 3: {State.setText("(Selección del tipo de conductor)"); }break;
+            case 4: {State.setText("Subir documentos Socio Administrador");}break;
+            case 5: {State.setText("Subir documentos Conductor");}break;
+            case 6: {State.setText("Subir documentos Conductor sin Vehiculo");}break;
+            case 8: {State.setText("(Documentos entregados)");}break;
         }
 
 
@@ -59,13 +65,19 @@ public class MainContinuarRegistro extends AppCompatActivity {
         switch (state)
         {
             case 1: {Intent main_reg_tel = new Intent(MainContinuarRegistro.this,MainRegistroTelefono.class);
-                     startActivity(main_reg_tel);State.setText("(Registro de Teléfono)"); finish();}break;
+                     startActivity(main_reg_tel); finish();}break;
             case 2: {Intent main_otp = new Intent(MainContinuarRegistro.this, MainOTP.class);
-                     startActivity(main_otp); State.setText("(Confirmación el código OTP)"); finish();}break;
+                     startActivity(main_otp); finish();}break;
             case 3: {Intent main_rol = new Intent(MainContinuarRegistro.this, MainRolConductor.class);
-                     startActivity(main_rol); State.setText("(Selección del rol)"); finish();}break;
-            case 4: {Intent main_ok = new Intent(MainContinuarRegistro.this, MainDocumentosOk.class);
-                     startActivity(main_ok); State.setText("(Documentos entregados)"); finish();}break;
+                     startActivity(main_rol); finish();}break;
+            case 4: {Intent main_socio = new Intent(MainContinuarRegistro.this, MainSocioDocumentos.class);
+                     startActivity(main_socio);finish();}break;
+            case 5: {Intent main_conductor = new Intent(MainContinuarRegistro.this, MainConductorDocumentos.class);
+                     startActivity(main_conductor);finish();}break;
+            case 6: {Intent main_snv = new Intent(MainContinuarRegistro.this, MainSnvDocuemtos.class);
+                     startActivity(main_snv); finish();}break;
+            case 8: {Intent main_ok = new Intent(MainContinuarRegistro.this, MainDocumentosOk.class);
+                     startActivity(main_ok);finish();}break;
         }
 
     }

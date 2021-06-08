@@ -111,7 +111,8 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_caracteristicas);
-        rol = getIntent().getStringExtra("rol");
+        SharedPreferences preferencias_caracteristicas = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_caracteristicas.getString("rol","");
 
         btn_retroceso_caracteristicas = findViewById(R.id.img_retroceso_caracteristicas);
         spFabs = (Spinner)findViewById(R.id.spFabricantes);
@@ -137,14 +138,18 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         btn_retroceso_caracteristicas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_caracteristicas = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_caracteristicas.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
-                    cadenas_documentos.check_caracteristicas1=false;
+                    obj_editor.putBoolean("caracteristicas1",false);
+                    obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else{
                     Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
-                    cadenas_documentos.check_caracteristicas2=false;
+                    obj_editor.putBoolean("caracteristicas2",false);
+                    obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 }
@@ -880,10 +885,11 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     }
     public void guarda_caracterisitcas(View view)
     {
+        SharedPreferences preferencias_caracteristicas = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_caracteristicas.edit();
         matricula = matricula_input.getEditText().getText().toString().trim();
         mod = model_input.getEditText().getText().toString().trim();
         year = Integer.parseInt(mod);
-
         if(!check_matricula(matricula) | !check_model(mod) | !check_carac_frente | !check_carac_reverso | !check_carac_lateral){
             return;
         }else {
@@ -891,17 +897,15 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
-                cadenas_documentos.anio=mod;
-                cadenas_documentos.matricula=matricula;
-                cadenas_documentos.check_caracteristicas1= true;
+                obj_editor.putBoolean("caracteristicas1",true);
+                obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
             }else{
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
-                cadenas_documentos.anio=mod;
-                cadenas_documentos.matricula=matricula;
-                cadenas_documentos.check_caracteristicas2 = true;
+                obj_editor.putBoolean("caracteristicas2",true);
+                obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();
             }

@@ -59,15 +59,16 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int factor = 1;
     int quality_image=30;
-    private RequestQueue queue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_poliza);
 
-        rol = getIntent().getStringExtra("rol");
-        queue = Volley.newRequestQueue(this);
+        SharedPreferences preferencias_poliza = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_poliza.getString("rol","");
+
         vigenciaPoliza = findViewById(R.id.VigenciaPoliza);
         btn_regreso_poliza = findViewById(R.id.img_retroceso_poliza);
         btn_poliza = findViewById(R.id.btn_img_poliza);
@@ -77,14 +78,18 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
         btn_regreso_poliza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_poliza = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_poliza.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaPoliza.this, MainSocioDocumentos.class);
-                    cadenas_documentos.check_poliza1=false;
+                    obj_editor.putBoolean("poliza1",false);
+                    obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else {
                     Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
-                    cadenas_documentos.check_poliza2=false;
+                    obj_editor.putBoolean("poliza2",false);
+                    obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 }
@@ -130,6 +135,8 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
 
     public void guarda_poliza(View v)
     {
+        SharedPreferences preferencias_poliza = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_poliza.edit();
         String vig = vigenciaPoliza.getText().toString().trim();
         if(!check_vigencia_poliza(vig) | !check_poliza)
         {
@@ -139,16 +146,16 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaPoliza.this, MainSocioDocumentos.class);
-                cadenas_documentos.vigPoliza=vig;
-                cadenas_documentos.check_poliza1=true;
+                obj_editor.putBoolean("poliza1",true);
+                obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
             }else if(rol.matches("Conductor"))
             {
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
-                cadenas_documentos.vigPoliza=vig;
-                cadenas_documentos.check_poliza2=true;
+                obj_editor.putBoolean("poliza2",true);
+                obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();
             }

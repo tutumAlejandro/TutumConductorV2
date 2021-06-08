@@ -46,14 +46,14 @@ public class MainSocioDocumentos extends AppCompatActivity {
     private static String rol= "Socio";
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
-    private TextView tst_lic,vig_tarjeta,vig_poliza,vig_tarjeton,tst_fabricante,tst_modelo,tst_anio,tst_matricula,test_nombre,test_app,test_apm,test_email,test_pass,test_telefono;
-
     @Override
     //txt_btn1_head
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_socio_documentos);
         //Vinculacion de las imagenes
+
+        SharedPreferences preferncias_socio = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         btn_regreso_socio = findViewById(R.id.img_retroceso_documentos_socio);
         fwd1 = findViewById(R.id.fwd_socio_1);
         fwd2 = findViewById(R.id.fwd_socio_2);
@@ -115,30 +115,13 @@ public class MainSocioDocumentos extends AppCompatActivity {
         btn_bd6_ok = findViewById(R.id.body_btn6_ok);
         btn_bd7_ok = findViewById(R.id.body_btn7_ok);
 
-        // Text View de prueba para corroborar la captura de datos
-        tst_lic = findViewById(R.id.test_viglicen);
-        tst_fabricante = findViewById(R.id.test_fabricantes);
-        tst_modelo = findViewById(R.id.test_modelos);
-        tst_anio = findViewById(R.id.test_anio);
-        tst_matricula = findViewById(R.id.test_matricula);
-        vig_tarjeta = findViewById(R.id.test_vigtarjeta);
-        vig_poliza = findViewById(R.id.test_vig_poliza);
-        vig_tarjeton = findViewById(R.id.test_vig_tarjeton);
-
-        test_nombre = findViewById(R.id.test_vig_nombres);
-        test_app = findViewById(R.id.test_vig_app);
-        test_apm = findViewById(R.id.test_vig_apm);
-        test_email = findViewById(R.id.test_vig_correo);
-        test_pass =findViewById(R.id.test_vig_pass);
-        test_telefono = findViewById(R.id.test_vig_telefono);
-
 
         if (ContextCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainSocioDocumentos.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
 
 
         //Condicionales para ver si ya se subio algun documento
-        if(!cadenas_documentos.check_terminos1){
+        if(!preferncias_socio.getBoolean("terminos1",false)){
             btn1_socio.setVisibility(View.VISIBLE);
             btn_hd1.setVisibility(View.VISIBLE);
             btn_bd1.setVisibility(View.VISIBLE);
@@ -154,7 +137,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             ok_1.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_ine1){
+        if(!preferncias_socio.getBoolean("ine1",false)){
             btn2_socio.setVisibility(View.VISIBLE);
             btn_hd2.setVisibility(View.VISIBLE);
             btn_bd2.setVisibility(View.VISIBLE);
@@ -174,7 +157,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             ok_2.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_licencia1){
+        if(!preferncias_socio.getBoolean("licencia1",false)){
             btn3_socio.setVisibility(View.VISIBLE);
             btn_hd3.setVisibility(View.VISIBLE);
             btn_bd3.setVisibility(View.VISIBLE);
@@ -194,7 +177,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             ok_3.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_caracteristicas1){
+        if(!preferncias_socio.getBoolean("caracteristicas1",false)){
             btn4_socio.setVisibility(View.VISIBLE);
             btn_hd4.setVisibility(View.VISIBLE);
             btn_bd4.setVisibility(View.VISIBLE);
@@ -214,7 +197,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             ok_4.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_tarjeta1){
+        if(!preferncias_socio.getBoolean("tarjeta1",false)){
             btn5_socio.setVisibility(View.VISIBLE);
             btn_hd5.setVisibility(View.VISIBLE);
             btn_bd5.setVisibility(View.VISIBLE);
@@ -234,7 +217,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             ok_5.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_poliza1){
+        if(!preferncias_socio.getBoolean("poliza1",false)){
             btn6_socio.setVisibility(View.VISIBLE);
             btn_hd6.setVisibility(View.VISIBLE);
             btn_bd6.setVisibility(View.VISIBLE);
@@ -254,7 +237,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             ok_6.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_tarjeton1){
+        if(!preferncias_socio.getBoolean("tarjeton1",false)){
             btn7_socio.setVisibility(View.VISIBLE);
             btn_hd7.setVisibility(View.VISIBLE);
             btn_bd7.setVisibility(View.VISIBLE);
@@ -283,10 +266,9 @@ public class MainSocioDocumentos extends AppCompatActivity {
             }
         });
 
-        if(cadenas_documentos.check_ine1 & cadenas_documentos.check_licencia1 & cadenas_documentos.check_caracteristicas1 & cadenas_documentos.check_tarjeta1 & cadenas_documentos.check_poliza1 & cadenas_documentos.check_tarjeton1){
+        if(preferncias_socio.getBoolean("terminos1",false) & preferncias_socio.getBoolean("ine1",false) & preferncias_socio.getBoolean("licencia1",false) & preferncias_socio.getBoolean("caracteristicas1",false) & preferncias_socio.getBoolean("tarjeta1",false) & preferncias_socio.getBoolean("tarjeton1",false) & preferncias_socio.getBoolean("poliza1",false)){
 
             Intent main_documentos_ok = new Intent(MainSocioDocumentos.this, MainDocumentosOk.class);
-            main_documentos_ok.putExtra("rol",rol);
             startActivity(main_documentos_ok);
             finish();
         }
@@ -299,52 +281,45 @@ public class MainSocioDocumentos extends AppCompatActivity {
     public void terminos_socio(View view)
     {
         Intent main_terminos_socio = new Intent(MainSocioDocumentos.this,MainTerminosYCondiciones.class);
-        main_terminos_socio.putExtra("rol",rol);
         startActivity(main_terminos_socio);
-        //finish();
+        finish();
     }
     public void ine_socio(View view)
     {
         Intent main_ine_socio = new Intent(MainSocioDocumentos.this,MainCapturaIne.class);
-        main_ine_socio.putExtra("rol",rol);
         startActivity(main_ine_socio);
-        //finish();
+        finish();
     }
     public void licencia_socio(View view)
     {
         Intent main_licencia_socio = new Intent(MainSocioDocumentos.this, MainCapturaLicencia.class);
-        main_licencia_socio.putExtra("rol",rol);
         startActivity(main_licencia_socio);
-        //finish();
+        finish();
 
     }
     public void caracterisitcas_socio(View view)
     {
         Intent main_caracteristicas_socio = new Intent(MainSocioDocumentos.this, MainCapturaCaracteristicas.class);
-        main_caracteristicas_socio.putExtra("rol",rol);
         startActivity(main_caracteristicas_socio);
-        //finish();
+        finish();
     }
     public void tarjeta_socio(View view)
     {
-        Intent main_tarjeta_socio = new Intent(MainSocioDocumentos.this, MainCapturaTarjetaCirculacion.class);
-        main_tarjeta_socio.putExtra("rol",rol);
+        Intent main_tarjeta_socio = new Intent(MainSocioDocumentos.this, MainCapturaTarjetaCirculacion.class);;
         startActivity(main_tarjeta_socio);
-        //finish();
+        finish();
     }
     public void poliza_socio(View view)
     {
         Intent main_poliza_socio = new Intent(MainSocioDocumentos.this, MainCapturaPoliza.class);
-        main_poliza_socio.putExtra("rol",rol);
         startActivity(main_poliza_socio);
-        //finish();
+        finish();
     }
     public void tarjeton_socio(View view)
     {
         Intent main_tarjeton_socio = new Intent(MainSocioDocumentos.this, MainCapturaTarjeton.class);
-        main_tarjeton_socio.putExtra("rol",rol);
         startActivity(main_tarjeton_socio);
-        //finish();
+        finish();
     }
 
     public void realizarPost(String url) {

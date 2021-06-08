@@ -72,12 +72,16 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
     private String image_code1="";
     private String image_code2="";
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_licencia);
-        rol = getIntent().getStringExtra("rol");
-        queue = Volley.newRequestQueue(this);
+        SharedPreferences preferencias_licencia = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_licencia.getString("rol","");
+
         vigenciaLicencia = findViewById(R.id.VigenciaLicencia);
         btn_regreso_licencia = findViewById(R.id.img_retroceso_licencia);
 
@@ -93,19 +97,24 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         btn_regreso_licencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_licencia = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_licencia.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
-                    cadenas_documentos.check_licencia1 = false;
+                    obj_editor.putBoolean("licencia1",false);
+                    obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else if (rol.matches("Conductor")) {
                     Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
-                    cadenas_documentos.check_licencia2 = false;
+                    obj_editor.putBoolean("licencia2",false);
+                    obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 } else {
                     Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
-                    cadenas_documentos.check_licencia3 = false;
+                    obj_editor.putBoolean("licencia3",false);
+                    obj_editor.commit();
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -159,6 +168,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
 
 
     public void guarda_licencia(View v) {
+        SharedPreferences preferencias_licencia = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_licencia.edit();
         String vig = vigenciaLicencia.getText().toString().trim();
         if (!check_vigencia_licencia(vig) | !check_licencia_frente | !check_licencia_reverso) {
             return;
@@ -166,22 +177,22 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             if (rol.matches("Socio")) {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
-                cadenas_documentos.vigLicencia = vig;
-                cadenas_documentos.check_licencia1 = true;
+                obj_editor.putBoolean("licencia1",true);
+                obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
             } else if (rol.matches("Conductor")) {
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
-                cadenas_documentos.vigLicencia = vig;
-                cadenas_documentos.check_licencia2 = true;
+                obj_editor.putBoolean("licencia2",true);
+                obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();
             } else {
                 realizarPost();
                 Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
-                cadenas_documentos.vigLicencia = vig;
-                cadenas_documentos.check_licencia3 = true;
+                obj_editor.putBoolean("licencia3",true);
+                obj_editor.commit();
                 startActivity(main_snv_documentos);
                 finish();
             }

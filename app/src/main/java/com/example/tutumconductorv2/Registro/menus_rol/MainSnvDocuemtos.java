@@ -1,11 +1,13 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +47,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_snv_docuemtos);
+        SharedPreferences prefencias_snv = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
 
         btn_regreso_snv = findViewById(R.id.img_retroceso_documentos_snv);
 
@@ -98,7 +101,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
 
 
 
-        if(!cadenas_documentos.check_terminos3){
+        if(!prefencias_snv.getBoolean("terminos3",false)){
             btn1_snv.setVisibility(View.VISIBLE);
             fwd_snv1.setVisibility(View.VISIBLE);
             hd_snv1.setVisibility(View.VISIBLE);
@@ -115,7 +118,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
 
         }
 
-        if(!cadenas_documentos.check_ine3){
+        if(!prefencias_snv.getBoolean("ine3",false)){
             btn2_snv.setVisibility(View.VISIBLE);
             fwd_snv2.setVisibility(View.VISIBLE);
             hd_snv2.setVisibility(View.VISIBLE);
@@ -131,7 +134,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             bd_ok_snv2.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_licencia3){
+        if(!prefencias_snv.getBoolean("licencia3",false)){
             btn3_snv.setVisibility(View.VISIBLE);
             fwd_snv3.setVisibility(View.VISIBLE);
             hd_snv3.setVisibility(View.VISIBLE);
@@ -147,7 +150,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             bd_ok_snv3.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_codigo3){
+        if(!prefencias_snv.getBoolean("codigo3",false)){
             btn4_snv.setVisibility(View.VISIBLE);
             fwd_snv4.setVisibility(View.VISIBLE);
             hd_snv4.setVisibility(View.VISIBLE);
@@ -163,7 +166,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             bd_ok_snv4.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_tarjeton3){
+        if(!prefencias_snv.getBoolean("tarjeton3",false)){
             btn5_snv.setVisibility(View.VISIBLE);
             fwd_snv5.setVisibility(View.VISIBLE);
             hd_snv5.setVisibility(View.VISIBLE);
@@ -187,36 +190,31 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             }
         });
 
-        if(cadenas_documentos.check_ine3 & cadenas_documentos.check_licencia3 & cadenas_documentos.check_codigo3 & cadenas_documentos.check_tarjeton3){
+        if(prefencias_snv.getBoolean("terminos3",false) & prefencias_snv.getBoolean("ine3",false) & prefencias_snv.getBoolean("licencia3",false) & prefencias_snv.getBoolean("codigo3",false) & prefencias_snv.getBoolean("tarjeton3",false)){
 
             Intent main_documentos_ok = new Intent(MainSnvDocuemtos.this, MainDocumentosOk.class);
-            main_documentos_ok.putExtra("rol",rol);
             startActivity(main_documentos_ok);
             finish();
         }
     }
     public void terminos_snv(View view){
         Intent main_terminos_snv = new Intent(MainSnvDocuemtos.this, MainTerminosYCondiciones.class);
-        main_terminos_snv.putExtra("rol",rol);
         startActivity(main_terminos_snv);
         finish();
     }
     public void ine_snv(View v){
         Intent main_ine_snv = new Intent(MainSnvDocuemtos.this, MainCapturaIne.class);
-        main_ine_snv.putExtra("rol",rol);
         startActivity(main_ine_snv);
         finish();
     }
     public void licenci_snv(View v){
         Intent main_licencia_snv = new Intent(MainSnvDocuemtos.this, MainCapturaLicencia.class);
-        main_licencia_snv.putExtra("rol",rol);
         startActivity(main_licencia_snv);
         finish();
     }
     public void codigo_snv(View v)
     {
         Intent main_codigo_snv = new Intent(MainSnvDocuemtos.this, MainCapturaCodigo.class);
-        main_codigo_snv.putExtra("rol",rol);
         startActivity(main_codigo_snv);
         finish();
     }
@@ -224,7 +222,6 @@ public class MainSnvDocuemtos extends AppCompatActivity {
     public void tarjeton_snv(View v)
     {
         Intent main_tarjeton_snv = new Intent(MainSnvDocuemtos.this, MainCapturaTarjeton.class);
-        main_tarjeton_snv.putExtra("rol",rol);
         startActivity(main_tarjeton_snv);
         finish();
     }

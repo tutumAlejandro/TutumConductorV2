@@ -36,40 +36,55 @@ public class MainRolConductor extends AppCompatActivity {
     }
     public void main_doctos_socio(View v) {
         realizarPostSocio();
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+        obj_editor.putString("rol","Socio");
+        obj_editor.putBoolean("terminos1",false);
+        obj_editor.putBoolean("ine1",false);
+        obj_editor.putBoolean("licencia1",false);
+        obj_editor.putBoolean("caracteristicas1",false);
+        obj_editor.putBoolean("tarjeta1",false);
+        obj_editor.putBoolean("poliza1",false);
+        obj_editor.putBoolean("tarjeton1",false);
+        obj_editor.putInt("State",4);
+        obj_editor.commit();
         Intent main_doc_socio = new Intent(MainRolConductor.this, MainSocioDocumentos.class);
-        cadenas_documentos.check_terminos1=false;
-        cadenas_documentos.check_ine1=false;
-        cadenas_documentos.check_licencia1=false;
-        cadenas_documentos.check_caracteristicas1=false;
-        cadenas_documentos.check_tarjeta1=false;
-        cadenas_documentos.check_poliza1=false;
-        cadenas_documentos.check_tarjeton1=false;
         startActivity(main_doc_socio);
         finish();
     }
     public void main_doctos_conductor(View v)
     {
         realizarPostConductor();
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+        obj_editor.putString("rol","Conductor");
+        obj_editor.putBoolean("terminos2",false);
+        obj_editor.putBoolean("ine2",false);
+        obj_editor.putBoolean("licencia2",false);
+        obj_editor.putBoolean("caracteristicas2",false);
+        obj_editor.putBoolean("tarjeta2",false);
+        obj_editor.putBoolean("poliza2",false);
+        obj_editor.putBoolean("tarjeton2",false);
+        obj_editor.putInt("State",5);
+        obj_editor.commit();
         Intent main_conductor_doctos = new Intent(MainRolConductor.this, MainConductorDocumentos.class);
-        cadenas_documentos.check_terminos2=false;
-        cadenas_documentos.check_ine2=false;
-        cadenas_documentos.check_licencia2=false;
-        cadenas_documentos.check_caracteristicas2=false;
-        cadenas_documentos.check_tarjeta2=false;
-        cadenas_documentos.check_poliza2=false;
-        cadenas_documentos.check_tarjeton2=false;
         startActivity(main_conductor_doctos);
         finish();
     }
     public void main_doctos_snv(View v)
     {
         realizarPostSnv();
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+        obj_editor.putString("rol","Snv");
+        obj_editor.putBoolean("terminos3",false);
+        obj_editor.putBoolean("ine3",false);
+        obj_editor.putBoolean("licencia3",false);
+        obj_editor.putBoolean("codigo3",false);
+        obj_editor.putBoolean("tarjeton3",false);
+        obj_editor.putInt("State",6);
+        obj_editor.commit();
         Intent main_doc_snv = new Intent(MainRolConductor.this, MainSnvDocuemtos.class);
-        cadenas_documentos.check_terminos3=false;
-        cadenas_documentos.check_ine3=false;
-        cadenas_documentos.check_licencia3=false;
-        cadenas_documentos.check_codigo3=false;
-        cadenas_documentos.check_tarjeton3=false;
         startActivity(main_doc_snv);
         finish();
 

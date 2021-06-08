@@ -65,10 +65,12 @@ public class MainCapturaIne extends AppCompatActivity {
     int factor = 1;
     int quality_image=30;
 
-    private RequestQueue queue;
 
     private String image_code1="";
     private String image_code2="";
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +79,10 @@ public class MainCapturaIne extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainCapturaIne.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
         }
-        queue = Volley.newRequestQueue(this);
 
         // Bandera para saber el rol de la solicitud
-        rol = getIntent().getStringExtra("rol");
+        SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_ine.getString("rol","");
 
         //Asociacion de la parte grafica con la parte logica
         ine_frontal = findViewById(R.id.btn_frontal_ine);
@@ -91,19 +93,24 @@ public class MainCapturaIne extends AppCompatActivity {
         btn_retroceso_ine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_ine.edit();
                 if(rol.matches("Socio")){
                     Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
-                    cadenas_documentos.check_ine1=false;
+                    obj_editor.putBoolean("ine1",false);
+                    obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 }else if(rol.matches("Conductor")){
                     Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
-                    cadenas_documentos.check_ine2=false;
+                    obj_editor.putBoolean("ine2",false);
+                    obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 }else{
                     Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
-                    cadenas_documentos.check_ine3=false;
+                    obj_editor.putBoolean("ine3",false);
+                    obj_editor.commit();
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -132,23 +139,28 @@ public class MainCapturaIne extends AppCompatActivity {
 
     public void guardar_ine (View V)
     {
+        SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_ine.edit();
         if(check_ine_frontal && check_ine_reverso){
             if(rol.matches("Socio")){
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
-                cadenas_documentos.check_ine1=true;
+                obj_editor.putBoolean("ine1",true);
+                obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
             }else if(rol.matches("Conductor")){
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
-                cadenas_documentos.check_ine2=true;
+                obj_editor.putBoolean("ine2",true);
+                obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();
             }else {
                 realizarPost();
                 Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
-                cadenas_documentos.check_ine3=true;
+                obj_editor.putBoolean("ine3",true);
+                obj_editor.commit();
                 startActivity(main_snv_documentos);
                 finish();
             }

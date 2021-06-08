@@ -34,14 +34,15 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
 
     // Cadenas para revisar
     private String rol;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_terminos_y_condiciones);
-        rol = getIntent().getStringExtra("rol");
-
-
-
+        SharedPreferences preferencias_terminos = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_terminos.getString("rol","");
         btn_regreso_term = findViewById(R.id.img_retroceso_terminos_condiciones);
         _politica = findViewById(R.id.link_politica);
         _terminos = findViewById(R.id.txt_terminos_y_condiciones);
@@ -49,19 +50,24 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
         btn_regreso_term.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_terminos = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_terminos.edit();
                 if(rol.matches("Socio")){
                     Intent main_socio_documentos = new Intent(MainTerminosYCondiciones.this, MainSocioDocumentos.class);
-                    cadenas_documentos.check_terminos1 = false;
+                    obj_editor.putBoolean("terminos1",false);
+                    obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 }else if(rol.matches("Conductor")){
                     Intent main_conductor_documentos = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
-                    cadenas_documentos.check_terminos2 = false;
+                    obj_editor.putBoolean("terminos2",false);
+                    obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 }else{
                     Intent main_snv_documentos = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
-                    cadenas_documentos.check_terminos3 = false;
+                    obj_editor.putBoolean("terminos3",false);
+                    obj_editor.commit();
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -72,7 +78,6 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent main_politica = new Intent(MainTerminosYCondiciones.this, MainTextoPoliticaPrivacidad.class);
-                main_politica.putExtra("rol",rol);
                 startActivity(main_politica);
             }
         });
@@ -80,7 +85,6 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent main_terminos = new Intent(MainTerminosYCondiciones.this, MainTextoPoliticaPrivacidad.class);
-                main_terminos.putExtra("rol",rol);
                 startActivity(main_terminos);
                 finish();
             }
@@ -89,23 +93,27 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
     }
     public void btn_guardar_terminos(View v)
     {
-
+        SharedPreferences preferencias_terminos = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_terminos.edit();
         if(rol.matches("Socio")){
             realizarPost();
             Intent main_socio_documentos = new Intent(MainTerminosYCondiciones.this, MainSocioDocumentos.class);
-            cadenas_documentos.check_terminos1 = true;
+            obj_editor.putBoolean("terminos1",true);
+            obj_editor.commit();
             startActivity(main_socio_documentos);
             finish();
         }else if(rol.matches("Conductor")){
             realizarPost();
             Intent main_conductor_documentos = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
-            cadenas_documentos.check_terminos2 = true;
+            obj_editor.putBoolean("terminos1",true);
+            obj_editor.commit();
             startActivity(main_conductor_documentos);
             finish();
         }else{
             realizarPost();
             Intent main_snv_documentos = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
-            cadenas_documentos.check_terminos3 = true;
+            obj_editor.putBoolean("terminos1",true);
+            obj_editor.commit();
             startActivity(main_snv_documentos);
             finish();
         }

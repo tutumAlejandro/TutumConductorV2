@@ -54,7 +54,7 @@ public class MainDocumentosOk extends AppCompatActivity {
         setContentView(R.layout.activity_main_documentos_ok);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferences.edit();
-        obj_editor.putInt("State",4);
+        obj_editor.putInt("State",8);
         obj_editor.commit();
 
 

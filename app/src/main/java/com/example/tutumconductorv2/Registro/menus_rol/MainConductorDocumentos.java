@@ -5,7 +5,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.Image;
 import android.os.Bundle;
@@ -44,6 +46,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_conductor_documentos);
+        SharedPreferences prefencias_conductor = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
 
         btn_regresar_conductor = findViewById(R.id.img_retroceso_documentos_conductor);
 
@@ -113,7 +116,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
 
 
 
-        if(!cadenas_documentos.check_terminos2){
+        if(!prefencias_conductor.getBoolean("terminos2",false)){
             btn1_conductor.setVisibility(View.VISIBLE);
             fwd_conductor1.setVisibility(View.VISIBLE);
             hd_conductor1.setVisibility(View.VISIBLE);
@@ -129,7 +132,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             bd_ok_conductor1.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_ine2){
+        if(!prefencias_conductor.getBoolean("ine2",false)){
             btn2_conductor.setVisibility(View.VISIBLE);
             fwd_conductor2.setVisibility(View.VISIBLE);
             hd_conductor2.setVisibility(View.VISIBLE);
@@ -145,7 +148,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             bd_ok_conductor2.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_licencia2){
+        if(!prefencias_conductor.getBoolean("licencia2",false)){
             btn3_conductor.setVisibility(View.VISIBLE);
             fwd_conductor3.setVisibility(View.VISIBLE);
             hd_conductor3.setVisibility(View.VISIBLE);
@@ -161,7 +164,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             bd_ok_conductor3.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_caracteristicas2){
+        if(!prefencias_conductor.getBoolean("caracteristicas2",false)){
             btn4_conductor.setVisibility(View.VISIBLE);
             fwd_conductor4.setVisibility(View.VISIBLE);
             hd_conductor4.setVisibility(View.VISIBLE);
@@ -177,7 +180,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             bd_ok_conductor4.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_tarjeta2){
+        if(!prefencias_conductor.getBoolean("tarjeta2",false)){
             btn5_conductor.setVisibility(View.VISIBLE);
             fwd_conductor5.setVisibility(View.VISIBLE);
             hd_conductor5.setVisibility(View.VISIBLE);
@@ -193,7 +196,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             bd_ok_conductor5.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_poliza2){
+        if(!prefencias_conductor.getBoolean("poliza2",false)){
             btn6_conductor.setVisibility(View.VISIBLE);
             fwd_conductor6.setVisibility(View.VISIBLE);
             hd_conductor6.setVisibility(View.VISIBLE);
@@ -209,7 +212,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             bd_ok_conductor6.setVisibility(View.VISIBLE);
         }
 
-        if(!cadenas_documentos.check_tarjeton2){
+        if(!prefencias_conductor.getBoolean("tarjeton2",false)){
             btn7_conductor.setVisibility(View.VISIBLE);
             fwd_conductor7.setVisibility(View.VISIBLE);
             hd_conductor7.setVisibility(View.VISIBLE);
@@ -235,10 +238,8 @@ public class MainConductorDocumentos extends AppCompatActivity {
             }
         });
 
-        if(cadenas_documentos.check_ine2 & cadenas_documentos.check_licencia2 & cadenas_documentos.check_caracteristicas2 & cadenas_documentos.check_tarjeta2 & cadenas_documentos.check_poliza2 & cadenas_documentos.check_tarjeton2){
-
+        if(prefencias_conductor.getBoolean("terminos2",false) & prefencias_conductor.getBoolean("ine2",false) & prefencias_conductor.getBoolean("licencia2",false) & prefencias_conductor.getBoolean("caracteristicas2",false) & prefencias_conductor.getBoolean("tarjeta2",false) & prefencias_conductor.getBoolean("tarjeton2",false) & prefencias_conductor.getBoolean("poliza2",false)){
             Intent main_documentos_ok = new Intent(MainConductorDocumentos.this, MainDocumentosOk.class);
-            main_documentos_ok.putExtra("rol",rol);
             startActivity(main_documentos_ok);
             finish();
         }
@@ -246,47 +247,40 @@ public class MainConductorDocumentos extends AppCompatActivity {
 
     public void terminos_conductor(View view){
         Intent main_terminos_conductor = new Intent(MainConductorDocumentos.this, MainTerminosYCondiciones.class);
-        main_terminos_conductor.putExtra("rol",rol);
         startActivity(main_terminos_conductor);
         finish();
     }
     public void ine_conductor(View v){
         Intent main_ine_conductor = new Intent(MainConductorDocumentos.this, MainCapturaIne.class);
-        main_ine_conductor.putExtra("rol",rol);
         startActivity(main_ine_conductor);
         finish();
     }
     public void licencia_conductor(View v){
         Intent main_licencia_conductor = new Intent(MainConductorDocumentos.this, MainCapturaLicencia.class);
-        main_licencia_conductor.putExtra("rol",rol);
         startActivity(main_licencia_conductor);
         finish();
     }
     public void caracteristicas_conductor(View v)
     {
         Intent main_caracteristicas_conductor = new Intent(MainConductorDocumentos.this, MainCapturaCaracteristicas.class);
-        main_caracteristicas_conductor.putExtra("rol",rol);
         startActivity(main_caracteristicas_conductor);
         finish();
     }
     public void tarjeta_conductor(View v)
     {
         Intent main_tarjeta_conductor = new Intent(MainConductorDocumentos.this, MainCapturaTarjetaCirculacion.class);
-        main_tarjeta_conductor.putExtra("rol",rol);
         startActivity(main_tarjeta_conductor);
         finish();
     }
     public void poliz_conductor(View v)
     {
         Intent main_poliza_conductor = new Intent(MainConductorDocumentos.this, MainCapturaPoliza.class);
-        main_poliza_conductor.putExtra("rol",rol);
         startActivity(main_poliza_conductor);
         finish();
     }
     public void tarjeton_conductor(View v)
     {
         Intent main_tarjeton_conductor = new Intent(MainConductorDocumentos.this, MainCapturaTarjeton.class);
-        main_tarjeton_conductor.putExtra("rol",rol);
         startActivity(main_tarjeton_conductor);
         finish();
     }

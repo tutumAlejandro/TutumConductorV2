@@ -20,7 +20,6 @@ public class MainOTP extends AppCompatActivity {
     private TextView Editar;
     private TextView Reenviar;
     private TextView num_tel;
-    private TextView test_nom,test_app, test_apm, test_email, test_pass, test_tel;
 
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
     // variables para almacenar los datos del registro
@@ -35,20 +34,6 @@ public class MainOTP extends AppCompatActivity {
         Reenviar = findViewById(R.id.link_editar_num);
         num_tel = findViewById(R.id.num_telefono);
 
-        // metodos de prueba
-        test_nom = findViewById(R.id.test_otp_nombre);
-        test_app = findViewById(R.id.test_otp_apeidop);
-        test_apm = findViewById(R.id.test_otp_apeidom);
-        test_email = findViewById(R.id.test_otp_correo);
-        test_pass = findViewById(R.id.test_otp_contrasena);
-        test_tel = findViewById(R.id.test_otp_telefono);
-
-        test_nom.setText(cadenas_registro.nombres);
-        test_app.setText(cadenas_registro.apeido_paterno);
-        test_apm.setText(cadenas_registro.apeido_materno);
-        test_email.setText(cadenas_registro.email);
-        test_pass.setText(cadenas_registro.password);
-        test_tel.setText(cadenas_registro.telefono);
         num_tel.setText(cadenas_registro.telefono);
 
         Editar.setOnClickListener(new View.OnClickListener() {

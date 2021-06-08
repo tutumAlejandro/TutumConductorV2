@@ -15,7 +15,6 @@ public class MainTextoPoliticaPrivacidad extends AppCompatActivity {
 
     private WebView web_politivas;
     private ImageView btn_regreso_terminos;
-    private String rol="";
     private String url="https://tutumapps.com/api/driver/notice";
 
     @Override
@@ -25,7 +24,6 @@ public class MainTextoPoliticaPrivacidad extends AppCompatActivity {
 
         web_politivas = findViewById(R.id.WB_politicas);
         btn_regreso_terminos = findViewById(R.id.img_retroceso_politicas_text);
-        rol = getIntent().getStringExtra("rol");
 
         web_politivas.setWebViewClient(new WebViewClient());
         web_politivas.loadUrl(url);
@@ -35,7 +33,6 @@ public class MainTextoPoliticaPrivacidad extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent main_terminos_condiciones = new Intent(MainTextoPoliticaPrivacidad.this,MainTerminosYCondiciones.class);
-                main_terminos_condiciones.putExtra("rol",rol);
                 startActivity(main_terminos_condiciones);
                 finish();
             }

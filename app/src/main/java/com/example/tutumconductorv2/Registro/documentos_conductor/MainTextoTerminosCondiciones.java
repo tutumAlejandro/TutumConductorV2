@@ -15,7 +15,6 @@ public class MainTextoTerminosCondiciones extends AppCompatActivity {
 
     private WebView web_terminos;
     private ImageView btn_regreso_terminos;
-    private String rol="";
     private String url="https://tutumapps.com/api/driver/terms";
 
     @Override
@@ -25,7 +24,7 @@ public class MainTextoTerminosCondiciones extends AppCompatActivity {
 
         web_terminos = findViewById(R.id.WB_terminos);
         btn_regreso_terminos = findViewById(R.id.img_retroceso_terminos_condiciones_text);
-        rol = getIntent().getStringExtra("rol");
+
 
         web_terminos.setWebViewClient(new WebViewClient());
         web_terminos.loadUrl(url);
@@ -35,7 +34,6 @@ public class MainTextoTerminosCondiciones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent main_terminos_condiciones = new Intent(MainTextoTerminosCondiciones.this,MainTerminosYCondiciones.class);
-                main_terminos_condiciones.putExtra("rol",rol);
                 startActivity(main_terminos_condiciones);
                 finish();
             }

@@ -31,14 +31,14 @@ public class MainCapturaCodigo extends AppCompatActivity {
     private TextInputLayout codigo_vehiculo;
     private ImageView btn_regreso_codigo;
 
-    private String rol;
     private String code2="";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_codigo);
-
-        rol = getIntent().getStringExtra("rol");
 
         btn_regreso_codigo = findViewById(R.id.img_retroceso_codigo);
         codigo_vehiculo = findViewById(R.id.InputCodigo);
@@ -46,8 +46,12 @@ public class MainCapturaCodigo extends AppCompatActivity {
         btn_regreso_codigo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_codigo = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_codigo.edit();
+
                 Intent main_snv_documentos = new Intent(MainCapturaCodigo.this, MainSnvDocuemtos.class);
-                cadenas_documentos.check_codigo3=false;
+                obj_editor.putBoolean("codigo3",false);
+                obj_editor.commit();
                 startActivity(main_snv_documentos);
                 finish();
             }
@@ -77,14 +81,17 @@ public class MainCapturaCodigo extends AppCompatActivity {
 
     public void btn_guardar_codigo(View v)
     {
+        SharedPreferences preferencias_codigo = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_codigo.edit();
+
         code2 = codigo_vehiculo.getEditText().getText().toString().trim();
         if(!check_codigo(code2)){
             return;
         }else{
             realizarPost();
             Intent main_snv_documentos = new Intent(MainCapturaCodigo.this,MainSnvDocuemtos.class);
-            cadenas_documentos.check_codigo3=true;
-            cadenas_documentos.Codigo=code2;
+            obj_editor.putBoolean("codigo3",true);
+            obj_editor.commit();
             startActivity(main_snv_documentos);
             finish();
         }

@@ -67,7 +67,9 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_tarjeton);
-        rol = getIntent().getStringExtra("rol");
+
+        SharedPreferences preferencias_tarjeton = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_tarjeton.getString("rol","");
 
         vigenciaTarjeton = findViewById(R.id.VigenciaTarjeton);
         btn_regreso_tarjeton = findViewById(R.id.img_retroceso_tarjeton);
@@ -78,19 +80,24 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         btn_regreso_tarjeton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_tarjeton = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_tarjeton.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
-                    cadenas_documentos.check_tarjeton1=false;
+                    obj_editor.putBoolean("tarjeton1",false);
+                    obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else if (rol.matches("Conductor")) {
                     Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
-                    cadenas_documentos.check_tarjeton2=false;
+                    obj_editor.putBoolean("tarjeton2",false);
+                    obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 } else {
                     Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
-                    cadenas_documentos.check_tarjeton3=false;
+                    obj_editor.putBoolean("tarjeton3",false);
+                    obj_editor.commit();
                     startActivity(main_snv_documentos);
                     finish();
                 }
@@ -137,6 +144,8 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
 
     public void guarda_tarjeton(View v)
     {
+        SharedPreferences preferencias_tarjeton = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_tarjeton.edit();
         String vig = vigenciaTarjeton.getText().toString().trim();
         if(!check_vigencia_Tarjeton(vig) | !check_tarjeton)
         {
@@ -146,16 +155,16 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
-                cadenas_documentos.check_tarjeton1=true;
-                cadenas_documentos.vigTarjeton = vig;
+                obj_editor.putBoolean("tarjeton1",true);
+                obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
             }else if(rol.matches("Conductor"))
             {
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
-                cadenas_documentos.check_tarjeton2=true;
-                cadenas_documentos.vigTarjeton = vig;
+                obj_editor.putBoolean("tarjeton2",true);
+                obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();
             }
@@ -163,8 +172,8 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             {
                 realizarPost();
                 Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
-                cadenas_documentos.check_tarjeton3=true;
-                cadenas_documentos.vigTarjeton = vig;
+                obj_editor.putBoolean("tarjeton3",true);
+                obj_editor.commit();
                 startActivity(main_snv_documentos);
                 finish();
             }

@@ -62,6 +62,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
 
     private boolean check_tarjeta = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,21 +73,25 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         btn_tarjeta = findViewById(R.id.btn_img_tarjeta);
 
         vigencia_tarjeta.setOnClickListener(this);
-
-        rol = getIntent().getStringExtra("rol");
+        SharedPreferences preferencias_tarjeta = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_tarjeta.getString("rol","");
 
 
         btn_regreso_tarjeta_circulacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferencias_tarjeta = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_tarjeta.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                    cadenas_documentos.check_tarjeta1=false;
+                    obj_editor.putBoolean("tarjeta1",false);
+                    obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else {
                     Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                    cadenas_documentos.check_tarjeta2=false;
+                    obj_editor.putBoolean("tarjeta2",false);
+                    obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 }
@@ -132,6 +137,8 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
 
     public void guarda_tarjeta(View v)
     {
+        SharedPreferences preferencias_tarjeta = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_tarjeta.edit();
         String vig = vigencia_tarjeta.getText().toString().trim();
         if(!check_vigencia_tarjeta(vig) | !check_tarjeta)
         {
@@ -141,16 +148,16 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                cadenas_documentos.vigTarjeta=vig;
-                cadenas_documentos.check_tarjeta1=true;
+                obj_editor.putBoolean("tarjeta1",true);
+                obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
             }else
             {
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                cadenas_documentos.vigTarjeta=vig;
-                cadenas_documentos.check_tarjeta2=true;
+                obj_editor.putBoolean("tarjeta1",true);
+                obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();
             }
