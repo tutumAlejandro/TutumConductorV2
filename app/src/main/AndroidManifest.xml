@@ -26,7 +26,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainScripRegistro"></activity>
+        <activity android:name=".Registro.datos_personales.MainContinuarRegistro"></activity>
+        <activity android:name=".MainScripRegistro" />
         <activity android:name=".Registro.menus_rol.MainDocumentosOk" />
         <activity
             android:name=".Registro.datos_personales.MainPopUpRegistroFail"

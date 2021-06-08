@@ -1,11 +1,13 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -130,20 +132,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
         test_pass =findViewById(R.id.test_vig_pass);
         test_telefono = findViewById(R.id.test_vig_telefono);
 
-        tst_lic.setText("Vigencia Licencia:"+cadenas_documentos.vigLicencia);
-        tst_fabricante.setText("fabricante:"+cadenas_documentos.fabricante);
-        tst_modelo.setText("modelo:"+cadenas_documentos.modelo);
-        tst_anio.setText("Año:"+cadenas_documentos.anio);
-        tst_matricula.setText("Matricula:"+cadenas_documentos.matricula);
-        vig_tarjeta.setText("Vigencia Tarjeta:"+cadenas_documentos.vigTarjeta);
-        vig_poliza.setText("Vigenia Poliza: "+cadenas_documentos.vigPoliza);
-        vig_tarjeton.setText("Vigencia Tarjeton:"+cadenas_documentos.vigTarjeton);
-        test_nombre.setText("Nombre:"+ cadenas_registro.nombres);
-        test_app.setText("Apeido Paterno:"+cadenas_registro.apeido_paterno);
-        test_apm.setText("Apeido Materno:"+cadenas_registro.apeido_materno);
-        test_email.setText("Email:"+cadenas_registro.email);
-        test_pass.setText("Password"+cadenas_registro.password);
-        test_telefono.setText("Telefono"+cadenas_registro.telefono);
 
         if (ContextCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainSocioDocumentos.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainSocioDocumentos.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);}
@@ -360,10 +348,13 @@ public class MainSocioDocumentos extends AppCompatActivity {
     }
 
     public void realizarPost(String url) {
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
 
 
             final String requestBody = jsonObject.toString();

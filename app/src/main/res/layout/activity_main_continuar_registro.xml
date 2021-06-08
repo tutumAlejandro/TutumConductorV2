@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro.datos_personales.MainContinuarRegistro"
+    android:background="@color/dark"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/txt_pop_up_text1"
+        android:textColor="@color/daysi"
+        android:textSize="@dimen/size_text_head_capture"
+        android:fontFamily="@font/open_sans_bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/txt_pop_up_text2"
+        android:textColor="@color/daysi"
+        android:fontFamily="@font/open_sans_bold"
+        android:textSize="@dimen/size_text_head_capture"/>
+    <TextView
+        android:id="@+id/ultimo_estado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/daysi"
+        android:fontFamily="@font/open_sans_bold"
+        android:textSize="@dimen/size_text_body_capture"/>
+
+
+    <Button
+        android:id="@+id/btn_continuar_registro"
+        android:layout_width="@dimen/width_boton"
+        android:layout_height="@dimen/heigth_boton"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/boton_redondo"
+        android:fontFamily="@font/open_sans_semibold"
+        android:onClick="continuar_registro"
+        android:text="@string/txt_btn_pop_up1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_text_btn" />
+
+    <Button
+        android:id="@+id/btn_nuevo_registro"
+        android:layout_width="@dimen/width_boton"
+        android:layout_height="@dimen/heigth_boton"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton_redondo"
+        android:fontFamily="@font/open_sans_semibold"
+        android:onClick="nuevo_registro"
+        android:text="@string/txt_btn_pop_up2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_text_btn" />
+
+
+
+
+
+</LinearLayout>

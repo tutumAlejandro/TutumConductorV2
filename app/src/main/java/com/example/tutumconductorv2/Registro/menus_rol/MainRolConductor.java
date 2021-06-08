@@ -1,8 +1,10 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,10 +23,15 @@ import org.json.JSONObject;
 
 public class MainRolConductor extends AppCompatActivity {
 
+    private String tel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_rol_conductor);
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
+        Log.d("Telefono","Telefono: "+tel);
 
     }
     public void main_doctos_socio(View v) {
@@ -74,7 +81,7 @@ public class MainRolConductor extends AppCompatActivity {
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
             jsonObject.put("status","0");
             jsonObject.put("type","1");
             jsonObject.put("only",0);
@@ -105,7 +112,7 @@ public class MainRolConductor extends AppCompatActivity {
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
             jsonObject.put("status","0");
             jsonObject.put("type","1");
             jsonObject.put("only",1);
@@ -136,7 +143,38 @@ public class MainRolConductor extends AppCompatActivity {
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
+            jsonObject.put("status","0");
+            jsonObject.put("type","0");
+            jsonObject.put("only",1);
+            jsonObject.put("confirmation_phone",'1');
+            jsonObject.put("terms_confirmation","0");
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void post_confirm(){
+        String url = "https://tutumapps.com/api/driver/updateRegistryFields";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone", tel);
             jsonObject.put("status","0");
             jsonObject.put("type","0");
             jsonObject.put("only",1);

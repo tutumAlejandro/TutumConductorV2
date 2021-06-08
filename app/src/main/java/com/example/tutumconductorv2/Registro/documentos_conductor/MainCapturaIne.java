@@ -2,7 +2,9 @@ package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -59,7 +61,6 @@ public class MainCapturaIne extends AppCompatActivity {
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
     int factor = 1;
     int quality_image=30;
@@ -250,11 +251,14 @@ public class MainCapturaIne extends AppCompatActivity {
     }
 
     public void realizarPost() {
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         String url = "https://tutumapps.com/api/driver/uploadRegistryINE";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
             jsonObject.put("img_front",image_code1);
             jsonObject.put("img_back",image_code2);
             Log.d("valor imagen ","Valor"+image_code1);

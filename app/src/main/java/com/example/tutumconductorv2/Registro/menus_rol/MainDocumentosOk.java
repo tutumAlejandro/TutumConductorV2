@@ -3,7 +3,9 @@ package com.example.tutumconductorv2.Registro.menus_rol;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.Log;
@@ -50,6 +52,10 @@ public class MainDocumentosOk extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_documentos_ok);
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+        obj_editor.putInt("State",4);
+        obj_editor.commit();
 
 
         txt_aprb_hd = findViewById(R.id.txt_aprobado_documentos_head);
@@ -79,7 +85,7 @@ public class MainDocumentosOk extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 realizarPost(url_timeline);
-                realizarPost2();
+                //realizarPost2();
             }
         });
         btn_rechazo.setOnClickListener(new View.OnClickListener() {
@@ -105,10 +111,13 @@ public class MainDocumentosOk extends AppCompatActivity {
     }
     private void realizarPost(String url) {
         refresh.setRefreshing(true);
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         try {
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
                 final JSONObject jsonObject = new JSONObject();
-                jsonObject.put("phone",cadenas_registro.telefono);
+                jsonObject.put("phone",tel);
                 final String requestBody = jsonObject.toString(); // Con esta cadena podemos ver que mandamos dentro del JSON
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                     @Override
@@ -125,7 +134,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                             {
                                 case "7": {mostrar_rechazo();}break;
                                 case "8": {mostrar_aceptado();}break;
-                                case "9": {mostrar_cita1();}break;
+                                case "9": {mostrar_cita1(); }break;
                                 case "10": {}break;
                             }
                             id = exito.getString("registry_id");
@@ -203,16 +212,16 @@ public class MainDocumentosOk extends AppCompatActivity {
         btn_cita .setVisibility(View.VISIBLE);
     }
     public void realizarPost2() {
-        String url = url2;
+        String url = "https://www.tutumapps.com/api/driver/documentsStatus";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             final String requestBody = jsonObject.toString();
 
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, jsonObject, new Response.Listener<JSONObject>() {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("My Tag","Exito!!!!! "+response);
+                    Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+response);
                 }
             }, new Response.ErrorListener() {
                 @Override

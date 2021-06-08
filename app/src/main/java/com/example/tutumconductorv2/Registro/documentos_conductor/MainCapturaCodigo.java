@@ -2,7 +2,9 @@ package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -88,11 +90,14 @@ public class MainCapturaCodigo extends AppCompatActivity {
         }
     }
     public void realizarPost() {
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         String url = "https://tutumapps.com/api/driver/uploadVehicleCode";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
             jsonObject.put("vehicle_code",code2);
 
             final String requestBody = jsonObject.toString();

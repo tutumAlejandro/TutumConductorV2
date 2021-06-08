@@ -1,25 +1,23 @@
 package com.example.tutumconductorv2.Registro.datos_personales;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainTextoPoliticaPrivacidad;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainTextoTerminosCondiciones;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.TextView;
 
 public class MainRegistrate extends AppCompatActivity {
 
     private TextInputLayout nombres,apeidop,apeidom,email,pass;
 
-    private TextView terminos,politica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,25 +29,6 @@ public class MainRegistrate extends AppCompatActivity {
         email = findViewById(R.id.InputCorreo);
         pass = findViewById(R.id.InputContraseña);
 
-        terminos = findViewById(R.id.test_terminos);
-        politica = findViewById(R.id.test_politica);
-
-        terminos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent main_terminos = new Intent(MainRegistrate.this, MainTextoTerminosCondiciones.class);
-                main_terminos.putExtra("rol","Socio");
-                startActivity(main_terminos);
-            }
-        });
-        politica.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent main_terminos = new Intent(MainRegistrate.this, MainTextoPoliticaPrivacidad.class);
-                main_terminos.putExtra("rol","Socio");
-                startActivity(main_terminos);
-            }
-        });
     }
 
     private boolean check_field(String app, TextInputLayout campo)
@@ -111,25 +90,23 @@ public class MainRegistrate extends AppCompatActivity {
 
     public void btn_registro(View v)
     {
-        if(!check_field(nombres.getEditText().getText().toString().trim(), nombres)  |
-                !check_field(apeidop.getEditText().getText().toString().trim(), apeidop) |
+        if(!check_field(nombres.getEditText().getText().toString().trim(), nombres)  | !check_field(apeidop.getEditText().getText().toString().trim(), apeidop) |
                 !check_field_email(email.getEditText().getText().toString().trim(), email) |
                 ! check_field_pass(pass.getEditText().getText().toString().trim(),pass))
         {
             return;
         }else
         {
+            SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+            SharedPreferences.Editor obj_editor = preferences.edit();
+            obj_editor.putString("name",(nombres.getEditText().getText().toString().trim())+" "+apeidop.getEditText().getText().toString().trim()+" "+ apeidom.getEditText().getText().toString().trim());
+            obj_editor.putString("email",email.getEditText().getText().toString().trim());
+            obj_editor.putString("password",pass.getEditText().getText().toString().trim());
+            obj_editor.putInt("State",1);
+            obj_editor.commit();
             Intent main_registro_telefono = new Intent(MainRegistrate.this, MainRegistroTelefono.class);
-
-            //Creacion de la base de datos para el registro
-
-            cadenas_registro.nombres = nombres.getEditText().getText().toString().trim();
-            cadenas_registro.apeido_paterno = apeidop.getEditText().getText().toString().trim();
-            cadenas_registro.apeido_materno = apeidom.getEditText().getText().toString().trim();
-            cadenas_registro.email = email.getEditText().getText().toString().trim();
-            cadenas_registro.password =pass.getEditText().getText().toString().trim();
             startActivity(main_registro_telefono);
-            //finish();
+            finish();
         }
     }
 

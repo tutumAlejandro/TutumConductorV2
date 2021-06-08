@@ -1,6 +1,8 @@
 package com.example.tutumconductorv2.Registro.datos_personales;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 
@@ -52,8 +54,11 @@ public class MainOTP extends AppCompatActivity {
         Editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferences_user.edit();
+                obj_editor.putString("phone","");
+                obj_editor.commit();
                 Intent main_registro_telefono = new Intent(MainOTP.this, MainRegistroTelefono.class);
-                cadenas_registro.telefono="";
                 cadenas_registro.edit_phone= false;
                 startActivity(main_registro_telefono);
                 finish();
@@ -86,6 +91,10 @@ public class MainOTP extends AppCompatActivity {
     }
     public void main_rol(View v)
     {
+        SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences_user.edit();
+        obj_editor.putInt("State",3);
+        obj_editor.commit();
         String otp_cd = otp.getEditText().getText().toString().trim();
         if(!check_otp(otp_cd))
         {

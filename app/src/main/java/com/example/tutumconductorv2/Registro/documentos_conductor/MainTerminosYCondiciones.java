@@ -1,8 +1,10 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -109,11 +111,14 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
         }
     }
     public void realizarPost() {
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         String url = "https://tutumapps.com/api/driver/updateRegistryFields";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
             jsonObject.put("status","0");
             jsonObject.put("terms_confirmation","1");
 

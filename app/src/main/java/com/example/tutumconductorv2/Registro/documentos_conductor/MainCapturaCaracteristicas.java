@@ -7,7 +7,9 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -93,7 +95,6 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
-    int SELEC_IMAGEN = 200;
     int codigoBoton = 0;
     int factor = 1;
     int year=0;
@@ -1008,12 +1009,15 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
     }
 
     public void realizarPost() {
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         String url = "https://tutumapps.com/api/driver/uploadVehicleDetails";
         model_id_vehicle();
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
             jsonObject.put("vehicle_model_id",model_id);
             jsonObject.put("vehicle_year",year);
             jsonObject.put("vehicle_plates",matricula);

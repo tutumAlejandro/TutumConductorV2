@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
@@ -54,7 +56,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    int SELEC_IMAGEN = 200;
+
     int factor = 1;
     int quality_image=30;
 
@@ -240,11 +242,14 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
     }
 
     public void realizarPost() {
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         String url = "https://tutumapps.com/api/driver/uploadCirculationCard";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", cadenas_registro.telefono);
+            jsonObject.put("phone", tel);
             jsonObject.put("img_front",image_code1);
             jsonObject.put("circulation_card_expiry",vigencia);
 
