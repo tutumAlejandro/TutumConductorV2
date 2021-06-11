@@ -7,7 +7,8 @@
     tools:context=".Registro.datos_personales.MainPopUpRegistro"
     android:layout_gravity="bottom"
     android:background="@color/darkest"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:forceDarkAllowed="false">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

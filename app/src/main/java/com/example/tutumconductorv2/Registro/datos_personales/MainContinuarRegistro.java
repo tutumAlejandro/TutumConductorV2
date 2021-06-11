@@ -56,6 +56,7 @@ public class MainContinuarRegistro extends AppCompatActivity {
             case 4: {State.setText("Subir documentos Socio Administrador");}break;
             case 5: {State.setText("Subir documentos Conductor");}break;
             case 6: {State.setText("Subir documentos Conductor sin Vehiculo");}break;
+            case 7: {State.setText("Error en los documentos");}break;
             case 8: {State.setText("(Documentos entregados)");}break;
         }
 
@@ -85,7 +86,7 @@ public class MainContinuarRegistro extends AppCompatActivity {
     public void realizarPost() {
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         String telefono = preferences.getString("phone","");
-        String url = "https://tutumapps.com/api/driver/updateRegistryFields";
+        String url = "https://tutumapps.com/api/driver/registryTimelineStatus";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
@@ -100,8 +101,8 @@ public class MainContinuarRegistro extends AppCompatActivity {
                     try {
                             SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
                             Log.d("My Tag","Respuesta"+phone_ok);
-                            phone_ok= response.getString("success");
-                            if(phone_ok.matches("true")){
+                            phone_ok= response.getString("");
+                            if(phone_ok.matches("")){
 
                                 switch (state)
                                 {

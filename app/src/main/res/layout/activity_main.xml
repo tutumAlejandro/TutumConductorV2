@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/darkest">
+    android:background="@color/darkest"
+    android:forceDarkAllowed="false">
 
     <ImageView
         android:id="@+id/img_logo_tutum"

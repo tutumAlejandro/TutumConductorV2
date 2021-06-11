@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Registro.menus_rol.MainSnvDocuemtos"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:forceDarkAllowed="false">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -368,6 +369,19 @@
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn1_head_error_snv"
                        app:layout_constraintStart_toStartOf="@+id/button1_snv_error"
                        android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body2_btn1_error_snv"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn1_head_error_snv"
+                    app:layout_constraintStart_toStartOf="@+id/button1_snv_error"
+                    android:visibility="gone"/>
 
                    <ImageView
                        android:id="@+id/fwd_snv_1_error"
@@ -422,6 +436,18 @@
                        app:layout_constraintStart_toStartOf="@id/button2_snv_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_error_snv"
                        android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body2_btn2_error_snv"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button2_snv_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_error_snv"
+                    android:visibility="gone"/>
 
                    <ImageView
                        android:id="@+id/fwd_snv_2_error"
@@ -475,6 +501,18 @@
                        app:layout_constraintStart_toStartOf="@id/button3_snv_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_error_snv"
                        android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body2_btn3_error_snv"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button3_snv_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_error_snv"
+                    android:visibility="gone"/>
 
                    <ImageView
                        android:id="@+id/fwd_snv_3_error"
@@ -529,6 +567,18 @@
                        app:layout_constraintStart_toStartOf="@id/button4_snv_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_error_snv"
                        android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body2_btn4_error_snv"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button4_snv_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_error_snv"
+                    android:visibility="gone"/>
 
                    <ImageView
                        android:id="@+id/fwd_snv_4_error"
@@ -583,6 +633,19 @@
                        app:layout_constraintStart_toStartOf="@id/button5_snv_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_error_snv"
                        android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/body2_btn5_error_snv"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeton"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button5_snv_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_error_snv"
+                    android:visibility="gone"/>
 
                    <ImageView
                        android:id="@+id/fwd_snv_5_error"

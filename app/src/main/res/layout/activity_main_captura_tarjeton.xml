@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Registro.documentos_conductor.MainCapturaTarjeton"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:forceDarkAllowed="false">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

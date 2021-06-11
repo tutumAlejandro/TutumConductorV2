@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainVentanaPrincipal"
-    android:background="@color/darkest">
+    android:background="@color/darkest"
+    android:forceDarkAllowed="false">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -30,7 +31,9 @@
                 android:onClick="btn_registrate"
                 android:text="@string/btn_text_registrate"
                 android:textColor="@color/white"
-                android:textSize="@dimen/size_text_btn"></Button>
+                android:textSize="@dimen/size_text_btn"
+                android:forceDarkAllowed="false">
+            </Button>
 
             <Button
                 android:layout_width="@dimen/width_boton"
@@ -43,7 +46,9 @@
                 android:onClick="btn_inicia_sesion"
                 android:text="@string/btn_text_inicio_sesion"
                 android:textColor="@color/white"
-                android:textSize="@dimen/size_text_btn"></Button>
+                android:textSize="@dimen/size_text_btn"
+                android:forceDarkAllowed="false">
+            </Button>
 
         </LinearLayout>
     </ScrollView>

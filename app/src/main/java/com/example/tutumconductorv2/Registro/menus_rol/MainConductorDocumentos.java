@@ -47,13 +47,23 @@ public class MainConductorDocumentos extends AppCompatActivity {
                      bd_ok_conductor1,bd_ok_conductor2,bd_ok_conductor3,bd_ok_conductor4,bd_ok_conductor5,bd_ok_conductor6,bd_ok_conductor7;
 
     private TextView hd_er_conductor1,hd_er_conductor2,hd_er_conductor3,hd_er_conductor4,hd_er_conductor5,hd_er_conductor6,hd_er_conductor7,
-                     bd_er_conductor1,bd_er_conductor2,bd_er_conductor3,bd_er_conductor4,bd_er_conductor5,bd_er_conductor6,bd_er_conductor7;
+                     bd_er_conductor1,bd_er_conductor2,bd_er_conductor3,bd_er_conductor4,bd_er_conductor5,bd_er_conductor6,bd_er_conductor7,
+                     btn1_bd1_er,btn2_bd2_er,btn3_bd3_er,btn4_bd4_er,btn5_bd5_er, btn6_bd6_er,btn7_bd7_er;
+
+    private String msg1,msg2,msg3,msg4,msg5,msg6,msg7;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_conductor_documentos);
         SharedPreferences prefencias_conductor = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-
+        msg1= prefencias_conductor.getString("error1","");
+        msg2= prefencias_conductor.getString("error2","");
+        msg3= prefencias_conductor.getString("error3","");
+        msg4= prefencias_conductor.getString("error4","");
+        msg5= prefencias_conductor.getString("error5","");
+        msg6= prefencias_conductor.getString("error6","");
+        msg7= prefencias_conductor.getString("error7","");
         btn_regresar_conductor = findViewById(R.id.img_retroceso_documentos_conductor);
 
         //Asociacion de los botones
@@ -149,6 +159,14 @@ public class MainConductorDocumentos extends AppCompatActivity {
         bd_er_conductor6 = findViewById(R.id.body_btn6_error_conductor);
         bd_er_conductor7 = findViewById(R.id.body_btn7_error_conductor);
 
+        btn1_bd1_er = findViewById(R.id.body2_btn1_error_conductor);
+        btn2_bd2_er = findViewById(R.id.body2_btn2_error_conductor);
+        btn3_bd3_er = findViewById(R.id.body2_btn3_error_conductor);
+        btn4_bd4_er = findViewById(R.id.body2_btn4_error_conductor);
+        btn5_bd5_er = findViewById(R.id.body2_btn5_error_conductor);
+        btn6_bd6_er = findViewById(R.id.body2_btn6_error_conductor);
+        btn7_bd7_er = findViewById(R.id.body2_btn7_error_conductor);
+
         String term2 = prefencias_conductor.getString("terminos2","0");
         String ine2 = prefencias_conductor.getString("ine2","0");
         String licencia2 = prefencias_conductor.getString("licencia2","0");
@@ -168,10 +186,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor1.setVisibility(View.GONE);
             bd_ok_conductor1.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn1_er_conductor.setVisibility(View.GONE);
             er_conductor1.setVisibility(View.GONE);
             hd_er_conductor1.setVisibility(View.GONE);
             bd_er_conductor1.setVisibility(View.GONE);
+            btn1_bd1_er.setVisibility(View.GONE);
         }else if(term2.matches("1")){
             btn1_conductor.setVisibility(View.GONE);
             fwd_conductor1.setVisibility(View.GONE);
@@ -183,10 +203,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor1.setVisibility(View.VISIBLE);
             bd_ok_conductor1.setVisibility(View.VISIBLE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn1_er_conductor.setVisibility(View.GONE);
             er_conductor1.setVisibility(View.GONE);
             hd_er_conductor1.setVisibility(View.GONE);
             bd_er_conductor1.setVisibility(View.GONE);
+            btn1_bd1_er.setVisibility(View.GONE);
         }else{
             btn1_conductor.setVisibility(View.GONE);
             fwd_conductor1.setVisibility(View.GONE);
@@ -198,10 +220,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor1.setVisibility(View.GONE);
             bd_ok_conductor1.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.GONE);
             btn1_er_conductor.setVisibility(View.VISIBLE);
             er_conductor1.setVisibility(View.VISIBLE);
             hd_er_conductor1.setVisibility(View.VISIBLE);
             bd_er_conductor1.setVisibility(View.VISIBLE);
+            btn1_bd1_er.setVisibility(View.VISIBLE);
+            btn1_bd1_er.setText(msg1);
         }
 
         if(ine2.matches("0")){
@@ -215,10 +240,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor2.setVisibility(View.GONE);
             bd_ok_conductor2.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn2_er_conductor.setVisibility(View.GONE);
             er_conductor2.setVisibility(View.GONE);
             hd_er_conductor2.setVisibility(View.GONE);
             bd_er_conductor2.setVisibility(View.GONE);
+            btn2_bd2_er.setVisibility(View.GONE);
         }else if(ine2.matches("1")){
             btn2_conductor.setVisibility(View.GONE);
             fwd_conductor2.setVisibility(View.GONE);
@@ -230,10 +257,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor2.setVisibility(View.VISIBLE);
             bd_ok_conductor2.setVisibility(View.VISIBLE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn2_er_conductor.setVisibility(View.GONE);
             er_conductor2.setVisibility(View.GONE);
             hd_er_conductor2.setVisibility(View.GONE);
             bd_er_conductor2.setVisibility(View.GONE);
+            btn2_bd2_er.setVisibility(View.GONE);
         }else {
             btn2_conductor.setVisibility(View.GONE);
             fwd_conductor2.setVisibility(View.GONE);
@@ -245,10 +274,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor2.setVisibility(View.GONE);
             bd_ok_conductor2.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.GONE);
             btn2_er_conductor.setVisibility(View.VISIBLE);
             er_conductor2.setVisibility(View.VISIBLE);
             hd_er_conductor2.setVisibility(View.VISIBLE);
             bd_er_conductor2.setVisibility(View.VISIBLE);
+            btn2_bd2_er.setVisibility(View.VISIBLE);
+            btn2_bd2_er.setText(msg2);
         }
 
         if(licencia2.matches("0")){
@@ -262,10 +294,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor3.setVisibility(View.GONE);
             bd_ok_conductor3.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn3_er_conductor.setVisibility(View.GONE);
             er_conductor3.setVisibility(View.GONE);
             hd_er_conductor3.setVisibility(View.GONE);
             bd_er_conductor3.setVisibility(View.GONE);
+            btn3_bd3_er.setVisibility(View.GONE);
         }else if(licencia2.matches("1")){
             btn3_conductor.setVisibility(View.GONE);
             fwd_conductor3.setVisibility(View.GONE);
@@ -277,10 +311,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor3.setVisibility(View.VISIBLE);
             bd_ok_conductor3.setVisibility(View.VISIBLE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn3_er_conductor.setVisibility(View.GONE);
             er_conductor3.setVisibility(View.GONE);
             hd_er_conductor3.setVisibility(View.GONE);
             bd_er_conductor3.setVisibility(View.GONE);
+            btn3_bd3_er.setVisibility(View.GONE);
         }else{
             btn3_conductor.setVisibility(View.GONE);
             fwd_conductor3.setVisibility(View.GONE);
@@ -292,10 +328,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor3.setVisibility(View.GONE);
             bd_ok_conductor3.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.GONE);
             btn3_er_conductor.setVisibility(View.VISIBLE);
             er_conductor3.setVisibility(View.VISIBLE);
             hd_er_conductor3.setVisibility(View.VISIBLE);
             bd_er_conductor3.setVisibility(View.VISIBLE);
+            btn3_bd3_er.setVisibility(View.VISIBLE);
+            btn3_bd3_er.setText(msg3);
         }
 
         if(caracteristicas2.matches("0")){
@@ -309,10 +348,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor4.setVisibility(View.GONE);
             bd_ok_conductor4.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn4_er_conductor.setVisibility(View.GONE);
             er_conductor4.setVisibility(View.GONE);
             hd_er_conductor4.setVisibility(View.GONE);
             bd_er_conductor4.setVisibility(View.GONE);
+            btn4_bd4_er.setVisibility(View.GONE);
         }else if(caracteristicas2.matches("1")){
             btn4_conductor.setVisibility(View.GONE);
             fwd_conductor4.setVisibility(View.GONE);
@@ -324,10 +365,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor4.setVisibility(View.VISIBLE);
             bd_ok_conductor4.setVisibility(View.VISIBLE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn4_er_conductor.setVisibility(View.GONE);
             er_conductor4.setVisibility(View.GONE);
             hd_er_conductor4.setVisibility(View.GONE);
             bd_er_conductor4.setVisibility(View.GONE);
+            btn4_bd4_er.setVisibility(View.GONE);
         }else{
             btn4_conductor.setVisibility(View.GONE);
             fwd_conductor4.setVisibility(View.GONE);
@@ -339,10 +382,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor4.setVisibility(View.GONE);
             bd_ok_conductor4.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.GONE);
             btn4_er_conductor.setVisibility(View.VISIBLE);
             er_conductor4.setVisibility(View.VISIBLE);
             hd_er_conductor4.setVisibility(View.VISIBLE);
             bd_er_conductor4.setVisibility(View.VISIBLE);
+            btn4_bd4_er.setVisibility(View.VISIBLE);
+            btn4_bd4_er.setText(msg4);
         }
 
         if(tarjeta2.matches("0")){
@@ -356,10 +402,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor5.setVisibility(View.GONE);
             bd_ok_conductor5.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn5_er_conductor.setVisibility(View.GONE);
             er_conductor5.setVisibility(View.GONE);
             hd_er_conductor5.setVisibility(View.GONE);
             bd_er_conductor5.setVisibility(View.GONE);
+            btn5_bd5_er.setVisibility(View.GONE);
         }else if(tarjeta2.matches("1")){
             btn5_conductor.setVisibility(View.GONE);
             fwd_conductor5.setVisibility(View.GONE);
@@ -371,10 +419,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor5.setVisibility(View.VISIBLE);
             bd_ok_conductor5.setVisibility(View.VISIBLE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn5_er_conductor.setVisibility(View.GONE);
             er_conductor5.setVisibility(View.GONE);
             hd_er_conductor5.setVisibility(View.GONE);
             bd_er_conductor5.setVisibility(View.GONE);
+            btn5_bd5_er.setVisibility(View.GONE);
         }else{
             btn5_conductor.setVisibility(View.GONE);
             fwd_conductor5.setVisibility(View.GONE);
@@ -386,10 +436,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor5.setVisibility(View.GONE);
             bd_ok_conductor5.setVisibility(View.GONE);
 
-            btn5_er_conductor.setVisibility(View.GONE);
-            er_conductor5.setVisibility(View.GONE);
-            hd_er_conductor5.setVisibility(View.GONE);
-            bd_er_conductor5.setVisibility(View.GONE);
+            btn_regresar_conductor.setVisibility(View.GONE);
+            btn5_er_conductor.setVisibility(View.VISIBLE);
+            er_conductor5.setVisibility(View.VISIBLE);
+            hd_er_conductor5.setVisibility(View.VISIBLE);
+            bd_er_conductor5.setVisibility(View.VISIBLE);
+            btn5_bd5_er.setVisibility(View.VISIBLE);
+            btn5_bd5_er.setText(msg5);
         }
 
         if(poliza2.matches("0")){
@@ -403,10 +456,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor6.setVisibility(View.GONE);
             bd_ok_conductor6.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn6_er_conductor.setVisibility(View.GONE);
             er_conductor6.setVisibility(View.GONE);
             hd_er_conductor6.setVisibility(View.GONE);
             bd_er_conductor6.setVisibility(View.GONE);
+            btn6_bd6_er.setVisibility(View.GONE);
         }else if(poliza2.matches("1")){
             btn6_conductor.setVisibility(View.GONE);
             fwd_conductor6.setVisibility(View.GONE);
@@ -418,10 +473,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor6.setVisibility(View.VISIBLE);
             bd_ok_conductor6.setVisibility(View.VISIBLE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn6_er_conductor.setVisibility(View.GONE);
             er_conductor6.setVisibility(View.GONE);
             hd_er_conductor6.setVisibility(View.GONE);
             bd_er_conductor6.setVisibility(View.GONE);
+            btn6_bd6_er.setVisibility(View.GONE);
         }else {
             btn6_conductor.setVisibility(View.GONE);
             fwd_conductor6.setVisibility(View.GONE);
@@ -433,10 +490,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor6.setVisibility(View.GONE);
             bd_ok_conductor6.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.GONE);
             btn6_er_conductor.setVisibility(View.VISIBLE);
             er_conductor6.setVisibility(View.VISIBLE);
             hd_er_conductor6.setVisibility(View.VISIBLE);
             bd_er_conductor6.setVisibility(View.VISIBLE);
+            btn6_bd6_er.setVisibility(View.VISIBLE);
+            btn6_bd6_er.setText(msg6);
         }
 
         if(tarjeton2.matches("0")){
@@ -450,10 +510,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor7.setVisibility(View.GONE);
             bd_ok_conductor7.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn7_er_conductor.setVisibility(View.GONE);
             er_conductor7.setVisibility(View.GONE);
             hd_er_conductor7.setVisibility(View.GONE);
             bd_er_conductor7.setVisibility(View.GONE);
+            btn7_bd7_er.setVisibility(View.GONE);
         }else if(tarjeton2.matches("1")){
             btn7_conductor.setVisibility(View.GONE);
             fwd_conductor7.setVisibility(View.GONE);
@@ -465,10 +527,12 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor7.setVisibility(View.VISIBLE);
             bd_ok_conductor7.setVisibility(View.VISIBLE);
 
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn7_er_conductor.setVisibility(View.GONE);
             er_conductor7.setVisibility(View.GONE);
             hd_er_conductor7.setVisibility(View.GONE);
             bd_er_conductor7.setVisibility(View.GONE);
+            btn7_bd7_er.setVisibility(View.GONE);
         }else {
             btn7_conductor.setVisibility(View.GONE);
             fwd_conductor7.setVisibility(View.GONE);
@@ -480,10 +544,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_ok_conductor7.setVisibility(View.GONE);
             bd_ok_conductor7.setVisibility(View.GONE);
 
+            btn_regresar_conductor.setVisibility(View.GONE);
             btn7_er_conductor.setVisibility(View.VISIBLE);
             er_conductor7.setVisibility(View.VISIBLE);
             hd_er_conductor7.setVisibility(View.VISIBLE);
             bd_er_conductor7.setVisibility(View.VISIBLE);
+            btn7_bd7_er.setVisibility(View.VISIBLE);
+            btn7_bd7_er.setText(msg7);
         }
 
 

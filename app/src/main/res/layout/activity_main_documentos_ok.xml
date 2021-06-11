@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Registro.menus_rol.MainDocumentosOk"
     android:background="@color/darkest"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:forceDarkAllowed="false">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
