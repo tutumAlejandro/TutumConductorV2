@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +33,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
     private String url_registro="https://www.tutumapps.com/api/driver/registryDriver";
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
     private String name,phone,email,tel;
+
+    private boolean isSucess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,9 @@ public class MainRegistroTelefono extends AppCompatActivity {
                             Log.d("Respuesta Registro","Exito!!!: "+response);
                             Intent main_popup = new Intent(MainRegistroTelefono.this, MainPopUpRegistro.class);
                             startActivity(main_popup);
+                            solicitarOTP();
                             finish();
+
                         }else
                         {
                             Log.e("Respuesta Registro","Error!!!: "+response);
@@ -172,6 +177,51 @@ public class MainRegistroTelefono extends AppCompatActivity {
             requestQueue.add(request);
 
         }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+    private void solicitarOTP(){
+
+        String url = "https://www.tutumapps.com/api/driver/otp";
+
+        try{
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final JSONObject jsonObject = new JSONObject();
+
+            jsonObject.put("phone", phone);
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("TAG", "Success! :D" + " " + response);
+                    try {
+                        isSucess = response.getBoolean("success");
+                        if(isSucess){
+                            Toast.makeText(MainRegistroTelefono.this, "OTP", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else{
+                            Toast.makeText(MainRegistroTelefono.this, "Hubo un error con el codigo OTP", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("TAG", "Error: " + error);
+                }
+            });
+            requestQueue.add(jsonObjectRequest);
+        }
+        catch (JSONException e){
             e.printStackTrace();
         }
     }

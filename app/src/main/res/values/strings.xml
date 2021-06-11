@@ -5,6 +5,10 @@
     <string name="conductor">Conductor</string>
     <string name="snv">Sin Vehiculo</string>
 
+
+        <string name="map_id">1f7515d54e5aee53</string>
+
+
     <!-- Strings tod para las imagenes-->
     <string name="imagenes">imagenes</string>
 

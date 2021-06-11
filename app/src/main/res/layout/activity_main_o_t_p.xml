@@ -103,7 +103,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/boring_sans_bold"
-                android:onClick="main_rol"
+                android:onClick="btn_ver_otp"
                 android:text="@string/btn_text_continuar"
                 android:textSize="@dimen/size_text_btn"
                 android:textColor="@color/white"/>

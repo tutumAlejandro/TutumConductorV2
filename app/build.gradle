@@ -72,4 +72,11 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
 
     implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
+
+
+    implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
+    // If you are using Places, add all of the dependencies below
+  /*  implementation name:'places-maps-sdk-3.1.0-beta', ext:'aar'*/
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.auto.value:auto-value-annotations:1.7.4'
 }
