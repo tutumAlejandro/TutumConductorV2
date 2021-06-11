@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.tutumconductorv2.Registro.datos_personales.MainContinuarRegistro;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
 import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
@@ -20,7 +21,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
     public void btn_registrate(View v)
     {
-        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
+        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainContinuarRegistro.class);
         startActivity(main_registrate);
 
     }

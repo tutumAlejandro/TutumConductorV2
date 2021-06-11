@@ -40,7 +40,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
         telefono = findViewById(R.id.InputTelefono);
 
         SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-        preferences_user.getInt("State",0);
+        int state= preferences_user.getInt("State",0);
+        Log.d("Revisar Estado","Estado actual"+state);
         name = preferences_user.getString("name","");
         email = preferences_user.getString("email","");
 
