@@ -142,13 +142,13 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 SharedPreferences.Editor obj_editor = preferencias_caracteristicas.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
-                    obj_editor.putBoolean("caracteristicas1",false);
+                    obj_editor.putString("caracteristicas1","0");
                     obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else{
                     Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
-                    obj_editor.putBoolean("caracteristicas2",false);
+                    obj_editor.putString("caracteristicas2","0");
                     obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
@@ -897,14 +897,14 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
-                obj_editor.putBoolean("caracteristicas1",true);
+                obj_editor.putString("caracteristicas1","1");
                 obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
             }else{
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
-                obj_editor.putBoolean("caracteristicas2",true);
+                obj_editor.putString("caracteristicas2","1");
                 obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();

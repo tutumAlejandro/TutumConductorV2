@@ -54,19 +54,19 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
                 SharedPreferences.Editor obj_editor = preferencias_terminos.edit();
                 if(rol.matches("Socio")){
                     Intent main_socio_documentos = new Intent(MainTerminosYCondiciones.this, MainSocioDocumentos.class);
-                    obj_editor.putBoolean("terminos1",false);
+                    obj_editor.putString("terminos1","0");
                     obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 }else if(rol.matches("Conductor")){
                     Intent main_conductor_documentos = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
-                    obj_editor.putBoolean("terminos2",false);
+                    obj_editor.putString("terminos2","0");
                     obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 }else{
                     Intent main_snv_documentos = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
-                    obj_editor.putBoolean("terminos3",false);
+                    obj_editor.putString("terminos3","0");
                     obj_editor.commit();
                     startActivity(main_snv_documentos);
                     finish();
@@ -98,21 +98,21 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
         if(rol.matches("Socio")){
             realizarPost();
             Intent main_socio_documentos = new Intent(MainTerminosYCondiciones.this, MainSocioDocumentos.class);
-            obj_editor.putBoolean("terminos1",true);
+            obj_editor.putString("terminos1","1");
             obj_editor.commit();
             startActivity(main_socio_documentos);
             finish();
         }else if(rol.matches("Conductor")){
             realizarPost();
             Intent main_conductor_documentos = new Intent(MainTerminosYCondiciones.this, MainConductorDocumentos.class);
-            obj_editor.putBoolean("terminos1",true);
+            obj_editor.putString("terminos2","1");
             obj_editor.commit();
             startActivity(main_conductor_documentos);
             finish();
         }else{
             realizarPost();
             Intent main_snv_documentos = new Intent(MainTerminosYCondiciones.this, MainSnvDocuemtos.class);
-            obj_editor.putBoolean("terminos1",true);
+            obj_editor.putString("terminos3","1");
             obj_editor.commit();
             startActivity(main_snv_documentos);
             finish();

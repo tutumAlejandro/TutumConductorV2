@@ -76,8 +76,8 @@
                 android:layout_height="@dimen/heigth_btn_documentos"
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/btn_tarjeta_1"/>
+                android:scaleType="fitXY"/>
+
 
             <!-- Boton para la captura de la poliza -->
             <ImageView
@@ -87,7 +87,7 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/btn_poliza_1"/>
+                />
 
             <!-- Boton para la captura del tarjeton -->
             <ImageView
@@ -97,7 +97,7 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/btn_tarjeton_1"/>
+               />
 
             <!-- Boton para leer los terminos y condiciones ok-->
 
@@ -108,7 +108,6 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ok_terminos_1"
                 android:visibility="gone" />
 
             <!-- Boton para ine ok-->
@@ -119,7 +118,6 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ok_ine_1"
                 android:visibility="gone"/>
 
             <!-- Boton para licencia ok-->
@@ -130,7 +128,6 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ok_licencia_1"
                 android:visibility="gone"/>
 
             <!-- Boton para caracteristicas ok-->
@@ -141,7 +138,6 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ok_caracteristicas_1"
                 android:visibility="gone"/>
 
             <!-- Boton para tarjeta ok-->
@@ -152,7 +148,6 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ok_tarjeta_1"
                 android:visibility="gone"/>
 
             <!-- Boton para poliza ok-->
@@ -163,7 +158,6 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ok_poliza_1"
                 android:visibility="gone"/>
 
             <!-- Boton para poliza ok-->
@@ -174,7 +168,6 @@
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ok_tarjeton_1"
                 android:visibility="gone" />
             <!--- Text View para prueba -->
             <TextView
@@ -194,8 +187,7 @@
                 android:layout_height="@dimen/heigth_btn_documentos"
                 android:layout_marginStart="@dimen/margin_start_btn_documentos"
                 android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ok_caracteristicas_1"/>
+                android:scaleType="fitXY"/>
 
         </LinearLayout>
     </ScrollView>

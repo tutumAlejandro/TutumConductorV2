@@ -84,19 +84,19 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                 SharedPreferences.Editor obj_editor = preferencias_tarjeton.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
-                    obj_editor.putBoolean("tarjeton1",false);
+                    obj_editor.putString("tarjeton1","0");
                     obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else if (rol.matches("Conductor")) {
                     Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
-                    obj_editor.putBoolean("tarjeton2",false);
+                    obj_editor.putString("tarjeton2","0");
                     obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
                 } else {
                     Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
-                    obj_editor.putBoolean("tarjeton3",false);
+                    obj_editor.putString("tarjeton3","0");
                     obj_editor.commit();
                     startActivity(main_snv_documentos);
                     finish();
@@ -128,6 +128,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                 vigencia= year+"-"+(month+1)+"-"+dayOfMonth;
             }
         },year,month,day);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
     }
 
@@ -155,7 +156,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
-                obj_editor.putBoolean("tarjeton1",true);
+                obj_editor.putString("tarjeton1","1");
                 obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
@@ -163,7 +164,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             {
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
-                obj_editor.putBoolean("tarjeton2",true);
+                obj_editor.putString("tarjeton2","1");
                 obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();
@@ -172,7 +173,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             {
                 realizarPost();
                 Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
-                obj_editor.putBoolean("tarjeton3",true);
+                obj_editor.putString("tarjeton3","1");
                 obj_editor.commit();
                 startActivity(main_snv_documentos);
                 finish();

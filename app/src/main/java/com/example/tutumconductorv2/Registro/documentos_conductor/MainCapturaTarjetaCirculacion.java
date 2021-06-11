@@ -84,13 +84,13 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
                 SharedPreferences.Editor obj_editor = preferencias_tarjeta.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                    obj_editor.putBoolean("tarjeta1",false);
+                    obj_editor.putString("tarjeta1","0");
                     obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else {
                     Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                    obj_editor.putBoolean("tarjeta2",false);
+                    obj_editor.putString("tarjeta2","0");
                     obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
@@ -121,6 +121,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
                 vigencia= year+"-"+(month+1)+"-"+dayOfMonth;
             }
         },year,month,day);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
     }
 
@@ -148,7 +149,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                obj_editor.putBoolean("tarjeta1",true);
+                obj_editor.putString("tarjeta1","1");
                 obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
@@ -156,7 +157,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
             {
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                obj_editor.putBoolean("tarjeta1",true);
+                obj_editor.putString("tarjeta2","1");
                 obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();

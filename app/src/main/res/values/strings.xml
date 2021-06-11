@@ -80,7 +80,7 @@
     <string name="txt_btn_doc_poliza">Póliza de seguro vigente</string>
     <string name="txt_btn_doc_tarjeton">Tarjeta de control de servicio público de autotransportes</string>
     <string name="txt_btn_doc_codigo">Código de vehículo</string>
-
+    <string name="txt_btn_doc_actualiza">Actualiza este documento</string>
     <!-- Strings para la ventana de terminos y condiciones-->
     <string name="txt_text1_terminos">Para continuar como conductor debes leer y aceptar los siguientes términos y condiciones y aviso de privacidad.</string>
     <string name="txt_text2_terminos">CONSENTIMIENTO LEGAL</string>

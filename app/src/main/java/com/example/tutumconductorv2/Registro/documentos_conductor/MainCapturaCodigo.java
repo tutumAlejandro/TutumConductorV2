@@ -24,6 +24,7 @@ import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_regi
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainCapturaCodigo extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
     private ImageView btn_regreso_codigo;
 
     private String code2="";
-
+    private String error_server="";
 
 
     @Override
@@ -50,7 +51,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
                 SharedPreferences.Editor obj_editor = preferencias_codigo.edit();
 
                 Intent main_snv_documentos = new Intent(MainCapturaCodigo.this, MainSnvDocuemtos.class);
-                obj_editor.putBoolean("codigo3",false);
+                obj_editor.putString("codigo3","0");
                 obj_editor.commit();
                 startActivity(main_snv_documentos);
                 finish();
@@ -60,6 +61,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
 
     private boolean check_codigo(String code)
     {
+        CheckCode();
         if(code.isEmpty())
         {
             codigo_vehiculo.setErrorEnabled(true);
@@ -71,6 +73,13 @@ public class MainCapturaCodigo extends AppCompatActivity {
             codigo_vehiculo.setErrorEnabled(true);
             codigo_vehiculo.setErrorTextColor(ColorStateList.valueOf(Color.RED));
             codigo_vehiculo.setError("Formato Invalido");
+            return false;
+        }
+        else if(!error_server.isEmpty())
+        {
+            codigo_vehiculo.setErrorEnabled(true);
+            codigo_vehiculo.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            codigo_vehiculo.setError(error_server);
             return false;
         }
        else{
@@ -90,7 +99,7 @@ public class MainCapturaCodigo extends AppCompatActivity {
         }else{
             realizarPost();
             Intent main_snv_documentos = new Intent(MainCapturaCodigo.this,MainSnvDocuemtos.class);
-            obj_editor.putBoolean("codigo3",true);
+            obj_editor.putString("codigo3","1");
             obj_editor.commit();
             startActivity(main_snv_documentos);
             finish();
@@ -113,6 +122,48 @@ public class MainCapturaCodigo extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void CheckCode() {
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
+        String url = "https://tutumapps.com/api/driver/uploadVehicleCode";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone", tel);
+            jsonObject.put("vehicle_code",code2);
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                    try {
+                        boolean success = response.getBoolean("success");
+                        if(!success){
+                            error_server= response.getString("msg");
+                        }
+                        else {
+                            error_server="";
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override

@@ -82,13 +82,13 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
                 SharedPreferences.Editor obj_editor = preferencias_poliza.edit();
                 if (rol.matches("Socio")) {
                     Intent main_socio_documentos = new Intent(MainCapturaPoliza.this, MainSocioDocumentos.class);
-                    obj_editor.putBoolean("poliza1",false);
+                    obj_editor.putString("poliza1","0");
                     obj_editor.commit();
                     startActivity(main_socio_documentos);
                     finish();
                 } else {
                     Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
-                    obj_editor.putBoolean("poliza2",false);
+                    obj_editor.putString("poliza2","0");
                     obj_editor.commit();
                     startActivity(main_conductor_documentos);
                     finish();
@@ -119,6 +119,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
                 vigencia= year+"-"+(month+1)+"-"+dayOfMonth;
             }
         },year,month,day);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
     }
 
@@ -146,7 +147,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
             {
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaPoliza.this, MainSocioDocumentos.class);
-                obj_editor.putBoolean("poliza1",true);
+                obj_editor.putString("poliza1","1");
                 obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
@@ -154,7 +155,7 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
             {
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
-                obj_editor.putBoolean("poliza2",true);
+                obj_editor.putString("poliza2","1");
                 obj_editor.commit();
                 startActivity(main_conductor_documentos);
                 finish();

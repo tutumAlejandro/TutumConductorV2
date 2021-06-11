@@ -45,7 +45,6 @@ public class MainDocumentosOk extends AppCompatActivity {
     private ImageView btn_rechazo,btn_aprobado;
 
     private String rol="";
-    private String status ="";
     private String id ="";
 
     @Override
@@ -53,7 +52,9 @@ public class MainDocumentosOk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_documentos_ok);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        rol= preferences.getString("rol","");
         SharedPreferences.Editor obj_editor = preferences.edit();
+        Log.d("Rol Conductor","<<<<<<<<<"+rol);
         obj_editor.putInt("State",8);
         obj_editor.commit();
 
@@ -73,19 +74,16 @@ public class MainDocumentosOk extends AppCompatActivity {
 
         refresh = findViewById(R.id.refresh_screen);
 
-        txt_aprb_hd.setVisibility(View.GONE);
-        txt_aprb_bd.setVisibility(View.GONE);
-        btn_aprobado.setVisibility(View.GONE);
-        txt_rch_hd.setVisibility(View.GONE);
-        txt_rch_bd.setVisibility(View.GONE);
-        btn_rechazo.setVisibility(View.GONE);
+        mostrar_revision();
+
+        realizarPost(url_timeline);
 
 
         refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 realizarPost(url_timeline);
-                //realizarPost2();
+
             }
         });
         btn_rechazo.setOnClickListener(new View.OnClickListener() {
@@ -129,16 +127,21 @@ public class MainDocumentosOk extends AppCompatActivity {
                         try {
                             //recapitulando no sabemos que putas manda Fracktal/
                             JSONObject exito = jsonObject1.getJSONObject("data");
-                            status = exito.getString("status");
-                            switch (status)
+                            String status1=exito.getString("status");
+                            switch (status1)
                             {
-                                case "7": {mostrar_rechazo();}break;
+                                case "5": {mostrar_revision();}break;
+                                case "7": {
+                                            mostrar_rechazo();
+                                            if(rol.matches("Snv")) {realizarPostSnv();}
+                                            else realizarPost2();
+                                          }break;
                                 case "8": {mostrar_aceptado();}break;
                                 case "9": {mostrar_cita1(); }break;
                                 case "10": {}break;
                             }
                             id = exito.getString("registry_id");
-                            Log.d("TEST!!!!!","Exito Status: "+status);
+                            Log.d("TEST!!!!!","Exito Status: "+status1);
                             Log.d("TEST!!!!!","Exito id: "+id);
                             JSONArray exito2 = exito.getJSONArray("timeline");
                             for(int i=0; i<exito2.length();i++)
@@ -186,6 +189,16 @@ public class MainDocumentosOk extends AppCompatActivity {
         refresh.setRefreshing(false);
     }
 
+    private void mostrar_revision()
+    {
+        txt_aprb_hd.setVisibility(View.GONE);
+        txt_aprb_bd.setVisibility(View.GONE);
+        btn_aprobado.setVisibility(View.GONE);
+        txt_rch_hd.setVisibility(View.GONE);
+        txt_rch_bd.setVisibility(View.GONE);
+        btn_rechazo.setVisibility(View.GONE);
+    }
+
     private void mostrar_rechazo()
     {
         txt_aprb_hd.setVisibility(View.GONE);
@@ -213,15 +226,376 @@ public class MainDocumentosOk extends AppCompatActivity {
     }
     public void realizarPost2() {
         String url = "https://www.tutumapps.com/api/driver/documentsStatus";
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone",tel);
             final String requestBody = jsonObject.toString();
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+                    JSONObject jsonObject1 = response;
                     Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+response);
+                    try {
+                        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                          SharedPreferences.Editor obj_edit = preferences.edit();
+                          JSONObject exito = jsonObject1.getJSONObject("data");
+
+
+                          //Obtener los datos de los terminos y condiciones
+                          JSONObject terms_array = exito.getJSONObject("terms");
+                          String name1 = terms_array.getString("name");
+                          String title1 = terms_array.getString("title");
+                          String descripcion1 = terms_array.getString("description");
+                          String status1 = terms_array.getString("status");
+                          String error1 = terms_array.getString("error");
+                          String type1 = terms_array.getString("type");
+                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name1);
+                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title1);
+                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion1);
+                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status1);
+                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error1);
+                          if(status1.matches("2")) {
+                              Log.d("Error terms","Hay errores en los terminos");
+                              if(rol.matches("Socio")){
+                                  obj_edit.putString("terminos1","2");
+                                  obj_edit.commit();
+                              }else if(rol.matches("Socio")){
+                                  obj_edit.putString("terminos2","2");
+                                  obj_edit.commit();
+                              }else{
+                                  obj_edit.putString("terminos3","2");
+                                  obj_edit.commit();
+                              }
+
+                             }else {
+                              Log.d("Error terms","No hay errores en los terminos");
+                          }
+                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type1);
+
+                        //Obtener los datos de la INE
+                        JSONObject ine_array = exito.getJSONObject("identification");
+                        String name2 = ine_array.getString("name");
+                        String title2 = ine_array.getString("title");
+                        String descripcion2 = ine_array.getString("description");
+                        String status2 = ine_array.getString("status");
+                        String error2 = ine_array.getString("error");
+                        if(status2.matches("2")){
+                            Log.d("Error INE","Nay errores en la INE");
+                            if(rol.matches("Socio")){
+                                obj_edit.putString("ine1","2");
+                                obj_edit.commit();
+                            }else if(rol.matches("Conductor")){
+                                obj_edit.putString("ine2","2");
+                                obj_edit.commit();
+                            }else{
+                                obj_edit.putString("ine3","2");
+                                obj_edit.commit();
+                            }
+
+                        }else{
+                            Log.d("Error INE","Nay errores en la INE");
+                        }
+                        String type2 = ine_array.getString("type");
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name2);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title2);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion2);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status2);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error2);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type2);
+
+                        //Obtener los datos de la licencia
+                        JSONObject licence_array = exito.getJSONObject("licence");
+                        String name3 = licence_array.getString("name");
+                        String title3 = licence_array.getString("title");
+                        String descripcion3 = licence_array.getString("description");
+                        String status3 = licence_array.getString("status");
+                        String error3 = licence_array.getString("error");
+                        if(status3.matches("2")){
+                            Log.d("Error Licencia","Hay errores en la Licencia");
+                            if(rol.matches("Socio")){
+                                obj_edit.putString("licencia1","2");
+                                obj_edit.commit();
+                            }else if (rol.matches("Conductor")){
+                                obj_edit.putString("licencia2","2");
+                                obj_edit.commit();
+                            }else{
+                                obj_edit.putString("licencia3","2");
+                                obj_edit.commit();
+                            }
+
+                        }else {
+                            Log.d("Error Licencia","No hay errores en la Licencia");
+                        }
+                        String type3 = licence_array.getString("type");
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name3);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title3);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion3);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status3);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error3);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type3);
+
+                        //Obtener los datos de las caracteristicas del vehiculo
+                        JSONObject car_array = exito.getJSONObject("vehicle_details");
+                        String name4 = car_array.getString("name");
+                        String title4 = car_array.getString("title");
+                        String descripcion4 = car_array.getString("description");
+                        String status4 = car_array.getString("status");
+                        String error4 = car_array.getString("error");
+                        if(status4.matches("2")){
+                            Log.d("Error Caracteristicas","Hay errores en las caracteristicas");
+                            if(rol.matches("Socio")){
+                                obj_edit.putString("caracteristicas1","2");
+                                obj_edit.commit();
+                            }else if(rol.matches("Conductor")){
+                                obj_edit.putString("caracteristicas2","2");
+                                obj_edit.commit();
+                            }else {
+
+                            }
+
+                        }else{
+                            Log.d("Error Caracteristicas","Nay errores en la Caracteristicas");
+                        }
+                        String type4 = car_array.getString("type");
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name4);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title4);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion4);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status4);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error4);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type4);
+
+                        //Obtener los datos de las tarjeta
+                        JSONObject card_array = exito.getJSONObject("circulation_card");
+                        String name5 = card_array.getString("name");
+                        String title5 = card_array.getString("title");
+                        String descripcion5 = card_array.getString("description");
+                        String status5 = card_array.getString("status");
+                        String error5 = card_array.getString("error");
+                        String type5 = card_array.getString("type");
+                        String test5 = error5;
+                        Log.d("My Tag",">>>>>>>>>>>>name5: "+name5);
+                        Log.d("My Tag",">>>>>>>>>>>>title: "+title5);
+                        Log.d("My Tag",">>>>>>>>>>>>descripcion: "+descripcion5);
+                        Log.d("My Tag",">>>>>>>>>>>>status: "+status5);
+                        Log.d("My Tag",">>>>>>>>>>>>error: "+error5);
+                        Log.d("My Tag",">>>>>>>>>>>>type: "+type5);
+                        Log.d("My Tag","RESPUESTA DEL SERVIDOR: "+ status5);
+
+
+                        if(status5.matches("2"))
+                        {
+                            Log.d("Error Tarjeta","Hay errores en la tarjeta");
+                            if(rol.matches("Socio")){
+                                obj_edit.putString("tarjeta1","2");
+                                obj_edit.commit();
+                            }else if(rol.matches("Conductor")){
+                                obj_edit.putString("tarjeta2","2");
+                                obj_edit.commit();
+                            }else {
+
+                            }
+
+                        }else {
+                            Log.d("Error Tarjeta","No hay errores en la tarjeta");
+                        }
+
+                        //Obtener los datos de las poliza
+                        JSONObject insurance_array = exito.getJSONObject("insurance");
+                        String name6 = insurance_array.getString("name");
+                        String title6 = insurance_array.getString("title");
+                        String descripcion6 = insurance_array.getString("description");
+                        String status6 = insurance_array.getString("status");
+                        String error6 = insurance_array.getString("error");
+
+                        String type6 = insurance_array.getString("type");
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name6);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title6);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion6);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status6);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error6);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type6);
+                        if(status6.matches("2"))
+                        {
+                            Log.d("My Tag","<<<<<<<<<<<<   Cambio de estado >>>>>>>>>>>>");
+                            if(rol.matches("Socio")){
+                                obj_edit.putString("poliza1","2");
+                                obj_edit.commit();
+                            }else if(rol.matches("Conductor")){
+                                obj_edit.putString("poliza2","2");
+                                obj_edit.commit();
+                            }else{
+
+                            }
+
+                        }else {
+                            Log.d("My Tag","<<<<<<<<<<<<   Cambio de estado22 >>>>>>>>>>>>");
+                        }
+
+                        //Obtener los datos de las tarjeton
+                        JSONObject control_array = exito.getJSONObject("insurance");
+                        String name7 = control_array.getString("name");
+                        String title7 = control_array.getString("title");
+                        String descripcion7 = control_array.getString("description");
+                        String status7 = control_array.getString("status");
+                        String error7 = control_array.getString("error");
+                        if(status7.matches("2")){
+                            if(rol.matches("Socio")){
+                                obj_edit.putString("tarjeton1","2");
+                                obj_edit.commit();
+                            }else if(rol.matches("Conductor")){
+                                obj_edit.putString("tarjeton2","2");
+                                obj_edit.commit();
+                            }else{
+                                obj_edit.putString("tarjeton3","2");
+                                obj_edit.commit();
+                            }
+
+                        }
+
+                        String type7 = control_array.getString("type");
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name7);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title7);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion7);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status7);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error7);
+                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type7);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void realizarPostSnv() {
+        String url = "https://www.tutumapps.com/api/driver/documentsStatus";
+        String tel="";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        tel=preferences.getString("phone","");
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone",tel);
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        SharedPreferences preferencias = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor obj_editor = preferencias.edit();
+                        JSONObject jsonObject1 = response;
+                        JSONObject exito1 = jsonObject1.getJSONObject("data");
+                        JSONObject terms_array = exito1.getJSONObject("terms");
+                        String name1 = terms_array.getString("name");
+                        String title1 = terms_array.getString("title");
+                        String description1 = terms_array.getString("description");
+                        String status1 = terms_array.getString("status");
+                        String error1 = terms_array.getString("error");
+                        String type1 = terms_array.getString("type");
+                        Log.d("Respuesta Terminos",">>>>>Nombre: "+name1);
+                        Log.d("Respuesta Terminos",">>>>>Titulo: "+title1);
+                        Log.d("Respuesta Terminos",">>>>>Descripcion: "+description1);
+                        Log.d("Respuesta Terminos",">>>>>Status: "+status1);
+                        Log.d("Respuesta Terminos",">>>>>Error: "+error1);
+                        Log.d("Respuesta Terminos",">>>>>Type: "+type1);
+                        if(status1.matches("2")){
+                            obj_editor.putString("terminos3","2");
+                            obj_editor.commit();
+                        }
+
+                        JSONObject ine_array = exito1.getJSONObject("identification");
+                        String name2 = ine_array.getString("name");
+                        String title2 = ine_array.getString("title");
+                        String description2 = ine_array.getString("description");
+                        String status2 = ine_array.getString("status");
+                        String error2 = ine_array.getString("error");
+                        String type2 = ine_array.getString("type");
+                        Log.d("Respuesta INE",">>>>>Nombre: "+name2);
+                        Log.d("Respuesta INE",">>>>>Titulo: "+title2);
+                        Log.d("Respuesta INE",">>>>>Descripcion: "+description2);
+                        Log.d("Respuesta INE",">>>>>Status: "+status2);
+                        Log.d("Respuesta INE",">>>>>Error: "+error2);
+                        Log.d("Respuesta INE",">>>>>Type: "+type2);
+                        if(status2.matches("2")){
+                            obj_editor.putString("ine3","2");
+                            obj_editor.commit();
+                        }
+
+                        JSONObject lic_array = exito1.getJSONObject("identification");
+                        String name3 = lic_array.getString("name");
+                        String title3 = lic_array.getString("title");
+                        String description3 = lic_array.getString("description");
+                        String status3 = lic_array.getString("status");
+                        String error3 = lic_array.getString("error");
+                        String type3 = lic_array.getString("type");
+                        Log.d("Respuesta Licencia",">>>>>Nombre: "+name3);
+                        Log.d("Respuesta Licencia",">>>>>Titulo: "+title3);
+                        Log.d("Respuesta Licencia",">>>>>Descripcion: "+description3);
+                        Log.d("Respuesta Licencia",">>>>>Status: "+status3);
+                        Log.d("Respuesta Licencia",">>>>>Error: "+error3);
+                        Log.d("Respuesta Licencia",">>>>>Type: "+type3);
+                        if(status3.matches("2")){
+                            obj_editor.putString("licencia3","2");
+                            obj_editor.commit();
+                        }
+
+                        JSONObject code_array = exito1.getJSONObject("vehicle_code");
+                        String name4 = code_array.getString("name");
+                        String title4 = code_array.getString("title");
+                        String description4 = code_array.getString("description");
+                        String status4 = code_array.getString("status");
+                        String error4 = code_array.getString("error");
+                        String type4 = code_array.getString("type");
+                        Log.d("Respuesta Code",">>>>>Nombre: "+name4);
+                        Log.d("Respuesta Code",">>>>>Titulo: "+title4);
+                        Log.d("Respuesta Code",">>>>>Descripcion: "+description4);
+                        Log.d("Respuesta Code",">>>>>Status: "+status4);
+                        Log.d("Respuesta Code",">>>>>Error: "+error4);
+                        Log.d("Respuesta Code",">>>>>Type: "+type4);
+                        if(status4.matches("2")){
+                            obj_editor.putString("codigo3","2");
+                            obj_editor.commit();
+                        }
+
+                        JSONObject tarjeton_array = exito1.getJSONObject("control_card");
+                        String name5 = tarjeton_array.getString("name");
+                        String title5 = tarjeton_array.getString("title");
+                        String description5 = tarjeton_array.getString("description");
+                        String status5 = tarjeton_array.getString("status");
+                        String error5 = tarjeton_array.getString("error");
+                        String type5 = tarjeton_array.getString("type");
+                        Log.d("Respuesta Tarjeton",">>>>>Nombre: "+name5);
+                        Log.d("Respuesta Tarjeton",">>>>>Titulo: "+title5);
+                        Log.d("Respuesta Tarjeton",">>>>>Descripcion: "+description5);
+                        Log.d("Respuesta Tarjeton",">>>>>Status: "+status5);
+                        Log.d("Respuesta Tarjeton",">>>>>Error: "+error5);
+                        Log.d("Respuesta Tarjeton",">>>>>Type: "+type5);
+                        if(status5.matches("2")){
+                            obj_editor.putString("tarjeton3","2");
+                            obj_editor.commit();
+                        }
+
+                    }catch (Exception e){
+
+                    }
+
                 }
             }, new Response.ErrorListener() {
                 @Override
