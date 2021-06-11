@@ -17,7 +17,7 @@ public class ComoUsarApp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_como_usar_app);
 
-       videoView = (VideoView) findViewById(R.id.videoView3);
+        videoView = (VideoView) findViewById(R.id.videoView3);
 
 
         Uri uri = Uri.parse("https://www.youtube.com/watch?v=CJ5sIEqYJ6Q&t=73s");

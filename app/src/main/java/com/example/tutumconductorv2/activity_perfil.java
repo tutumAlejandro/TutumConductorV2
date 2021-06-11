@@ -13,7 +13,7 @@ public class activity_perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
     }
-  public void actCorreo(View V){
+    public void actCorreo(View V){
         Intent intentIni = new Intent(activity_perfil.this, CambioCorreo.class);
         startActivity(intentIni);
     }
@@ -26,7 +26,7 @@ public class activity_perfil extends AppCompatActivity {
     public void acTelefono(View V){
         Intent intentIni = new Intent(activity_perfil.this, CambioTelefono.class);
         startActivity(intentIni);
-   }
+    }
 
     public void btnRegresar1(View V){
         Intent intentIni = new Intent(activity_perfil.this, Inicio.class);

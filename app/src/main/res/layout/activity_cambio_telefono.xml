@@ -64,8 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cambioTel_telText"
-        app:layout_constraintVertical_bias="0.347" />
+        app:layout_constraintTop_toBottomOf="@+id/acTelefono"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/cambioTel_aceptarBtn"
@@ -76,10 +76,10 @@
         android:text="@string/cambiotel_aceptarbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toEndOf="@+id/cambioTel_cancelBtn"
-        app:layout_constraintTop_toBottomOf="@+id/cambioTel_telText"
-        app:layout_constraintVertical_bias="0.347" />
+        app:layout_constraintTop_toBottomOf="@+id/acTelefono"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/cambioTel_desc"
@@ -121,21 +121,50 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <EditText
-        android:id="@+id/cambioTel_telText"
-        android:layout_width="333dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="288dp"
-        android:ems="10"
-        android:hint="@string/numero_telefonico"
-        android:importantForAutofill="no"
-        android:inputType="phone"
-        android:text="@string/cambiotel_teltext"
-        android:textColor="#000000"
-        android:textColorHint="#959595"
+    <!--<EditText
+       android:id="@+id/cambioTel_telText"
+       android:layout_width="333dp"
+       android:layout_height="50dp"
+       android:layout_marginTop="288dp"
+       android:ems="10"
+       android:hint="@string/numero_telefonico"
+       android:importantForAutofill="no"
+       android:inputType="phone"
+       android:text="@string/cambiotel_teltext"
+       android:textColor="#000000"
+       android:textColorHint="#959595"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.397"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/acTelefono"
+        android:layout_width="336dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="96dp"
+        android:hint="@string/txt_ingresa_telefono"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="2dp"
+        app:errorEnabled="true"
+        app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintHorizontal_bias="0.385"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cambioTel_desc">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="auto"
+            android:inputType="text|phone"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_text_input" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

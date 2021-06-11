@@ -8,9 +8,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 
 public class CambioCorreo extends AppCompatActivity {
 
+    private TextInputLayout email;
     private Button backbtn;
     private Button cancelbtn;
     private Button aceptbtn;
@@ -41,10 +44,24 @@ public class CambioCorreo extends AppCompatActivity {
         });
 
         //Guardar cambios de correo
+
         aceptbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CambioCorreo.this, "Cambios guardados",Toast.LENGTH_SHORT).show();
+
+                String phone_number = email.getEditText().getText().toString().trim();
+
+                if(check_email(phone_number)) {
+                    Toast.makeText(CambioCorreo.this, "El campo del numero esta vacio", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(CambioCorreo.this, "Cambios guardados", Toast.LENGTH_SHORT).show();
+
+                    ProfileEdit profileEdit = new ProfileEdit();
+                    profileEdit.cambioDatos(getApplicationContext());
+
+                    onBackPressed();
+                }
             }
         });
 
@@ -53,5 +70,25 @@ public class CambioCorreo extends AppCompatActivity {
     public void btnRegresarPerfil1(View V){
         Intent intentIni = new Intent(CambioCorreo.this, activity_perfil.class);
         startActivity(intentIni);
+    }
+
+    private boolean check_email(String correo)
+    {
+        if(correo.isEmpty())
+        {
+            email.setErrorEnabled(true);
+            email.setError("Campo Requerido");
+            return false;
+        }else if(!correo.contains("@"))
+        {
+            email.setErrorEnabled(true);
+            email.setError("Formato Invalido");
+            return false;
+        }
+        else{
+            email.setErrorEnabled(false);
+            return true;
+        }
+
     }
 }
