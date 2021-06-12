@@ -44,7 +44,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
                      bd_ok_snv1,bd_ok_snv2,bd_ok_snv3,bd_ok_snv4,bd_ok_snv5;
 
     private TextView hd_er_snv1,hd_er_snv2,hd_er_snv3,hd_er_snv4,hd_er_snv5,
-                     bd_er_snv1,bd_er_snv2,bd_er_snv3,bd_er_snv4,bd_er_snv5;
+                     bd_er_snv1,bd_er_snv2,bd_er_snv3,bd_er_snv4,bd_er_snv5,btn1_bd1_er,btn2_bd2_er,btn3_bd3_er,btn4_bd4_er,btn5_bd5_er;
+
+    private String msg1,msg2,msg3,msg4,msg5;
 
 
 
@@ -53,6 +55,11 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_snv_docuemtos);
         SharedPreferences prefencias_snv = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        msg1= prefencias_snv.getString("error1","");
+        msg2= prefencias_snv.getString("error2","");
+        msg3= prefencias_snv.getString("error3","");
+        msg4= prefencias_snv.getString("error4","");
+        msg5= prefencias_snv.getString("error5","");
 
         btn_regreso_snv = findViewById(R.id.img_retroceso_documentos_snv);
 
@@ -124,6 +131,12 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         bd_er_snv4 = findViewById(R.id.body_btn4_error_snv);
         bd_er_snv5 = findViewById(R.id.body_btn5_error_snv);
 
+        btn1_bd1_er = findViewById(R.id.body2_btn1_error_snv);
+        btn2_bd2_er = findViewById(R.id.body2_btn2_error_snv);
+        btn3_bd3_er = findViewById(R.id.body2_btn3_error_snv);
+        btn4_bd4_er = findViewById(R.id.body2_btn4_error_snv);
+        btn5_bd5_er = findViewById(R.id.body2_btn5_error_snv);
+
         String term3 = prefencias_snv.getString("terminos3","0");
         String ine3 = prefencias_snv.getString("ine3","0");
         String licencia3 = prefencias_snv.getString("licencia3","0");
@@ -131,6 +144,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
         String tarjeton3 = prefencias_snv.getString("tarjeton3","0");
 
         if(term3.matches("0")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn1_snv.setVisibility(View.VISIBLE);
             fwd_snv1.setVisibility(View.VISIBLE);
             hd_snv1.setVisibility(View.VISIBLE);
@@ -143,8 +157,10 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv1.setVisibility(View.GONE);
             hd_er_snv1.setVisibility(View.GONE);
             bd_er_snv1.setVisibility(View.GONE);
+            btn1_bd1_er.setVisibility(View.GONE);
 
         }else if(term3.matches("1")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn1_snv.setVisibility(View.GONE);
             fwd_snv1.setVisibility(View.GONE);
             hd_snv1.setVisibility(View.GONE);
@@ -157,6 +173,7 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv1.setVisibility(View.GONE);
             hd_er_snv1.setVisibility(View.GONE);
             bd_er_snv1.setVisibility(View.GONE);
+            btn1_bd1_er.setVisibility(View.GONE);
         }else{
             btn1_snv.setVisibility(View.GONE);
             fwd_snv1.setVisibility(View.GONE);
@@ -170,9 +187,13 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv1.setVisibility(View.VISIBLE);
             hd_er_snv1.setVisibility(View.VISIBLE);
             bd_er_snv1.setVisibility(View.VISIBLE);
+            btn1_bd1_er.setVisibility(View.VISIBLE);
+            btn1_bd1_er.setText(msg1);
+            btn_regreso_snv.setVisibility(View.GONE);
         }
 
         if(ine3.matches("0")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn2_snv.setVisibility(View.VISIBLE);
             fwd_snv2.setVisibility(View.VISIBLE);
             hd_snv2.setVisibility(View.VISIBLE);
@@ -185,7 +206,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv2.setVisibility(View.GONE);
             hd_er_snv2.setVisibility(View.GONE);
             bd_er_snv2.setVisibility(View.GONE);
+            btn2_bd2_er.setVisibility(View.GONE);
         }else if(ine3.matches("1")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn2_snv.setVisibility(View.GONE);
             fwd_snv2.setVisibility(View.GONE);
             hd_snv2.setVisibility(View.GONE);
@@ -198,7 +221,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv2.setVisibility(View.GONE);
             hd_er_snv2.setVisibility(View.GONE);
             bd_er_snv2.setVisibility(View.GONE);
+            btn2_bd2_er.setVisibility(View.GONE);
         }else{
+            btn_regreso_snv.setVisibility(View.GONE);
             btn2_snv.setVisibility(View.GONE);
             fwd_snv2.setVisibility(View.GONE);
             hd_snv2.setVisibility(View.GONE);
@@ -211,9 +236,12 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv2.setVisibility(View.VISIBLE);
             hd_er_snv2.setVisibility(View.VISIBLE);
             bd_er_snv2.setVisibility(View.VISIBLE);
+            btn2_bd2_er.setVisibility(View.VISIBLE);
+            btn2_bd2_er.setText(msg2);
         }
 
         if(licencia3.matches("0")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn3_snv.setVisibility(View.VISIBLE);
             fwd_snv3.setVisibility(View.VISIBLE);
             hd_snv3.setVisibility(View.VISIBLE);
@@ -226,7 +254,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv3.setVisibility(View.GONE);
             hd_er_snv3.setVisibility(View.GONE);
             bd_er_snv3.setVisibility(View.GONE);
+            btn3_bd3_er.setVisibility(View.GONE);
         }else if(licencia3.matches("1")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn3_snv.setVisibility(View.GONE);
             fwd_snv3.setVisibility(View.GONE);
             hd_snv3.setVisibility(View.GONE);
@@ -239,7 +269,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv3.setVisibility(View.GONE);
             hd_er_snv3.setVisibility(View.GONE);
             bd_er_snv3.setVisibility(View.GONE);
+            btn3_bd3_er.setVisibility(View.GONE);
         }else {
+            btn_regreso_snv.setVisibility(View.GONE);
             btn3_snv.setVisibility(View.GONE);
             fwd_snv3.setVisibility(View.GONE);
             hd_snv3.setVisibility(View.GONE);
@@ -252,9 +284,12 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv3.setVisibility(View.VISIBLE);
             hd_er_snv3.setVisibility(View.VISIBLE);
             bd_er_snv3.setVisibility(View.VISIBLE);
+            btn3_bd3_er.setVisibility(View.VISIBLE);
+            btn3_bd3_er.setText(msg3);
         }
 
         if(codigo3.matches("0")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn4_snv.setVisibility(View.VISIBLE);
             fwd_snv4.setVisibility(View.VISIBLE);
             hd_snv4.setVisibility(View.VISIBLE);
@@ -267,7 +302,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv4.setVisibility(View.GONE);
             hd_er_snv4.setVisibility(View.GONE);
             bd_er_snv4.setVisibility(View.GONE);
+            btn4_bd4_er.setVisibility(View.GONE);
         }else if(codigo3.matches("1")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn4_snv.setVisibility(View.GONE);
             fwd_snv4.setVisibility(View.GONE);
             hd_snv4.setVisibility(View.GONE);
@@ -280,7 +317,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv4.setVisibility(View.GONE);
             hd_er_snv4.setVisibility(View.GONE);
             bd_er_snv4.setVisibility(View.GONE);
+            btn4_bd4_er.setVisibility(View.GONE);
         }else {
+            btn_regreso_snv.setVisibility(View.GONE);
             btn4_snv.setVisibility(View.GONE);
             fwd_snv4.setVisibility(View.GONE);
             hd_snv4.setVisibility(View.GONE);
@@ -293,9 +332,12 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv4.setVisibility(View.VISIBLE);
             hd_er_snv4.setVisibility(View.VISIBLE);
             bd_er_snv4.setVisibility(View.VISIBLE);
+            btn4_bd4_er.setVisibility(View.VISIBLE);
+            btn4_bd4_er.setText(msg4);
         }
 
         if(tarjeton3.matches("0")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn5_snv.setVisibility(View.VISIBLE);
             fwd_snv5.setVisibility(View.VISIBLE);
             hd_snv5.setVisibility(View.VISIBLE);
@@ -308,7 +350,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv5.setVisibility(View.GONE);
             hd_er_snv5.setVisibility(View.GONE);
             bd_er_snv5.setVisibility(View.GONE);
+            btn5_bd5_er.setVisibility(View.GONE);
         }else if(tarjeton3.matches("1")){
+            btn_regreso_snv.setVisibility(View.VISIBLE);
             btn5_snv.setVisibility(View.GONE);
             fwd_snv5.setVisibility(View.GONE);
             hd_snv5.setVisibility(View.GONE);
@@ -321,7 +365,9 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv5.setVisibility(View.GONE);
             hd_er_snv5.setVisibility(View.GONE);
             bd_er_snv5.setVisibility(View.GONE);
+            btn5_bd5_er.setVisibility(View.GONE);
         }else {
+            btn_regreso_snv.setVisibility(View.GONE);
             btn5_snv.setVisibility(View.GONE);
             fwd_snv5.setVisibility(View.GONE);
             hd_snv5.setVisibility(View.GONE);
@@ -334,6 +380,8 @@ public class MainSnvDocuemtos extends AppCompatActivity {
             er_snv5.setVisibility(View.VISIBLE);
             hd_er_snv5.setVisibility(View.VISIBLE);
             bd_er_snv5.setVisibility(View.VISIBLE);
+            btn5_bd5_er.setVisibility(View.VISIBLE);
+            btn5_bd5_er.setText(msg5);
         }
 
 

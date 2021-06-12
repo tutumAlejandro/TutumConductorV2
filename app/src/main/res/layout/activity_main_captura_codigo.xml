@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Registro.documentos_conductor.MainCapturaCodigo"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:forceDarkAllowed="false">
     <ScrollView
         android:id="@+id/scroll_view_codigo"
         android:layout_width="match_parent"

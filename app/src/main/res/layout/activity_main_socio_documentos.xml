@@ -6,21 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".Registro.menus_rol.MainSocioDocumentos"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:forceDarkAllowed="false">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:forceDarkAllowed="false">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:forceDarkAllowed="false">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:forceDarkAllowed="false">
                 <ImageView
                     android:id="@+id/img_retroceso_documentos_socio"
                     android:layout_width="@dimen/width_img_retroceso"
@@ -29,14 +33,16 @@
                     android:layout_marginTop="28dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/flecha_retroceso"/>
+                    app:srcCompat="@drawable/flecha_retroceso"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="32dp"
                     android:src="@drawable/cuadros"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:forceDarkAllowed="false"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -47,7 +53,8 @@
                 android:textSize="@dimen/size_txt_completar_registro"
                 android:fontFamily="@font/open_sans_bold"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:forceDarkAllowed="false"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,7 +64,8 @@
                 android:textSize="@dimen/size_txt_bienvenida"
                 android:fontFamily="@font/open_sans_bold"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:forceDarkAllowed="false"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,7 +74,8 @@
                 android:textSize="@dimen/size_txt_pasos_restantes"
                 android:fontFamily="@font/open_sans_bold"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginStart="20dp"
+                android:forceDarkAllowed="false"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,11 +84,13 @@
                 android:textSize="@dimen/size_txt_completar"
                 android:fontFamily="@font/open_sans_regular"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginStart="20dp"
+                android:forceDarkAllowed="false"/>
             <!-- despliege de los botones -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:forceDarkAllowed="false">
                 <!-- Declaracion de un boton con sin imagenes -->
 
                 <!-- Botones Terminos y Condiciones Socio -->
@@ -92,7 +103,8 @@
                     android:background="@drawable/boton_documentos"
                     android:onClick="terminos_socio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn1_head"
                     android:layout_width="wrap_content"
@@ -105,7 +117,8 @@
                     android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button1_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button1_socio" />
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn1"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -118,7 +131,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintBottom_toBottomOf="@+id/button1_socio"
-                    app:layout_constraintStart_toStartOf="@+id/button1_socio" />
+                    app:layout_constraintStart_toStartOf="@+id/button1_socio"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_1"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -128,7 +142,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/flecha_adelante"
                     app:layout_constraintEnd_toEndOf="@+id/button1_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button1_socio"/>
+                    app:layout_constraintTop_toTopOf="@+id/button1_socio"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Botones INE -->
                 <Button
@@ -140,7 +155,8 @@
                     android:background="@drawable/boton_documentos"
                     android:onClick="ine_socio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button1_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button1_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn2_head"
                     android:layout_width="wrap_content"
@@ -153,7 +169,8 @@
                     android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button2_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button2_socio" />
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn2"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -165,7 +182,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button2_socio"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_2"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -175,7 +193,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/flecha_adelante"
                     app:layout_constraintEnd_toEndOf="@+id/button2_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button2_socio"/>
+                    app:layout_constraintTop_toTopOf="@+id/button2_socio"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Licencia -->
                 <Button
@@ -187,7 +206,8 @@
                     android:background="@drawable/boton_documentos"
                     android:onClick="licencia_socio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button2_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button2_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn3_head"
                     android:layout_width="wrap_content"
@@ -200,7 +220,8 @@
                     android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button3_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button3_socio" />
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn3"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -212,7 +233,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button3_socio"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_3"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -222,7 +244,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/flecha_adelante"
                     app:layout_constraintEnd_toEndOf="@+id/button3_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button3_socio"/>
+                    app:layout_constraintTop_toTopOf="@+id/button3_socio"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Caracteristicas -->
                 <Button
@@ -234,7 +257,8 @@
                     android:background="@drawable/boton_documentos"
                     android:onClick="caracterisitcas_socio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button3_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button3_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn4_head"
                     android:layout_width="wrap_content"
@@ -247,7 +271,8 @@
                     android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button4_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button4_socio" />
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn4"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -259,7 +284,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button4_socio"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_4"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -269,7 +295,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/flecha_adelante"
                     app:layout_constraintEnd_toEndOf="@+id/button4_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button4_socio"/>
+                    app:layout_constraintTop_toTopOf="@+id/button4_socio"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Tarjeta -->
                 <Button
@@ -281,7 +308,8 @@
                     android:background="@drawable/boton_documentos"
                     android:onClick="tarjeta_socio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button4_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button4_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn5_head"
                     android:layout_width="wrap_content"
@@ -294,7 +322,8 @@
                     android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button5_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button5_socio" />
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn5"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -306,7 +335,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button5_socio"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_5"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -316,7 +346,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/flecha_adelante"
                     app:layout_constraintEnd_toEndOf="@+id/button5_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button5_socio"/>
+                    app:layout_constraintTop_toTopOf="@+id/button5_socio"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Poliza -->
                 <Button
@@ -328,7 +359,8 @@
                     android:background="@drawable/boton_documentos"
                     android:onClick="poliza_socio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button5_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button5_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn6_head"
                     android:layout_width="wrap_content"
@@ -341,7 +373,8 @@
                     android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button6_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button6_socio" />
+                    app:layout_constraintTop_toTopOf="@+id/button6_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn6"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -353,7 +386,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button6_socio"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_6"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -363,7 +397,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/flecha_adelante"
                     app:layout_constraintEnd_toEndOf="@+id/button6_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button6_socio"/>
+                    app:layout_constraintTop_toTopOf="@+id/button6_socio"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Tarjeton -->
                 <Button
@@ -375,7 +410,8 @@
                     android:background="@drawable/boton_documentos"
                     android:onClick="tarjeton_socio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button6_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button6_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn7_head"
                     android:layout_width="wrap_content"
@@ -388,7 +424,8 @@
                     android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button7_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button7_socio" />
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn7"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -400,7 +437,8 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button7_socio"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head"/>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_7"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -410,7 +448,8 @@
                     android:elevation="10dp"
                     android:src="@drawable/flecha_adelante"
                     app:layout_constraintEnd_toEndOf="@+id/button7_socio"
-                    app:layout_constraintTop_toTopOf="@+id/button7_socio"/>
+                    app:layout_constraintTop_toTopOf="@+id/button7_socio"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Botones Error  Terminos Socio-->
                 <Button
@@ -423,7 +462,8 @@
                     android:onClick="terminos_socio"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button7_socio" />
+                    app:layout_constraintTop_toBottomOf="@id/button7_socio"
+                    android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/txt_btn1_head_error_socio"
                        android:layout_width="wrap_content"
@@ -437,7 +477,8 @@
                        android:textSize="@dimen/size_text_head_btn"
                        app:layout_constraintStart_toStartOf="@+id/button1_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button1_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/body_btn1_error_socio"
                        android:layout_width="@dimen/width_text_body_btn"
@@ -451,7 +492,22 @@
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn1_head_error_socio"
                        app:layout_constraintStart_toStartOf="@+id/button1_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
+                   <TextView
+                        android:id="@+id/body2_btn1_error_socio"
+                        android:layout_width="@dimen/width_text_body_btn"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_text_body_btn"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_btn1_head_error_socio"
+                        app:layout_constraintStart_toStartOf="@+id/button1_socio_error"
+                        android:visibility="gone"
+                        android:forceDarkAllowed="false"/>
 
                    <ImageView
                        android:id="@+id/fwd_socio_1_error"
@@ -464,7 +520,8 @@
                        android:src="@drawable/ic_baseline_east_24"
                        android:visibility="gone"
                        app:layout_constraintEnd_toEndOf="@+id/button1_socio_error"
-                       app:layout_constraintTop_toTopOf="@+id/button1_socio_error" />
+                       app:layout_constraintTop_toTopOf="@+id/button1_socio_error"
+                       android:forceDarkAllowed="false"/>
 
                    <!-- Botones Error Ine Socio-->
 
@@ -478,7 +535,8 @@
                     android:onClick="ine_socio"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button1_socio_error" />
+                    app:layout_constraintTop_toBottomOf="@id/button1_socio_error"
+                    android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/txt_btn2_head_error_socio"
                        android:layout_width="wrap_content"
@@ -492,7 +550,8 @@
                        android:textSize="@dimen/size_text_head_btn"
                        app:layout_constraintStart_toStartOf="@+id/button2_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button2_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/body_btn2_error_socio"
                        android:layout_width="@dimen/width_text_body_btn"
@@ -505,7 +564,21 @@
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintStart_toStartOf="@id/button2_socio_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_error_socio"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
+                <TextView
+                    android:id="@+id/body2_btn2_error_socio"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button2_socio_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_error_socio"
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                    <ImageView
                        android:id="@+id/fwd_socio_2_error"
@@ -518,7 +591,8 @@
                        android:src="@drawable/ic_baseline_east_24"
                        android:visibility="gone"
                        app:layout_constraintEnd_toEndOf="@+id/button2_socio_error"
-                       app:layout_constraintTop_toTopOf="@+id/button2_socio_error" />
+                       app:layout_constraintTop_toTopOf="@+id/button2_socio_error"
+                       android:forceDarkAllowed="false"/>
 
                 <!-- Boton licencia error -->
                 <Button
@@ -531,7 +605,8 @@
                     android:onClick="licencia_socio"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button2_socio_error" />
+                    app:layout_constraintTop_toBottomOf="@id/button2_socio_error"
+                    android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/txt_btn3_head_error_socio"
                        android:layout_width="wrap_content"
@@ -545,7 +620,8 @@
                        android:textSize="@dimen/size_text_head_btn"
                        app:layout_constraintStart_toStartOf="@+id/button3_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button3_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/body_btn3_error_socio"
                        android:layout_width="@dimen/width_text_body_btn"
@@ -558,7 +634,22 @@
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintStart_toStartOf="@id/button3_socio_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_error_socio"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
+
+                <TextView
+                    android:id="@+id/body2_btn3_error_socio"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button3_socio_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_error_socio"
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                    <ImageView
                        android:id="@+id/fwd_socio_3_error"
@@ -571,7 +662,8 @@
                        android:src="@drawable/ic_baseline_east_24"
                        android:visibility="gone"
                        app:layout_constraintEnd_toEndOf="@+id/button3_socio_error"
-                       app:layout_constraintTop_toTopOf="@+id/button3_socio_error" />
+                       app:layout_constraintTop_toTopOf="@+id/button3_socio_error"
+                       android:forceDarkAllowed="false"/>
 
                 <!-- boton error Caracteristicas -->
 
@@ -585,7 +677,8 @@
                     android:onClick="caracterisitcas_socio"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button3_socio_error" />
+                    app:layout_constraintTop_toBottomOf="@id/button3_socio_error"
+                    android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/txt_btn4_head_error_socio"
                        android:layout_width="wrap_content"
@@ -599,7 +692,8 @@
                        android:textSize="@dimen/size_text_head_btn"
                        app:layout_constraintStart_toStartOf="@+id/button4_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button4_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/body_btn4_error_socio"
                        android:layout_width="@dimen/width_text_body_btn"
@@ -612,7 +706,22 @@
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintStart_toStartOf="@id/button4_socio_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_error_socio"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
+                <TextView
+                    android:id="@+id/body2_btn4_error_socio"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_caracteristicas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button4_socio_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_error_socio"
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                    <ImageView
                        android:id="@+id/fwd_socio_4_error"
@@ -625,7 +734,8 @@
                        android:src="@drawable/ic_baseline_east_24"
                        android:visibility="gone"
                        app:layout_constraintEnd_toEndOf="@+id/button4_socio_error"
-                       app:layout_constraintTop_toTopOf="@+id/button4_socio_error" />
+                       app:layout_constraintTop_toTopOf="@+id/button4_socio_error"
+                       android:forceDarkAllowed="false"/>
 
                 <!-- Boton tarjeta error Socio -->
 
@@ -639,7 +749,8 @@
                     android:onClick="tarjeta_socio"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button4_socio_error" />
+                    app:layout_constraintTop_toBottomOf="@id/button4_socio_error"
+                    android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/txt_btn5_head_error_socio"
                        android:layout_width="wrap_content"
@@ -653,7 +764,8 @@
                        android:textSize="@dimen/size_text_head_btn"
                        app:layout_constraintStart_toStartOf="@+id/button5_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button5_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/body_btn5_error_socio"
                        android:layout_width="@dimen/width_text_body_btn"
@@ -666,7 +778,22 @@
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintStart_toStartOf="@id/button5_socio_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_error_socio"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
+                <TextView
+                    android:id="@+id/body2_btn5_error_socio"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/txt_btn_doc_tarjeta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button5_socio_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_error_socio"
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                    <ImageView
                        android:id="@+id/fwd_socio_5_error"
@@ -679,7 +806,8 @@
                        android:src="@drawable/ic_baseline_east_24"
                        android:visibility="gone"
                        app:layout_constraintEnd_toEndOf="@+id/button5_socio_error"
-                       app:layout_constraintTop_toTopOf="@+id/button5_socio_error" />
+                       app:layout_constraintTop_toTopOf="@+id/button5_socio_error"
+                       android:forceDarkAllowed="false"/>
 
                 <!-- Boton de poliza error Socio -->
 
@@ -693,7 +821,8 @@
                     android:onClick="poliza_socio"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button5_socio_error" />
+                    app:layout_constraintTop_toBottomOf="@id/button5_socio_error"
+                    android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/txt_btn6_head_error_socio"
                        android:layout_width="wrap_content"
@@ -707,7 +836,8 @@
                        android:textSize="@dimen/size_text_head_btn"
                        app:layout_constraintStart_toStartOf="@+id/button6_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button6_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/body_btn6_error_socio"
                        android:layout_width="@dimen/width_text_body_btn"
@@ -720,7 +850,21 @@
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintStart_toStartOf="@id/button6_socio_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_error_socio"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
+                <TextView
+                    android:id="@+id/body2_btn6_error_socio"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button6_socio_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_error_socio"
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                    <ImageView
                        android:id="@+id/fwd_socio_6_error"
@@ -733,7 +877,8 @@
                        android:src="@drawable/ic_baseline_east_24"
                        app:layout_constraintEnd_toEndOf="@+id/button6_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button6_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
 
                 <!-- Boton de tarjeton error Socio -->
 
@@ -747,7 +892,8 @@
                     android:onClick="tarjeton_socio"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button6_socio_error" />
+                    app:layout_constraintTop_toBottomOf="@id/button6_socio_error"
+                    android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/txt_btn7_head_error_socio"
                        android:layout_width="wrap_content"
@@ -761,7 +907,8 @@
                        android:textSize="@dimen/size_text_head_btn"
                        app:layout_constraintStart_toStartOf="@+id/button7_socio_error"
                        app:layout_constraintTop_toTopOf="@+id/button7_socio_error"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
                    <TextView
                        android:id="@+id/body_btn7_error_socio"
                        android:layout_width="@dimen/width_text_body_btn"
@@ -774,7 +921,21 @@
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintStart_toStartOf="@id/button7_socio_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_error_socio"
-                       android:visibility="gone"/>
+                       android:visibility="gone"
+                       android:forceDarkAllowed="false"/>
+                <TextView
+                    android:id="@+id/body2_btn7_error_socio"
+                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_text_body_btn"
+                    app:layout_constraintStart_toStartOf="@id/button7_socio_error"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_error_socio"
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                    <ImageView
                        android:id="@+id/fwd_socio_7_error"
@@ -787,7 +948,8 @@
                        android:src="@drawable/ic_baseline_east_24"
                        android:visibility="gone"
                        app:layout_constraintEnd_toEndOf="@+id/button7_socio_error"
-                       app:layout_constraintTop_toTopOf="@+id/button7_socio_error" />
+                       app:layout_constraintTop_toTopOf="@+id/button7_socio_error"
+                       android:forceDarkAllowed="false"/>
                 <!-- Despliege de los botones para cuando se suben los documentos bien -->
 
                 <!-- Botones Terminos y Condiciones Socio ok-->
@@ -800,7 +962,8 @@
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button7_socio_error"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn1_head_ok"
                     android:layout_width="wrap_content"
@@ -814,7 +977,8 @@
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button1_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button1_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn1_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -828,7 +992,8 @@
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintBottom_toBottomOf="@+id/button1_socio_ok"
                     app:layout_constraintStart_toStartOf="@+id/button1_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_1_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -839,7 +1004,8 @@
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button1_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button1_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Botones INE ok-->
                 <Button
@@ -851,7 +1017,8 @@
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button1_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn2_head_ok"
                     android:layout_width="wrap_content"
@@ -865,7 +1032,8 @@
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button2_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button2_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn2_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -878,7 +1046,8 @@
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button2_socio_ok"
                     app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_2_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -889,7 +1058,8 @@
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button2_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button2_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Licencia ok-->
                 <Button
@@ -901,7 +1071,8 @@
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button2_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn3_head_ok"
                     android:layout_width="wrap_content"
@@ -915,7 +1086,8 @@
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button3_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button3_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn3_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -928,7 +1100,8 @@
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button3_socio_ok"
                     app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_3_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -939,7 +1112,8 @@
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button3_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button3_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Caracteristicas ok-->
                 <Button
@@ -951,7 +1125,8 @@
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button3_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn4_head_ok"
                     android:layout_width="wrap_content"
@@ -965,7 +1140,8 @@
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button4_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button4_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn4_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -978,7 +1154,8 @@
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button4_socio_ok"
                     app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_4_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -989,7 +1166,8 @@
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button4_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button4_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Tarjeta ok-->
                 <Button
@@ -1001,7 +1179,8 @@
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button4_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn5_head_ok"
                     android:layout_width="wrap_content"
@@ -1015,7 +1194,8 @@
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button5_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button5_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn5_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -1028,7 +1208,8 @@
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button5_socio_ok"
                     app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_5_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -1039,7 +1220,8 @@
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button5_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button5_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Poliza ok-->
                 <Button
@@ -1051,7 +1233,8 @@
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button5_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn6_head_ok"
                     android:layout_width="wrap_content"
@@ -1065,7 +1248,8 @@
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button6_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button6_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body_btn6_ok"
                     android:layout_width="@dimen/width_text_body_btn"
@@ -1078,7 +1262,8 @@
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button6_socio_ok"
                     app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_6_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -1089,7 +1274,8 @@
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button6_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button6_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Boton Tarjeton ok-->
                 <Button
@@ -1101,7 +1287,8 @@
                     android:background="@drawable/boton_documentos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/button6_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/txt_btn7_head_ok"
                     android:layout_width="wrap_content"
@@ -1115,7 +1302,8 @@
                     android:textSize="@dimen/size_text_head_btn"
                     app:layout_constraintStart_toStartOf="@+id/button7_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button7_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <TextView
                     android:id="@+id/body_btn7_ok"
@@ -1129,7 +1317,8 @@
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button7_socio_ok"
                     app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
                 <ImageView
                     android:id="@+id/fwd_socio_7_ok"
                     android:layout_width="@dimen/width_heigth_arrow_fwd"
@@ -1140,7 +1329,8 @@
                     android:src="@drawable/ic_baseline_check_circle_24"
                     app:layout_constraintEnd_toEndOf="@+id/button7_socio_ok"
                     app:layout_constraintTop_toTopOf="@+id/button7_socio_ok"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:forceDarkAllowed="false"/>
 
                 <!-- Despliege de los botones para cuando se rechazan los documentos desde el panel -->
 

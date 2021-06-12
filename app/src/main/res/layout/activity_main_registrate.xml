@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Registro.datos_personales.MainRegistrate"
     android:orientation="vertical"
-    android:background="@color/darkest">
+    android:background="@color/darkest"
+    android:forceDarkAllowed="false">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
