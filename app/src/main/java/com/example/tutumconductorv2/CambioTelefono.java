@@ -42,15 +42,14 @@ public class CambioTelefono extends AppCompatActivity {
         cancelbtn = findViewById(R.id.cambioTel_cancelBtn);
         aceptbtn = findViewById(R.id.cambioTel_aceptarBtn);
         phone = findViewById(R.id.acTelefono);
-        /*  telefono = phone.getEditText().getText().toString().trim();*/
+        telefono = phone.getEditText().getText().toString().trim();
 
         //Regresar a perfil
-        /*backbtn.setOnClickListener(new View.OnClickListener() {
+       /* backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // startActivity(new Intent(CambioTelefono.this, PerfilFragment.class));
-                Intent intent = new Intent(CambioTelefono.this.getBaseContext(),
-                        PerfilViewModel.class);
+                Intent intent = new Intent(CambioTelefono.this.getBaseContext(),activity_perfil.class);
                 startActivity(intent);
             }
         });*/
@@ -64,12 +63,12 @@ public class CambioTelefono extends AppCompatActivity {
         });
 
         //Guardar cambios de telefono
-        /*aceptbtn.setOnClickListener(new View.OnClickListener() {
+        aceptbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(CambioTelefono.this, "Cambios guardados",Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
 
         aceptbtn.setOnClickListener(new View.OnClickListener() {
             @Override
