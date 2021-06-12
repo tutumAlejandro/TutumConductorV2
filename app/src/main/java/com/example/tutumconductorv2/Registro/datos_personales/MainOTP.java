@@ -16,6 +16,8 @@ import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
 import com.google.android.material.textfield.TextInputLayout;
+import com.hbb20.CountryCodePicker;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +42,7 @@ public class MainOTP extends AppCompatActivity {
     private long tiempoPrimerClick;
     private Object CountryCodePicker;
     private String phone, CodigoOTP;
+    com.hbb20.CountryCodePicker ccp;
 
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
@@ -165,7 +168,7 @@ public class MainOTP extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final JSONObject jsonObject = new JSONObject();
 
-            jsonObject.put("phone", ccc );
+            jsonObject.put("phone",  ccc );
 
             final String requestBody = jsonObject.toString();
 

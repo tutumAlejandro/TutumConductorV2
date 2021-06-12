@@ -6,7 +6,8 @@
     <string name="snv">Sin Vehiculo</string>
 
 
-        <string name="map_id">1f7515d54e5aee53</string>
+    <!--<string name="map_id">1f7515d54e5aee53</string>-->
+    <string name="map_id">721414619d8ddb29</string>
 
 
     <!-- Strings tod para las imagenes-->
@@ -354,6 +355,7 @@
     <string name="iniciosesion_tutumlogo" />
     <string name="iniciosesion_pswdtext">Constraseña</string>
     <string name="iniciosesion_emailtext">Correo Electrónico</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

@@ -15,6 +15,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.google.android.material.textfield.TextInputLayout;
+import com.hbb20.CountryCodePicker;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +35,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
     private String url_registro="https://www.tutumapps.com/api/driver/registryDriver";
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
     private String name,phone,email,tel;
+    CountryCodePicker ccp;
+    boolean ccp1;
 
     private boolean isSucess;
 
@@ -41,6 +45,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_registro_telefono);
         telefono = findViewById(R.id.InputTelefono);
+        ccp = findViewById(R.id.ccp);
 
         SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         int state= preferences_user.getInt("State",0);
@@ -70,6 +75,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
     public void main_otp(View v) {
 
         phone=telefono.getEditText().getText().toString().trim();
+        ccp1=ccp.getCcpDialogShowNameCode();
+        ccp1 = ccp.getCcpDialogShowFlag();
         SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferences_user.edit();
         obj_editor.putString("phone",phone);
@@ -191,7 +198,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final JSONObject jsonObject = new JSONObject();
 
-            jsonObject.put("phone", phone);
+            jsonObject.put("phone", ccp1 + phone);
 
             final String requestBody = jsonObject.toString();
 

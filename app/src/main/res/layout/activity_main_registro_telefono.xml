@@ -32,11 +32,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="@dimen/width_img_ladas"
-                    android:layout_height="@dimen/heigth_img_ladas"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"/>
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:ccp_textSize="16sp"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_showNameCode="true" />
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/InputTelefono"
                     android:layout_width="@dimen/width_input_mediano"

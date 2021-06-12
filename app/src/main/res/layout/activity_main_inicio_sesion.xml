@@ -11,10 +11,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <fragment
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            class="com.google.android.libraries.maps.SupportMapFragment"
+            android:id="@+id/map"
+            map:mapId="@string/map_id"
+            android:name="com.google.android.libraries.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            map:layout_constraintBottom_toBottomOf="parent"
+            map:layout_constraintTop_toTopOf="parent"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintEnd_toEndOf="parent"/>
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/on_off"
-            android:layout_width="205dp"
-            android:layout_height="120dp"
+            android:layout_width="88dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
             android:textOff="OFF"
             android:textOn="ON"
@@ -24,6 +38,23 @@
             app:showText="true"
             app:track="@drawable/track"
             tools:ignore="MissingConstraints" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/Yelowl"
+            app:backgroundTint="@color/Yelowl"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976"
+            app:srcCompat="@android:drawable/ic_menu_mylocation" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
