@@ -113,7 +113,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
 
                         }else
                         {
-                            Log.e("Respuesta Registro","Error!!!: "+response);
+                            Log.d("Respuesta Registro","Error!!!: "+response);
                             Intent main_popup_fail = new Intent(MainRegistroTelefono.this, MainPopUpRegistroFail.class);
                             startActivity(main_popup_fail);
                             finish();

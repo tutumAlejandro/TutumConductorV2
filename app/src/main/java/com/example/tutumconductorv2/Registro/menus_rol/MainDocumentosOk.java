@@ -6,6 +6,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.Log;
@@ -101,6 +102,20 @@ public class MainDocumentosOk extends AppCompatActivity {
                     Intent main_snv_documentos = new Intent(MainDocumentosOk.this, MainSnvDocuemtos.class);
                     startActivity(main_snv_documentos);
                     finish();
+                }
+            }
+        });
+
+        //Mostrar la ubicacion de las oficinas de Tutum
+        txt_cita_bd3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=Jardines de Versalles 238");
+                //Jardines de Versalles 238, Versalles 1ra Secc, 20285 Aguascalientes, Ags.
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(mapIntent);
                 }
             }
         });
@@ -254,11 +269,11 @@ public class MainDocumentosOk extends AppCompatActivity {
                           String status1 = terms_array.getString("status");
                           String error1 = terms_array.getString("error");
                           String type1 = terms_array.getString("type");
-                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name1);
-                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title1);
-                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion1);
-                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status1);
-                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error1);
+                          Log.d("My Tag",">>>>>>>>>>>>Terminos: "+name1);
+                          Log.d("My Tag",">>>>>>>>>>>>Terminos: "+title1);
+                          Log.d("My Tag",">>>>>>>>>>>>Terminos: "+descripcion1);
+                          Log.d("My Tag",">>>>>>>>>>>>Terminos: "+status1);
+                          Log.d("My Tag",">>>>>>>>>>>>Terminos: "+error1);
                           if(status1.matches("2")) {
                               Log.d("Error terms","Hay errores en los terminos");
                               if(rol.matches("Socio")){
@@ -279,7 +294,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                              }else {
                               Log.d("Error terms","No hay errores en los terminos");
                           }
-                          Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type1);
+                          Log.d("My Tag",">>>>>>>>>>>>Terminos: "+type1);
 
                         //Obtener los datos de la INE
                         JSONObject ine_array = exito.getJSONObject("identification");
@@ -311,12 +326,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                             Log.d("Error INE","Nay errores en la INE");
                         }
                         String type2 = ine_array.getString("type");
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name2);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title2);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion2);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status2);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error2);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type2);
+                        Log.d("My Tag",">>>>>>>>>>>>INE: "+name2);
+                        Log.d("My Tag",">>>>>>>>>>>>INE: "+title2);
+                        Log.d("My Tag",">>>>>>>>>>>>INE: "+descripcion2);
+                        Log.d("My Tag",">>>>>>>>>>>>INE: "+status2);
+                        Log.d("My Tag",">>>>>>>>>>>>INE: "+error2);
+                        Log.d("My Tag",">>>>>>>>>>>>INE: "+type2);
 
                         //Obtener los datos de la licencia
                         JSONObject licence_array = exito.getJSONObject("licence");
@@ -346,12 +361,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                             Log.d("Error Licencia","No hay errores en la Licencia");
                         }
                         String type3 = licence_array.getString("type");
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name3);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title3);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion3);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status3);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error3);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type3);
+                        Log.d("My Tag",">>>>>>>>>>>>Licencia: "+name3);
+                        Log.d("My Tag",">>>>>>>>>>>>Licencia: "+title3);
+                        Log.d("My Tag",">>>>>>>>>>>>Licencia: "+descripcion3);
+                        Log.d("My Tag",">>>>>>>>>>>>Licencia: "+status3);
+                        Log.d("My Tag",">>>>>>>>>>>>Licencia: "+error3);
+                        Log.d("My Tag",">>>>>>>>>>>>Licencia: "+type3);
 
                         //Obtener los datos de las caracteristicas del vehiculo
                         JSONObject car_array = exito.getJSONObject("vehicle_details");
@@ -378,12 +393,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                             Log.d("Error Caracteristicas","Nay errores en la Caracteristicas");
                         }
                         String type4 = car_array.getString("type");
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name4);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title4);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion4);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status4);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error4);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type4);
+                        Log.d("My Tag",">>>>>>>>>>>>Caracteristicas: "+name4);
+                        Log.d("My Tag",">>>>>>>>>>>>Caracteristicas: "+title4);
+                        Log.d("My Tag",">>>>>>>>>>>>Caracteristicas: "+descripcion4);
+                        Log.d("My Tag",">>>>>>>>>>>>Caracteristicas: "+status4);
+                        Log.d("My Tag",">>>>>>>>>>>>Caracteristicas: "+error4);
+                        Log.d("My Tag",">>>>>>>>>>>>Caracteristicas: "+type4);
 
                         //Obtener los datos de las tarjeta
                         JSONObject card_array = exito.getJSONObject("circulation_card");
@@ -394,12 +409,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                         String error5 = card_array.getString("error");
                         String type5 = card_array.getString("type");
                         String test5 = error5;
-                        Log.d("My Tag",">>>>>>>>>>>>name5: "+name5);
-                        Log.d("My Tag",">>>>>>>>>>>>title: "+title5);
-                        Log.d("My Tag",">>>>>>>>>>>>descripcion: "+descripcion5);
-                        Log.d("My Tag",">>>>>>>>>>>>status: "+status5);
-                        Log.d("My Tag",">>>>>>>>>>>>error: "+error5);
-                        Log.d("My Tag",">>>>>>>>>>>>type: "+type5);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+name5);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+title5);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+descripcion5);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+status5);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+error5);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+type5);
                         Log.d("My Tag","RESPUESTA DEL SERVIDOR: "+ status5);
 
 
@@ -431,12 +446,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                         String error6 = insurance_array.getString("error");
 
                         String type6 = insurance_array.getString("type");
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name6);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title6);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion6);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status6);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error6);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type6);
+                        Log.d("My Tag",">>>>>>>>>>>>Poliza: "+name6);
+                        Log.d("My Tag",">>>>>>>>>>>>Poliza: "+title6);
+                        Log.d("My Tag",">>>>>>>>>>>>Poliza: "+descripcion6);
+                        Log.d("My Tag",">>>>>>>>>>>>Poliza: "+status6);
+                        Log.d("My Tag",">>>>>>>>>>>>Poliza: "+error6);
+                        Log.d("My Tag",">>>>>>>>>>>>Poliza: "+type6);
                         if(status6.matches("2"))
                         {
                             Log.d("My Tag","<<<<<<<<<<<<   Cambio de estado >>>>>>>>>>>>");
@@ -457,7 +472,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         }
 
                         //Obtener los datos de las tarjeton
-                        JSONObject control_array = exito.getJSONObject("insurance");
+                        JSONObject control_array = exito.getJSONObject("control_card");
                         String name7 = control_array.getString("name");
                         String title7 = control_array.getString("title");
                         String descripcion7 = control_array.getString("description");
@@ -481,12 +496,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                         }
 
                         String type7 = control_array.getString("type");
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+name7);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+title7);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+descripcion7);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+status7);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+error7);
-                        Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+type7);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+name7);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+title7);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+descripcion7);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+status7);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+error7);
+                        Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+type7);
 
 
                     } catch (JSONException e) {

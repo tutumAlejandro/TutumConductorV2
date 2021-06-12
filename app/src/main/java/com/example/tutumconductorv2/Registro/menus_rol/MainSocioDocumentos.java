@@ -125,7 +125,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
         btn_hd4_ok = findViewById(R.id.txt_btn4_head_ok);
         btn_hd5_ok = findViewById(R.id.txt_btn5_head_ok);
         btn_hd6_ok = findViewById(R.id.txt_btn6_head_ok);
-        btn_hd7_ok = findViewById(R.id.txt_btn7_head_error_socio);
+        btn_hd7_ok = findViewById(R.id.txt_btn7_head_ok);
         btn_hd1_er = findViewById(R.id.txt_btn1_head_error_socio);
         btn_hd2_er = findViewById(R.id.txt_btn2_head_error_socio);
         btn_hd3_er = findViewById(R.id.txt_btn3_head_error_socio);
@@ -449,17 +449,17 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_hd6.setVisibility(View.GONE);
             btn_bd6.setVisibility(View.GONE);
             fwd6.setVisibility(View.GONE);
-            btn6_socio_ok.setVisibility(View.VISIBLE);
-            btn_hd6_ok.setVisibility(View.VISIBLE);
-            btn_bd6_ok.setVisibility(View.VISIBLE);
-            ok_6.setVisibility(View.VISIBLE);
+            btn6_socio_ok.setVisibility(View.GONE);
+            btn_hd6_ok.setVisibility(View.GONE);
+            btn_bd6_ok.setVisibility(View.GONE);
+            ok_6.setVisibility(View.GONE);
+            btn_regreso_socio.setVisibility(View.GONE);
             btn6_socio_error.setVisibility(View.VISIBLE);
             btn_hd6_er.setVisibility(View.VISIBLE);
             btn_bd6_er.setVisibility(View.VISIBLE);
             error_6.setVisibility(View.VISIBLE);
             btn6_bd6_er.setVisibility(View.VISIBLE);
             btn6_bd6_er.setText(msg6);
-            btn_regreso_socio.setVisibility(View.GONE);
         }
 
         if(tarjeton1.matches("0")){
@@ -483,7 +483,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd7.setVisibility(View.GONE);
             fwd7.setVisibility(View.GONE);
             btn7_socio_ok.setVisibility(View.VISIBLE);
-            btn_hd7_ok.setVisibility(View.VISIBLE);
             btn_hd7_ok.setVisibility(View.VISIBLE);
             btn_bd7_ok.setVisibility(View.VISIBLE);
             ok_7.setVisibility(View.VISIBLE);

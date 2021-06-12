@@ -74,76 +74,27 @@ public class MainContinuarRegistro extends AppCompatActivity {
     }
 
     public void continuar_registro(View v){
-
-        //if(phone_ok.matches("1")){Log.d("phone ok","valor 1 de phone: "+phone_ok);}
-       // else {Log.d("phone ok","valor 2 de phone: "+phone_ok);}
-        realizarPost();
-
-
-
-    }
-
-    public void realizarPost() {
-        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-        String telefono = preferences.getString("phone","");
-        String url = "https://tutumapps.com/api/driver/registryTimelineStatus";
-        try {
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
-            final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", telefono);
-
-            final String requestBody = jsonObject.toString();
-
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Log.d("My Tag","Exito!!!!! "+response);
-                    try {
-                            SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-                            Log.d("My Tag","Respuesta"+phone_ok);
-                            phone_ok= response.getString("");
-                            if(phone_ok.matches("")){
-
-                                switch (state)
-                                {
-                                    case 1: {Intent main_reg_tel = new Intent(MainContinuarRegistro.this,MainRegistroTelefono.class);
-                                        startActivity(main_reg_tel); finish();}break;
-                                    case 2: {Intent main_otp = new Intent(MainContinuarRegistro.this, MainOTP.class);
-                                        startActivity(main_otp); finish();}break;
-                                    case 3: {Intent main_rol = new Intent(MainContinuarRegistro.this, MainRolConductor.class);
-                                        startActivity(main_rol); finish();}break;
-                                    case 4: {Intent main_socio = new Intent(MainContinuarRegistro.this, MainSocioDocumentos.class);
-                                        startActivity(main_socio);finish();}break;
-                                    case 5: {Intent main_conductor = new Intent(MainContinuarRegistro.this, MainConductorDocumentos.class);
-                                        startActivity(main_conductor);finish();}break;
-                                    case 6: {Intent main_snv = new Intent(MainContinuarRegistro.this, MainSnvDocuemtos.class);
-                                        startActivity(main_snv); finish();}break;
-                                    case 8: {Intent main_ok = new Intent(MainContinuarRegistro.this, MainDocumentosOk.class);
-                                        startActivity(main_ok);finish();}break;
-                                }
-                            }else {
-                                SharedPreferences.Editor obj_editor = preferences.edit();
-                                obj_editor.putInt("State",0);
-                                obj_editor.commit();
-                                Log.d("My Tag","No encontramos tu numero de telefono");
-                                Intent main_registrate = new Intent(MainContinuarRegistro.this,MainRegistrate.class);
-                                startActivity(main_registrate);
-                                finish();
-                            }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    error.printStackTrace();
-                    Log.d("My Tag","Error"+error);
-                }
-            });
-            requestQueue.add(request);
-        } catch (Exception e) {
-            e.printStackTrace();
+        switch (state)
+        {
+            case 1: {Intent main_reg_tel = new Intent(MainContinuarRegistro.this,MainRegistroTelefono.class);
+                startActivity(main_reg_tel); finish();}break;
+            case 2: {Intent main_otp = new Intent(MainContinuarRegistro.this, MainOTP.class);
+                startActivity(main_otp); finish();}break;
+            case 3: {Intent main_rol = new Intent(MainContinuarRegistro.this, MainRolConductor.class);
+                startActivity(main_rol); finish();}break;
+            case 4: {Intent main_socio = new Intent(MainContinuarRegistro.this, MainSocioDocumentos.class);
+                startActivity(main_socio);finish();}break;
+            case 5: {Intent main_conductor = new Intent(MainContinuarRegistro.this, MainConductorDocumentos.class);
+                startActivity(main_conductor);finish();}break;
+            case 6: {Intent main_snv = new Intent(MainContinuarRegistro.this, MainSnvDocuemtos.class);
+                startActivity(main_snv); finish();}break;
+            case 7: {Intent main_err = new Intent(MainContinuarRegistro.this, MainSocioDocumentos.class);
+                     startActivity(main_err);finish();}break;
+            case 8: {Intent main_ok = new Intent(MainContinuarRegistro.this, MainDocumentosOk.class);
+                startActivity(main_ok);finish();}break;
         }
+
+
+
     }
 }
