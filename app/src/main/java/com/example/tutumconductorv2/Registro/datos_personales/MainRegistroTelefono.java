@@ -198,7 +198,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final JSONObject jsonObject = new JSONObject();
 
-            jsonObject.put("phone", ccp1 + phone);
+            jsonObject.put("phone", phone);
 
             final String requestBody = jsonObject.toString();
 

@@ -357,5 +357,7 @@
     <string name="iniciosesion_emailtext">Correo Electrónico</string>
     <string name="title_activity_maps">Map</string>
 
+    <string name="test_alert_dialog">Este es un test de un alert Dialog</string>
+
 
 </resources>

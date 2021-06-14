@@ -857,29 +857,29 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 model_id = 132;
                 break;
             case "Prius":
-                model_id = 134;
+                model_id = 133;
                 break;
             case "Rav4":
-                model_id = 135;
+                model_id = 134;
                 break;
             case "Sienna":
-                model_id = 136;
+                model_id = 135;
                 break;
             case "Yaris":
-                model_id = 137;
+                model_id = 136;
                 break;
             //modelos_Volkswagen
-            case "Cross Sport": model_id=138;break;
-            case "Golf": model_id=139;break;
-            case "Jetta": model_id=140;break;
-            case "Polo": model_id=141;break;
-            case "Saveiro": model_id=142;break;
-            case "Taos": model_id=143;break;
-            case "T-Cross": model_id=144;break;
-            case "Teramont": model_id=145;break;
-            case "Tiguan": model_id=146;break;
-            case "Vento": model_id=147;break;
-            case "Virtus": model_id=148;break;
+            case "Cross Sport": model_id=137;break;
+            case "Golf": model_id=138;break;
+            case "Jetta": model_id=139;break;
+            case "Polo": model_id=140;break;
+            case "Saveiro": model_id=141;break;
+            case "Taos": model_id=142;break;
+            case "T-Cross": model_id=143;break;
+            case "Teramont": model_id=144;break;
+            case "Tiguan": model_id=145;break;
+            case "Vento": model_id=146;break;
+            case "Virtus": model_id=147;break;
 
         }
     }

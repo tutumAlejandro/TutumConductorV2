@@ -153,7 +153,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                                           }break;
                                 case "8": {mostrar_aceptado();}break;
                                 case "9": {mostrar_cita1(); }break;
-                                case "10": {}break;
+                                case "10": {}break;// asignar state a 10
                             }
                             id = exito.getString("registry_id");
                             Log.d("TEST!!!!!","Exito Status: "+status1);
