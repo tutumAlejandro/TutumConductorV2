@@ -16,6 +16,7 @@
     <!-- Strings para la ventana de presentación-->
     <string name="txt_inicio_by">By</string>
     <string name="txt_inicio_tutum">Tutum®</string>
+    <string name="txt_inicio_tutum2">Tutum</string>
 
     <!-- Strings para los botones-->
     <string name="btn_text_inicio_sesion">INICIAR SESIÓN</string>

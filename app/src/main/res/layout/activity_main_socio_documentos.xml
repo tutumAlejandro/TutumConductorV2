@@ -560,7 +560,7 @@
                        android:elevation="10dp"
                        android:fontFamily="@font/open_sans_bold"
                        android:text="@string/txt_btn_doc_ine"
-                       android:textColor="@color/black"
+                       android:textColor="@color/daysi"
                        android:textSize="@dimen/size_text_body_btn"
                        app:layout_constraintStart_toStartOf="@id/button2_socio_error"
                        app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_error_socio"
@@ -576,7 +576,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button2_socio_error"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_error_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/body_btn2_error_socio"
                     android:visibility="gone"
                     android:forceDarkAllowed="false"/>
 
@@ -644,10 +644,10 @@
                     android:layout_marginStart="16dp"
                     android:elevation="10dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button3_socio_error"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn3_head_error_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/body_btn3_error_socio"
                     android:visibility="gone"
                     android:forceDarkAllowed="false"/>
 
@@ -716,10 +716,10 @@
                     android:elevation="10dp"
                     android:fontFamily="@font/open_sans_bold"
                     android:text="@string/txt_btn_doc_caracteristicas"
-                    android:textColor="@color/black"
+                    android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button4_socio_error"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn4_head_error_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/body_btn4_error_socio"
                     android:visibility="gone"
                     android:forceDarkAllowed="false"/>
 
@@ -788,10 +788,10 @@
                     android:elevation="10dp"
                     android:fontFamily="@font/open_sans_bold"
                     android:text="@string/txt_btn_doc_tarjeta"
-                    android:textColor="@color/black"
+                    android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button5_socio_error"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn5_head_error_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/body_btn5_error_socio"
                     android:visibility="gone"
                     android:forceDarkAllowed="false"/>
 
@@ -859,10 +859,10 @@
                     android:layout_marginStart="16dp"
                     android:elevation="10dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button6_socio_error"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn6_head_error_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/body_btn6_error_socio"
                     android:visibility="gone"
                     android:forceDarkAllowed="false"/>
 
@@ -930,10 +930,10 @@
                     android:layout_marginStart="16dp"
                     android:elevation="10dp"
                     android:fontFamily="@font/open_sans_bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/daysi"
                     android:textSize="@dimen/size_text_body_btn"
                     app:layout_constraintStart_toStartOf="@id/button7_socio_error"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_btn7_head_error_socio"
+                    app:layout_constraintTop_toBottomOf="@+id/body_btn7_error_socio"
                     android:visibility="gone"
                     android:forceDarkAllowed="false"/>
 

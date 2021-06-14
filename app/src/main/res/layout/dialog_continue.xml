@@ -4,15 +4,32 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/dark">
-    <ImageView
-        android:layout_width="@dimen/width_heigth_arrow_fwd"
-        android:layout_height="@dimen/width_heigth_arrow_fwd"
-        android:src="@drawable/logo_1024"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/width_img_retroceso"
+            android:layout_height="@dimen/width_img_retroceso"
+            android:src="@drawable/logo_1024"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_inicio_tutum2"
+            android:textSize="@dimen/size_text_head_capture"
+            android:textColor="@color/white"
+            android:fontFamily="@font/open_sans_extra_bold"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/txt_pop_up_text1"
