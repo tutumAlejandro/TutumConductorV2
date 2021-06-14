@@ -8,7 +8,7 @@
 
     <!--<string name="map_id">1f7515d54e5aee53</string>-->
     <string name="map_id">721414619d8ddb29</string>
-
+    <string name="marker_detail_latlng">(%1$.2f, %2$.2f</string>
 
     <!-- Strings tod para las imagenes-->
     <string name="imagenes">imagenes</string>
@@ -356,6 +356,7 @@
     <string name="iniciosesion_pswdtext">Constraseña</string>
     <string name="iniciosesion_emailtext">Correo Electrónico</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps_activitydelete">Map</string>
 
     <string name="test_alert_dialog">Este es un test de un alert Dialog</string>
 

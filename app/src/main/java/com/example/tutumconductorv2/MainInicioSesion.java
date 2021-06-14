@@ -36,17 +36,19 @@ import android.widget.Toast;
 import com.example.tutumconductorv2.databinding.ActivityMapsBinding;
 import com.example.tutumconductorv2.home.HomeFragment;
 import com.example.tutumconductorv2.home.HomeViewModel;
-import com.google.android.libraries.maps.CameraUpdate;
 import com.google.android.libraries.maps.CameraUpdateFactory;
+import com.google.android.libraries.maps.model.LatLng;
+import com.google.android.libraries.maps.CameraUpdate;
 import com.google.android.libraries.maps.GoogleMap;
 import com.google.android.libraries.maps.OnMapReadyCallback;
 import com.google.android.libraries.maps.SupportMapFragment;
 import com.google.android.libraries.maps.model.BitmapDescriptorFactory;
 import com.google.android.libraries.maps.model.CameraPosition;
-import com.google.android.libraries.maps.model.LatLng;
 import com.google.android.libraries.maps.model.Marker;
 import com.google.android.libraries.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import static androidx.core.content.ContentProviderCompat.requireContext;
 
 
 public class MainInicioSesion extends Fragment {
@@ -58,7 +60,7 @@ public class MainInicioSesion extends Fragment {
     private double lat = 0.0, lng = 0.0;
     private Bitmap smallMarker;
 
-
+/*
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel;
@@ -71,7 +73,7 @@ public class MainInicioSesion extends Fragment {
         Bitmap bitmap = bitmapDrawable.getBitmap();
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        smallMarker = Bitmap.createScaledBitmap(bitmap, width*16, height*16, false);
+        smallMarker = Bitmap.createScaledBitmap(bitmap, width*2, height*2, false);
 
 
 
@@ -104,17 +106,17 @@ public class MainInicioSesion extends Fragment {
             //miUbicacion();
             if(!checkGpsState()) {
                 LatLng home = new LatLng(21.883226752408518, -102.29655237109232);
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 15));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 30));
             }
             else{
                 LatLng home = new LatLng(21.883226752408518, -102.29655237109232);
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 15));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(home, 30));
                 locationStart();
             }
 
-        /*  googleMap.setOnMarkerClickListener(HomeFragment.this);
-            googleMap.setOnMarkerDragListener(HomeFragment.this);*/
-
+        *//*googleMap.setOnMarkerClickListener(HomeFragment.this);
+            googleMap.setOnMarkerDragListener(MainInicioSesion.this);
+*//*
         }
     };
 
@@ -250,15 +252,9 @@ public class MainInicioSesion extends Fragment {
                 locationStart();
             }
         }
-    }
+    }*/
 }
-
-
-
-
-
-
-/*FragmentActivity implements OnMapReadyCallback {
+/*extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -279,9 +275,9 @@ public class MainInicioSesion extends Fragment {
 
     private void getLocalizacion() {
         int permiso = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-        if(permiso == PackageManager.PERMISSION_DENIED){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
-            }else{
+        if (permiso == PackageManager.PERMISSION_DENIED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+            } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             }
         }
@@ -290,53 +286,26 @@ public class MainInicioSesion extends Fragment {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        mMap.setMyLocationEnabled(true);
 
-
-        LocationManager locationManager = (LocationManager) MainInicioSesion.this.getSystemService(Context.LOCATION_SERVICE);
-        LocationListener locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                LatLng miUbicacion = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(miUbicacion).title("ubicacion actual"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(miUbicacion));
-                CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(miUbicacion)
-                        .zoom(14)
-                        .bearing(90)
-                        .tilt(45)
-                        .build();
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-
-
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        *//*mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*//*
     }
+}
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
