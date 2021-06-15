@@ -82,25 +82,49 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 SharedPreferences preferencias_tarjeton = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias_tarjeton.edit();
-                if (rol.matches("Socio")) {
-                    Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
-                    obj_editor.putString("tarjeton1","0");
-                    obj_editor.commit();
-                    startActivity(main_socio_documentos);
-                    finish();
-                } else if (rol.matches("Conductor")) {
-                    Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
-                    obj_editor.putString("tarjeton2","0");
-                    obj_editor.commit();
-                    startActivity(main_conductor_documentos);
-                    finish();
-                } else {
-                    Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
-                    obj_editor.putString("tarjeton3","0");
-                    obj_editor.commit();
-                    startActivity(main_snv_documentos);
-                    finish();
+                int state = preferencias_tarjeton.getInt("State",0);
+                if(state != 7){
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
+                        obj_editor.putString("tarjeton1","0");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else if (rol.matches("Conductor")) {
+                        Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
+                        obj_editor.putString("tarjeton2","0");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    } else {
+                        Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("tarjeton3","0");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
+                        finish();
+                    }
+                }else{
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
+                        obj_editor.putString("tarjeton1","2");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else if (rol.matches("Conductor")) {
+                        Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
+                        obj_editor.putString("tarjeton2","2");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    } else {
+                        Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("tarjeton3","2");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
+                        finish();
+                    }
                 }
+
             }
         });
 

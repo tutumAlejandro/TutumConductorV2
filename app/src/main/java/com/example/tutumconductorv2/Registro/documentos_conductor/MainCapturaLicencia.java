@@ -99,25 +99,50 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 SharedPreferences preferencias_licencia = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias_licencia.edit();
-                if (rol.matches("Socio")) {
-                    Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
-                    obj_editor.putString("licencia1","0");
-                    obj_editor.commit();
-                    startActivity(main_socio_documentos);
-                    finish();
-                } else if (rol.matches("Conductor")) {
-                    Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
-                    obj_editor.putString("licencia2","0");
-                    obj_editor.commit();
-                    startActivity(main_conductor_documentos);
-                    finish();
-                } else {
-                    Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
-                    obj_editor.putString("licencia3","0");
-                    obj_editor.commit();
-                    startActivity(main_snv_documentos);
-                    finish();
+                int state = preferencias_licencia.getInt("State",0);
+                if(state != 7)
+                {
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
+                        obj_editor.putString("licencia1","0");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else if (rol.matches("Conductor")) {
+                        Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
+                        obj_editor.putString("licencia2","0");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    } else {
+                        Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("licencia3","0");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
+                        finish();
+                    }
+                }else{
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaLicencia.this, MainSocioDocumentos.class);
+                        obj_editor.putString("licencia1","2");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else if (rol.matches("Conductor")) {
+                        Intent main_conductor_documentos = new Intent(MainCapturaLicencia.this, MainConductorDocumentos.class);
+                        obj_editor.putString("licencia2","2");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    } else {
+                        Intent main_snv_documentos = new Intent(MainCapturaLicencia.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("licencia3","2");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
+                        finish();
+                    }
                 }
+
             }
         });
 

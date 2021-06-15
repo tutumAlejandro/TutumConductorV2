@@ -80,19 +80,38 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
             public void onClick(View v) {
                 SharedPreferences preferencias_poliza = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias_poliza.edit();
-                if (rol.matches("Socio")) {
-                    Intent main_socio_documentos = new Intent(MainCapturaPoliza.this, MainSocioDocumentos.class);
-                    obj_editor.putString("poliza1","0");
-                    obj_editor.commit();
-                    startActivity(main_socio_documentos);
-                    finish();
-                } else {
-                    Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
-                    obj_editor.putString("poliza2","0");
-                    obj_editor.commit();
-                    startActivity(main_conductor_documentos);
-                    finish();
+                int state = preferencias_poliza.getInt("State",0);
+                if(state != 7)
+                {
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaPoliza.this, MainSocioDocumentos.class);
+                        obj_editor.putString("poliza1","0");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else {
+                        Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
+                        obj_editor.putString("poliza2","0");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    }
+                }else{
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaPoliza.this, MainSocioDocumentos.class);
+                        obj_editor.putString("poliza1","2");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else {
+                        Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
+                        obj_editor.putString("poliza2","2");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    }
                 }
+
             }
         });
 

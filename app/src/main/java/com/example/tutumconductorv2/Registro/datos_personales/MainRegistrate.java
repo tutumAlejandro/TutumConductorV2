@@ -101,7 +101,7 @@ public class MainRegistrate extends AppCompatActivity {
             SharedPreferences.Editor obj_editor = preferences.edit();
             obj_editor.putString("name",(nombres.getEditText().getText().toString().trim())+" "+apeidop.getEditText().getText().toString().trim()+" "+ apeidom.getEditText().getText().toString().trim());
             obj_editor.putString("email",email.getEditText().getText().toString().trim());
-            obj_editor.putString("password",pass.getEditText().getText().toString().trim());
+            obj_editor.putString("password",pass.getEditText().getText().toString());
             obj_editor.putInt("State",1);
             obj_editor.commit();
             Intent main_registro_telefono = new Intent(MainRegistrate.this, MainRegistroTelefono.class);

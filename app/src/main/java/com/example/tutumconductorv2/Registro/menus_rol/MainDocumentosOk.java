@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,6 +22,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.Inicio;
+import com.example.tutumconductorv2.Main_IniciaSesion;
+import com.example.tutumconductorv2.PerfilUser;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
@@ -47,6 +51,8 @@ public class MainDocumentosOk extends AppCompatActivity {
 
     private String rol="";
     private String id ="";
+    private String contrasena="";
+    private String correo="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +60,12 @@ public class MainDocumentosOk extends AppCompatActivity {
         setContentView(R.layout.activity_main_documentos_ok);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         rol= preferences.getString("rol","");
+        contrasena = preferences.getString("password","");
+        correo = preferences.getString("email","");
         SharedPreferences.Editor obj_editor = preferences.edit();
         Log.d("Rol Conductor","<<<<<<<<<"+rol);
+        Log.d("Usuario","email: "+correo);
+        Log.d("Usuario","Constraseña: "+contrasena);
         obj_editor.putInt("State",8);
         obj_editor.commit();
 
@@ -153,7 +163,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                                           }break;
                                 case "8": {mostrar_aceptado();}break;
                                 case "9": {mostrar_cita1(); }break;
-                                case "10": {}break;// asignar state a 10
+                                case "10": {inicioSesion();}break;// asignar state a 10
                             }
                             id = exito.getString("registry_id");
                             Log.d("TEST!!!!!","Exito Status: "+status1);
@@ -668,6 +678,89 @@ public class MainDocumentosOk extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void inicioSesion(){
+
+        String url = "https://www.tutumapps.com/api/driver/login";
+        Log.d("test","hola>>>>>>>>>>>>>>>>"+correo);
+        try{
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final JSONObject jsonObject = new JSONObject();
+
+            jsonObject.put("email", correo);
+            jsonObject.put("password", contrasena);
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("TAG", "Success! :D" + " " + response);
+                    Log.d("test","hola>>>>>>>>>>>>>>>>"+correo);
+                    Log.d("test","hola>>>>>>>>>>>>>>>>"+contrasena);
+                    try {
+                        boolean isSucess = response.getBoolean("success");
+                        if(isSucess){
+                            saveUserData(response);
+                            Intent intent = new Intent(MainDocumentosOk.this, Inicio.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            Toast.makeText(MainDocumentosOk.this, "Inicio Correcto", Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+
+
+                        }
+                        else{
+                            String getMsg = response.getString("msg");
+                            Toast.makeText(MainDocumentosOk.this, getMsg, Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("TAG", "Error: " + error);
+                }
+            });
+            requestQueue.add(jsonObjectRequest);
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void saveUserData(JSONObject response){
+
+        try {
+            PerfilUser user = new PerfilUser();
+            JSONObject data = response.getJSONObject("data");
+            JSONObject passenger = data.getJSONObject("driver");
+
+            user.setName(passenger.getString("name"));
+            user.setJob("TUTUM");
+            user.setJob_dir("Sierra del Laurel 420, Bosques del prado");
+            user.setHome("Vizcaya xD");
+            user.setHome_dir("Vizcaya 307, Barranca de Gpe");
+            user.setEmailVerified(passenger.getBoolean("email_verified"));
+            user.setFb_id(passenger.getString("facebook_id"));
+            user.setGoogle_id(passenger.getString("google_id"));
+            user.setPassengerId(passenger.getString("passenger_id"));//3617
+            user.setPassengerImg(passenger.getString("passenger_img"));
+            user.setTravels(passenger.getString("travels"));
+            user.setUserId(String.valueOf(passenger.getInt("user_id")));//4071
+            user.setCalification(passenger.getString("calification"));
+            user.setApi_token(data.getString("api_token"));
+            user.setEmail(passenger.getString("email"));
+            user.setPassword(contrasena);
+            user.setTelefono(passenger.getString("phone"));
+        } catch (JSONException e) {
+            Log.e("MyTAG", "hubo un error obteniendo los valores del servidor");
+        }
+
     }
 
 }

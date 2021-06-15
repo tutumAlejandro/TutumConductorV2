@@ -95,25 +95,49 @@ public class MainCapturaIne extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias_ine.edit();
-                if(rol.matches("Socio")){
-                    Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
-                    obj_editor.putString("ine1","0");
-                    obj_editor.commit();
-                    startActivity(main_socio_documentos);
-                    finish();
-                }else if(rol.matches("Conductor")){
-                    Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
-                    obj_editor.putString("ine2","0");
-                    obj_editor.commit();
-                    startActivity(main_conductor_documentos);
-                    finish();
-                }else{
-                    Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
-                    obj_editor.putString("ine3","0");
-                    obj_editor.commit();
-                    startActivity(main_snv_documentos);
-                    finish();
+                int state = preferencias_ine.getInt("State",0);
+                if(state != 7){
+                    if(rol.matches("Socio")){
+                        Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
+                        obj_editor.putString("ine1","0");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    }else if(rol.matches("Conductor")){
+                        Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
+                        obj_editor.putString("ine2","0");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    }else{
+                        Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("ine3","0");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
+                        finish();
+                    }
+                }else {
+                    if(rol.matches("Socio")){
+                        Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);
+                        obj_editor.putString("ine1","2");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    }else if(rol.matches("Conductor")){
+                        Intent main_conductor_documentos = new Intent(MainCapturaIne.this, MainConductorDocumentos.class);
+                        obj_editor.putString("ine2","2");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    }else{
+                        Intent main_snv_documentos = new Intent(MainCapturaIne.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("ine3","2");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
+                        finish();
+                    }
                 }
+
             }
         });
         ine_frontal.setOnClickListener(new View.OnClickListener() {
