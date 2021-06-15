@@ -180,13 +180,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor1.setVisibility(View.VISIBLE);
             hd_conductor1.setVisibility(View.VISIBLE);
             bd_conductor1.setVisibility(View.VISIBLE);
-
             btn1_ok_conductor.setVisibility(View.GONE);
             ok_conductor1.setVisibility(View.GONE);
             hd_ok_conductor1.setVisibility(View.GONE);
             bd_ok_conductor1.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn1_er_conductor.setVisibility(View.GONE);
             er_conductor1.setVisibility(View.GONE);
             hd_er_conductor1.setVisibility(View.GONE);
@@ -197,13 +194,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor1.setVisibility(View.GONE);
             hd_conductor1.setVisibility(View.GONE);
             bd_conductor1.setVisibility(View.GONE);
-
             btn1_ok_conductor.setVisibility(View.VISIBLE);
             ok_conductor1.setVisibility(View.VISIBLE);
             hd_ok_conductor1.setVisibility(View.VISIBLE);
             bd_ok_conductor1.setVisibility(View.VISIBLE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn1_er_conductor.setVisibility(View.GONE);
             er_conductor1.setVisibility(View.GONE);
             hd_er_conductor1.setVisibility(View.GONE);
@@ -214,13 +208,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor1.setVisibility(View.GONE);
             hd_conductor1.setVisibility(View.GONE);
             bd_conductor1.setVisibility(View.GONE);
-
             btn1_ok_conductor.setVisibility(View.GONE);
             ok_conductor1.setVisibility(View.GONE);
             hd_ok_conductor1.setVisibility(View.GONE);
             bd_ok_conductor1.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.GONE);
             btn1_er_conductor.setVisibility(View.VISIBLE);
             er_conductor1.setVisibility(View.VISIBLE);
             hd_er_conductor1.setVisibility(View.VISIBLE);
@@ -251,13 +242,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor2.setVisibility(View.GONE);
             hd_conductor2.setVisibility(View.GONE);
             bd_conductor2.setVisibility(View.GONE);
-
             btn2_ok_conductor.setVisibility(View.VISIBLE);
             ok_conductor2.setVisibility(View.VISIBLE);
             hd_ok_conductor2.setVisibility(View.VISIBLE);
             bd_ok_conductor2.setVisibility(View.VISIBLE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn2_er_conductor.setVisibility(View.GONE);
             er_conductor2.setVisibility(View.GONE);
             hd_er_conductor2.setVisibility(View.GONE);
@@ -268,13 +256,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor2.setVisibility(View.GONE);
             hd_conductor2.setVisibility(View.GONE);
             bd_conductor2.setVisibility(View.GONE);
-
             btn2_ok_conductor.setVisibility(View.GONE);
             ok_conductor2.setVisibility(View.GONE);
             hd_ok_conductor2.setVisibility(View.GONE);
             bd_ok_conductor2.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.GONE);
             btn2_er_conductor.setVisibility(View.VISIBLE);
             er_conductor2.setVisibility(View.VISIBLE);
             hd_er_conductor2.setVisibility(View.VISIBLE);
@@ -288,13 +273,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor3.setVisibility(View.VISIBLE);
             hd_conductor3.setVisibility(View.VISIBLE);
             bd_conductor3.setVisibility(View.VISIBLE);
-
             btn3_ok_conductor.setVisibility(View.GONE);
             ok_conductor3.setVisibility(View.GONE);
             hd_ok_conductor3.setVisibility(View.GONE);
             bd_ok_conductor3.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn3_er_conductor.setVisibility(View.GONE);
             er_conductor3.setVisibility(View.GONE);
             hd_er_conductor3.setVisibility(View.GONE);
@@ -305,13 +287,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor3.setVisibility(View.GONE);
             hd_conductor3.setVisibility(View.GONE);
             bd_conductor3.setVisibility(View.GONE);
-
             btn3_ok_conductor.setVisibility(View.VISIBLE);
             ok_conductor3.setVisibility(View.VISIBLE);
             hd_ok_conductor3.setVisibility(View.VISIBLE);
             bd_ok_conductor3.setVisibility(View.VISIBLE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn3_er_conductor.setVisibility(View.GONE);
             er_conductor3.setVisibility(View.GONE);
             hd_er_conductor3.setVisibility(View.GONE);
@@ -322,13 +301,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor3.setVisibility(View.GONE);
             hd_conductor3.setVisibility(View.GONE);
             bd_conductor3.setVisibility(View.GONE);
-
             btn3_ok_conductor.setVisibility(View.GONE);
             ok_conductor3.setVisibility(View.GONE);
             hd_ok_conductor3.setVisibility(View.GONE);
             bd_ok_conductor3.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.GONE);
             btn3_er_conductor.setVisibility(View.VISIBLE);
             er_conductor3.setVisibility(View.VISIBLE);
             hd_er_conductor3.setVisibility(View.VISIBLE);
@@ -342,13 +318,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor4.setVisibility(View.VISIBLE);
             hd_conductor4.setVisibility(View.VISIBLE);
             bd_conductor4.setVisibility(View.VISIBLE);
-
             btn4_ok_conductor.setVisibility(View.GONE);
             ok_conductor4.setVisibility(View.GONE);
             hd_ok_conductor4.setVisibility(View.GONE);
             bd_ok_conductor4.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn4_er_conductor.setVisibility(View.GONE);
             er_conductor4.setVisibility(View.GONE);
             hd_er_conductor4.setVisibility(View.GONE);
@@ -359,13 +332,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor4.setVisibility(View.GONE);
             hd_conductor4.setVisibility(View.GONE);
             bd_conductor4.setVisibility(View.GONE);
-
             btn4_ok_conductor.setVisibility(View.VISIBLE);
             ok_conductor4.setVisibility(View.VISIBLE);
             hd_ok_conductor4.setVisibility(View.VISIBLE);
             bd_ok_conductor4.setVisibility(View.VISIBLE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn4_er_conductor.setVisibility(View.GONE);
             er_conductor4.setVisibility(View.GONE);
             hd_er_conductor4.setVisibility(View.GONE);
@@ -376,13 +346,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor4.setVisibility(View.GONE);
             hd_conductor4.setVisibility(View.GONE);
             bd_conductor4.setVisibility(View.GONE);
-
             btn4_ok_conductor.setVisibility(View.GONE);
             ok_conductor4.setVisibility(View.GONE);
             hd_ok_conductor4.setVisibility(View.GONE);
             bd_ok_conductor4.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.GONE);
             btn4_er_conductor.setVisibility(View.VISIBLE);
             er_conductor4.setVisibility(View.VISIBLE);
             hd_er_conductor4.setVisibility(View.VISIBLE);
@@ -396,13 +363,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor5.setVisibility(View.VISIBLE);
             hd_conductor5.setVisibility(View.VISIBLE);
             bd_conductor5.setVisibility(View.VISIBLE);
-
             btn5_ok_conductor.setVisibility(View.GONE);
             ok_conductor5.setVisibility(View.GONE);
             hd_ok_conductor5.setVisibility(View.GONE);
             bd_ok_conductor5.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn5_er_conductor.setVisibility(View.GONE);
             er_conductor5.setVisibility(View.GONE);
             hd_er_conductor5.setVisibility(View.GONE);
@@ -413,13 +377,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor5.setVisibility(View.GONE);
             hd_conductor5.setVisibility(View.GONE);
             bd_conductor5.setVisibility(View.GONE);
-
             btn5_ok_conductor.setVisibility(View.VISIBLE);
             ok_conductor5.setVisibility(View.VISIBLE);
             hd_ok_conductor5.setVisibility(View.VISIBLE);
             bd_ok_conductor5.setVisibility(View.VISIBLE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn5_er_conductor.setVisibility(View.GONE);
             er_conductor5.setVisibility(View.GONE);
             hd_er_conductor5.setVisibility(View.GONE);
@@ -430,13 +391,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor5.setVisibility(View.GONE);
             hd_conductor5.setVisibility(View.GONE);
             bd_conductor5.setVisibility(View.GONE);
-
             btn5_ok_conductor.setVisibility(View.GONE);
             ok_conductor5.setVisibility(View.GONE);
             hd_ok_conductor5.setVisibility(View.GONE);
             bd_ok_conductor5.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.GONE);
             btn5_er_conductor.setVisibility(View.VISIBLE);
             er_conductor5.setVisibility(View.VISIBLE);
             hd_er_conductor5.setVisibility(View.VISIBLE);
@@ -450,13 +408,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor6.setVisibility(View.VISIBLE);
             hd_conductor6.setVisibility(View.VISIBLE);
             bd_conductor6.setVisibility(View.VISIBLE);
-
             btn6_ok_conductor.setVisibility(View.GONE);
             ok_conductor6.setVisibility(View.GONE);
             hd_ok_conductor6.setVisibility(View.GONE);
             bd_ok_conductor6.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn6_er_conductor.setVisibility(View.GONE);
             er_conductor6.setVisibility(View.GONE);
             hd_er_conductor6.setVisibility(View.GONE);
@@ -467,13 +422,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor6.setVisibility(View.GONE);
             hd_conductor6.setVisibility(View.GONE);
             bd_conductor6.setVisibility(View.GONE);
-
             btn6_ok_conductor.setVisibility(View.VISIBLE);
             ok_conductor6.setVisibility(View.VISIBLE);
             hd_ok_conductor6.setVisibility(View.VISIBLE);
             bd_ok_conductor6.setVisibility(View.VISIBLE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn6_er_conductor.setVisibility(View.GONE);
             er_conductor6.setVisibility(View.GONE);
             hd_er_conductor6.setVisibility(View.GONE);
@@ -484,13 +436,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor6.setVisibility(View.GONE);
             hd_conductor6.setVisibility(View.GONE);
             bd_conductor6.setVisibility(View.GONE);
-
             btn6_ok_conductor.setVisibility(View.GONE);
             ok_conductor6.setVisibility(View.GONE);
             hd_ok_conductor6.setVisibility(View.GONE);
             bd_ok_conductor6.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.GONE);
             btn6_er_conductor.setVisibility(View.VISIBLE);
             er_conductor6.setVisibility(View.VISIBLE);
             hd_er_conductor6.setVisibility(View.VISIBLE);
@@ -504,13 +453,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor7.setVisibility(View.VISIBLE);
             hd_conductor7.setVisibility(View.VISIBLE);
             bd_conductor7.setVisibility(View.VISIBLE);
-
             btn7_ok_conductor.setVisibility(View.GONE);
             ok_conductor7.setVisibility(View.GONE);
             hd_ok_conductor7.setVisibility(View.GONE);
             bd_ok_conductor7.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn7_er_conductor.setVisibility(View.GONE);
             er_conductor7.setVisibility(View.GONE);
             hd_er_conductor7.setVisibility(View.GONE);
@@ -521,13 +467,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor7.setVisibility(View.GONE);
             hd_conductor7.setVisibility(View.GONE);
             bd_conductor7.setVisibility(View.GONE);
-
             btn7_ok_conductor.setVisibility(View.VISIBLE);
             ok_conductor7.setVisibility(View.VISIBLE);
             hd_ok_conductor7.setVisibility(View.VISIBLE);
             bd_ok_conductor7.setVisibility(View.VISIBLE);
-
-            btn_regresar_conductor.setVisibility(View.VISIBLE);
             btn7_er_conductor.setVisibility(View.GONE);
             er_conductor7.setVisibility(View.GONE);
             hd_er_conductor7.setVisibility(View.GONE);
@@ -538,13 +481,10 @@ public class MainConductorDocumentos extends AppCompatActivity {
             fwd_conductor7.setVisibility(View.GONE);
             hd_conductor7.setVisibility(View.GONE);
             bd_conductor7.setVisibility(View.GONE);
-
             btn7_ok_conductor.setVisibility(View.GONE);
             ok_conductor7.setVisibility(View.GONE);
             hd_ok_conductor7.setVisibility(View.GONE);
             bd_ok_conductor7.setVisibility(View.GONE);
-
-            btn_regresar_conductor.setVisibility(View.GONE);
             btn7_er_conductor.setVisibility(View.VISIBLE);
             er_conductor7.setVisibility(View.VISIBLE);
             hd_er_conductor7.setVisibility(View.VISIBLE);
@@ -567,6 +507,13 @@ public class MainConductorDocumentos extends AppCompatActivity {
             Intent main_documentos_ok = new Intent(MainConductorDocumentos.this, MainDocumentosOk.class);
             startActivity(main_documentos_ok);
             finish();
+        }
+
+        if(term2.matches("2") | ine2.matches("2") | licencia2.matches("2") | caracteristicas2.matches("2") | tarjeta2.matches("2") | poliza2.matches("2") | tarjeton2.matches("2")){
+            btn_regresar_conductor.setVisibility(View.GONE);
+        }
+        else{
+            btn_regresar_conductor.setVisibility(View.VISIBLE);
         }
     }
 

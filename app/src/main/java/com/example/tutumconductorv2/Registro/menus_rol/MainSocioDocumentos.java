@@ -68,6 +68,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
         msg7= preferncias_socio.getString("error7","");
 
         btn_regreso_socio = findViewById(R.id.img_retroceso_documentos_socio);
+
         fwd1 = findViewById(R.id.fwd_socio_1);
         fwd2 = findViewById(R.id.fwd_socio_2);
         fwd3 = findViewById(R.id.fwd_socio_3);
@@ -186,9 +187,8 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn1_socio_error.setVisibility(View.GONE);
             btn_hd1_er.setVisibility(View.GONE);
             btn_bd1_er.setVisibility(View.GONE);
-            error_1.setVisibility(View.GONE);
             btn1_bd1_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
+            error_1.setVisibility(View.GONE);
         }else if(term1.matches("1")){
             btn1_socio.setVisibility(View.GONE);
             btn_hd1.setVisibility(View.GONE);
@@ -201,9 +201,8 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn1_socio_error.setVisibility(View.GONE);
             btn_hd1_er.setVisibility(View.GONE);
             btn_bd1_er.setVisibility(View.GONE);
-            error_1.setVisibility(View.GONE);
             btn1_bd1_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
+            error_1.setVisibility(View.GONE);
         }else{
             btn1_socio.setVisibility(View.GONE);
             btn_hd1.setVisibility(View.GONE);
@@ -217,9 +216,8 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_hd1_er.setVisibility(View.VISIBLE);
             btn_bd1_er.setVisibility(View.VISIBLE);
             error_1.setVisibility(View.VISIBLE);
-            btn1_bd1_er.setVisibility(View.GONE);
-            btn1_bd1_er.setText(msg1);
-            btn_regreso_socio.setVisibility(View.GONE);
+            btn1_bd1_er.setVisibility(View.VISIBLE);
+            btn1_bd1_er.setText("Error: "+msg1);
         }
 
         if(ine1.matches("0")){
@@ -236,7 +234,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd2_er.setVisibility(View.GONE);
             error_2.setVisibility(View.GONE);
             btn2_bd2_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else if(ine1.matches("1")){
             btn2_socio.setVisibility(View.GONE);
             btn_hd2.setVisibility(View.GONE);
@@ -251,7 +248,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd2_er.setVisibility(View.GONE);
             error_2.setVisibility(View.GONE);
             btn2_bd2_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else {
             btn2_socio.setVisibility(View.GONE);
             btn_hd2.setVisibility(View.GONE);
@@ -266,8 +262,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd2_er.setVisibility(View.VISIBLE);
             error_2.setVisibility(View.VISIBLE);
             btn2_bd2_er.setVisibility(View.VISIBLE);
-            btn2_bd2_er.setText(msg2);
-            btn_regreso_socio.setVisibility(View.GONE);
+            btn2_bd2_er.setText("Error: "+msg2);
         }
 
         if(licencia1.matches("0")){
@@ -284,7 +279,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd3_er.setVisibility(View.GONE);
             error_3.setVisibility(View.GONE);
             btn3_bd3_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else if(licencia1.matches("1")){
             btn3_socio.setVisibility(View.GONE);
             btn_hd3.setVisibility(View.GONE);
@@ -299,7 +293,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd3_er.setVisibility(View.GONE);
             error_3.setVisibility(View.GONE);
             btn3_bd3_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else{
             btn3_socio.setVisibility(View.GONE);
             btn_hd3.setVisibility(View.GONE);
@@ -314,8 +307,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd3_er.setVisibility(View.VISIBLE);
             error_3.setVisibility(View.VISIBLE);
             btn3_bd3_er.setVisibility(View.VISIBLE);
-            btn3_bd3_er.setText(msg3);
-            btn_regreso_socio.setVisibility(View.GONE);
+            btn3_bd3_er.setText("Error: "+msg3);
         }
 
         if(caracteristicas1.matches("0")){
@@ -332,7 +324,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd4_er.setVisibility(View.GONE);
             error_4.setVisibility(View.GONE);
             btn4_bd4_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else if(caracteristicas1.matches("1")){
             btn4_socio.setVisibility(View.GONE);
             btn_hd4.setVisibility(View.GONE);
@@ -347,7 +338,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd4_er.setVisibility(View.GONE);
             error_4.setVisibility(View.GONE);
             btn4_bd4_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else{
             btn4_socio.setVisibility(View.GONE);
             btn_hd4.setVisibility(View.GONE);
@@ -361,11 +351,9 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_hd4_er.setVisibility(View.VISIBLE);
             btn_bd4_er.setVisibility(View.VISIBLE);
             error_4.setVisibility(View.VISIBLE);
+            btn4_bd4_er.setText("Error: "+msg4);
             btn4_bd4_er.setVisibility(View.VISIBLE);
-            btn4_bd4_er.setText(msg4);
-            btn_regreso_socio.setVisibility(View.GONE);
         }
-
         if(tarjeta1.matches("0")){
             btn5_socio.setVisibility(View.VISIBLE);
             btn_hd5.setVisibility(View.VISIBLE);
@@ -380,7 +368,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd5_er.setVisibility(View.GONE);
             error_5.setVisibility(View.GONE);
             btn5_bd5_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else if(tarjeta1.matches("1")){
             btn5_socio.setVisibility(View.GONE);
             btn_hd5.setVisibility(View.GONE);
@@ -395,23 +382,23 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd5_er.setVisibility(View.GONE);
             error_5.setVisibility(View.GONE);
             btn5_bd5_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else{
             btn5_socio.setVisibility(View.GONE);
             btn_hd5.setVisibility(View.GONE);
             btn_bd5.setVisibility(View.GONE);
             fwd5.setVisibility(View.GONE);
+
             btn5_socio_ok.setVisibility(View.GONE);
             btn_hd5_ok.setVisibility(View.GONE);
             btn_bd5_ok.setVisibility(View.GONE);
             ok_5.setVisibility(View.GONE);
+
             btn5_socio_error.setVisibility(View.VISIBLE);
             btn_hd5_er.setVisibility(View.VISIBLE);
             btn_bd5_er.setVisibility(View.VISIBLE);
             error_5.setVisibility(View.VISIBLE);
+            btn5_bd5_er.setText("Error: "+msg5);
             btn5_bd5_er.setVisibility(View.VISIBLE);
-            btn5_bd5_er.setText(msg5);
-            btn_regreso_socio.setVisibility(View.GONE);
         }
 
         if(poliza1.matches("0")){
@@ -428,7 +415,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd6_er.setVisibility(View.GONE);
             error_6.setVisibility(View.GONE);
             btn6_bd6_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else if(poliza1.matches("1")){
             btn6_socio.setVisibility(View.GONE);
             btn_hd6.setVisibility(View.GONE);
@@ -443,7 +429,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd6_er.setVisibility(View.GONE);
             error_6.setVisibility(View.GONE);
             btn6_bd6_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else{
             btn6_socio.setVisibility(View.GONE);
             btn_hd6.setVisibility(View.GONE);
@@ -453,13 +438,12 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_hd6_ok.setVisibility(View.GONE);
             btn_bd6_ok.setVisibility(View.GONE);
             ok_6.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.GONE);
             btn6_socio_error.setVisibility(View.VISIBLE);
             btn_hd6_er.setVisibility(View.VISIBLE);
             btn_bd6_er.setVisibility(View.VISIBLE);
             error_6.setVisibility(View.VISIBLE);
+            btn6_bd6_er.setText("Error: "+msg6);
             btn6_bd6_er.setVisibility(View.VISIBLE);
-            btn6_bd6_er.setText(msg6);
         }
 
         if(tarjeton1.matches("0")){
@@ -476,7 +460,6 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd7_er.setVisibility(View.GONE);
             error_7.setVisibility(View.GONE);
             btn7_bd7_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
         }else if(tarjeton1.matches("1")){
             btn7_socio.setVisibility(View.GONE);
             btn_hd7.setVisibility(View.GONE);
@@ -491,7 +474,7 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd7_er.setVisibility(View.GONE);
             error_7.setVisibility(View.GONE);
             btn7_bd7_er.setVisibility(View.GONE);
-            btn_regreso_socio.setVisibility(View.VISIBLE);
+
         }else {
             btn7_socio.setVisibility(View.GONE);
             btn_hd7.setVisibility(View.GONE);
@@ -506,8 +489,8 @@ public class MainSocioDocumentos extends AppCompatActivity {
             btn_bd7_er.setVisibility(View.VISIBLE);
             error_7.setVisibility(View.VISIBLE);
             btn7_bd7_er.setVisibility(View.VISIBLE);
-            btn7_bd7_er.setText(msg7);
-            btn_regreso_socio.setVisibility(View.GONE);
+            btn7_bd7_er.setText("Error: "+msg7);
+
         }
 
 
@@ -519,6 +502,13 @@ public class MainSocioDocumentos extends AppCompatActivity {
                 finish();
             }
         });
+
+        if(preferncias_socio.getString("terminos1","0").matches("2") | preferncias_socio.getString("ine1","0").matches("2") | preferncias_socio.getString("licencia1","0").matches("2") | preferncias_socio.getString("caracteristicas1","0").matches("2") |
+                preferncias_socio.getString("tarjeta1","0").matches("2") | preferncias_socio.getString("poliza1","0").matches("2") | preferncias_socio.getString("tarjeton1","0").matches("2")){
+            btn_regreso_socio.setVisibility(View.GONE);
+        }else {
+            btn_regreso_socio.setVisibility(View.VISIBLE);
+        }
 
         if(preferncias_socio.getString("terminos1","0").matches("1") & preferncias_socio.getString("ine1","0").matches("1") & preferncias_socio.getString("licencia1","0").matches("1") & preferncias_socio.getString("caracteristicas1","0").matches("1") &
                 preferncias_socio.getString("tarjeta1","0").matches("1") & preferncias_socio.getString("poliza1","0").matches("1") & preferncias_socio.getString("tarjeton1","0").matches("1")){
