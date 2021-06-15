@@ -82,6 +82,12 @@ public class MainRegistroTelefono extends AppCompatActivity {
         obj_editor.putString("phone",phone);
         obj_editor.putInt("State",2);
         obj_editor.commit();
+        preferences_user.getString("name","");
+
+        Log.d("Test Registro Telefono","Nombre: "+preferences_user.getString("name",""));
+        Log.d("Test Registro Telefono","Correo Electronico: "+preferences_user.getString("email",""));
+        Log.d("Test REgistro Telefono", "Contraseña: "+preferences_user.getString("password",""));
+        Log.d("Test Registro Telefono","Telefono: "+preferences_user.getString("phone",""));
 
        if(!check_telefono(phone)){
             return;
