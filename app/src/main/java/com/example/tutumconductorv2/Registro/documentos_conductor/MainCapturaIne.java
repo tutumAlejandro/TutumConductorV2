@@ -245,6 +245,8 @@ public class MainCapturaIne extends AppCompatActivity {
                 public void onScanCompleted(String s, Uri uri) { }
             });
         }
+
+        // eres un mega pendejo
         // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
         int targetW = ine_frontal.getWidth();
         int targetH = ine_frontal.getHeight();
