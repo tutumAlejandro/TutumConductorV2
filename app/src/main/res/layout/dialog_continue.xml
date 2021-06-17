@@ -13,16 +13,16 @@
             android:layout_height="@dimen/width_img_retroceso"
             android:src="@drawable/logo_1024"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="5dp"/>
+            android:layout_marginStart="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_inicio_tutum2"
-            android:textSize="@dimen/size_text_head_capture"
+            android:textSize="24dp"
             android:textColor="@color/white"
             android:fontFamily="@font/open_sans_extra_bold"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="20dp"/>
     </LinearLayout>
 
     <TextView
@@ -55,6 +55,5 @@
         android:layout_marginEnd="20dp"
         android:textColor="@color/daysi"
         android:fontFamily="@font/open_sans_bold"
-        android:textSize="@dimen/size_text_body_capture"
-        android:forceDarkAllowed="false"/>
+        android:textSize="@dimen/size_text_body_capture" />
 </LinearLayout>

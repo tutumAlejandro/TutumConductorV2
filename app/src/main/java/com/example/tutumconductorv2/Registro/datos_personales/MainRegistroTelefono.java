@@ -12,13 +12,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.MainActivity;
+import com.example.tutumconductorv2.MainVentanaPrincipal;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.google.android.material.textfield.TextInputLayout;
 import com.hbb20.CountryCodePicker;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -37,6 +42,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
     private String name,phone,email,tel;
     CountryCodePicker ccp;
     boolean ccp1;
+    boolean ok=false;
 
     private boolean isSucess;
 
@@ -49,7 +55,6 @@ public class MainRegistroTelefono extends AppCompatActivity {
 
         SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         int state= preferences_user.getInt("State",0);
-        Log.d("Revisar Estado","Estado actual"+state);
         name = preferences_user.getString("name","");
         email = preferences_user.getString("email","");
 
@@ -79,24 +84,21 @@ public class MainRegistroTelefono extends AppCompatActivity {
         ccp1 = ccp.getCcpDialogShowFlag();
         SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferences_user.edit();
-        obj_editor.putString("phone",phone);
-        obj_editor.putInt("State",2);
+        obj_editor.putInt("State",3);
         obj_editor.commit();
-        preferences_user.getString("name","");
-
-        Log.d("Test Registro Telefono","Nombre: "+preferences_user.getString("name",""));
-        Log.d("Test Registro Telefono","Correo Electronico: "+preferences_user.getString("email",""));
-        Log.d("Test REgistro Telefono", "Contraseña: "+preferences_user.getString("password",""));
-        Log.d("Test Registro Telefono","Telefono: "+preferences_user.getString("phone",""));
-
        if(!check_telefono(phone)){
             return;
        }else {
                if(!cadenas_registro.edit_phone){
                    editPhoneNumber();
+                   Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
+                   startActivity(main_otp);
+                   finish();
                }
                else {
                    realizarPost(url_registro);
+
+
                }
        }
     }
@@ -119,17 +121,41 @@ public class MainRegistroTelefono extends AppCompatActivity {
                         if(response.getString("success").matches("true"))
                         {
                             Log.d("Respuesta Registro","Exito!!!: "+response);
-                            Intent main_popup = new Intent(MainRegistroTelefono.this, MainPopUpRegistro.class);
-                            startActivity(main_popup);
-                            solicitarOTP();
-                            finish();
+                           new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor obj_editor = preferences_user.edit();
+                                    obj_editor.putString("phone",phone);
+                                    obj_editor.putInt("State",3);
+                                    obj_editor.commit();
+
+                                    Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
+                                    startActivity(main_otp);
+                                    solicitarOTP();
+                                    finish();
+                                }
+                            },1000);
+                            AlertDialog.Builder registro_exitoso = new AlertDialog.Builder(MainRegistroTelefono.this);
+                            registro_exitoso.setTitle(Html.fromHtml("<font color='#088d30'> <b> Registro Telefono </b> </font>"));
+                            registro_exitoso.setMessage(Html.fromHtml("<font color='#088d30'> <b>Número de teléfono y correo electrónico agregados correctamente</b> </font>"));
+                            registro_exitoso.show();
+                            //final AlertDialog.Builder dialog = new
 
                         }else
                         {
-                            Log.d("Respuesta Registro","Error!!!: "+response);
-                            Intent main_popup_fail = new Intent(MainRegistroTelefono.this, MainPopUpRegistroFail.class);
-                            startActivity(main_popup_fail);
-                            finish();
+                            Log.d("Respuesta Registro","ERROR!!!: "+response);
+
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                }
+                            },1000);
+                            AlertDialog.Builder registro_exitoso = new AlertDialog.Builder(MainRegistroTelefono.this);
+                            registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0000'> <b>Registro Telefono </b></font>"));
+                            registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0000'> <b>Lo sentimos, este número de teléfono y/o correo electrónico ya está siendo utilizado, intenta con otro</b> </font>"));
+                            registro_exitoso.show();
+
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -167,13 +193,39 @@ public class MainRegistroTelefono extends AppCompatActivity {
                         //test_check.setText(response.getString("success"));
                         if(response.getString("success").matches("true"))
                         {
-                            Intent main_popup = new Intent(MainRegistroTelefono.this, MainPopUpRegistro.class);
-                            startActivity(main_popup);
+                            Log.d("Respuesta Registro","Exito!!!: "+response);
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor obj_editor = preferences_user.edit();
+                                    obj_editor.putString("phone",phone);
+                                    obj_editor.putInt("State",3);
+                                    obj_editor.commit();
+
+                                    Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
+                                    startActivity(main_otp);
+                                    solicitarOTP();
+                                    finish();
+                                }
+                            },1000);
+                            AlertDialog.Builder registro_exitoso = new AlertDialog.Builder(MainRegistroTelefono.this);
+                            registro_exitoso.setTitle(Html.fromHtml("<font color='#088d30'> <b> Registro Telefono </b> </font>"));
+                            registro_exitoso.setMessage(Html.fromHtml("<font color='#088d30'> <b>Número de teléfono y correo electrónico agregados correctamente</b> </font>"));
+                            registro_exitoso.show();
                         }else
                         {
-                            cadenas_registro.msg_fail= response.getString("msg");
-                            Intent main_popup_fail = new Intent(MainRegistroTelefono.this, MainPopUpRegistroFail.class);
-                            startActivity(main_popup_fail);
+                            Log.d("Respuesta Registro","ERROR!!!: "+response);
+
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                }
+                            },1000);
+                            AlertDialog.Builder registro_exitoso = new AlertDialog.Builder(MainRegistroTelefono.this);
+                            registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0000'> <b>Registro Telefono </b></font>"));
+                            registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0000'> <b>Lo sentimos, este número de teléfono y/o correo electrónico ya está siendo utilizado, intenta con otro</b> </font>"));
+                            registro_exitoso.show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

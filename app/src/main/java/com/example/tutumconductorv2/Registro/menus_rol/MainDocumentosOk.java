@@ -289,17 +289,17 @@ public class MainDocumentosOk extends AppCompatActivity {
                               if(rol.matches("Socio")){
                                   obj_edit.putString("terminos1","2");
                                   obj_edit.putString("error1",error1);
-                                  obj_edit.putInt("State",7);
+                                  obj_edit.putInt("State",4);
                                   obj_edit.commit();
                               }else if(rol.matches("Socio")){
                                   obj_edit.putString("terminos2","2");
                                   obj_edit.putString("error1",error1);
-                                  obj_edit.putInt("State",7);
+                                  obj_edit.putInt("State",5);
                                   obj_edit.commit();
                               }else{
                                   obj_edit.putString("terminos3","2");
                                   obj_edit.putString("error1",error1);
-                                  obj_edit.putInt("State",7);
+                                  obj_edit.putInt("State",6);
                                   obj_edit.commit();
                               }
 
@@ -320,17 +320,17 @@ public class MainDocumentosOk extends AppCompatActivity {
                             if(rol.matches("Socio")){
                                 obj_edit.putString("error2",error2);
                                 obj_edit.putString("ine1","2");
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",4);
                                 obj_edit.commit();
                             }else if(rol.matches("Conductor")){
                                 obj_edit.putString("error2",error2);
                                 obj_edit.putString("ine2","2");
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",5);
                                 obj_edit.commit();
                             }else{
                                 obj_edit.putString("error2",error2);
                                 obj_edit.putString("ine3","2");
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",6);
                                 obj_edit.commit();
                             }
 
@@ -357,16 +357,16 @@ public class MainDocumentosOk extends AppCompatActivity {
                             if(rol.matches("Socio")){
                                 obj_edit.putString("error3",error3);
                                 obj_edit.putString("licencia1","2");
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",4);
                                 obj_edit.commit();
                             }else if (rol.matches("Conductor")){
                                 obj_edit.putString("error3",error3);
                                 obj_edit.putString("licencia2","2");
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",5);
                                 obj_edit.commit();
                             }else{
                                 obj_edit.putString("licencia3","2");
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",6);
                                 obj_edit.commit();
                             }
 
@@ -393,12 +393,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                             if(rol.matches("Socio")){
                                 obj_edit.putString("caracteristicas1","2");
                                 obj_edit.putString("error4",error4);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",4);
                                 obj_edit.commit();
                             }else if(rol.matches("Conductor")){
                                 obj_edit.putString("caracteristicas2","2");
                                 obj_edit.putString("error4",error4);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",5);
                                 obj_edit.commit();
                             }else {
 
@@ -439,12 +439,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                             if(rol.matches("Socio")){
                                 obj_edit.putString("tarjeta1","2");
                                 obj_edit.putString("error5",error5);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",4);
                                 obj_edit.commit();
                             }else if(rol.matches("Conductor")){
                                 obj_edit.putString("tarjeta2","2");
                                 obj_edit.putString("error5",error5);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",5);
                                 obj_edit.commit();
                             }else {
 
@@ -475,12 +475,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                             if(rol.matches("Socio")){
                                 obj_edit.putString("poliza1","2");
                                 obj_edit.putString("error6",error6);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",4);
                                 obj_edit.commit();
                             }else if(rol.matches("Conductor")){
                                 obj_edit.putString("poliza2","2");
                                 obj_edit.putString("error6",error6);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",5);
                                 obj_edit.commit();
                             }else{
 
@@ -501,17 +501,17 @@ public class MainDocumentosOk extends AppCompatActivity {
                             if(rol.matches("Socio")){
                                 obj_edit.putString("tarjeton1","2");
                                 obj_edit.putString("error7",error7);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",4);
                                 obj_edit.commit();
                             }else if(rol.matches("Conductor")){
                                 obj_edit.putString("tarjeton2","2");
                                 obj_edit.putString("error7",error7);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",5);
                                 obj_edit.commit();
                             }else{
                                 obj_edit.putString("tarjeton3","2");
                                 obj_edit.putString("error7",error7);
-                                obj_edit.putInt("State",7);
+                                obj_edit.putInt("State",6);
                                 obj_edit.commit();
                             }
 
@@ -578,7 +578,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         if(status1.matches("2")){
                             obj_editor.putString("error1",error1);
                             obj_editor.putString("terminos3","2");
-                            obj_editor.putInt("State",7);
+                            obj_editor.putInt("State",6);
                             obj_editor.commit();
                         }
 
@@ -598,7 +598,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         if(status2.matches("2")){
                             obj_editor.putString("error2",error2);
                             obj_editor.putString("ine3","2");
-                            obj_editor.putInt("State",7);
+                            obj_editor.putInt("State",6);
                             obj_editor.commit();
                         }
 
@@ -618,7 +618,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         if(status3.matches("2")){
                             obj_editor.putString("error3",error3);
                             obj_editor.putString("licencia3","2");
-                            obj_editor.putInt("State",7);
+                            obj_editor.putInt("State",6);
                             obj_editor.commit();
                         }
 
@@ -637,7 +637,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         Log.d("Respuesta Code",">>>>>Type: "+type4);
                         if(status4.matches("2")){
                             obj_editor.putString("error4",error4);
-                            obj_editor.putInt("State",7);
+                            obj_editor.putInt("State",6);
                             obj_editor.putString("codigo3","2");
                             obj_editor.commit();
                         }
@@ -657,7 +657,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         Log.d("Respuesta Tarjeton",">>>>>Type: "+type5);
                         if(status5.matches("2")){
                             obj_editor.putString("error5",error5);
-                            obj_editor.putInt("State",7);
+                            obj_editor.putInt("State",6);
                             obj_editor.putString("tarjeton3","2");
                             obj_editor.commit();
                         }

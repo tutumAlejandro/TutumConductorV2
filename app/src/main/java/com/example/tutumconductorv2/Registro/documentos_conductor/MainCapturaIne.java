@@ -3,6 +3,7 @@ package com.example.tutumconductorv2.Registro.documentos_conductor;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -21,6 +22,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -61,6 +63,7 @@ public class MainCapturaIne extends AppCompatActivity {
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int PICK_IMAGE=100;
     int codigoBoton = 0;
     int factor = 1;
     int quality_image=30;
@@ -143,8 +146,25 @@ public class MainCapturaIne extends AppCompatActivity {
         ine_frontal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder cargar_imagen = new AlertDialog.Builder(MainCapturaIne.this);
+                cargar_imagen.setTitle("Cargar imagen desde");
+                cargar_imagen.setPositiveButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                              Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                              startActivityForResult(galeria, PICK_IMAGE);
+                    }
+                });
+                cargar_imagen.setNegativeButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        tomarFoto(v,"ine_frente");
+                    }
+                });
+                cargar_imagen.show();
+
                 codigoBoton=1;
-                tomarFoto(v,"ine_frente");
+
                 check_ine_frontal=true;
             }
         });

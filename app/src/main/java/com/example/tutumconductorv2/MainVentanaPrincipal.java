@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,7 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tutumconductorv2.Registro.datos_personales.MainContinuarRegistro;
 import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
@@ -29,14 +29,11 @@ import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainVentanaPrincipal extends AppCompatActivity {
 
     private int estado_previo;
-    private TextView State;
     private String phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +43,10 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
     public void btn_registrate(View v)
     {
-        Log.d("Test Button Registrate","Funciona el registro");
-        //Primero ver si hay un registro completo (Status = 10)
         SharedPreferences preferencias_ventanaPrincipal = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
         estado_previo = preferencias_ventanaPrincipal.getInt("State",0);
-        if(estado_previo == 10 | estado_previo == 0){
-            Log.d("Test Button Registrate","Estado previo igual a 0");
+        if(estado_previo == 0){
+            Log.d("Main Ventana Principal","Mo hay ningun registro sin terminar");
             Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
             startActivity(main_registrate);
             finish();
@@ -59,9 +54,15 @@ public class MainVentanaPrincipal extends AppCompatActivity {
             // un registro incompleto con el servidor
 
             // se tiene que hacer un POST al servidor para saber el time
-            Log.d("Test Button Registrate","Estado diferente de 0");
+            Log.d("Main Ventana Principal","Hay un registro sin terminar en el telefono");
             phone = preferencias_ventanaPrincipal.getString("phone","");
-            POST_timeline();
+            if(phone.isEmpty()){
+                Log.d("Main Ventana Principal", "No hay ningun numero de telefono registrado");
+            }else{
+                Log.d("Main Venatan Principal","Hay un numero de telefono registrado en el telefono");
+                POST_timeline();
+            }
+
 
         }
     }
@@ -74,30 +75,43 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     private void POST_timeline(){
 
         String url = "https://www.tutumapps.com/api/driver/registryTimelineStatus";
-        Log.d("Test Button Registrate","Se cargo la URL");
+
         try{
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone",phone);
             final String requestBody = jsonObject.toString();
-            Log.d("Test Button Registrate","Peticion hecha al servidor");
+            Log.d("Main Ventana Principal","Peticion hecha al servidor");
             JsonObjectRequest request_timeline = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     //Si hay respuesta por parte del servidor, esta debe de ser analizada
-                    Log.d("Respuesta Servidor","<<<<<<<<<<Si hay respuesta del servdor>>>>>>>>>>");
-                    Log.d("Respuesta Servidor","Respuesta: " + response);
+                    Log.d("Main Ventana Principal","Respuesta del servidor: " + response);
                     //Debido a que podemos recibir dos tipos de respuestas usaremos un if
                     if(response.has("msg")){
                         // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
                         Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
                         startActivity(main_registrate);
-                        Log.d("Respuesta Servidor","No se encontro el registro");
+                        Log.d("Main Ventana Principal","No se encontro el registro");
                     }else{
                         //Si no existe el encabezado "msg", quiere decir que hay un registro con ese numero
-                        Log.d("Respuesta Servidor", "Registro encontrado");
-                        AlertDialog.Builder alert_continue = new AlertDialog.Builder(MainVentanaPrincipal.this);
-                        alert_continue.setView(R.layout.dialog_continue);
+                        Log.d("Main Ventana Principal", "Registro encontrado");
+                        String msg2= "";
+
+                        final AlertDialog.Builder alert_continue = new AlertDialog.Builder(MainVentanaPrincipal.this);
+                        //alert_continue.setView(R.layout.dialog_continue);
+
+                        switch (estado_previo){
+                            case 1: {msg2 = "Etapa: Registro del Telefono";}break;
+                            case 2: {msg2 = "Etapa: Validación del OTP";}break;
+                            case 3: {msg2 = "Etapa: Selección del tipo de usuario";}break;
+                            case 4: {msg2 = "Etapa: Documentos documentos Socio";}break;
+                            case 5: {msg2 = "Etapa: Documentos Conductor";}break;
+                            case 6: {msg2 = "Etapa: Documentos Conductor Sin Vehiculo";}break;
+                            case 8: {msg2 = "Etapa: Documentos Entregados";}break;
+                        }
+
+
                         alert_continue.setPositiveButton(R.string.txt_btn_pop_up1, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -114,8 +128,6 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                                         startActivity(main_conductor);finish();}break;
                                     case 6: {Intent main_snv = new Intent(MainVentanaPrincipal.this, MainSnvDocuemtos.class);
                                         startActivity(main_snv); finish();}break;
-                                    case 7: {Intent main_err = new Intent(MainVentanaPrincipal.this, MainSocioDocumentos.class);
-                                        startActivity(main_err);finish();}break;
                                     case 8: {Intent main_ok = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
                                         startActivity(main_ok);finish();}break;
                                 }
@@ -128,15 +140,19 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                                 startActivity(main_registrate);
                             }
                         });
-                        alert_continue.setView(R.layout.dialog_continue);
+                        //alert_continue.setMessage(msg2);
+                        alert_continue.setTitle(Html.fromHtml("<font color='#E4B621'> <b>Registro Conductor</b></font>"));
+                        alert_continue.setIcon(R.drawable.logo_1024);
+                        alert_continue.setMessage(Html.fromHtml("<p><b>Parece que tienes un registro sin completar.</b></p>"+"<b>¿Quieres continuar con tu registro</b>"+"\n \n"+msg2));
                         alert_continue.show();
+
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     //Si no hay respuesta del servidor mostrar un error ya mediante el LOg y un AlertDialog
-                    Log.d("Repuesta Servidor", "<<<<<<<<<No hay respuesta del servidor>>>>>>>>>>");
+                    Log.e("Main Ventana Principal", "<<<<<<<<<No hay respuesta del servidor>>>>>>>>>>");
                 }
             });
             requestQueue.add(request_timeline);

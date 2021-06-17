@@ -31,7 +31,6 @@ public class MainRolConductor extends AppCompatActivity {
         setContentView(R.layout.activity_main_rol_conductor);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         tel=preferences.getString("phone","");
-        Log.d("Telefono","Telefono: "+tel);
 
     }
     public void main_doctos_socio(View v) {
@@ -92,7 +91,7 @@ public class MainRolConductor extends AppCompatActivity {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("My Tag","Exito!!!!! "+response);
+                    Log.d("Seleccion de Rol","Socio Administrador "+response);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -123,13 +122,13 @@ public class MainRolConductor extends AppCompatActivity {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("My Tag","Exito!!!!! "+response);
+                    Log.d("Seleccion de Rol","Conductor"+response);
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
-                    Log.d("My Tag","Error"+error);
+                    Log.d("Seleccion de Rol","Error en el servidor"+error);
                 }
             });
             requestQueue.add(request);
@@ -154,7 +153,7 @@ public class MainRolConductor extends AppCompatActivity {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("My Tag","Exito!!!!! "+response);
+                    Log.d("Seleccion de Rol","Conductor sin Vehiculo "+response);
                 }
             }, new Response.ErrorListener() {
                 @Override

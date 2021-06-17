@@ -16,14 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
-import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
-import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpRegistro;
-import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpRegistroFail;
-import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
-import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;

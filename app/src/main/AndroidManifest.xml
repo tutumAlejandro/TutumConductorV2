@@ -43,15 +43,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Registro.datos_personales.MainContinuarRegistro" />
         <activity android:name=".MainScripRegistro" />
         <activity android:name=".Registro.menus_rol.MainDocumentosOk" />
-        <activity
-            android:name=".Registro.datos_personales.MainPopUpRegistroFail"
-            android:theme="@style/ThemePopUp" />
-        <activity
-            android:name=".Registro.datos_personales.MainPopUpRegistro"
-            android:theme="@style/ThemePopUp" />
         <activity android:name=".Registro.menus_rol.MainConductorDocumentos" />
         <activity
             android:name=".Registro.documentos_conductor.MainTextoPoliticaPrivacidad"

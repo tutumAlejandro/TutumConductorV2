@@ -128,17 +128,17 @@ public class MainOTP extends AppCompatActivity {
     }
     public void main_rol(View v)
     {
-        SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-        SharedPreferences.Editor obj_editor = preferences_user.edit();
-        obj_editor.putInt("State",3);
-        obj_editor.commit();
+
         String otp_cd = otp.getEditText().getText().toString().trim();
         if(!check_otp(otp_cd))
         {
             return;
         }else
         {
-
+            SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+            SharedPreferences.Editor obj_editor = preferences_user.edit();
+            obj_editor.putInt("State",3);
+            obj_editor.commit();
             Intent main_rol = new Intent(MainOTP.this, MainRolConductor.class);
             startActivity(main_rol);
             finish();
@@ -180,6 +180,10 @@ public class MainOTP extends AppCompatActivity {
                         isSucess = response.getBoolean("success");
                         if(isSucess){
                             Toast.makeText(MainOTP.this, "OTP", Toast.LENGTH_SHORT).show();
+                            SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor obj_editor = preferences_user.edit();
+                            obj_editor.putInt("State",3);
+                            obj_editor.commit();
                             return;
                         }
                         else{
