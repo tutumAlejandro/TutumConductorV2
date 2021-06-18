@@ -217,7 +217,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_er_conductor1.setVisibility(View.VISIBLE);
             bd_er_conductor1.setVisibility(View.VISIBLE);
             btn1_bd1_er.setVisibility(View.VISIBLE);
-            btn1_bd1_er.setText(msg1);
+            btn1_bd1_er.setText("Error: "+msg1);
         }
 
         if(ine2.matches("0")){
@@ -265,7 +265,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_er_conductor2.setVisibility(View.VISIBLE);
             bd_er_conductor2.setVisibility(View.VISIBLE);
             btn2_bd2_er.setVisibility(View.VISIBLE);
-            btn2_bd2_er.setText(msg2);
+            btn2_bd2_er.setText("Error: "+msg2);
         }
 
         if(licencia2.matches("0")){
@@ -310,7 +310,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_er_conductor3.setVisibility(View.VISIBLE);
             bd_er_conductor3.setVisibility(View.VISIBLE);
             btn3_bd3_er.setVisibility(View.VISIBLE);
-            btn3_bd3_er.setText(msg3);
+            btn3_bd3_er.setText("Error: "+msg3);
         }
 
         if(caracteristicas2.matches("0")){
@@ -355,7 +355,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_er_conductor4.setVisibility(View.VISIBLE);
             bd_er_conductor4.setVisibility(View.VISIBLE);
             btn4_bd4_er.setVisibility(View.VISIBLE);
-            btn4_bd4_er.setText(msg4);
+            btn4_bd4_er.setText("Error: "+msg4);
         }
 
         if(tarjeta2.matches("0")){
@@ -400,7 +400,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_er_conductor5.setVisibility(View.VISIBLE);
             bd_er_conductor5.setVisibility(View.VISIBLE);
             btn5_bd5_er.setVisibility(View.VISIBLE);
-            btn5_bd5_er.setText(msg5);
+            btn5_bd5_er.setText("Error: "+msg5);
         }
 
         if(poliza2.matches("0")){
@@ -445,7 +445,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_er_conductor6.setVisibility(View.VISIBLE);
             bd_er_conductor6.setVisibility(View.VISIBLE);
             btn6_bd6_er.setVisibility(View.VISIBLE);
-            btn6_bd6_er.setText(msg6);
+            btn6_bd6_er.setText("Error: "+msg6);
         }
 
         if(tarjeton2.matches("0")){
@@ -490,7 +490,7 @@ public class MainConductorDocumentos extends AppCompatActivity {
             hd_er_conductor7.setVisibility(View.VISIBLE);
             bd_er_conductor7.setVisibility(View.VISIBLE);
             btn7_bd7_er.setVisibility(View.VISIBLE);
-            btn7_bd7_er.setText(msg7);
+            btn7_bd7_er.setText("Error: "+msg7);
         }
 
 

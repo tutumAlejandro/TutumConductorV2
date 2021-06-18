@@ -83,21 +83,7 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
                 SharedPreferences preferencias_tarjeta = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias_tarjeta.edit();
                 int state = preferencias_tarjeta.getInt("State",0);
-                if(state != 7){
-                    if (rol.matches("Socio")) {
-                        Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                        obj_editor.putString("tarjeta1","0");
-                        obj_editor.commit();
-                        startActivity(main_socio_documentos);
-                        finish();
-                    } else {
-                        Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                        obj_editor.putString("tarjeta2","0");
-                        obj_editor.commit();
-                        startActivity(main_conductor_documentos);
-                        finish();
-                    }
-                }else{
+                if(state == 7){
                     if (rol.matches("Socio")) {
                         Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
                         obj_editor.putString("tarjeta1","2");
@@ -107,6 +93,20 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
                     } else {
                         Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
                         obj_editor.putString("tarjeta2","2");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    }
+                }else{
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
+                        obj_editor.putString("tarjeta1","0");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else {
+                        Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
+                        obj_editor.putString("tarjeta2","0");
                         obj_editor.commit();
                         startActivity(main_conductor_documentos);
                         finish();

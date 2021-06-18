@@ -223,6 +223,14 @@ public class MainRolConductor extends AppCompatActivity {
         obj_editor.putString("licencia3","0");
         obj_editor.putString("codigo3","0");
         obj_editor.putString("tarjeton3","0");
+
+        obj_editor.putString("error1","");
+        obj_editor.putString("error2","");
+        obj_editor.putString("error3","");
+        obj_editor.putString("error4","");
+        obj_editor.putString("error5","");
+        obj_editor.putString("error6","");
+        obj_editor.putString("error7","");
         obj_editor.commit();
 
     }

@@ -141,21 +141,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 SharedPreferences preferencias_caracteristicas = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias_caracteristicas.edit();
                 int state = preferencias_caracteristicas.getInt("State",0);
-                if(state != 7){
-                    if (rol.matches("Socio")) {
-                        Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
-                        obj_editor.putString("caracteristicas1","0");
-                        obj_editor.commit();
-                        startActivity(main_socio_documentos);
-                        finish();
-                    } else{
-                        Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
-                        obj_editor.putString("caracteristicas2","0");
-                        obj_editor.commit();
-                        startActivity(main_conductor_documentos);
-                        finish();
-                    }
-                }else{
+                if(state == 7){
                     if (rol.matches("Socio")) {
                         Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
                         obj_editor.putString("caracteristicas1","2");
@@ -169,8 +155,21 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                         startActivity(main_conductor_documentos);
                         finish();
                     }
+                }else{
+                    if (rol.matches("Socio")) {
+                        Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
+                        obj_editor.putString("caracteristicas1","0");
+                        obj_editor.commit();
+                        startActivity(main_socio_documentos);
+                        finish();
+                    } else{
+                        Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
+                        obj_editor.putString("caracteristicas2","0");
+                        obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    }
                 }
-
             }
         });
 

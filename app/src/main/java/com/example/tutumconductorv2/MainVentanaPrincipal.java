@@ -128,6 +128,8 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                                         startActivity(main_conductor);finish();}break;
                                     case 6: {Intent main_snv = new Intent(MainVentanaPrincipal.this, MainSnvDocuemtos.class);
                                         startActivity(main_snv); finish();}break;
+                                    case 7: {Intent main_error = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
+                                             startActivity(main_error);}break;
                                     case 8: {Intent main_ok = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
                                         startActivity(main_ok);finish();}break;
                                 }

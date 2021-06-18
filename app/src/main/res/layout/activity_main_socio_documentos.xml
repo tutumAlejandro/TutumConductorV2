@@ -921,7 +921,7 @@
                        android:forceDarkAllowed="false"/>
                 <TextView
                     android:id="@+id/body2_btn7_error_socio"
-                    android:layout_width="@dimen/width_text_body_btn"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:elevation="10dp"
