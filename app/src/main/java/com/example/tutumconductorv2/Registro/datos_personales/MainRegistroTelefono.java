@@ -127,7 +127,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
                                     SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor obj_editor = preferences_user.edit();
                                     obj_editor.putString("phone",phone);
-                                    obj_editor.putInt("State",3);
+                                    obj_editor.putInt("State",2);
                                     obj_editor.commit();
 
                                     Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);

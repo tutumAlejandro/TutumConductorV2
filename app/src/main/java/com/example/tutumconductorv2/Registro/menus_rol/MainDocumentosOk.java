@@ -163,7 +163,10 @@ public class MainDocumentosOk extends AppCompatActivity {
                                           }break;
                                 case "8": {mostrar_aceptado();}break;
                                 case "9": {mostrar_cita1(); }break;
-                                case "10": {inicioSesion();}break;// asignar state a 10
+                                case "10": {
+                                            Log.d("Test Estatus","Test Status");
+                                            post_update();
+                                           }break;// asignar state a 10
                             }
                             id = exito.getString("registry_id");
                             Log.d("TEST!!!!!","Exito Status: "+status1);
@@ -680,16 +683,77 @@ public class MainDocumentosOk extends AppCompatActivity {
         }
     }
 
+    private void realizarLogin(){
+        String url = "https://www.tutumapps.com/api/driver/login";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        String correo = preferences.getString("email","");
+        String contrasena = preferences.getString("password","");
+
+        Log.d("Inicio de Sesion","Correo: "+correo);
+        Log.d("Inicio de Sesion","Contraseña: "+contrasena);
+        Log.d("Inicio Sesion","Esto vale madres");
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final org.json.JSONObject jsonObject = new org.json.JSONObject();
+
+        try {
+              jsonObject.put("email",correo);
+              jsonObject.put("password","");
+
+              final String requestBody = jsonObject.toString();
+              JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                  @Override
+                  public void onResponse(JSONObject response) {
+                      Log.d("TAG", "Success! :D" + " " + response);
+                      try {
+                           boolean isSucess = response.getBoolean("success");
+                          if(isSucess){
+                              saveUserData(response);
+                              Intent intent = new Intent(MainDocumentosOk.this, Inicio.class);
+                              intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                              Toast.makeText(MainDocumentosOk.this, "Inicio Correcto", Toast.LENGTH_SHORT).show();
+                              startActivity(intent);
+
+
+                          }
+                          else{
+                              String getMsg = response.getString("msg");
+                              Toast.makeText(MainDocumentosOk.this, getMsg, Toast.LENGTH_LONG).show();
+                          }
+                      } catch (JSONException e) {
+                          e.printStackTrace();
+                      }
+                  }
+              }, new Response.ErrorListener() {
+                  @Override
+                  public void onErrorResponse(VolleyError error) {
+                      Log.d("Respuesta Servidor", "Error: ");
+                  }
+              });
+            requestQueue.add(request);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
     private void inicioSesion(){
 
         String url = "https://www.tutumapps.com/api/driver/login";
-        Log.d("test","hola>>>>>>>>>>>>>>>>"+correo);
+
         try{
+
+            SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+            String correo2 = preferences.getString("email","");
+            String password = preferences.getString("password","");
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final JSONObject jsonObject = new JSONObject();
 
-            jsonObject.put("email", correo);
-            jsonObject.put("password", contrasena);
+            jsonObject.put("email", correo2);
+            jsonObject.put("password", password);
+            Log.d("Inicio de sesion","Correo: "+correo2+"Contraseña: "+password);
 
             final String requestBody = jsonObject.toString();
 
@@ -697,8 +761,6 @@ public class MainDocumentosOk extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     Log.d("TAG", "Success! :D" + " " + response);
-                    Log.d("test","hola>>>>>>>>>>>>>>>>"+correo);
-                    Log.d("test","hola>>>>>>>>>>>>>>>>"+contrasena);
                     try {
                         boolean isSucess = response.getBoolean("success");
                         if(isSucess){
@@ -761,6 +823,38 @@ public class MainDocumentosOk extends AppCompatActivity {
             Log.e("MyTAG", "hubo un error obteniendo los valores del servidor");
         }
 
+    }
+
+    public void post_update(){
+        String url = "https://tutumapps.com/api/driver/login";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        String email2 = preferences.getString("email","");
+        String phone2 = preferences.getString("phone","");
+        String password2 = preferences.getString("password","");
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("email",email2);
+            jsonObject.put("password","");
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Registro Actualizado "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

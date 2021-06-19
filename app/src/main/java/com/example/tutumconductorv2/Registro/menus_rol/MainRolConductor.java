@@ -24,6 +24,8 @@ import org.json.JSONObject;
 public class MainRolConductor extends AppCompatActivity {
 
     private String tel;
+    private String email;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,10 @@ public class MainRolConductor extends AppCompatActivity {
         setContentView(R.layout.activity_main_rol_conductor);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         tel=preferences.getString("phone","");
+        email=preferences.getString("email","");
+        password = preferences.getString("password","");
 
+       // post_update();
     }
     public void main_doctos_socio(View v) {
         realizarPostSocio();
@@ -167,24 +172,25 @@ public class MainRolConductor extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public void post_confirm(){
-        String url = "https://tutumapps.com/api/driver/updateRegistryFields";
+    public void post_update(){
+        String url = "https://tutumapps.com/api/driver/updateProfile";
+         SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+         String email2 = preferences.getString("email","");
+         String phone2 = preferences.getString("phone","");
+         String password2 = preferences.getString("password","");
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("phone", tel);
-            jsonObject.put("status","0");
-            jsonObject.put("type","0");
-            jsonObject.put("only",1);
-            jsonObject.put("confirmation_phone",'1');
-            jsonObject.put("terms_confirmation","0");
+            jsonObject.put("email",email2);
+            jsonObject.put("phone", phone2);
+            jsonObject.put("password",password2);
 
             final String requestBody = jsonObject.toString();
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("My Tag","Exito!!!!! "+response);
+                    Log.d("My Tag","Registro Actualizado "+response);
                 }
             }, new Response.ErrorListener() {
                 @Override
