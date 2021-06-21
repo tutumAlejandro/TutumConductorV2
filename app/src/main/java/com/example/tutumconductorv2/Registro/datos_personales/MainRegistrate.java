@@ -1,6 +1,7 @@
 package com.example.tutumconductorv2.Registro.datos_personales;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -9,8 +10,11 @@ import android.graphics.Color;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.google.android.material.textfield.TextInputLayout;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Patterns;
 import android.view.View;
 
@@ -97,16 +101,35 @@ public class MainRegistrate extends AppCompatActivity {
             return;
         }else
         {
-            SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-            SharedPreferences.Editor obj_editor = preferences.edit();
-            obj_editor.putString("name",(nombres.getEditText().getText().toString().trim())+" "+apeidop.getEditText().getText().toString().trim()+" "+ apeidom.getEditText().getText().toString().trim());
-            obj_editor.putString("email",email.getEditText().getText().toString().trim());
-            obj_editor.putString("password",pass.getEditText().getText().toString().trim());
-            obj_editor.putInt("State",1);
-            obj_editor.commit();
-            Intent main_registro_telefono = new Intent(MainRegistrate.this, MainRegistroTelefono.class);
-            startActivity(main_registro_telefono);
-            finish();
+            AlertDialog.Builder confirm_datos = new AlertDialog.Builder(MainRegistrate.this);
+            confirm_datos.setTitle(Html.fromHtml("<font color='#E4B621'> <b>Registro Conductor</b></font>"));
+            confirm_datos.setIcon(R.drawable.logo_1024);
+            confirm_datos.setMessage(Html.fromHtml("<p><font color=''><b>¿Los datos son correctos?</b></font></p> <p><b>Nombre: </b>"+nombres.getEditText().getText().toString().trim()+"</p>"+
+                                                   "<p><b> Apeido Paterno: </b>"+apeidop.getEditText().getText().toString().trim()+"</p>"+"<p><b>Apeido Materno: </b>"+apeidom.getEditText().getText().toString().trim()+"</p>"+
+                                                   "<p><b>Correo Eléctronico: </b>"+email.getEditText().getText().toString().trim()+"</p>"));
+            confirm_datos.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor obj_editor = preferences.edit();
+                    obj_editor.putString("name",(nombres.getEditText().getText().toString().trim())+" "+apeidop.getEditText().getText().toString().trim()+" "+ apeidom.getEditText().getText().toString().trim());
+                    obj_editor.putString("email",email.getEditText().getText().toString().trim());
+                    obj_editor.putString("password",pass.getEditText().getText().toString().trim());
+                    obj_editor.putInt("State",1);
+                    obj_editor.commit();
+                    Intent main_registro_telefono = new Intent(MainRegistrate.this, MainRegistroTelefono.class);
+                    startActivity(main_registro_telefono);
+                    finish();
+                }
+            });
+            confirm_datos.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    return;
+                }
+            });
+            confirm_datos.show();
+
         }
     }
 

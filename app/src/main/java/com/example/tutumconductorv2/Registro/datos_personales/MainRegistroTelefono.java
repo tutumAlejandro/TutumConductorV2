@@ -66,12 +66,18 @@ public class MainRegistroTelefono extends AppCompatActivity {
             telefono.setError("Campo Requerido");
             telefono.setErrorTextColor(ColorStateList.valueOf(Color.RED));
             return false;
-        } else if (num_telefono.length() < 10) {
+        } else if (num_telefono.length() <=9 ) {
             telefono.setErrorEnabled(true);
             telefono.setError("Formato Invalido");
             telefono.setErrorTextColor(ColorStateList.valueOf(Color.RED));
             return false;
-        } else {
+        }else if (num_telefono.length() >= 11){
+            telefono.setErrorEnabled(true);
+            telefono.setError("Formato Invalido");
+            telefono.setErrorTextColor(ColorStateList.valueOf(Color.RED));
+            return false;
+        }
+        else {
             telefono.setErrorEnabled(false);
             return true;
         }
@@ -121,6 +127,10 @@ public class MainRegistroTelefono extends AppCompatActivity {
                         if(response.getString("success").matches("true"))
                         {
                             Log.d("Respuesta Registro","Exito!!!: "+response);
+                            AlertDialog.Builder registro_exitoso = new AlertDialog.Builder(MainRegistroTelefono.this);
+                            registro_exitoso.setTitle(Html.fromHtml("<font color='#088d30'> <b> Registro Telefono </b> </font>"));
+                            registro_exitoso.setMessage(Html.fromHtml("<font color='#088d30'> <b>Número de teléfono y correo electrónico agregados correctamente</b> </font>"));
+                            registro_exitoso.show();
                            new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
@@ -134,12 +144,10 @@ public class MainRegistroTelefono extends AppCompatActivity {
                                     startActivity(main_otp);
                                     solicitarOTP();
                                     finish();
+
                                 }
                             },1000);
-                            AlertDialog.Builder registro_exitoso = new AlertDialog.Builder(MainRegistroTelefono.this);
-                            registro_exitoso.setTitle(Html.fromHtml("<font color='#088d30'> <b> Registro Telefono </b> </font>"));
-                            registro_exitoso.setMessage(Html.fromHtml("<font color='#088d30'> <b>Número de teléfono y correo electrónico agregados correctamente</b> </font>"));
-                            registro_exitoso.show();
+
                             //final AlertDialog.Builder dialog = new
 
                         }else

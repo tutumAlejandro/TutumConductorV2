@@ -138,6 +138,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                         alert_continue.setNegativeButton(R.string.txt_btn_pop_up2, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                HardReset();
                                 Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
                                 startActivity(main_registrate);
                             }
@@ -161,6 +162,45 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    public void HardReset(){
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+
+        obj_editor.putString("name","");
+        obj_editor.putString("phone","");
+        obj_editor.putString("password","");
+        obj_editor.putString("terminos1","0");
+        obj_editor.putString("ine1","0");
+        obj_editor.putString("licencia1","0");
+        obj_editor.putString("caracteristicas1","0");
+        obj_editor.putString("tarjeta1","0");
+        obj_editor.putString("poliza1","0");
+        obj_editor.putString("tarjeton1","0");
+
+        obj_editor.putString("terminos2","0");
+        obj_editor.putString("ine2","0");
+        obj_editor.putString("licencia2","0");
+        obj_editor.putString("caracteristicas2","0");
+        obj_editor.putString("tarjeta2","0");
+        obj_editor.putString("poliza2","0");
+        obj_editor.putString("tarjeton2","0");
+
+        obj_editor.putString("terminos3","0");
+        obj_editor.putString("ine3","0");
+        obj_editor.putString("licencia3","0");
+        obj_editor.putString("codigo3","0");
+        obj_editor.putString("tarjeton3","0");
+
+        obj_editor.putString("error1","");
+        obj_editor.putString("error2","");
+        obj_editor.putString("error3","");
+        obj_editor.putString("error4","");
+        obj_editor.putString("error5","");
+        obj_editor.putString("error6","");
+        obj_editor.putString("error7","");
+        obj_editor.commit();
+
     }
 
 }

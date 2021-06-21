@@ -42,18 +42,22 @@
                     app:ccp_textSize="16sp"
                     app:ccp_autoDetectCountry="true"
                     app:ccp_showNameCode="true" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/InputTelefono"
                     android:layout_width="@dimen/width_input_mediano"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="20dp"
-                    app:hintEnabled="true"
                     android:hint="@string/txt_ingresa_telefono"
                     android:textColorHint="@color/white"
                     app:boxStrokeColor="@color/white"
                     app:boxStrokeWidth="2dp"
-                    app:errorEnabled="true">
+                    app:counterEnabled="true"
+                    app:counterMaxLength="10"
+                    app:errorEnabled="true"
+                    app:hintEnabled="true">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
