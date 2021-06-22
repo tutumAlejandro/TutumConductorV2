@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +29,9 @@ import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
 import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
 
@@ -43,6 +47,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
     public void btn_registrate(View v)
     {
+
         SharedPreferences preferencias_ventanaPrincipal = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
         estado_previo = preferencias_ventanaPrincipal.getInt("State",0);
         if(estado_previo == 0){
@@ -60,6 +65,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                 Log.d("Main Ventana Principal", "No hay ningun numero de telefono registrado");
             }else{
                 Log.d("Main Venatan Principal","Hay un numero de telefono registrado en el telefono");
+
                 POST_timeline();
             }
 
@@ -73,7 +79,6 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
 
     private void POST_timeline(){
-
         String url = "https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
         try{
@@ -138,6 +143,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                         alert_continue.setNegativeButton(R.string.txt_btn_pop_up2, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                //get_FCM();
                                 HardReset();
                                 Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
                                 startActivity(main_registrate);
@@ -202,5 +208,4 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         obj_editor.commit();
 
     }
-
 }

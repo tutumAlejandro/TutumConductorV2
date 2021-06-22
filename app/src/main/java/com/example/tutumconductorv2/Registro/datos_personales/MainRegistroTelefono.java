@@ -16,9 +16,13 @@ import com.example.tutumconductorv2.MainActivity;
 import com.example.tutumconductorv2.MainVentanaPrincipal;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.hbb20.CountryCodePicker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,7 +43,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
     private TextInputLayout telefono;
     private String url_registro="https://www.tutumapps.com/api/driver/registryDriver";
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
-    private String name,phone,email,tel;
+    private String name,phone,email,token;
     CountryCodePicker ccp;
     boolean ccp1;
     boolean ok=false;
@@ -57,6 +61,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
         int state= preferences_user.getInt("State",0);
         name = preferences_user.getString("name","");
         email = preferences_user.getString("email","");
+        get_FCM();
 
     }
 
@@ -116,6 +121,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
             jsonObject.put("email",email);
             jsonObject.put("phone",phone);
             jsonObject.put("name",name);
+            jsonObject.put("fcm_token",token);
 
             final String requestBody = jsonObject.toString();
 
@@ -297,5 +303,20 @@ public class MainRegistroTelefono extends AppCompatActivity {
         catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    private void get_FCM(){
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if(!task.isSuccessful())
+                {
+                    Log.e("FCM","No se pudo obtener el token FCM");
+                    return;
+                }
+                token = task.getResult();
+                Log.d("Token FCM",token);
+            }
+        });
     }
 }
