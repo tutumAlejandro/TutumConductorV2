@@ -58,7 +58,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         }else{ // En caso de que no haya un registro incomplemto, hacer una solicitud al servidor para saber si existe un
             // un registro incompleto con el servidor
 
-            // se tiene que hacer un POST al servidor para saber el time
+            // se tiene que hacer un POST al servidor para saber el timeline
             Log.d("Main Ventana Principal","Hay un registro sin terminar en el telefono");
             phone = preferencias_ventanaPrincipal.getString("phone","");
             if(phone.isEmpty()){
@@ -179,7 +179,6 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     public void HardReset(){
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferences.edit();
-
         obj_editor.putString("name","");
         obj_editor.putString("phone","");
         obj_editor.putString("password","");
@@ -213,6 +212,5 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         obj_editor.putString("error6","");
         obj_editor.putString("error7","");
         obj_editor.commit();
-
     }
 }
