@@ -62,6 +62,9 @@ public class MainVentanaPrincipal extends AppCompatActivity {
             Log.d("Main Ventana Principal","Hay un registro sin terminar en el telefono");
             phone = preferencias_ventanaPrincipal.getString("phone","");
             if(phone.isEmpty()){
+                HardReset();
+                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
+                startActivity(main_registrate);
                 Log.d("Main Ventana Principal", "No hay ningun numero de telefono registrado");
             }else{
                 Log.d("Main Venatan Principal","Hay un numero de telefono registrado en el telefono");
@@ -95,6 +98,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                     //Debido a que podemos recibir dos tipos de respuestas usaremos un if
                     if(response.has("msg")){
                         // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
+                        HardReset();
                         Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
                         startActivity(main_registrate);
                         Log.d("Main Ventana Principal","No se encontro el registro");
@@ -149,7 +153,10 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                                 startActivity(main_registrate);
                             }
                         });
-                        //alert_continue.setMessage(msg2);
+
+                        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                        String email = preferences.getString("email","");
+                        //char init = email.charAt(0);
                         alert_continue.setTitle(Html.fromHtml("<font color='#E4B621'> <b>Registro Conductor</b></font>"));
                         alert_continue.setIcon(R.drawable.logo_1024);
                         alert_continue.setMessage(Html.fromHtml("<p><b>Parece que tienes un registro sin completar.</b></p>"+"<b>¿Quieres continuar con tu registro</b>"+"\n \n"+msg2));
