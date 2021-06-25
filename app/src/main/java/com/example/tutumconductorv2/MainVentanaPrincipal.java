@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
+import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
@@ -52,7 +53,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         estado_previo = preferencias_ventanaPrincipal.getInt("State",0);
         if(estado_previo == 0){
             Log.d("Main Ventana Principal","Mo hay ningun registro sin terminar");
-            Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
+            Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
             startActivity(main_registrate);
             finish();
         }else{ // En caso de que no haya un registro incomplemto, hacer una solicitud al servidor para saber si existe un
@@ -63,7 +64,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
             phone = preferencias_ventanaPrincipal.getString("phone","");
             if(phone.isEmpty()){
                 HardReset();
-                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
+                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
                 startActivity(main_registrate);
                 Log.d("Main Ventana Principal", "No hay ningun numero de telefono registrado");
             }else{
@@ -99,7 +100,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                     if(response.has("msg")){
                         // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
                         HardReset();
-                        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
+                        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
                         startActivity(main_registrate);
                         Log.d("Main Ventana Principal","No se encontro el registro");
                     }else{
@@ -149,7 +150,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 //get_FCM();
                                 HardReset();
-                                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
+                                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
                                 startActivity(main_registrate);
                             }
                         });

@@ -2,13 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tutumconductorv2">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permisos para el uso de la camara -->
     <!-- ___________________________Inicio Apartado 2______________________________________________________ -->
@@ -22,6 +20,9 @@
 
     <uses-feature android:name="android.hardware.location.gps" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/launcher_tutum_round"
@@ -30,7 +31,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".MainPopUpUbicacion"
+            android:theme="@style/ThemePopUp" >
+        </activity>
+        <activity
+            android:name=".Registro.datos_personales.MainPopUpData"
+            android:theme="@style/ThemePopUp"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -189,17 +195,14 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-
-        <!--Ojo crear un documento Java con el nombre que se puso aqui -->
+        </provider> <!-- Ojo crear un documento Java con el nombre que se puso aqui -->
         <service
-            android:name=".MyFirebaseInstanceIDService"
+            android:name=".FCM"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

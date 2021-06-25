@@ -138,7 +138,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
                         isSucess = response.getBoolean("success");
                         if(isSucess){
                             saveUserData(response);
-                            Intent intent = new Intent(Main_IniciaSesion.this, Inicio.class);
+                            Intent intent = new Intent(Main_IniciaSesion.this, MainPopUpUbicacion.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             Toast.makeText(Main_IniciaSesion.this, "Inicio Correcto", Toast.LENGTH_SHORT).show();

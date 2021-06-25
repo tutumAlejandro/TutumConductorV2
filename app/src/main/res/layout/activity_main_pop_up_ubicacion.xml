@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white">
     <ScrollView
@@ -62,19 +62,38 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/open_sans_regular"
                 android:textSize="16sp"/>
+
             <Button
                 android:id="@+id/btn_aceptar_terminos_gps"
-                android:background="@drawable/boton_redondo"
-                android:layout_width="@dimen/width_boton"
-                android:layout_height="@dimen/heigth_boton"
+                android:layout_width="@dimen/width_boton_alert"
+                android:layout_height="@dimen/heigth_boton_alert"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:text="@string/btn_text_aceptar"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/open_sans_bold"
+                android:onClick="aceptar_ubicacion"
+                android:text="@string/btn_text_aceptar"
                 android:textSize="@dimen/size_text_btn"
-                android:layout_marginBottom="20dp"/>
+                android:textColor="@color/white"/>
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btn_cancelar_terminos_gps"
+                android:layout_width="@dimen/width_boton_alert"
+                android:layout_height="@dimen/heigth_boton_alert"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/boton_redondo"
+                android:fontFamily="@font/open_sans_bold"
+                android:onClick="rechazar_ubicacion"
+                android:text="@string/btn_text_cancelar"
+                android:textSize="@dimen/size_text_btn" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
