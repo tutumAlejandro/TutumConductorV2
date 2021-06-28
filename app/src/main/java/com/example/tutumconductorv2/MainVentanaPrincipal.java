@@ -55,7 +55,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
             Log.d("Main Ventana Principal","Mo hay ningun registro sin terminar");
             Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
             startActivity(main_registrate);
-            finish();
+            //finish();
         }else{ // En caso de que no haya un registro incomplemto, hacer una solicitud al servidor para saber si existe un
             // un registro incompleto con el servidor
 

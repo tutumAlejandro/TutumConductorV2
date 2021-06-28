@@ -28,8 +28,12 @@
         <item name="android:strokeColor">@color/error</item>
         <item name="android:textColorHint">@color/error</item>
     </style>
-    <style name="ThemePopUp" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowIsTranslucent">true</item>
+    <style name="ThemePopUp" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <style name="ThemePopUp2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowIsFloating">true</item>
     </style>
 </resources>

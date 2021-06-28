@@ -1,27 +1,24 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -35,62 +32,55 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
 import java.util.Date;
 
 public class MainCapturaIne extends AppCompatActivity {
 
     private ImageView btn_retroceso_ine;
     private String rol;
-    //private ImageButton ine_reverso;
     private ImageView ine_reverso,ine_frontal;
-    //private ImageButton ine_frontal;
     private boolean check_ine_reverso=false;
     private boolean check_ine_frontal=false;
-
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int PICK_IMAGE=100;
+    static final int PICK_IMAGE=100;
     int codigoBoton = 0;
-    int factor = 1;
-    int quality_image=30;
-
-
+    int quality_image=40;
     private String image_code1="";
     private String image_code2="";
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_captura_ine);
-        if (ContextCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainCapturaIne.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
-        }
-
-        // Bandera para saber el rol de la solicitud
-        SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        rol = preferencias_ine.getString("rol","");
-
         //Asociacion de la parte grafica con la parte logica
+        setContentView(R.layout.activity_main_captura_ine);
         ine_frontal = findViewById(R.id.btn_frontal_ine);
         ine_reverso = findViewById(R.id.btn_reverso_ine);
         btn_retroceso_ine = findViewById(R.id.img_retroceso_ine);
+
+        // Se solicita el permiso para que poder acceder a la camara y el almacenamiento externo
+        if (ContextCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(MainCapturaIne.this, Manifest.permission.CAMERA) !=
+                        PackageManager.PERMISSION_GRANTED)
+                {
+                  ActivityCompat.requestPermissions(MainCapturaIne.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                          Manifest.permission.CAMERA}, 0);
+        }
+
+        // Obtener los datos del conductor que estan guardados en el telefono
+        SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_ine.getString("rol","");
 
         //Declaración de las funciones al hacer clic en la imagen de retroceso y las imagenes frontal y trasera de la INE/IFE
         btn_retroceso_ine.setOnClickListener(new View.OnClickListener() {
@@ -143,37 +133,53 @@ public class MainCapturaIne extends AppCompatActivity {
 
             }
         });
+
+
         ine_frontal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder cargar_imagen = new AlertDialog.Builder(MainCapturaIne.this);
-                cargar_imagen.setTitle("Cargar imagen desde");
-                cargar_imagen.setPositiveButton("Galeria", new DialogInterface.OnClickListener() {
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaIne.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                              Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                              startActivityForResult(galeria, PICK_IMAGE);
+                       tomarFoto(v,"ine_frente");
+                        codigoBoton=1;
+                        check_ine_frontal=true;
                     }
                 });
-                cargar_imagen.setNegativeButton("Camara", new DialogInterface.OnClickListener() {
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        tomarFoto(v,"ine_frente");
+                        cargarImagen();
+                        codigoBoton=1;
+                        check_ine_frontal=true;
                     }
                 });
-                cargar_imagen.show();
-
-                codigoBoton=1;
-
-                check_ine_frontal=true;
+                opcion.show();
             }
         });
         ine_reverso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                codigoBoton=2;
-                tomarFoto(v,"ine_frente");
-                check_ine_reverso=true;
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaIne.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        tomarFoto(v,"ine_reverso");
+                        codigoBoton=2;
+                        check_ine_reverso=true;
+                    }
+                });
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        cargarImagen();
+                        codigoBoton=2;
+                        check_ine_reverso=true;
+                    }
+                });
+                opcion.show();
+
             }
         });
 
@@ -239,49 +245,82 @@ public class MainCapturaIne extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //Primero se pregunta se el resultado fue correcto y si hay una solicitud de captura de imagen
-        if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE){
+        if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE ){
             MediaScannerConnection.scanFile(MainCapturaIne.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
                 @Override
                 public void onScanCompleted(String s, Uri uri) { }
             });
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+
+
+            //Determinar el factor de escalamiento de la imagenes bitmap
+            int scaleFactor =10;
+
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+
+            if(codigoBoton==1){
+                ine_frontal.setImageBitmap(bitmap);
+                ine_frontal.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else{
+                ine_reverso.setImageBitmap(bitmap);
+                ine_reverso.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }
         }
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE ){
+            Uri path = data.getData();
 
-        // eres un mega pendejo
-        // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
-        int targetW = ine_frontal.getWidth();
-        int targetH = ine_frontal.getHeight();
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
 
-        //Obtener las dimensiones del Bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
 
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
+            //Determinar el factor de escalamiento de la imagenes bitmap
+            int scaleFactor =10;
 
-        //Determinar el factor de escalamiento de la imagenes bitmap
-        int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+            Bitmap bitmap = null;
+            try {
 
-        //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),path);
+               // bitmap = BitmapFactory.decodeFile(path.toString(),bmOptions);
+                //bitmap = BitmapFactory.decodeFile(String.valueOf(path),bmOptions);
 
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        if(codigoBoton==1){
-            ine_frontal.setImageBitmap(bitmap);
-            ine_frontal.setBackgroundColor(0x00000000);
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-            byte[] imageByte = array.toByteArray();
-            image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
-        }else{
-            ine_reverso.setImageBitmap(bitmap);
-            ine_reverso.setBackgroundColor(0x00000000);
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-            byte[] imageByte = array.toByteArray();
-            image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+
+            if(codigoBoton==1){
+                ine_frontal.setImageBitmap(bitmap);
+                ine_frontal.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else{
+                ine_reverso.setImageBitmap(bitmap);
+                ine_reverso.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }
+
         }
 
     }
@@ -338,6 +377,13 @@ public class MainCapturaIne extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void cargarImagen(){
+        Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galeria.setType("image/*");
+
+        startActivityForResult(galeria.createChooser(galeria,"Seleccione la aplicación"),PICK_IMAGE);
     }
 
 }

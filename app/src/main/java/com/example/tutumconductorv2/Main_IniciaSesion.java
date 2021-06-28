@@ -113,7 +113,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
            /* Intent pag_inicial = new Intent(Main_IniciaSesion.this, Inicio.class);
             startActivity(pag_inicial);*/
 
-            finish();
+            //finish();
         }
 
     }
