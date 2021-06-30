@@ -26,6 +26,8 @@
     <string name="btn_text_conductor">Conductor</string>
     <string name="btn_text_snv">Conductor sin Vehículo</string>
     <string name="btn_text_guardar">Guardar</string>
+    <string name="btn_text_aceptar">Aceptar</string>
+    <string name="btn_text_cancelar">Cancelar</string>
 
     <!-- Strings para los input Text Layout -->
     <string name="input_vigencia">Fecha de Vigencia</string>
@@ -181,6 +183,22 @@
     <string name="test_tarjeton">Tarjeton OK:</string>
     <string name="test_codigo">Codigo OK:</string>
     <!-- -->
+
+    <string name="txt_popup_gps_title">Acceso a la ubicación del dispositivo</string>
+    <string name="txt_popup_gps_body">Tutum solicita permiso para acceder a tu
+                                      ubicación en primer y segundo plano para
+                                      poder hacer un seguimiento más preciso
+                                      en la trayectoria de tus viajes. Ademas
+                                      Tutum solicita el acceso a tu ubicación
+                                      en primer y segundo plano para poder
+                                      enviarte las alertas de viaje más cercanas
+                                      a tu ubicación.</string>
+
+    <string name="txt_popup_data_title">Acceso a datos personales </string>
+    <string name="txt_popup_data_body">Tutum guarda tu información personal
+                                       con el unico propósito de establecer
+                                       comunicación con el pasajero y asi poder
+                                       brindar un servicio solicitado</string>
 
 
     <!-- Navigation View -->

@@ -20,6 +20,8 @@
     <!-- Medidas para los botones -->
     <dimen name="width_boton">280dp</dimen>
     <dimen name="heigth_boton">50dp</dimen>
+    <dimen name="width_boton_alert">200dp</dimen>
+    <dimen name="heigth_boton_alert">40dp</dimen>
     <dimen name="size_text_btn">16sp</dimen>
 
     <!-- Medidas para los input Text Layout -->

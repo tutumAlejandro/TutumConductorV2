@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white">
     <ScrollView
@@ -18,8 +18,8 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:layout_marginTop="40dp"
                     android:src="@drawable/circulo_naranja"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -29,9 +29,9 @@
 
                 <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/ic_baseline_person_pin_circle_24"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_baseline_folder_shared_24"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                     app:layout_constraintEnd_toEndOf="@+id/imageView4"
                     app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -40,38 +40,52 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/open_sans_extra_bold"
-                android:text="@string/txt_popup_gps_title"
+                android:text="@string/txt_popup_data_title"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="28sp" />
+                android:textSize="26sp" />
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:text="@string/txt_popup_gps_body"
+                android:text="@string/txt_popup_data_body"
                 android:textColor="@color/black"
                 android:fontFamily="@font/open_sans_regular"
                 android:textSize="16sp"/>
+
             <Button
-                android:id="@+id/btn_aceptar_terminos_gps"
+                android:id="@+id/btn_aceptar_terminos_data"
+                android:layout_width="@dimen/width_boton_alert"
+                android:layout_height="@dimen/heigth_boton_alert"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/boton_redondo"
-                android:layout_width="@dimen/width_boton"
-                android:layout_height="@dimen/heigth_boton"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/btn_text_aceptar"
+                android:textSize="@dimen/size_text_btn" />
+
+            <Button
+                android:id="@+id/btn_cancelar_terminos_data"
+                android:background="@drawable/boton_redondo"
+                android:layout_width="@dimen/width_boton_alert"
+                android:layout_height="@dimen/heigth_boton_alert"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:text="@string/btn_text_aceptar"
+                android:text="@string/btn_text_cancelar"
                 android:fontFamily="@font/open_sans_bold"
                 android:textSize="@dimen/size_text_btn"
                 android:layout_marginBottom="20dp"/>

@@ -315,7 +315,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
                     return;
                 }
                 token = task.getResult();
-                Log.d("Token FCM",token);
+                Log.e("Token FCM","token generado en el registro: "+token);
             }
         });
     }

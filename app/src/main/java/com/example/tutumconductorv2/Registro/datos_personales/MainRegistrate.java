@@ -22,11 +22,12 @@ import android.text.Html;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 
 public class MainRegistrate extends AppCompatActivity {
 
     private TextInputLayout nombres,apeidop,apeidom,email,pass;
-
+    private Button btn_acp, btn_can;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,33 +39,10 @@ public class MainRegistrate extends AppCompatActivity {
         email = findViewById(R.id.InputCorreo);
         pass = findViewById(R.id.InputContraseña);
 
-        AlertDialog.Builder consentimiento_datos = new AlertDialog.Builder(MainRegistrate.this);
-        consentimiento_datos.setTitle(Html.fromHtml("<font color='#FFFFFF'> <b>Consentimiento Datos Personales</b> </font>"));
-        consentimiento_datos.setIcon(R.drawable.logo_1024);
-        consentimiento_datos.setMessage(Html.fromHtml("<font color='#FFFFFF'>" +
-                "Aqui va el texto para informarle al conductor que se van a recolectar los " +
-                "datos del conductor y el trato que se le van a dar a los datos personales" + "</font>"));
-        consentimiento_datos.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                return;
-
-            }
-
-        });
-        consentimiento_datos.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-        consentimiento_datos.setCancelable(false);
-        consentimiento_datos.show();
-        //onBackPressed();
+        btn_acp = findViewById(R.id.btn_aceptar_terminos_data);
+        btn_can = findViewById(R.id.btn_cancelar_terminos_data);
 
     }
-
-
 
     private boolean check_field(String app, TextInputLayout campo)
     {
