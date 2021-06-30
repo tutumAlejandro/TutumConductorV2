@@ -14,6 +14,7 @@
         <item name="android:colorFocusedHighlight">@color/darkest</item>
     </style>
     <style name="InputTextWhite" parent="Theme.AppCompat.NoActionBar">
+        <item name="boxStrokeColor">@color/darkest</item>
         <item name="colorAccent">@color/darkest</item>
         <item name="android:colorActivatedHighlight">@color/darkest</item>
         <item name="android:colorFocusedHighlight">@color/darkest</item>
@@ -28,8 +29,15 @@
         <item name="android:strokeColor">@color/error</item>
         <item name="android:textColorHint">@color/error</item>
     </style>
-    <style name="ThemePopUp" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowIsTranslucent">true</item>
+    <style name="ThemePopUp" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowIsFloating">true</item>
+    </style>
+    <style name="ThemePopUp2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/white</item>
     </style>
 </resources>

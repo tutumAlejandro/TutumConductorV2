@@ -301,9 +301,9 @@
     <string name="txtDineroUltimaTarifa">$30</string>
 
     <!--Ventana Reportar problema con el viaje-->
-    <string name="txtViaje">Problema en Viaje</string>
-    <string name="boxTitulo">Titulo</string>
-    <string name="boxDescripcion">Descripción</string>
+    <string name="txtViaje">Problema Técnico</string>
+    <string name="boxTitulo">  Titulo</string>
+    <string name="boxDescripcion">  Descripción</string>
     <string name="btnEnviarPviaje">Enviar</string>
     <string name="txtAdjuntar">Adjuntar Imagen</string>
 

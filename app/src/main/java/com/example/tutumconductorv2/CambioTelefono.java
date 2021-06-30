@@ -1,118 +1,169 @@
 package com.example.tutumconductorv2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
+import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class CambioTelefono extends AppCompatActivity {
 
-
-    private TextInputLayout phone;
-    private String telefono;
-
-    private Button backbtn;
-    private Button cancelbtn;
-    private Button aceptbtn;
-    private boolean isSucess;
+    private TextInputLayout n_telefono;
+    private Button btn_regreso_edTelefono, btn_aceptar, btn_cancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cambio_telefono);
 
-        backbtn = findViewById(R.id.cambioTel_backbutton);
-        cancelbtn = findViewById(R.id.cambioTel_cancelBtn);
-        aceptbtn = findViewById(R.id.cambioTel_aceptarBtn);
-        phone = findViewById(R.id.acTelefono);
-        telefono = phone.getEditText().getText().toString().trim();
+        n_telefono = findViewById(R.id.input_nuevo_telefono);
+        btn_regreso_edTelefono = findViewById(R.id.cambioTel_backbutton);
+        btn_aceptar = findViewById(R.id.cambioTel_aceptarBtn);
+        btn_cancelar = findViewById(R.id.cambioTel_cancelBtn);
 
-        //Regresar a perfil
-       /* backbtn.setOnClickListener(new View.OnClickListener() {
+
+        btn_regreso_edTelefono.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(new Intent(CambioTelefono.this, PerfilFragment.class));
-                Intent intent = new Intent(CambioTelefono.this.getBaseContext(),activity_perfil.class);
-                startActivity(intent);
-            }
-        });*/
-
-        //Cancelar cambios de telefono
-        cancelbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentIni = new Intent(CambioTelefono.this, activity_perfil.class);
-                startActivity(intentIni);            }
-        });
-
-        //Guardar cambios de telefono
-        aceptbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CambioTelefono.this, "Cambios guardados",Toast.LENGTH_SHORT).show();
+                Intent regreso_esTelefono = new Intent(CambioTelefono.this,Inicio.class);
+                startActivity(regreso_esTelefono);
+                finish();
             }
         });
 
-        aceptbtn.setOnClickListener(new View.OnClickListener() {
+        btn_aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!check_phone(n_telefono.getEditText().getText().toString())){
 
-                String phone_number = phone.getEditText().getText().toString().trim();
-
-                if(number_phone(phone_number)) {
-                    Toast.makeText(CambioTelefono.this, "El campo del numero esta vacio", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(CambioTelefono.this, "Cambios guardados", Toast.LENGTH_SHORT).show();
-
-                    ProfileEdit profileEdit = new ProfileEdit();
-                    profileEdit.cambioDatos(getApplicationContext());
-
-                    onBackPressed();
+                }else{
+                    SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor obj_editor = preferences.edit();
+                    obj_editor.putString("phone",n_telefono.getEditText().getText().toString().trim());
+                    obj_editor.commit();
+                    editPhoneNumber(preferences.getString("api_token",""), preferences.getString("phone",""));
                 }
             }
         });
 
     }
 
-    public void btnRegresarPerfil(View V){
-        Intent intentIni = new Intent(CambioTelefono.this, activity_perfil.class);
-        startActivity(intentIni);
-    }
-
-
-    private boolean number_phone (String Number){
-        if(Number.isEmpty()){
-            phone.setErrorEnabled(true);
-            phone.setError("Campo obligatorio");
+    private boolean check_phone(String new_phone){
+        if(new_phone.isEmpty()){
+            n_telefono.setErrorEnabled(true);
+            n_telefono.setError("Campo Requerido");
+            return false;
+        }else if(new_phone.length()<= 9 | new_phone.length() >= 11 ){
+            n_telefono.setErrorEnabled(true);
+            n_telefono.setError("Formato Invalido");
+            return false;
+        }else {
+            n_telefono.setErrorEnabled(false);
             return true;
         }
-        else{
-
-            phone.setErrorEnabled(false);
-            return false;
-        }
     }
 
+    public void editPhoneNumber(String api_token, String phone){
+        String url = "https://www.tutumapps.com/api/driver/updateProfile";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+
+            //jsonObject.put("email",email);
+            jsonObject.put("phone",phone);
+            jsonObject.put("api_token",api_token);
 
 
+            final String requestBody = jsonObject.toString();
 
 
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        //test_check.setText(response.getString("success"));
+                        AlertDialog.Builder registro_exitoso = new AlertDialog.Builder(CambioTelefono.this);
+                        registro_exitoso.setTitle(Html.fromHtml("<font color='#088d30'> <b> Registro Telefono </b> </font>"));
+                        registro_exitoso.setMessage(Html.fromHtml("<font color='#088d30'> <b>Número de teléfono actualizado correctamente</b> </font>"));
+                        registro_exitoso.show();
+                        if(response.getString("success").matches("true"))
+                        {
+                            Log.e("Respuesta Registro","Exito!!!: "+response);
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent main_inicio = new Intent(CambioTelefono.this, Inicio.class);
+                                    startActivity(main_inicio);
+                                    finish();
+                                }
+                            },1000);
+                            registro_exitoso.setCancelable(true);
+
+                        }else
+                        {
+                            Log.e("Respuesta Registro","ERROR!!!: "+response);
+
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                }
+                            },1000);
+                            registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0000'> <b>Registro Telefono </b></font>"));
+                            registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0000'> <b>"+response.getString("msg")+"</b> </font>"));
+                            registro_exitoso.show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            })
+            {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError{
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Accept", "application/json");
+                    return params;}
+            };
+
+            requestQueue.add(request);
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
 }

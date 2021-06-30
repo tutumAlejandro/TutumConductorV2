@@ -23,12 +23,14 @@
     <dimen name="width_boton_alert">240dp</dimen>
     <dimen name="heigth_boton_alert">40dp</dimen>
     <dimen name="size_text_btn">18sp</dimen>
+    <dimen name="width_boton_cambios">180dp</dimen>
+    <dimen name="heigth_boton_cambios">60dp</dimen>
 
     <!-- Medidas para los input Text Layout -->
     <dimen name="width_input_corto">180dp</dimen>
     <dimen name="width_input_largo">380dp</dimen>
     <dimen name="size_text_input">18sp</dimen>
-    <dimen name="width_input_mediano">240dp</dimen>
+    <dimen name="width_input_mediano">200dp</dimen>
     <dimen name="width_img_ladas">120dp</dimen>
     <dimen name="heigth_img_ladas">60dp</dimen>
     <!-- Medidas para la ventana OTP -->
