@@ -23,6 +23,8 @@
     <dimen name="width_boton_alert">200dp</dimen>
     <dimen name="heigth_boton_alert">40dp</dimen>
     <dimen name="size_text_btn">16sp</dimen>
+    <dimen name="width_boton_cambios">120dp</dimen>
+    <dimen name="heigth_boton_cambios">50dp</dimen>
 
 
 
@@ -36,7 +38,7 @@
     <dimen name="width_input_corto">140dp</dimen>
     <dimen name="width_input_largo">280dp</dimen>
     <dimen name="size_text_input">16sp</dimen>
-    <dimen name="width_input_mediano">200dp</dimen>
+    <dimen name="width_input_mediano">180dp</dimen>
     <dimen name="width_img_ladas">80dp</dimen>
     <dimen name="heigth_img_ladas">40dp</dimen>
 

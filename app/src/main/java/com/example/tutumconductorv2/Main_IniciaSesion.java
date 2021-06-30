@@ -1,6 +1,8 @@
 package com.example.tutumconductorv2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -99,9 +101,6 @@ public class Main_IniciaSesion extends AppCompatActivity {
 
     public void menu_principal(View v)
     {
-        /*String contraseña = pass.getEditText().getText().toString().trim();
-        String correo = email.getEditText().getText().toString().trim();*/
-
         correo = email.getEditText().getText().toString().trim();
         contrasena = pass.getEditText().getText().toString().trim();
         if(!check_password(contrasena) | !check_email(correo))
@@ -110,8 +109,6 @@ public class Main_IniciaSesion extends AppCompatActivity {
         }
         else {
             inicioSesion();
-           /* Intent pag_inicial = new Intent(Main_IniciaSesion.this, Inicio.class);
-            startActivity(pag_inicial);*/
 
             //finish();
         }
@@ -133,26 +130,108 @@ public class Main_IniciaSesion extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("TAG", "Success! :D" + " " + response);
+                    Log.d("TAG Inicio Sesion","Respuesta Inicio Sesion:"+response);
+                    JSONObject respuesta = response;
                     try {
-                        isSucess = response.getBoolean("success");
-                        if(isSucess){
-                            saveUserData(response);
-                            Intent intent = new Intent(Main_IniciaSesion.this, MainPopUpUbicacion.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            Toast.makeText(Main_IniciaSesion.this, "Inicio Correcto", Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
+                          if(response.getString("success").matches("true")){
+                            Log.e("TAG Inicio Sesion","Inicio de sesion Correcto!!!!!!");
+
+                              SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                              SharedPreferences.Editor obj_edit = preferences.edit();
 
 
-                        }
-                        else{
-                            String getMsg = response.getString("msg");
-                            Toast.makeText(Main_IniciaSesion.this, getMsg, Toast.LENGTH_LONG).show();
-                        }
+                              JSONObject data = respuesta.getJSONObject("data");
+                              JSONObject driver = data.getJSONObject("driver");
+                              int driver_id = driver.getInt("driver_id");
+                              int user_id = driver.getInt("user_id");
+                              String name = driver.getString("name");
+                              String alias = driver.getString("alias");
+                              String driver_img = driver.getString("driver_img");
+                              String email = driver.getString("email");
+                              String available = driver.getString("avaible");
+                              String phone = driver.getString("phone");
+                              String type = driver.getString("type");
+                              int travels = driver.getInt("travels");
+                              int driver_time = driver.getInt("driver_time");
+                              int calification = driver.getInt("calification");
+
+                              JSONObject vehicle = data.getJSONObject("vehicle");
+                              int vehicle_id = vehicle.getInt("vehicle_id");
+                              String vehicle_title = vehicle.getString("vehicle_title");
+                              int vehicle_year = vehicle.getInt("vehicle_year");
+                              String vehicle_color = vehicle.getString("vehicle_color");
+                              String vehicle_plate = vehicle.getString("vehicle_plate");
+                              String vehicle_img = vehicle.getString("vehicle_img");
+                              int vehicle_type_id = vehicle.getInt("vehicle_type_id");
+                              String vehicle_model = vehicle.getString("vehicle_model");
+                              String vehicle_manufacturer = vehicle.getString("vehicle_manufacturer");
+                              String vehicle_status = vehicle.getString("vehicle_status");
+
+                              // Poner aqui los datos de la tarjeta
+                              String api_token = data.getString("api_token");
+
+                              obj_edit.putInt("driver_id",driver_id);
+                              obj_edit.putInt("user_id",user_id);
+                              obj_edit.putString("name",name);
+                              obj_edit.putString("alias",alias);
+                              obj_edit.putString("driver_img",driver_img);
+                              obj_edit.putString("email",email);
+                              obj_edit.putString("available",available);
+                              obj_edit.putString("phone",phone);
+                              obj_edit.putString("type",type);
+                              obj_edit.putInt("travels",travels);
+                              obj_edit.putInt("driver_time",driver_time);
+                              obj_edit.putInt("calification",calification);
+
+                              obj_edit.putInt("vehicle_id",vehicle_id);
+                              obj_edit.putString("vehicle_title",vehicle_title);
+                              obj_edit.putInt("vehicle_year",vehicle_year);
+                              obj_edit.putString("vehicle_color",vehicle_color);
+                              obj_edit.putString("vehicle_plate",vehicle_plate);
+                              obj_edit.putString("vehicle_img",vehicle_img);
+                              obj_edit.putInt("vehicle_type_id",vehicle_type_id);
+                              obj_edit.putString("vehicle_model",vehicle_model);
+                              obj_edit.putString("vehicle_manufacturer",vehicle_manufacturer);
+                              obj_edit.putString("vehicle_status",vehicle_status);
+
+                              obj_edit.putString("api_token",api_token);
+                              obj_edit.commit();
+
+                              Log.d("Respuesta Driver","Driver_id: "+driver_id);
+                              Log.d("Respuesta Driver","User_id: "+user_id);
+                              Log.d("Respuesta Driver","Name: "+name);
+                              Log.d("Respuesta Driver","Alias: "+alias);
+                              Log.d("Respuesta Driver","driver_img: "+driver_img);
+                              Log.d("Respuesta Driver","email: "+email);
+                              Log.d("Respuesta Driver","Available: "+available);
+                              Log.d("Respuesta Driver","Phone: "+phone);
+                              Log.d("Respuesta Driver","type: "+type);
+                              Log.d("Respuesta Driver","travels: "+travels);
+                              Log.d("Respuesta Driver","Driver Time: "+driver_time);
+                              Log.d("Respuesta Driver","Calification: "+calification);
+
+                              Log.d("Respuesta Vehicle","Vehicle id: "+vehicle_id);
+                              Log.d("Respuesta Vehicle","Vehicle title: "+vehicle_title);
+                              Log.d("Respuesta Vehicle","Vehicle year: "+vehicle_year);
+                              Log.d("Respuesta Vehicle","Vehicle color: "+vehicle_color);
+                              Log.d("Respuesta Vehicle","Vehicle plate: "+vehicle_plate);
+                              Log.d("Respuesta Vehicle","Vehicle img: "+vehicle_img);
+                              Log.d("Respuesta Vehicle","Vehicle title: "+vehicle_type_id);
+                              Log.d("Respuesta Vehicle","Vehicle title: "+vehicle_model);
+                              Log.d("Respuesta Vehicle","Vehicle title: "+vehicle_manufacturer);
+                              Log.d("Respuesta Vehicle","Vehicle title: "+vehicle_status);
+
+                              Log.d("Respuesta api token","Api Token: "+api_token);
+
+                              Intent main_popUbicacion = new Intent(Main_IniciaSesion.this,MainPopUpUbicacion.class);
+                              startActivity(main_popUbicacion);
+                           }else{
+                              Log.e("TAG Inicio Sesion","Inicio de sesion Incorrecto!!!!!!");
+                          }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -168,34 +247,5 @@ public class Main_IniciaSesion extends AppCompatActivity {
         }
     }
 
-    private void saveUserData(JSONObject response){
-
-        try {
-            PerfilUser user = new PerfilUser();
-            JSONObject data = response.getJSONObject("data");
-            JSONObject passenger = data.getJSONObject("driver");
-
-            user.setName(passenger.getString("name"));
-            user.setJob("TUTUM");
-            user.setJob_dir("Sierra del Laurel 420, Bosques del prado");
-            user.setHome("Vizcaya xD");
-            user.setHome_dir("Vizcaya 307, Barranca de Gpe");
-            user.setEmailVerified(passenger.getBoolean("email_verified"));
-            user.setFb_id(passenger.getString("facebook_id"));
-            user.setGoogle_id(passenger.getString("google_id"));
-            user.setPassengerId(passenger.getString("passenger_id"));//3617
-            user.setPassengerImg(passenger.getString("passenger_img"));
-            user.setTravels(passenger.getString("travels"));
-            user.setUserId(String.valueOf(passenger.getInt("user_id")));//4071
-            user.setCalification(passenger.getString("calification"));
-            user.setApi_token(data.getString("api_token"));
-            user.setEmail(passenger.getString("email"));
-            user.setPassword(contrasena);
-            user.setTelefono(passenger.getString("phone"));
-        } catch (JSONException e) {
-            Log.e("MyTAG", "hubo un error obteniendo los valores del servidor");
-        }
-
-    }
 
 }

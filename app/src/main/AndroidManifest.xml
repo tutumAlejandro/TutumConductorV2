@@ -128,13 +128,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CambioContrasena"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/InputTextBlack"/>
         <activity
             android:name=".CambioCorreo"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/InputTextBlack"/>
         <activity
             android:name=".CambioTelefono"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/InputTextBlack"/>
         <activity
             android:name=".caracteristicas_nueva_unidad"
             android:screenOrientation="portrait" />

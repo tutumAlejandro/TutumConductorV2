@@ -1,139 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".CambioContrasena">
-
-    <ImageView
-        android:id="@+id/cambioContra_fondo"
-        android:layout_width="228dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/menu_fondo"
-        android:src="@drawable/fondofotouser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/cambioContra_fondo2"
-        android:layout_width="289dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/menu_fondo"
-        android:src="@drawable/menufondo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.254"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/cambioContra_backbutton"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/flecha_retroceso"
-        android:onClick="btnRegresarPerfil2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <TextView
-        android:id="@+id/cambioContra_titulo"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        android:fontFamily="@font/boring_sans_heavy"
-        android:text="@string/cambiocontra_titulo"
-        android:textColor="#020202"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/cambioContra_desc"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/cambiocontra_desc"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cambioContra_titulo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/cambioContra_pswd"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:foregroundTint="#FF9800"
-        android:hint="@string/cambioContra_contrasena"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textColor="#000000"
-        android:textColorHighlight="#CA8116"
-        android:textColorHint="#8F8F8F"
-        android:textColorLink="#FF9800"
-        android:textCursorDrawable="?android:attr/textCursorDrawable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cambioContra_contraLabel" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/cambioContra_contraLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/cambiocontra_contralabel"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cambioContra_desc" />
+                <ImageView
+                    android:id="@+id/cambioCorreo_fondo4"
+                    android:layout_width="225dp"
+                    android:layout_height="133dp"
+                    android:layout_marginStart="220dp"
+                    android:contentDescription="@string/menu_fondo"
+                    android:src="@drawable/fondofotouser"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <Button
+                    android:id="@+id/cambioPass_backbutton"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/flecha_retroceso"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.067"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/cambioContra_aceptarBtn"
-        android:layout_width="165dp"
-        android:layout_height="50dp"
-        android:background="@drawable/boton_redondo"
-        android:fontFamily="@font/boring_sans_heavy"
-        android:text="@string/cambiocontra_aceptarbtn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
-        app:layout_constraintStart_toEndOf="@+id/cambioContra_cancelBtn"
-        app:layout_constraintTop_toBottomOf="@+id/cambioContra_pswd"
-        app:layout_constraintVertical_bias="0.195" />
+                <ImageView
+                    android:id="@+id/cambioTel_fondo2"
+                    android:layout_width="180dp"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="@string/cambiotel_fondo2"
+                    android:scaleType="center"
+                    android:src="@drawable/menufondo"
+                    app:layout_constraintStart_toEndOf="@+id/cambioPass_backbutton"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/cambioContra_cancelBtn"
-        android:layout_width="165dp"
-        android:layout_height="50dp"
-        android:background="@drawable/btn"
-        android:backgroundTint="#9E9C9C"
-        android:fontFamily="@font/boring_sans_heavy"
-        android:text="@string/cambiocontra_cancelbtn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cambioContra_pswd"
-        app:layout_constraintVertical_bias="0.193" />
+            <TextView
+                android:id="@+id/cambiocontra_titulo"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/boring_sans_heavy"
+                android:text="@string/cambiocontra_titulo"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:layout_marginTop="20dp"/>
 
+            <TextView
+                android:id="@+id/cambioTel_desc"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/cambiocontra_desc"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_nuevo_pass"
+                    android:layout_width="@dimen/width_input_largo"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:backgroundTint="#000000"
+                    android:hint="@string/cambiocontra_contralabel"
+                    android:textColorHint="@color/darkest"
+                    app:boxBackgroundColor="#FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeWidth="2dp"
+                    app:counterEnabled="false"
+                    app:errorEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_nuevo_telefono"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:outlineProvider="bounds"
+                        android:singleLine="true"
+                        android:textColor="@color/darkest"
+                        android:textColorHighlight="@color/darkest"
+                        android:textColorHint="@color/darkest"
+                        android:textColorLink="@color/darkest"
+                        android:textCursorDrawable="@color/darkest" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/cambioPass_cancelBtn"
+                    android:layout_width="@dimen/width_boton_cambios"
+                    android:layout_height="@dimen/heigth_boton_cambios"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/btn"
+                    android:backgroundTint="#9E9C9C"
+                    android:fontFamily="@font/boring_sans_heavy"
+                    android:text="@string/cambiotel_cancelbtn"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/cambioPass_aceptarBtn"
+                    android:layout_width="@dimen/width_boton_cambios"
+                    android:layout_height="@dimen/heigth_boton_cambios"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/boton_redondo"
+                    android:fontFamily="@font/boring_sans_heavy"
+                    android:text="@string/cambiotel_aceptarbtn"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -19,12 +19,15 @@
         <item name="strokeWidth">4dp</item>
     </style>
     <style name="ThemePopUp" parent="Theme.AppCompat.DayNight.NoActionBar">
-    <item name="android:windowIsTranslucent">true</item>
-    <item name="android:windowIsFloating">true</item>
-</style>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
     <style name="ThemePopUp2" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowIsFloating">true</item>
+    </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/white</item>
     </style>
 
 </resources>
