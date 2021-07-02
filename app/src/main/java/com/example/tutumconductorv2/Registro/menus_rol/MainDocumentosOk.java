@@ -23,6 +23,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.Inicio;
+import com.example.tutumconductorv2.MainPopUpUbicacion;
 import com.example.tutumconductorv2.Main_IniciaSesion;
 import com.example.tutumconductorv2.PerfilUser;
 import com.example.tutumconductorv2.R;
@@ -163,9 +164,9 @@ public class MainDocumentosOk extends AppCompatActivity {
                                           }break;
                                 case "8": {mostrar_aceptado();}break;
                                 case "9": {mostrar_cita1(); }break;
-                                case "10": {
-                                            Log.d("Test Estatus","Test Status");
-                                            post_update();
+                                case "10": {Intent main = new Intent(MainDocumentosOk.this, MainPopUpUbicacion.class);
+                                            startActivity(main);
+                                            finish();
                                            }break;// asignar state a 10
                             }
                             id = exito.getString("registry_id");
