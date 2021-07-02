@@ -380,4 +380,7 @@
     <string name="test_alert_dialog">Este es un test de un alert Dialog</string>
 
 
+    <string name="hint_adjuntar_imagen">Adjuntar imagen</string>
+
+
 </resources>

@@ -49,7 +49,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MainScripRegistro" />
         <activity android:name=".Registro.menus_rol.MainDocumentosOk" />
         <activity android:name=".Registro.menus_rol.MainConductorDocumentos" />
         <activity
@@ -119,6 +118,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity_problema_tecnico"
+            android:theme="@style/InputTextBlack"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity_termina_subir_documento"
