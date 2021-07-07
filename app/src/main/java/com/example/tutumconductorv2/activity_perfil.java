@@ -56,4 +56,11 @@ public class activity_perfil extends AppCompatActivity {
         intSingOut.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intSingOut);
     }
+
+
+
+    @Override
+    public void onBackPressed(){
+
+    }
 }

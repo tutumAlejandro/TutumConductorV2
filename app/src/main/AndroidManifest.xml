@@ -7,6 +7,7 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permisos para el uso de la camara -->
     <!-- ___________________________Inicio Apartado 2______________________________________________________ -->
@@ -15,6 +16,7 @@
     <uses-feature
         android:name="android.hardware.Camera"
         android:required="true" /> <!-- Permisos para el uso de la escritura en la memoria externa -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -115,7 +117,7 @@
             android:name=".activity_detalle_unidad"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity_historial_viajes"
+            android:name=".activity_historial_viajes" android:parentActivityName="home.HomeFragment"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity_perfil"
@@ -181,6 +183,10 @@
         <activity
             android:name=".activity_chat_reporte"
             android:screenOrientation="portrait" />
+
+
+
+
         <!--
         <provider
             android:name="android.support.v4.content.FileProvider"

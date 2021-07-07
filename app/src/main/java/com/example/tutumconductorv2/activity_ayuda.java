@@ -81,4 +81,10 @@ public class activity_ayuda extends AppCompatActivity {
         startActivity(intentIni);
 
     }
+
+
+    @Override
+    public void onBackPressed(){
+
+    }
 }

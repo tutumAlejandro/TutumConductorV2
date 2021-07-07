@@ -21,4 +21,6 @@
     <color name="dark">#FF1F1F1F</color>
     <color name="fondo_captura_img">#FFDCEFDB</color>
 
+    <color name="colorPrimaryDark">#FFE4B621</color>
+
 </resources>

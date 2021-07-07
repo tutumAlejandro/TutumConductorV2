@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.MediaController;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,13 +18,9 @@ public class ComoUsarApp extends AppCompatActivity {
 
         videoView = (VideoView) findViewById(R.id.videoView3);
 
-
-        Uri uri = Uri.parse("https://www.youtube.com/watch?v=CJ5sIEqYJ6Q&t=73s");
-        videoView.setMediaController(new MediaController(this));
-        videoView.setVideoURI(uri);
-        videoView.requestFocus();
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.tutorial;
+        videoView.setVideoURI(Uri.parse(path));
         videoView.start();
-        videoView.isPlaying();
 
     }
 
