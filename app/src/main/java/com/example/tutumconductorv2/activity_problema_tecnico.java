@@ -59,7 +59,7 @@ public class activity_problema_tecnico extends AppCompatActivity {
     private boolean check_image= false;
 
     private String image_code1;
-    private int quality_image=20;
+    private int quality_image=30;
     static final int PICK_IMAGE=100;
 
     @Override
@@ -267,7 +267,7 @@ public class activity_problema_tecnico extends AppCompatActivity {
 
 
             //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor =1;
+            int scaleFactor =2;
 
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
