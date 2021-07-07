@@ -52,7 +52,7 @@
 
     <!-- Strings para la ventana inicio de sesion-->
     <string name="txt_inicio_email">Correo Electrónico</string>
-    <string name="txt_inicio_pass">Constraseña</string>
+    <string name="txt_inicio_pass">Contraseña</string>
     <string name="txt_inicio_recupera">Recupera Contraseña</string>
 
     <!-- Strings para la ventana ingresa telefono-->
@@ -66,7 +66,7 @@
     <!-- Strings para la ventana verifica OTP-->
     <string name="txt_verifica_text1">OTP Verificación</string>
     <string name="txt_verifica_text2">Ingresar código de 6 dígitos mandado a:</string>
-    <string name="txt_verifica_otp">Codigo OTP</string>
+    <string name="txt_verifica_otp">Código OTP</string>
     <string name="txt_verifica_link_editar">Editar</string>
     <string name="txt_verifica_link_reenviar">REENVIAR CÓDIGO</string>
 
@@ -93,7 +93,7 @@
     <!-- Strings para la ventana de terminos y condiciones-->
     <string name="txt_text1_terminos">Para continuar como conductor debes leer y aceptar los siguientes términos y condiciones y aviso de privacidad.</string>
     <string name="txt_text2_terminos">CONSENTIMIENTO LEGAL</string>
-    <string name="txt_text3_terminos">Al enviar los formularios y hacer clic en continuar doy mi consentimiento para que Tutum recopile y procese mis datos personales, inluida 
+    <string name="txt_text3_terminos">Al enviar los formularios y hacer clic en continuar doy mi consentimiento para que Tutum recopile y procese mis datos personales, incluida
         toda la información sensible para evaluar mi elegibilidad para utilizar la plataforma Tutum Conductor y para todos los fines descritos en la Declaración de Privacidad de Tutum.</string>
     <string name="txt_link_terminos">Términos y condiciones</string>
     <string name="txt_link_politica">Política de Privacidad</string>
@@ -120,8 +120,8 @@
     <!-- Strings para la ventana de caracteristicas-->
     <string name="txt_text1_caracteristicas">Caracteristicas del vehículo</string>
     <string name="txt_text2_caracteristicas">ENFOCA TUS DOCUMENTOS EN UNA SUPERFICIE PLANA SIN BORDES Y ASEGURATE DE TENER BUENA ILUMINACIÓN.</string>
-    <string name="txt_text3_caracteristicas">Selecciona la marca, modelo, año, placas y carga una fotografia frontal del vehiculo. Ten en cuenta que esta fotografia
-    será la que vea el público, trata de que la foto tenga un ángulo frontal, con una buena visibilidad del autómovil y con visibilidad en la matricula.</string>
+    <string name="txt_text3_caracteristicas">Selecciona la marca, modelo, año, placas y carga una fotografía frontal del vehículo. Ten en cuenta que esta fotografía
+    será la que vea el público, trata de que la foto tenga un ángulo frontal, con una buena visibilidad del autómovil y con visibilidad en la matrícula.</string>
     <string name="spinner_fabricante_vehiculo">Fabricante del Vehiculo</string>
 
     <!-- Strings para la ventana de tarjeta de circulación-->

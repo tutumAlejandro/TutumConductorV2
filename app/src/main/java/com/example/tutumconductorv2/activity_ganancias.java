@@ -18,4 +18,9 @@ public class activity_ganancias extends AppCompatActivity {
         Intent intentIni = new Intent(activity_ganancias.this, Inicio.class);
         startActivity(intentIni);
     }
+
+    @Override
+    public void onBackPressed(){
+
+    }
 }

@@ -5,6 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,8 +22,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tutumconductorv2.MainActivity;
-import com.example.tutumconductorv2.MainVentanaPrincipal;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,21 +30,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.hbb20.CountryCodePicker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.text.Html;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.net.Inet4Address;
 
 public class MainRegistroTelefono extends AppCompatActivity {
 
@@ -97,21 +92,21 @@ public class MainRegistroTelefono extends AppCompatActivity {
         SharedPreferences.Editor obj_editor = preferences_user.edit();
         obj_editor.putInt("State",3);
         obj_editor.commit();
-       if(!check_telefono(phone)){
+        if(!check_telefono(phone)){
             return;
-       }else {
-               if(!cadenas_registro.edit_phone){
-                   editPhoneNumber();
-                   Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
-                   startActivity(main_otp);
-                   finish();
-               }
-               else {
-                   realizarPost(url_registro);
+        }else {
+            if(!cadenas_registro.edit_phone){
+                editPhoneNumber();
+                Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
+                startActivity(main_otp);
+                finish();
+            }
+            else {
+                realizarPost(url_registro);
 
 
-               }
-       }
+            }
+        }
     }
 
     public void realizarPost(String url)  {
@@ -137,7 +132,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
                             registro_exitoso.setTitle(Html.fromHtml("<font color='#088d30'> <b> Registro Telefono </b> </font>"));
                             registro_exitoso.setMessage(Html.fromHtml("<font color='#088d30'> <b>Número de teléfono y correo electrónico agregados correctamente</b> </font>"));
                             registro_exitoso.show();
-                           new Handler().postDelayed(new Runnable() {
+                            new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
                                     SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);

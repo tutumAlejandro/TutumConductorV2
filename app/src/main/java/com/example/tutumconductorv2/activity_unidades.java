@@ -51,4 +51,9 @@ public class activity_unidades extends AppCompatActivity {
         startActivity(intentIni);
     }
 
+
+    @Override
+    public void onBackPressed(){
+
+    }
 }
