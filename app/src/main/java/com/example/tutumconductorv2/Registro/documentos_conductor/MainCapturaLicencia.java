@@ -67,7 +67,6 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
-
     static final int PICK_IMAGE=100;
 
     int codigoBoton = 0;
@@ -86,14 +85,14 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_captura_licencia);
-        SharedPreferences preferencias_licencia = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        rol = preferencias_licencia.getString("rol","");
 
         vigenciaLicencia = findViewById(R.id.VigenciaLicencia);
         btn_regreso_licencia = findViewById(R.id.img_retroceso_licencia);
-
         licencia_frente = findViewById(R.id.btn_frontal_licencia);
         licencia_reverso = findViewById(R.id.btn_reverso_licencia);
+
+        SharedPreferences preferencias_licencia = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_licencia.getString("rol","");
 
 
         if (ContextCompat.checkSelfPermission(MainCapturaLicencia.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainCapturaLicencia.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -313,7 +312,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             int photoH = bmOptions.outHeight;
 
             //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
+            int scaleFactor = 10;
 
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
@@ -336,7 +335,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 byte[] imageByte = array.toByteArray();
                 image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
             }
-        }else if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE){
+        }
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             Uri path = data.getData();
 
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -358,8 +358,6 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
             if(codigoBoton==1){
                 licencia_frente.setImageBitmap(bitmap);
                 licencia_frente.setBackgroundColor(0x00000000);
