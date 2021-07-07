@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class activity_perfil extends AppCompatActivity {
 
-    private TextView name, phone, email;
+    private TextView name, phone, email, vehicle_model,calification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +21,15 @@ public class activity_perfil extends AppCompatActivity {
         name = findViewById(R.id.profile_driver_name);
         phone = findViewById(R.id.profile_driver_phone);
         email = findViewById(R.id.profile_driver_email);
-
+        vehicle_model = findViewById(R.id.vehiculo_asociado);
+        calification = findViewById(R.id.NumCal);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         name.setText(preferences.getString("name",""));
         phone.setText(preferences.getString("phone",""));
         email.setText(preferences.getString("email",""));
+        vehicle_model.setText(preferences.getString("vehicle_manufacturer","")+" "+preferences.getString("vehicle_model",""));
+        calification.setText(String.valueOf(preferences.getInt("calification", 0)));
+
     }
     public void actCorreo(View V){
         Intent intentIni = new Intent(activity_perfil.this, CambioCorreo.class);
@@ -45,5 +49,11 @@ public class activity_perfil extends AppCompatActivity {
     public void btnRegresar1(View V){
         Intent intentIni = new Intent(activity_perfil.this, Inicio.class);
         startActivity(intentIni);
+    }
+    public void CerrarSesion(View view){
+        Intent intSingOut = new Intent(activity_perfil.this, MainVentanaPrincipal.class);
+        intSingOut.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intSingOut.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intSingOut);
     }
 }

@@ -109,8 +109,6 @@ public class Main_IniciaSesion extends AppCompatActivity {
         }
         else {
             inicioSesion();
-
-            //finish();
         }
 
     }
@@ -225,6 +223,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
 
                               Intent main_popUbicacion = new Intent(Main_IniciaSesion.this,MainPopUpUbicacion.class);
                               startActivity(main_popUbicacion);
+                              finish();
                            }else{
                               Log.e("TAG Inicio Sesion","Inicio de sesion Incorrecto!!!!!!");
                           }

@@ -31,12 +31,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainPopUpUbicacion"
-            android:theme="@style/ThemePopUp2" >
+        <activity android:name=".Registro.datos_personales.PopUpContinuarRegistro"
+                  android:theme="@style/ThemePopUp">
+        </activity>
+        <activity
+            android:name=".MainPopUpUbicacion"
+            android:theme="@style/ThemePopUp2">
         </activity>
         <activity
             android:name=".Registro.datos_personales.MainPopUpData"
-            android:theme="@style/ThemePopUp"></activity>
+            android:theme="@style/ThemePopUp" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -118,8 +122,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity_problema_tecnico"
-            android:theme="@style/InputTextBlack"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/InputTextBlack" />
         <activity
             android:name=".activity_termina_subir_documento"
             android:screenOrientation="portrait" />
@@ -129,15 +133,15 @@
         <activity
             android:name=".CambioContrasena"
             android:screenOrientation="portrait"
-            android:theme="@style/InputTextBlack"/>
+            android:theme="@style/InputTextBlack" />
         <activity
             android:name=".CambioCorreo"
             android:screenOrientation="portrait"
-            android:theme="@style/InputTextBlack"/>
+            android:theme="@style/InputTextBlack" />
         <activity
             android:name=".CambioTelefono"
             android:screenOrientation="portrait"
-            android:theme="@style/InputTextBlack"/>
+            android:theme="@style/InputTextBlack" />
         <activity
             android:name=".caracteristicas_nueva_unidad"
             android:screenOrientation="portrait" />

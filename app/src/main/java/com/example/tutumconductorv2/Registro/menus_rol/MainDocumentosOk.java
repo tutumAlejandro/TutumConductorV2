@@ -1,5 +1,6 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -8,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.CambioCorreo;
 import com.example.tutumconductorv2.Inicio;
 import com.example.tutumconductorv2.MainPopUpUbicacion;
 import com.example.tutumconductorv2.Main_IniciaSesion;
@@ -37,6 +42,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Map;
 
 public class MainDocumentosOk extends AppCompatActivity {
 
@@ -52,8 +58,9 @@ public class MainDocumentosOk extends AppCompatActivity {
 
     private String rol="";
     private String id ="";
-    private String contrasena="";
-    private String correo="";
+    private String password="";
+    private String email="";
+    private String api_token="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +68,9 @@ public class MainDocumentosOk extends AppCompatActivity {
         setContentView(R.layout.activity_main_documentos_ok);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         rol= preferences.getString("rol","");
-        contrasena = preferences.getString("password","");
-        correo = preferences.getString("email","");
+        password = preferences.getString("password","");
+        email = preferences.getString("email","");
         SharedPreferences.Editor obj_editor = preferences.edit();
-        Log.d("Rol Conductor","<<<<<<<<<"+rol);
-        Log.d("Usuario","email: "+correo);
-        Log.d("Usuario","Constraseña: "+contrasena);
         obj_editor.putInt("State",8);
         obj_editor.commit();
 
@@ -87,9 +91,10 @@ public class MainDocumentosOk extends AppCompatActivity {
         refresh = findViewById(R.id.refresh_screen);
 
         mostrar_revision();
+        getDriverData();
 
         realizarPost(url_timeline);
-
+        //update_registry();
 
         refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -164,9 +169,12 @@ public class MainDocumentosOk extends AppCompatActivity {
                                           }break;
                                 case "8": {mostrar_aceptado();}break;
                                 case "9": {mostrar_cita1(); }break;
-                                case "10": {Intent main = new Intent(MainDocumentosOk.this, MainPopUpUbicacion.class);
-                                            startActivity(main);
-                                            finish();
+                                case "10": {
+                                            getDriverData();
+                                            update_registry();
+                                            //Intent main = new Intent(MainDocumentosOk.this, MainPopUpUbicacion.class);
+                                            //startActivity(main);
+                                            //finish();
                                            }break;// asignar state a 10
                             }
                             id = exito.getString("registry_id");
@@ -520,7 +528,6 @@ public class MainDocumentosOk extends AppCompatActivity {
                             }
 
                         }
-
                         String type7 = control_array.getString("type");
                         Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+name7);
                         Log.d("My Tag",">>>>>>>>>>>>Tarjeton: "+title7);
@@ -684,47 +691,61 @@ public class MainDocumentosOk extends AppCompatActivity {
         }
     }
 
-    private void realizarLogin(){
-        String url = "https://www.tutumapps.com/api/driver/login";
+    private void getDriverData(){
+        String url = "https://www.tutumapps.com/api/driver/getDriverData";
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        String correo = preferences.getString("email","");
-        String contrasena = preferences.getString("password","");
-
-        Log.d("Inicio de Sesion","Correo: "+correo);
-        Log.d("Inicio de Sesion","Contraseña: "+contrasena);
-        Log.d("Inicio Sesion","Esto vale madres");
+        String phone = preferences.getString("phone","");
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final org.json.JSONObject jsonObject = new org.json.JSONObject();
 
         try {
-              jsonObject.put("email",correo);
-              jsonObject.put("password","");
-
+              jsonObject.put("phone",phone);
               final String requestBody = jsonObject.toString();
               JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                   @Override
                   public void onResponse(JSONObject response) {
-                      Log.d("TAG", "Success! :D" + " " + response);
+                      Log.e("TAG", "Success! :)" + " " + response);
                       try {
-                           boolean isSucess = response.getBoolean("success");
-                          if(isSucess){
-                              saveUserData(response);
-                              Intent intent = new Intent(MainDocumentosOk.this, Inicio.class);
-                              intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                              Toast.makeText(MainDocumentosOk.this, "Inicio Correcto", Toast.LENGTH_SHORT).show();
-                              startActivity(intent);
+                          JSONObject data = response.getJSONObject("data");
+                          api_token = data.getString("api_token");
+                          Log.e("Login","Api_Token: "+api_token);
+                          JSONObject driver = data.getJSONObject("driver");
+                          String driver_id = driver.getString("driver_id");
+                          String user_id = driver.getString("user_id");
+                          String name = driver.getString("name");
+                          String alias = driver.getString("alias");
+                          String driver_img = driver.getString("driver_img");
+                          String email = driver.getString("email");
+                          Log.e("Login","driver id: "+driver_id);
+                          Log.e("Login","user id: "+user_id);
+                          Log.e("Login","name: "+name);
+                          Log.e("Login","alias: "+alias);
+                          Log.e("Login","driver_img: "+alias);
+                          Log.e("Login","drive_img: "+driver_img);
+                          Log.e("Login", "email: "+email);
+                          JSONObject vehicle = data.getJSONObject("vehicle");
+                          String vehicle_id = vehicle.getString("vehicle_id");
+                          String title = vehicle.getString("vehicle_title");
+                          String year = vehicle.getString("vehicle_year");
+                          String status = vehicle.getString("vehicle_status");
+                          String color = vehicle.getString("vehicle_color");
+                          String plate = vehicle.getString("vehicle_plate");
+                          String vehicle_img = vehicle.getString("vehicle_img");
+
+                          Log.e("Login","vehicle_id: "+vehicle_id);
+                          Log.e("Login","title: "+title);
+                          Log.e("Login","year: "+year);
+                          Log.e("Login","status: "+status);
+                          Log.e("Login","color: "+color);
+                          Log.e("Login","plate: "+plate);
+                          Log.e("Login","vehicle_img: "+vehicle_img);
 
 
-                          }
-                          else{
-                              String getMsg = response.getString("msg");
-                              Toast.makeText(MainDocumentosOk.this, getMsg, Toast.LENGTH_LONG).show();
-                          }
                       } catch (JSONException e) {
                           e.printStackTrace();
                       }
+
                   }
               }, new Response.ErrorListener() {
                   @Override
@@ -739,111 +760,28 @@ public class MainDocumentosOk extends AppCompatActivity {
 
 
     }
-
-    private void inicioSesion(){
-
-        String url = "https://www.tutumapps.com/api/driver/login";
-
-        try{
-
-            SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-            String correo2 = preferences.getString("email","");
-            String password = preferences.getString("password","");
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
-            final JSONObject jsonObject = new JSONObject();
-
-            jsonObject.put("email", correo2);
-            jsonObject.put("password", password);
-            Log.d("Inicio de sesion","Correo: "+correo2+"Contraseña: "+password);
-
-            final String requestBody = jsonObject.toString();
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Log.d("TAG", "Success! :D" + " " + response);
-                    try {
-                        boolean isSucess = response.getBoolean("success");
-                        if(isSucess){
-                            saveUserData(response);
-                            Intent intent = new Intent(MainDocumentosOk.this, Inicio.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            Toast.makeText(MainDocumentosOk.this, "Inicio Correcto", Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
-
-
-                        }
-                        else{
-                            String getMsg = response.getString("msg");
-                            Toast.makeText(MainDocumentosOk.this, getMsg, Toast.LENGTH_LONG).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    error.printStackTrace();
-                    Log.d("TAG", "Error: " + error);
-                }
-            });
-            requestQueue.add(jsonObjectRequest);
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-    }
-
-    private void saveUserData(JSONObject response){
-
-        try {
-            PerfilUser user = new PerfilUser();
-            JSONObject data = response.getJSONObject("data");
-            JSONObject passenger = data.getJSONObject("driver");
-
-            user.setName(passenger.getString("name"));
-            user.setJob("TUTUM");
-            user.setJob_dir("Sierra del Laurel 420, Bosques del prado");
-            user.setHome("Vizcaya xD");
-            user.setHome_dir("Vizcaya 307, Barranca de Gpe");
-            user.setEmailVerified(passenger.getBoolean("email_verified"));
-            user.setFb_id(passenger.getString("facebook_id"));
-            user.setGoogle_id(passenger.getString("google_id"));
-            user.setPassengerId(passenger.getString("passenger_id"));//3617
-            user.setPassengerImg(passenger.getString("passenger_img"));
-            user.setTravels(passenger.getString("travels"));
-            user.setUserId(String.valueOf(passenger.getInt("user_id")));//4071
-            user.setCalification(passenger.getString("calification"));
-            user.setApi_token(data.getString("api_token"));
-            user.setEmail(passenger.getString("email"));
-            user.setPassword(contrasena);
-            user.setTelefono(passenger.getString("phone"));
-        } catch (JSONException e) {
-            Log.e("MyTAG", "hubo un error obteniendo los valores del servidor");
-        }
-
-    }
-
-    public void post_update(){
-        String url = "https://tutumapps.com/api/driver/login";
-        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        String email2 = preferences.getString("email","");
-        String phone2 = preferences.getString("phone","");
-        String password2 = preferences.getString("password","");
+    private void update_registry(){
+        String url = "https://tutumapps.com/api/driver/updateProfile";
+        Log.e("TEST","API: "+api_token);
+        //Log.e("TEST","EMAIL: "+email);
+        Log.e("TEST","PASSWORD: "+password);
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
-            jsonObject.put("email",email2);
-            jsonObject.put("password","");
+
+            //jsonObject.put("email",email);
+            jsonObject.put("password", password);
+            jsonObject.put("api_token",api_token);
+
 
             final String requestBody = jsonObject.toString();
+
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("My Tag","Registro Actualizado "+response);
+
+                        Log.e("Respuesta Registro","Exito!!!: "+response);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -851,11 +789,21 @@ public class MainDocumentosOk extends AppCompatActivity {
                     error.printStackTrace();
                     Log.d("My Tag","Error"+error);
                 }
-            });
+            })
+            {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Accept", "application/json");
+                    return params;}
+            };
+
             requestQueue.add(request);
-        } catch (Exception e) {
+
+        }catch (JSONException e){
             e.printStackTrace();
         }
+
     }
 
 }

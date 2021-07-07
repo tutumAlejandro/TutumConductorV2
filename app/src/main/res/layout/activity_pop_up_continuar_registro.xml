@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro.datos_personales.PopUpContinuarRegistro"
+    android:background="@drawable/boton_documentos"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="@dimen/width_img_camera"
+                android:layout_height="@dimen/heigth_img_camara"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_baseline_help_24"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/daysi"
+                android:text="@string/txt_pop_up_text0"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="28sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/txt_pop_up_text1"
+                android:textAlignment="center"
+                android:textColor="@color/daysi"
+                android:fontFamily="@font/open_sans_bold"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/txt_pop_up_text2"
+                android:textAlignment="center"
+                android:textColor="@color/daysi"
+                android:textSize="18sp" />
+b
+            <TextView
+                android:id="@+id/main_pop_up_etapa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/email_registrado"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+            <TextView
+                android:id="@+id/telefono_registrado"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/daysi"
+                android:fontFamily="@font/open_sans_bold"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:layout_width="@dimen/width_boton_alert"
+                android:layout_height="@dimen/heigth_boton_alert"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/boton_redondo"
+                android:fontFamily="@font/open_sans_bold"
+                android:onClick="continuar_registro"
+                android:text="@string/txt_btn_pop_up1"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="@dimen/width_boton_alert"
+                android:layout_height="@dimen/heigth_boton_alert"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boton_redondo"
+                android:fontFamily="@font/open_sans_bold"
+                android:onClick="iniciar_registro"
+                android:text="@string/txt_btn_pop_up2"
+                android:layout_marginBottom="40dp"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
