@@ -244,7 +244,7 @@ public class activity_problema_tecnico extends AppCompatActivity {
             bmOptions.inJustDecodeBounds = true;
 
             //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor = 1;
+            int scaleFactor = 2;
 
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
@@ -259,7 +259,7 @@ public class activity_problema_tecnico extends AppCompatActivity {
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
 
-        }else if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE){
+        }else if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             Uri path = data.getData();
 
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
