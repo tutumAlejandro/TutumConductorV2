@@ -25,6 +25,7 @@ import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
 import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
+import com.example.tutumconductorv2.Registro.datos_personales.PopUpContinuarRegistro;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
 import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
@@ -51,25 +52,20 @@ public class MainVentanaPrincipal extends AppCompatActivity {
 
         SharedPreferences preferencias_ventanaPrincipal = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
         estado_previo = preferencias_ventanaPrincipal.getInt("State",0);
-        if(estado_previo == 0){
+        if(estado_previo == 0){ // falta agregar state == 10
             Log.d("Main Ventana Principal","Mo hay ningun registro sin terminar");
             Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
             startActivity(main_registrate);
-            //finish();
-        }else{ // En caso de que no haya un registro incomplemto, hacer una solicitud al servidor para saber si existe un
-            // un registro incompleto con el servidor
-
-            // se tiene que hacer un POST al servidor para saber el timeline
+        }else{
             Log.d("Main Ventana Principal","Hay un registro sin terminar en el telefono");
             phone = preferencias_ventanaPrincipal.getString("phone","");
             if(phone.isEmpty()){
-                HardReset();
+                HARD_RESET();
                 Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
                 startActivity(main_registrate);
                 Log.d("Main Ventana Principal", "No hay ningun numero de telefono registrado");
             }else{
-                Log.d("Main Venatan Principal","Hay un numero de telefono registrado en el telefono");
-
+                Log.d("Main Ventana Principal","Hay un numero de telefono registrado en el telefono");
                 POST_timeline();
             }
 
@@ -92,77 +88,21 @@ public class MainVentanaPrincipal extends AppCompatActivity {
             final String requestBody = jsonObject.toString();
             Log.d("Main Ventana Principal","Peticion hecha al servidor");
             JsonObjectRequest request_timeline = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+
                 @Override
                 public void onResponse(JSONObject response) {
-                    //Si hay respuesta por parte del servidor, esta debe de ser analizada
                     Log.d("Main Ventana Principal","Respuesta del servidor: " + response);
-                    //Debido a que podemos recibir dos tipos de respuestas usaremos un if
                     if(response.has("msg")){
+                        HARD_RESET();
                         // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
-                        HardReset();
-                        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
+                        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
                         startActivity(main_registrate);
-                        Log.d("Main Ventana Principal","No se encontro el registro");
+                        Log.d("Main Ventana Principal","No se encontro el registro y se borran los datos de la BD Shared Preferences");
                     }else{
-                        //Si no existe el encabezado "msg", quiere decir que hay un registro con ese numero
+
                         Log.d("Main Ventana Principal", "Registro encontrado");
-                        String msg2= "";
-
-                        final AlertDialog.Builder alert_continue = new AlertDialog.Builder(MainVentanaPrincipal.this);
-                        //alert_continue.setView(R.layout.dialog_continue);
-
-                        switch (estado_previo){
-                            case 1: {msg2 = "Etapa: Registro del Telefono";}break;
-                            case 2: {msg2 = "Etapa: Validación del OTP";}break;
-                            case 3: {msg2 = "Etapa: Selección del tipo de usuario";}break;
-                            case 4: {msg2 = "Etapa: Documentos documentos Socio";}break;
-                            case 5: {msg2 = "Etapa: Documentos Conductor";}break;
-                            case 6: {msg2 = "Etapa: Documentos Conductor Sin Vehiculo";}break;
-                            case 8: {msg2 = "Etapa: Documentos Entregados";}break;
-                        }
-
-
-                        alert_continue.setPositiveButton(R.string.txt_btn_pop_up1, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                switch (estado_previo){
-                                    case 1: {Intent main_reg_tel = new Intent(MainVentanaPrincipal.this, MainRegistroTelefono.class);
-                                        startActivity(main_reg_tel); finish();}break;
-                                    case 2: {Intent main_otp = new Intent(MainVentanaPrincipal.this, MainOTP.class);
-                                        startActivity(main_otp); finish();}break;
-                                    case 3: {Intent main_rol = new Intent(MainVentanaPrincipal.this, MainRolConductor.class);
-                                        startActivity(main_rol); finish();}break;
-                                    case 4: {Intent main_socio = new Intent(MainVentanaPrincipal.this, MainSocioDocumentos.class);
-                                        startActivity(main_socio);finish();}break;
-                                    case 5: {Intent main_conductor = new Intent(MainVentanaPrincipal.this, MainConductorDocumentos.class);
-                                        startActivity(main_conductor);finish();}break;
-                                    case 6: {Intent main_snv = new Intent(MainVentanaPrincipal.this, MainSnvDocuemtos.class);
-                                        startActivity(main_snv); finish();}break;
-                                    case 7: {Intent main_error = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
-                                             startActivity(main_error);}break;
-                                    case 8: {Intent main_ok = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
-                                        startActivity(main_ok);finish();}break;
-                                }
-                            }
-                        });
-                        alert_continue.setNegativeButton(R.string.txt_btn_pop_up2, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //get_FCM();
-                                HardReset();
-                                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
-                                startActivity(main_registrate);
-                            }
-                        });
-
-                        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-                        String email = preferences.getString("email","");
-                        //char init = email.charAt(0);
-                        alert_continue.setTitle(Html.fromHtml("<font color='#E4B621'> <b>Registro Conductor</b></font>"));
-                        alert_continue.setIcon(R.drawable.logo_1024);
-                        alert_continue.setMessage(Html.fromHtml("<p><b>Parece que tienes un registro sin completar.</b></p>"+"<b>¿Quieres continuar con tu registro</b>"+"\n \n"+msg2));
-                        alert_continue.show();
-
+                        Intent main_pop_continuar = new Intent(MainVentanaPrincipal.this, PopUpContinuarRegistro.class);
+                        startActivity(main_pop_continuar);
                     }
                 }
             }, new Response.ErrorListener() {
@@ -177,7 +117,9 @@ public class MainVentanaPrincipal extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public void HardReset(){
+
+    private void HARD_RESET(){
+
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferences.edit();
         obj_editor.putString("name","");

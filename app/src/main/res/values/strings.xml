@@ -37,6 +37,7 @@
     <string name="input_codigo">Código del Vehículo</string>
 
     <!-- Strings para la ventanan PopUp Continuar con el registro-->
+    <string name="txt_pop_up_text0">Vaya.....</string>
     <string name="txt_pop_up_text1">Parece que tienes un registro sin completar.</string>
     <string name="txt_pop_up_text2">¿Deseas continuar con tu registro?</string>
     <string name="txt_btn_pop_up1">Si, Deseo continuar</string>

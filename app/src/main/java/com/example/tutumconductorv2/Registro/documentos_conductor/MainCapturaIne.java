@@ -15,7 +15,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -155,7 +158,11 @@ public class MainCapturaIne extends AppCompatActivity {
                         check_ine_frontal=true;
                     }
                 });
-                opcion.show();
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
             }
         });
         ine_reverso.setOnClickListener(new View.OnClickListener() {
@@ -178,7 +185,11 @@ public class MainCapturaIne extends AppCompatActivity {
                         check_ine_reverso=true;
                     }
                 });
-                opcion.show();
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
 
             }
         });
@@ -244,7 +255,6 @@ public class MainCapturaIne extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //Primero se pregunta se el resultado fue correcto y si hay una solicitud de captura de imagen
         if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE ){
             MediaScannerConnection.scanFile(MainCapturaIne.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
                 @Override
@@ -252,11 +262,8 @@ public class MainCapturaIne extends AppCompatActivity {
             });
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
-
-
             //Determinar el factor de escalamiento de la imagenes bitmap
             int scaleFactor =10;
-
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
             bmOptions.inSampleSize = scaleFactor;
@@ -287,7 +294,7 @@ public class MainCapturaIne extends AppCompatActivity {
 
 
             //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor =10;
+            int scaleFactor =1;
 
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
@@ -297,8 +304,6 @@ public class MainCapturaIne extends AppCompatActivity {
             try {
 
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),path);
-               // bitmap = BitmapFactory.decodeFile(path.toString(),bmOptions);
-                //bitmap = BitmapFactory.decodeFile(String.valueOf(path),bmOptions);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -382,7 +387,6 @@ public class MainCapturaIne extends AppCompatActivity {
     public void cargarImagen(){
         Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         galeria.setType("image/*");
-
         startActivityForResult(galeria.createChooser(galeria,"Seleccione la aplicación"),PICK_IMAGE);
     }
 

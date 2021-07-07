@@ -7,8 +7,10 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -20,7 +22,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -62,6 +67,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    static final int PICK_IMAGE=100;
 
     int codigoBoton = 0;
     int factor = 1;
@@ -149,18 +156,56 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         licencia_frente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                codigoBoton = 1;
-                check_licencia_frente = true;
-                tomarFoto(v,"licencia_frente");
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaLicencia.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        codigoBoton = 1;
+                        check_licencia_frente = true;
+                        tomarFoto(v,"licencia_frente");
+                    }
+                });
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                      cargarImagen();
+                      codigoBoton = 1;
+                      check_licencia_frente = true;
+                    }
+                });
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
             }
         });
 
         licencia_reverso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                codigoBoton = 2;
-                check_licencia_reverso = true;
-                tomarFoto(v,"licencia_reverso");
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaLicencia.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        codigoBoton = 2;
+                        check_licencia_reverso = true;
+                        tomarFoto(v,"licencia_reverso");
+                    }
+                });
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        codigoBoton = 2;
+                        check_licencia_reverso = true;
+                        cargarImagen();
+                    }
+                });
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
             }
         });
 
@@ -256,42 +301,82 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 @Override
                 public void onScanCompleted(String s, Uri uri) { }
             });
+            // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
+            int targetW = licencia_frente.getWidth();
+            int targetH = licencia_frente.getHeight();
+
+            //Obtener las dimensiones del Bitmap
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            //Determinar el factor de escalamiento de la imagenes bitmap
+            int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
+
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            if(codigoBoton==1){
+                licencia_frente.setImageBitmap(bitmap);
+                licencia_frente.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else{
+                licencia_reverso.setImageBitmap(bitmap);
+                licencia_reverso.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }
+        }else if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE){
+            Uri path = data.getData();
+
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+
+
+            //Determinar el factor de escalamiento de la imagenes bitmap
+            int scaleFactor =1;
+
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+            Bitmap bitmap = null;
+            try {
+
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),path);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            if(codigoBoton==1){
+                licencia_frente.setImageBitmap(bitmap);
+                licencia_frente.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else{
+                licencia_reverso.setImageBitmap(bitmap);
+                licencia_reverso.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }
         }
-        // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
-        int targetW = licencia_frente.getWidth();
-        int targetH = licencia_frente.getHeight();
 
-        //Obtener las dimensiones del Bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
-
-        //Determinar el factor de escalamiento de la imagenes bitmap
-        int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
-
-        //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
-
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        if(codigoBoton==1){
-            licencia_frente.setImageBitmap(bitmap);
-            licencia_frente.setBackgroundColor(0x00000000);
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-            byte[] imageByte = array.toByteArray();
-            image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
-        }else{
-            licencia_reverso.setImageBitmap(bitmap);
-            licencia_reverso.setBackgroundColor(0x00000000);
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-            byte[] imageByte = array.toByteArray();
-            image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
-        }
 
     }
     public void tomarFoto(View view,String nomFoto){
@@ -348,6 +433,12 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void cargarImagen(){
+        Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galeria.setType("image/*");
+        startActivityForResult(galeria.createChooser(galeria,"Seleccione la aplicacion"),PICK_IMAGE);
     }
 
 
