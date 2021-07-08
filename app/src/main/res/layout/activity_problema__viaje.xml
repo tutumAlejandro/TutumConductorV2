@@ -120,37 +120,36 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout2_travel"
+            <ImageView
+                android:id="@+id/img_error_viaje"
                 android:layout_width="@dimen/width_img_camera"
-                android:layout_height="@dimen/width_img_camera"
-                android:layout_marginTop="48dp"
+                android:layout_height="@dimen/heigth_img_camara"
+                android:layout_marginTop="36dp"
                 android:background="@color/fondo_captura_img"
-                android:foreground="@drawable/ic_baseline_add_a_photo_24"
-                android:foregroundGravity="center"
-                android:hint="@string/hint_adjuntar_imagen"
-                app:errorEnabled="true"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
+                android:contentDescription="@string/imagenes"
+                android:scaleType="center"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
                 app:layout_constraintEnd_toEndOf="@+id/input_body_report_travel"
                 app:layout_constraintHorizontal_bias="0.535"
                 app:layout_constraintStart_toStartOf="@+id/input_body_report_travel"
-                app:layout_constraintTop_toBottomOf="@+id/input_body_report_travel">
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toBottomOf="@+id/input_body_report_travel"
+                app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
 
             <Button
                 android:id="@+id/btn_aceptar_reporte_travel"
                 android:layout_width="@dimen/width_boton"
                 android:layout_height="@dimen/heigth_boton"
                 android:layout_marginTop="40dp"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout2_travel"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout2_travel"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2_travel"
                 android:background="@drawable/boton_redondo"
-                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_bold"
                 android:text="@string/btn_text_aceptar"
+                android:textColor="@color/white"
                 android:textSize="@dimen/size_text_btn"
-                android:fontFamily="@font/open_sans_bold"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/img_error_viaje"
+                app:layout_constraintStart_toStartOf="@+id/img_error_viaje"
+                app:layout_constraintTop_toBottomOf="@+id/img_error_viaje" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

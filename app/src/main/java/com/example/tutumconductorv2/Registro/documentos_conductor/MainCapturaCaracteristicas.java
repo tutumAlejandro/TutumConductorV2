@@ -1,6 +1,7 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -8,6 +9,7 @@ import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -21,7 +23,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -94,6 +99,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int PICK_IMAGE= 100;
 
     int codigoBoton = 0;
     int factor = 1;
@@ -176,26 +182,83 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         btn_frente_carac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                codigoBoton=1;
-                tomarFoto(view,"frente_vehiculo");
-                check_carac_frente=true;
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaCaracteristicas.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        codigoBoton=1;
+                        tomarFoto(view,"frente_vehiculo");
+                        check_carac_frente=true;
+                    }
+                });
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        cargarImagen();
+                        codigoBoton=1;
+                        check_carac_frente=true;
+                    }
+                });
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
             }
         });
 
         btn_trasera_carac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                codigoBoton=2;
-                tomarFoto(view,"trasera_vehiculo");
-                check_carac_reverso=true;
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaCaracteristicas.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        codigoBoton=2;
+                        tomarFoto(view,"reverso_vehiculo");
+                        check_carac_reverso=true;
+                    }
+                });
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        cargarImagen();
+                        codigoBoton=2;
+                        check_carac_reverso=true;
+                    }
+                });
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
             }
         });
         btn_lateral_carac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                codigoBoton=3;
-                tomarFoto(view,"lateral_vehiculo");
-                check_carac_lateral = true;
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaCaracteristicas.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        codigoBoton=3;
+                        tomarFoto(view,"lateral_vehiculo");
+                        check_carac_lateral=true;
+                    }
+                });
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        cargarImagen();
+                        codigoBoton=3;
+                        check_carac_lateral=true;
+                    }
+                });
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
             }
         });
 
@@ -960,49 +1023,98 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 @Override
                 public void onScanCompleted(String s, Uri uri) { }
             });
-        }
-        // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
-        int targetW = btn_frente_carac.getWidth();
-        int targetH = btn_frente_carac.getHeight();
 
-        //Obtener las dimensiones del Bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
+            // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
+            int targetW = btn_frente_carac.getWidth();
+            int targetH = btn_frente_carac.getHeight();
 
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
+            //Obtener las dimensiones del Bitmap
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
 
-        //Determinar el factor de escalamiento de la imagenes bitmap
-        int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
 
-        //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
+            //Determinar el factor de escalamiento de la imagenes bitmap
+            int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
 
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        if(codigoBoton==1){
-            btn_frente_carac.setImageBitmap(bitmap);
-            btn_frente_carac.setBackgroundColor(0x00000000);
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-            byte[] imageByte = array.toByteArray();
-            image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
-        }else if(codigoBoton ==2){
-            btn_trasera_carac.setImageBitmap(bitmap);
-            btn_trasera_carac.setBackgroundColor(0x00000000);
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-            byte[] imageByte = array.toByteArray();
-            image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
-        }else {
-            btn_lateral_carac.setImageBitmap(bitmap);
-            btn_lateral_carac.setBackgroundColor(0x00000000);
-            ByteArrayOutputStream array = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-            byte[] imageByte = array.toByteArray();
-            image_code3 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
 
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
+            if(codigoBoton==1){
+                btn_frente_carac.setImageBitmap(bitmap2);
+                btn_frente_carac.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else if(codigoBoton ==2){
+                btn_trasera_carac.setImageBitmap(bitmap);
+                btn_trasera_carac.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else {
+                btn_lateral_carac.setImageBitmap(bitmap);
+                btn_lateral_carac.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code3 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }
+        } else if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            Uri path = data.getData();
+            int targetW = btn_frente_carac.getWidth();
+            int targetH = btn_frente_carac.getHeight();
+
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            int scaleFactor = Math.min((photoW/targetW),(photoH/targetH));
+
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+            Bitmap bitmap = null;
+            try {
+
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),path);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
+            if(codigoBoton==1){
+                btn_frente_carac.setImageBitmap(bitmap2);
+                btn_frente_carac.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else if(codigoBoton ==2){
+                btn_trasera_carac.setImageBitmap(bitmap);
+                btn_trasera_carac.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }else {
+                btn_lateral_carac.setImageBitmap(bitmap);
+                btn_lateral_carac.setBackgroundColor(0x00000000);
+                ByteArrayOutputStream array = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+                byte[] imageByte = array.toByteArray();
+                image_code3 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+            }
         }
 
     }
@@ -1065,5 +1177,10 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void cargarImagen(){
+        Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galeria.setType("image/*");
+        startActivityForResult(galeria.createChooser(galeria,"Seleccione la aplicacion"),PICK_IMAGE);
     }
 }

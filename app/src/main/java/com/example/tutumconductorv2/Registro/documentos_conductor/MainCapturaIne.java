@@ -260,18 +260,29 @@ public class MainCapturaIne extends AppCompatActivity {
                 @Override
                 public void onScanCompleted(String s, Uri uri) { }
             });
+
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
-            //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor =10;
+            final int heigth = bmOptions.outHeight;
+            final int width = bmOptions.outWidth;
+            int targetW = ine_frontal.getWidth();
+            int targetH = ine_frontal.getHeight();
+            int scaleFactor = 1;
+            if (heigth > targetH || width > targetW) {
+                int halfHeigth = heigth/2;
+                int halfWidth = width / 2;
+                while ((halfHeigth/scaleFactor)>=targetH && (halfWidth/scaleFactor)>= targetW){
+                    scaleFactor *=2;
+                }
+            }
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
             bmOptions.inSampleSize = scaleFactor;
             bmOptions.inPurgeable = true;
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
             if(codigoBoton==1){
-                ine_frontal.setImageBitmap(bitmap);
+                ine_frontal.setImageBitmap(bitmap2);
                 ine_frontal.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
@@ -289,12 +300,16 @@ public class MainCapturaIne extends AppCompatActivity {
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE ){
             Uri path = data.getData();
 
+            int targetW = ine_frontal.getWidth();
+            int targetH = ine_frontal.getHeight();
+
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
 
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
 
-            //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor =1;
+            int scaleFactor = Math.min((photoW/targetW),(photoH/targetH));
 
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
@@ -309,9 +324,9 @@ public class MainCapturaIne extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
             if(codigoBoton==1){
-                ine_frontal.setImageBitmap(bitmap);
+                ine_frontal.setImageBitmap(bitmap2);
                 ine_frontal.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);

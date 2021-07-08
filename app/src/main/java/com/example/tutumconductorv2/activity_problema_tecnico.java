@@ -238,7 +238,8 @@ public class activity_problema_tecnico extends AppCompatActivity {
                 public void onScanCompleted(String s, Uri uri) { }
             });
             // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
-
+            int targetW=img_error.getWidth();
+            int targetH = img_error.getHeight();
             //Obtener las dimensiones del Bitmap
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
@@ -252,7 +253,8 @@ public class activity_problema_tecnico extends AppCompatActivity {
             bmOptions.inPurgeable = true;
 
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-            img_error.setImageBitmap(bitmap);
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
+            img_error.setImageBitmap(bitmap2);
             img_error.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
@@ -261,6 +263,8 @@ public class activity_problema_tecnico extends AppCompatActivity {
 
         }else if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             Uri path = data.getData();
+            int targetW=img_error.getWidth();
+            int targetH = img_error.getHeight();
 
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
@@ -282,7 +286,8 @@ public class activity_problema_tecnico extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            img_error.setImageBitmap(bitmap);
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
+            img_error.setImageBitmap(bitmap2);
             img_error.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);

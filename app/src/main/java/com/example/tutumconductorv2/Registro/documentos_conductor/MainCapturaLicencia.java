@@ -70,7 +70,6 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
     static final int PICK_IMAGE=100;
 
     int codigoBoton = 0;
-    int factor = 1;
     int quality_image=30;
 
     private RequestQueue queue;
@@ -312,7 +311,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             int photoH = bmOptions.outHeight;
 
             //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor = 10;
+            int scaleFactor = Math.min((photoW/targetW),(photoH/targetH));
 
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
@@ -320,8 +319,9 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             bmOptions.inPurgeable = true;
 
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
             if(codigoBoton==1){
-                licencia_frente.setImageBitmap(bitmap);
+                licencia_frente.setImageBitmap(bitmap2);
                 licencia_frente.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
@@ -339,12 +339,16 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             Uri path = data.getData();
 
+            int targetW = licencia_frente.getWidth();
+            int targetH = licencia_frente.getHeight();
+
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
 
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
 
-            //Determinar el factor de escalamiento de la imagenes bitmap
-            int scaleFactor =1;
+            int scaleFactor = Math.min((photoW/targetW),(photoH/targetH));
 
             //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
             bmOptions.inJustDecodeBounds = false;
@@ -358,8 +362,9 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
             if(codigoBoton==1){
-                licencia_frente.setImageBitmap(bitmap);
+                licencia_frente.setImageBitmap(bitmap2);
                 licencia_frente.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);

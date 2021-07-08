@@ -4,8 +4,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -16,7 +18,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -57,6 +62,7 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int PICK_IMAGE=100;
 
     int factor = 1;
     int quality_image=30;
@@ -131,8 +137,26 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         btn_tarjeton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tomarFoto(v,"Tarjeton");
-                check_tarjeton = true;
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaTarjeton.this);
+                opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        check_tarjeton = true;
+                        tomarFoto(v,"Tarjeton");
+                    }
+                });
+                opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        cargarImagen();
+                        check_tarjeton = true;
+                    }
+                });
+                AlertDialog dialog = opcion.create();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+                wmlp.gravity = Gravity.BOTTOM;
+                dialog.show();
             }
         });
 
@@ -236,35 +260,67 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
                 @Override
                 public void onScanCompleted(String s, Uri uri) { }
             });
+            // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
+            int targetW = btn_tarjeton.getWidth();
+            int targetH = btn_tarjeton.getHeight();
+
+            //Obtener las dimensiones del Bitmap
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            //Determinar el factor de escalamiento de la imagenes bitmap
+            int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
+
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
+            btn_tarjeton.setImageBitmap(bitmap2);
+            btn_tarjeton.setBackgroundColor(0x00000000);
+            ByteArrayOutputStream array = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+            byte[] imageByte = array.toByteArray();
+            image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
+        }else if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            Uri path = data.getData();
+
+            int targetW = btn_tarjeton.getWidth();
+            int targetH = btn_tarjeton.getHeight();
+
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            int scaleFactor = Math.min((photoW/targetW),(photoH/targetH));
+
+            //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+            Bitmap bitmap = null;
+            try {
+
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),path);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
+            btn_tarjeton.setImageBitmap(bitmap2);
+            btn_tarjeton.setBackgroundColor(0x00000000);
+            ByteArrayOutputStream array = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
+            byte[] imageByte = array.toByteArray();
+            image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
         }
-        // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
-        int targetW = btn_tarjeton.getWidth();
-        int targetH = btn_tarjeton.getHeight();
-
-        //Obtener las dimensiones del Bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
-
-        //Determinar el factor de escalamiento de la imagenes bitmap
-        int scaleFactor = Math.min((photoW/(targetW*factor)),(photoH/(targetH*factor)));
-
-        //Decodificar  el archivo de la imagen dentro del tamaño del Bitmap para llenar la vista
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
-
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        btn_tarjeton.setImageBitmap(bitmap);
-        btn_tarjeton.setBackgroundColor(0x00000000);
-        ByteArrayOutputStream array = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
-        byte[] imageByte = array.toByteArray();
-        image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
-
-
     }
     public void tomarFoto(View view,String nomFoto){
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -319,6 +375,11 @@ public class MainCapturaTarjeton extends AppCompatActivity implements View.OnCli
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void cargarImagen(){
+        Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galeria.setType("image/*");
+        startActivityForResult(galeria.createChooser(galeria,"Seleccione la aplicacion"),PICK_IMAGE);
     }
 
 }
