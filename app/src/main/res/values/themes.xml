@@ -40,4 +40,7 @@
     <style name="DialogTheme" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:background">@color/white</item>
     </style>
+    <style name="CardViewTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 </resources>

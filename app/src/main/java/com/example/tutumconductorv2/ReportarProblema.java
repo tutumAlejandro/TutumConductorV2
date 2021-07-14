@@ -27,4 +27,6 @@ public class ReportarProblema extends AppCompatActivity {
         Intent intentIni = new Intent(ReportarProblema.this, activity_chat_reporte.class);
         startActivity(intentIni);
     }
+
+
 }

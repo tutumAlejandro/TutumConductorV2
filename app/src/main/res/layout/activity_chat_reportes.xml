@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatReportes"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/btnFlechaAtrasPerfil"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
+                    android:layout_marginStart="@dimen/separacion_boton_regreso"
+                    android:layout_marginTop="@dimen/separacion_boton_regreso"
+                    android:contentDescription="@string/imagenes"
+                    android:src="@drawable/flecha_retroceso"/>
+                <ImageView
+                    android:id="@+id/cambioTel_fondo2"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="@dimen/separacion_boton_regreso"
+                    android:contentDescription="@string/cambiotel_fondo2"
+                    android:src="@drawable/cuadros"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/boring_sans_heavy"
+                android:text="@string/char_txt_head"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recicler_chat_tecnico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>

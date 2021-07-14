@@ -120,51 +120,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnCrearReporte"></TextView>
 
-
-                <ImageView
-                    android:id="@+id/btnHistoriaTecnico"
-                    android:layout_width="350dp"
-                    android:layout_height="78dp"
-                    android:layout_marginTop="136dp"
-                    android:onClick="btnNuevoTecnico"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_documentos2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnCrearReporte"></ImageView>
-
-                <TextView
-                    android:id="@+id/txt2"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_problem_tech"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/boring_sans_bold"
-                    android:text="@string/txtTitulo"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintStart_toEndOf="@+id/imgIcon2"
-                    app:layout_constraintTop_toTopOf="@+id/btnHistoriaTecnico" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistorialTecnico">
+                </androidx.recyclerview.widget.RecyclerView>
 
-                <ImageView
-                    android:id="@+id/imgIcon2"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/profile_user"
-                    app:layout_constraintStart_toStartOf="@+id/btnHistoriaTecnico"
-                    app:layout_constraintTop_toTopOf="@+id/btnHistoriaTecnico" />
-
-                <ImageView
-                    android:id="@+id/img_flecha2"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_marginTop="28dp"
-                    android:layout_marginEnd="30dp"
-                    android:src="@drawable/triangulo_flecha"
-                    app:layout_constraintEnd_toEndOf="@+id/btnHistoriaTecnico"
-                    app:layout_constraintTop_toTopOf="@+id/btnHistoriaTecnico" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

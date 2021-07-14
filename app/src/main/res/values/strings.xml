@@ -313,6 +313,7 @@
     <string name="btnNuevoReporte">Crear Reporte</string>
     <string name="txtHistorial">Historial</string>
     <string name="txtTitulo">Prueba de Reporte</string>
+    <string name="char_txt_head">Tus Reportes</string>
 
     <!--Ventana Unidades-->
     <string name="txtUnidades">Unidades</string>
