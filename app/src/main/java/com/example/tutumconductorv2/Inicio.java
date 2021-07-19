@@ -1,9 +1,12 @@
 package com.example.tutumconductorv2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +18,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 public class Inicio extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Button toPerfil,toUnidad,signOut,toAyuda,toGanancia,toHistorial;
+    private ImageView foto_perfil;
     private boolean upButton;
+    private String url_imagen="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,12 @@ public class Inicio extends AppCompatActivity {
         toAyuda = findViewById(R.id.button_ayuda);
         toGanancia = findViewById(R.id.button_unidad);
         toHistorial = findViewById(R.id.button_historial);
+        foto_perfil = findViewById(R.id.imagen_fondo_perfil);
+
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        url_imagen = preferences.getString("driver_img","");
+        url_imagen = url_imagen.replace("https:\\/\\/www.tutumapps.com\\/media\\/profile\\","https://www.tutumapps.com/media/profile/");
+        Picasso.get().load(url_imagen).into(foto_perfil);
 
         toPerfil.setOnClickListener(new View.OnClickListener() {
             @Override

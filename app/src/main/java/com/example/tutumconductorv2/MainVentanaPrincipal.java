@@ -14,6 +14,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -109,6 +110,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     //Si no hay respuesta del servidor mostrar un error ya mediante el LOg y un AlertDialog
+                    Toast.makeText(MainVentanaPrincipal.this,"Hubo un problema en el servidor, intentalo mas tarde",Toast.LENGTH_SHORT).show();
                     Log.e("Main Ventana Principal", "<<<<<<<<<No hay respuesta del servidor>>>>>>>>>>");
                 }
             });

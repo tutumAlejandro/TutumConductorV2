@@ -54,7 +54,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recicler_chat_tecnico"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
             </androidx.recyclerview.widget.RecyclerView>
             <Button
                 android:id="@+id/btn_response_report"
@@ -67,13 +68,6 @@
                 android:text="@string/btn_text_responder"
                 android:textColor="@color/white"
                 android:fontFamily="@font/open_sans_bold"/>
-
-
         </LinearLayout>
-
-
     </ScrollView>
-
-
-
 </LinearLayout>

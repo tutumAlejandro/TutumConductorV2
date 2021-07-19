@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.adapters.CardViewDatos;
 import com.example.tutumconductorv2.adapters.CardViewMensajes;
 import com.example.tutumconductorv2.adapters.CardViewMensajes_Adapter;
+import com.example.tutumconductorv2.adapters.CardViewMensajes_Adapter2;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +39,7 @@ public class ChatReportes extends AppCompatActivity {
     private String api_token;
     private RecyclerView recyclerChat_tecnico;
     private CardViewMensajes_Adapter msg_adapter;
+    private CardViewMensajes_Adapter2 msg_adapter_usr;
     List<CardViewMensajes> msg_platform;
     private Button btn_responder_reporte,btn_back_chat;
     //private int[] id_report;
@@ -56,6 +58,8 @@ public class ChatReportes extends AppCompatActivity {
         msg_platform = new ArrayList<>();
         recyclerChat_tecnico.setLayoutManager(new LinearLayoutManager(this));
         msg_adapter = new CardViewMensajes_Adapter(msg_platform);
+        /////////////////////////////////////////////
+        msg_adapter_usr = new CardViewMensajes_Adapter2(msg_platform);
 
         btn_responder_reporte.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +105,7 @@ public class ChatReportes extends AppCompatActivity {
                             if(msg.getString("type_user").matches("Administrador") || msg.getString("type_user").matches("Supervisor")){
                                 type_usr="TUTUM APP";
                                 url_imagen = url_imagen.replace("https:\\/\\/www.tutumapps.com\\/media\\/reports\\","https://www.tutumapps.com/media/reports/");
-                                msg_platform.add(new CardViewMensajes(test_msg,type_usr,url_imagen,getApplicationContext()));
+                                msg_platform.add(new CardViewMensajes(test_msg,type_usr,url_imagen));
                             }else{
                                 type_usr="Usuario";
                                 url_imagen = url_imagen.replace("https:\\/\\/www.tutumapps.com\\/media\\/reports\\","https://www.tutumapps.com/media/reports/");

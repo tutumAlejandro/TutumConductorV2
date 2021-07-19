@@ -23,8 +23,8 @@
 
                 <ImageView
                     android:id="@+id/btnFlechaAtrasPerfil"
-                    android:layout_width="37dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/width_img_retroceso"
+                    android:layout_height="@dimen/heigth_img_retroceso"
                     android:layout_marginStart="@dimen/separacion_boton_regreso"
                     android:layout_marginTop="@dimen/separacion_boton_regreso"
                     android:contentDescription="@string/imagenes"

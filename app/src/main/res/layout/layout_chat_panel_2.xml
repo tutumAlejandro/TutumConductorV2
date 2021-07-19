@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/boton_documentos"
+        android:background="@drawable/boton_documentos2"
         android:clipToPadding="true">
 
         <TextView
@@ -37,6 +37,7 @@
             android:paddingBottom="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/type_user"
             app:layout_constraintStart_toStartOf="@+id/type_user"
             app:layout_constraintTop_toBottomOf="@+id/type_user" />
