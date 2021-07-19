@@ -19,14 +19,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
-                    android:id="@+id/btnFlechaAtrasPerfil"
+                <Button
+                    android:id="@+id/editReporte_backbutton_chat"
                     android:layout_width="@dimen/width_img_retroceso"
                     android:layout_height="@dimen/heigth_img_retroceso"
-                    android:layout_marginStart="@dimen/separacion_boton_regreso"
-                    android:layout_marginTop="@dimen/separacion_boton_regreso"
-                    android:contentDescription="@string/imagenes"
-                    android:src="@drawable/flecha_retroceso"/>
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/flecha_retroceso"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.067"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageView
                     android:id="@+id/cambioTel_fondo2"
                     android:layout_width="150dp"
@@ -52,6 +56,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </androidx.recyclerview.widget.RecyclerView>
+            <Button
+                android:id="@+id/btn_response_report"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:background="@drawable/boton_redondo"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/btn_text_responder"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_bold"/>
 
 
         </LinearLayout>

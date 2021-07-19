@@ -333,7 +333,7 @@ public class MainCapturaIne extends AppCompatActivity {
                 byte[] imageByte = array.toByteArray();
                 image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
             }else{
-                ine_reverso.setImageBitmap(bitmap);
+                ine_reverso.setImageBitmap(bitmap2);
                 ine_reverso.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);

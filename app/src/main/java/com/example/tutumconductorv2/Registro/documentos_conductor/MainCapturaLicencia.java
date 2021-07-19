@@ -328,7 +328,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 byte[] imageByte = array.toByteArray();
                 image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
             }else{
-                licencia_reverso.setImageBitmap(bitmap);
+                licencia_reverso.setImageBitmap(bitmap2);
                 licencia_reverso.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
@@ -371,7 +371,7 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
                 byte[] imageByte = array.toByteArray();
                 image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
             }else{
-                licencia_reverso.setImageBitmap(bitmap);
+                licencia_reverso.setImageBitmap(bitmap2);
                 licencia_reverso.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);

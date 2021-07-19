@@ -28,6 +28,7 @@
     <string name="btn_text_guardar">Guardar</string>
     <string name="btn_text_aceptar">Aceptar</string>
     <string name="btn_text_cancelar">Cancelar</string>
+    <string name="btn_text_responder">Responder</string>
 
     <!-- Strings para los input Text Layout -->
     <string name="input_vigencia">Fecha de Vigencia</string>
@@ -114,7 +115,7 @@
     <string name="txt_text3_licencia">Carga una foto por cada lado de tu licencia de conducir VIGENTE.</string>
     <string name="txt_text4_licencia">Indicaciones:</string>
     <string name="txt_text5_licencia">-Documento original.</string>
-    <string name="txt_text6_licencia">-En la imagen debe deben verse claramente toda la información y la foto del conductor.</string>
+    <string name="txt_text6_licencia">-En la imagen debe verse claramente toda la información y la foto del conductor.</string>
     <string name="txt_text7_licencia">(Ten cuidado con el flash al sacar la foto, ya que el reflejo podria impedir que veamos todos los datos con claridad).</string>
 
     <!-- Strings para la ventana de caracteristicas-->
@@ -369,6 +370,7 @@
 
     <!--    Ventana Reportar Problema Tecnico-->
     <string name="txtTecnico">Problema Técnico</string>
+    <string name="head_enviar_reporte">Enviar Respuesta</string>
 
 
     <string name="iniciosesion_backbutton" />

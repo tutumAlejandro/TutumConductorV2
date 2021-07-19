@@ -1053,14 +1053,14 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 byte[] imageByte = array.toByteArray();
                 image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
             }else if(codigoBoton ==2){
-                btn_trasera_carac.setImageBitmap(bitmap);
+                btn_trasera_carac.setImageBitmap(bitmap2);
                 btn_trasera_carac.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
                 byte[] imageByte = array.toByteArray();
                 image_code2 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
             }else {
-                btn_lateral_carac.setImageBitmap(bitmap);
+                btn_lateral_carac.setImageBitmap(bitmap2);
                 btn_lateral_carac.setBackgroundColor(0x00000000);
                 ByteArrayOutputStream array = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);

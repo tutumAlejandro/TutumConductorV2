@@ -32,7 +32,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RespuestaReporteViaje"></activity>
+        <activity android:name=".RespuestaReporteUsuario"></activity>
+        <activity android:name=".RespuestaReporteViaje" />
         <activity android:name=".RespuestaReporteTecnico" />
         <activity android:name=".ChatReportes" />
         <activity
