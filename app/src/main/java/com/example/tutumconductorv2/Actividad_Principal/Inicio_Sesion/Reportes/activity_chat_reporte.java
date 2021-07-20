@@ -1,10 +1,12 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.tutumconductorv2.R;
 
 public class activity_chat_reporte extends AppCompatActivity {
 

@@ -1,19 +1,14 @@
 package com.example.tutumconductorv2;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -22,19 +17,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
+import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Main_IniciaSesion;
 import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
-import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
 import com.example.tutumconductorv2.Registro.datos_personales.PopUpContinuarRegistro;
-import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
-import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
-import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
-import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
-import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
 
@@ -75,7 +61,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
     public void btn_inicia_sesion(View v)
     {
-        Intent main_inicio_sesion = new Intent(MainVentanaPrincipal.this,Main_IniciaSesion.class);
+        Intent main_inicio_sesion = new Intent(MainVentanaPrincipal.this, Main_IniciaSesion.class);
         startActivity(main_inicio_sesion);
     }
 

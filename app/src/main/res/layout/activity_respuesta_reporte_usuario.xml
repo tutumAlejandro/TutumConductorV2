@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_problema_tecnico"
+    tools:context=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.activity_problema_tecnico"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -20,7 +20,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/cambioTel_fondo2"
                 android:layout_width="250dp"

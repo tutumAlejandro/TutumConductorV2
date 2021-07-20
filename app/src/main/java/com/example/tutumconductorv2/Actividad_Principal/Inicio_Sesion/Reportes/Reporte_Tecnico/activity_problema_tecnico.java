@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -33,7 +33,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaLicencia;
+import com.example.tutumconductorv2.Inicio;
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.ReportarProblemaTecnico;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
@@ -77,7 +79,7 @@ public class activity_problema_tecnico extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!check_title(title_report.getEditText().getText().toString()) | !check_body(body_report.getEditText().getText().toString())){
-
+                   return;
                 }else {
                     SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
                     sendReportTechical(title_report.getEditText().getText().toString(), body_report.getEditText().getText().toString(),preferences.getString("api_token",""));

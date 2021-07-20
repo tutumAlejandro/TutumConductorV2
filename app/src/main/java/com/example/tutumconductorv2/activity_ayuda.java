@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.ReportarProblema;
 
 
 public class activity_ayuda extends AppCompatActivity {

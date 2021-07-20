@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkest"
     android:orientation="vertical"
-    tools:context=".Main_IniciaSesion">
+    tools:context=".Actividad_Principal.Inicio_Sesion.Main_IniciaSesion">
 
     <ScrollView
         android:layout_width="wrap_content"

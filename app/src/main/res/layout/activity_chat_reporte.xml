@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_chat_reporte"
+    tools:context=".Actividad_Principal.Inicio_Sesion.Reportes.activity_chat_reporte"
     android:background="@color/white"
     android:orientation="vertical">
 

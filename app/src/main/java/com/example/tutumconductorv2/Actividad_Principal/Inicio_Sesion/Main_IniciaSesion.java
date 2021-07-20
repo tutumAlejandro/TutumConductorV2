@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.MainPopUpUbicacion;
+import com.example.tutumconductorv2.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
@@ -105,7 +106,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
         contrasena = pass.getEditText().getText().toString().trim();
         if(!check_password(contrasena) | !check_email(correo))
         {
-            return ;
+
         }
         else {
             inicioSesion();
@@ -129,7 +130,6 @@ public class Main_IniciaSesion extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     Log.d("TAG Inicio Sesion","Respuesta Inicio Sesion:"+response);
-                    JSONObject respuesta = response;
                     try {
                           if(response.getString("success").matches("true")){
                             Log.e("TAG Inicio Sesion","Inicio de sesion Correcto!!!!!!");
@@ -138,7 +138,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
                               SharedPreferences.Editor obj_edit = preferences.edit();
 
 
-                              JSONObject data = respuesta.getJSONObject("data");
+                              JSONObject data = response.getJSONObject("data");
                               JSONObject driver = data.getJSONObject("driver");
                               int driver_id = driver.getInt("driver_id");
                               int user_id = driver.getInt("user_id");
@@ -221,7 +221,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
 
                               Log.d("Respuesta api token","Api Token: "+api_token);
 
-                              Intent main_popUbicacion = new Intent(Main_IniciaSesion.this,MainPopUpUbicacion.class);
+                              Intent main_popUbicacion = new Intent(Main_IniciaSesion.this, MainPopUpUbicacion.class);
                               startActivity(main_popUbicacion);
                               finish();
                            }else{

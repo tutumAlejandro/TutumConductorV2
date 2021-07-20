@@ -4,13 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +19,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.ChatReportes;
+import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.activity_problema_tecnico;
 import com.example.tutumconductorv2.adapters.CardViewDatos;
 import com.example.tutumconductorv2.adapters.CardView_Adapter;
 
@@ -65,7 +64,7 @@ public class ReportarProblemaTecnico extends AppCompatActivity {
                         obj_editor.putString("head_report",heads_list.get(recycler_reports.getChildAdapterPosition(v)).getHeader());
                         obj_editor.putInt("id_report",id_report[recycler_reports.getChildAdapterPosition(v)]);
                         obj_editor.commit();
-                        Intent chat_report = new Intent(ReportarProblemaTecnico.this,ChatReportes.class);
+                        Intent chat_report = new Intent(ReportarProblemaTecnico.this, ChatReportes.class);
                         startActivity(chat_report);
 
             }

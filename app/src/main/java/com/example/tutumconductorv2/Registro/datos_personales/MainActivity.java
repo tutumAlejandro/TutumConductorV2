@@ -1,9 +1,12 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Registro.datos_personales;
 
 import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.tutumconductorv2.MainVentanaPrincipal;
+import com.example.tutumconductorv2.R;
 
 public class MainActivity extends AppCompatActivity {
 

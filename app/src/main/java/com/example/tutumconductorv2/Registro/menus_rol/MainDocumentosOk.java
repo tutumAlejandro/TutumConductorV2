@@ -1,6 +1,5 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -9,38 +8,24 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Html;
-import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tutumconductorv2.CambioCorreo;
-import com.example.tutumconductorv2.Inicio;
-import com.example.tutumconductorv2.MainPopUpUbicacion;
-import com.example.tutumconductorv2.Main_IniciaSesion;
-import com.example.tutumconductorv2.PerfilUser;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainTerminosYCondiciones;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -140,9 +125,8 @@ public class MainDocumentosOk extends AppCompatActivity {
     }
     private void realizarPost(String url) {
         refresh.setRefreshing(true);
-        String tel="";
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-        tel=preferences.getString("phone","");
+        String tel = preferences.getString("phone","");
         try {
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
                 final JSONObject jsonObject = new JSONObject();
@@ -152,12 +136,11 @@ public class MainDocumentosOk extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         // Si hay una pinche respuesta, esta biene en forma de un Json Object
-                        JSONObject jsonObject1 = response;
                         Log.d("TEST!!!!!","Respuesta del servidor"+response);
                         //Log.d("TEST!!!!!","hasta aqui funciona");
                         try {
                             //recapitulando no sabemos que putas manda Fracktal/
-                            JSONObject exito = jsonObject1.getJSONObject("data");
+                            JSONObject exito = response.getJSONObject("data");
                             String status1=exito.getString("status");
                             switch (status1)
                             {
@@ -263,9 +246,8 @@ public class MainDocumentosOk extends AppCompatActivity {
     }
     public void realizarPost2() {
         String url = "https://www.tutumapps.com/api/driver/documentsStatus";
-        String tel="";
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-        tel=preferences.getString("phone","");
+        String tel=preferences.getString("phone","");
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
@@ -275,12 +257,11 @@ public class MainDocumentosOk extends AppCompatActivity {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    JSONObject jsonObject1 = response;
                     Log.d("My Tag",">>>>>>>>>>>>Respuesta: "+response);
                     try {
                         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
                           SharedPreferences.Editor obj_edit = preferences.edit();
-                          JSONObject exito = jsonObject1.getJSONObject("data");
+                          JSONObject exito = response.getJSONObject("data");
 
 
                           //Obtener los datos de los terminos y condiciones
@@ -413,7 +394,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                                 obj_edit.putInt("State",7);
                                 obj_edit.commit();
                             }else {
-
+                                     return;
                             }
 
                         }else{
@@ -435,7 +416,6 @@ public class MainDocumentosOk extends AppCompatActivity {
                         String status5 = card_array.getString("status");
                         String error5 = card_array.getString("error");
                         String type5 = card_array.getString("type");
-                        String test5 = error5;
                         Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+name5);
                         Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+title5);
                         Log.d("My Tag",">>>>>>>>>>>>Tarjeta: "+descripcion5);
@@ -458,7 +438,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                                 obj_edit.putString("error5",error5);
                                 obj_edit.putInt("State",7);
                                 obj_edit.commit();
-                            }else {
+                            }else { return;
 
                             }
 
@@ -494,7 +474,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                                 obj_edit.putString("error6",error6);
                                 obj_edit.putInt("State",7);
                                 obj_edit.commit();
-                            }else{
+                            }else{ return;
 
                             }
 
@@ -556,9 +536,8 @@ public class MainDocumentosOk extends AppCompatActivity {
 
     public void realizarPostSnv() {
         String url = "https://www.tutumapps.com/api/driver/documentsStatus";
-        String tel="";
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
-        tel=preferences.getString("phone","");
+        String tel=preferences.getString("phone","");
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
@@ -571,8 +550,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                     try {
                         SharedPreferences preferencias = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                         SharedPreferences.Editor obj_editor = preferencias.edit();
-                        JSONObject jsonObject1 = response;
-                        JSONObject exito1 = jsonObject1.getJSONObject("data");
+                        JSONObject exito1 = response.getJSONObject("data");
                         JSONObject terms_array = exito1.getJSONObject("terms");
                         String name1 = terms_array.getString("name");
                         String title1 = terms_array.getString("title");
@@ -674,7 +652,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         }
 
                     }catch (Exception e){
-
+                            Log.e("Error TimeLine Doc","Hubo un error en el servidor, por favor intentalo mas tarde");
                     }
 
                 }
