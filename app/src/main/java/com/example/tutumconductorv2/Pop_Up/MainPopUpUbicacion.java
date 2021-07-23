@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Pop_Up;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+
+import com.example.tutumconductorv2.Inicio;
+import com.example.tutumconductorv2.R;
 
 public class MainPopUpUbicacion extends AppCompatActivity {
 

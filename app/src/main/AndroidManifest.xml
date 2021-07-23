@@ -37,10 +37,10 @@
         <activity android:name=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.RespuestaReporteTecnico" />
         <activity android:name=".Actividad_Principal.Inicio_Sesion.Reportes.ChatReportes" />
         <activity
-            android:name=".Registro.datos_personales.PopUpContinuarRegistro"
+            android:name=".Pop_Up.PopUpContinuarRegistro"
             android:theme="@style/ThemePopUp" />
         <activity
-            android:name=".MainPopUpUbicacion"
+            android:name=".Pop_Up.MainPopUpUbicacion"
             android:theme="@style/ThemePopUp2" />
         <activity
             android:name=".Registro.datos_personales.MainPopUpData"
@@ -177,7 +177,7 @@
             android:name=".Actividad_Principal.Inicio_Sesion.Reportes.ReportarProblema"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ReportarProblemaTecnico"
+            android:name=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.ReportarProblemaTecnico"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Actividad_Principal.Inicio_Sesion.Reportes.activity_chat_reporte"

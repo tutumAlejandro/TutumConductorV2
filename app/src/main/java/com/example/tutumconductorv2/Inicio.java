@@ -54,7 +54,7 @@ public class Inicio extends AppCompatActivity {
         toAyuda = findViewById(R.id.button_ayuda);
         toGanancia = findViewById(R.id.button_unidad);
         toHistorial = findViewById(R.id.button_historial);
-        foto_perfil = findViewById(R.id.imagen_fondo_perfil);
+        foto_perfil = findViewById(R.id.User_img);
 
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         url_imagen = preferences.getString("driver_img","");

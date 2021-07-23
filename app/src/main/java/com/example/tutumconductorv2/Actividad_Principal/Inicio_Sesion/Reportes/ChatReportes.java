@@ -20,7 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.ReportarProblemaTecnico;
+import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.ReportarProblemaTecnico;
 import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Eventualidad.RespuestaReporteUsuario;
 import com.example.tutumconductorv2.adapters.CardViewMensajes;
 import com.example.tutumconductorv2.adapters.CardViewMensajes_Adapter;

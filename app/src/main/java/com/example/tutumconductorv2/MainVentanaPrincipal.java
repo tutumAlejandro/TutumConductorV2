@@ -20,7 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Main_IniciaSesion;
 import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
-import com.example.tutumconductorv2.Registro.datos_personales.PopUpContinuarRegistro;
+import com.example.tutumconductorv2.Pop_Up.PopUpContinuarRegistro;
 
 import org.json.JSONObject;
 

@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2;
+package com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.ChatReportes;
-import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.activity_problema_tecnico;
+import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.activity_ayuda;
 import com.example.tutumconductorv2.adapters.CardViewDatos;
 import com.example.tutumconductorv2.adapters.CardView_Adapter;
 

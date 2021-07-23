@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.datos_personales;
+package com.example.tutumconductorv2.Pop_Up;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.tutumconductorv2.MainVentanaPrincipal;
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
+import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
+import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
 import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
@@ -84,7 +86,7 @@ public class PopUpContinuarRegistro extends AppCompatActivity {
     public void iniciar_registro(View view)
     {
         HARD_RESET();
-        Intent main_registro = new Intent(PopUpContinuarRegistro.this,MainPopUpData.class);
+        Intent main_registro = new Intent(PopUpContinuarRegistro.this, MainPopUpData.class);
         startActivity(main_registro);
         finish();
     }
