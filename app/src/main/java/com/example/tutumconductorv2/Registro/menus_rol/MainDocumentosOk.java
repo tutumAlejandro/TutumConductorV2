@@ -153,6 +153,10 @@ public class MainDocumentosOk extends AppCompatActivity {
                                 case "8": {mostrar_aceptado();}break;
                                 case "9": {mostrar_cita1(); }break;
                                 case "10": {
+                                            SharedPreferences preferences1 = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                                            SharedPreferences.Editor obj_editor = preferences1.edit();
+                                            obj_editor.putInt("State",10);
+                                            obj_editor.commit();
                                             getDriverData();
                                             update_registry();
                                             //Intent main = new Intent(MainDocumentosOk.this, MainPopUpUbicacion.class);

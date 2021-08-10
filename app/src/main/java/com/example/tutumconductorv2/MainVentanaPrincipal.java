@@ -22,16 +22,20 @@ import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
 import com.example.tutumconductorv2.Pop_Up.PopUpContinuarRegistro;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainVentanaPrincipal extends AppCompatActivity {
 
     private int estado_previo;
     private String phone;
+    //private String state="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ventana_principal);
+        //POST_timeline();
 
     }
     public void btn_registrate(View v)
@@ -65,7 +69,6 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         startActivity(main_inicio_sesion);
     }
     private void POST_timeline(){
-        //String url = "https://www.tutumapps.com/api/";
         String url = "https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
         try{
@@ -86,10 +89,21 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                         startActivity(main_registrate);
                         Log.d("Main Ventana Principal","No se encontro el registro y se borran los datos de la BD Shared Preferences");
                     }else{
-
-                        Log.d("Main Ventana Principal", "Registro encontrado");
-                        Intent main_pop_continuar = new Intent(MainVentanaPrincipal.this, PopUpContinuarRegistro.class);
-                        startActivity(main_pop_continuar);
+                        try {
+                            JSONObject obj1 = response.getJSONObject("data");
+                            String state = obj1.getString("status");
+                            if(!state.matches("10")){
+                                Intent main_pop_continuar = new Intent(MainVentanaPrincipal.this, PopUpContinuarRegistro.class);
+                                startActivity(main_pop_continuar);
+                                HARD_RESET();
+                            }else{
+                                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
+                                startActivity(main_registrate);
+                                Log.d("Main Ventana Principal", "Registro Terminado Inicia Sesión");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }, new Response.ErrorListener() {
