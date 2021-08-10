@@ -64,8 +64,8 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         Intent main_inicio_sesion = new Intent(MainVentanaPrincipal.this, Main_IniciaSesion.class);
         startActivity(main_inicio_sesion);
     }
-
     private void POST_timeline(){
+        //String url = "https://www.tutumapps.com/api/";
         String url = "https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
         try{
@@ -78,7 +78,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
 
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("Main Ventana Principal","Respuesta del servidor: " + response);
+                    Log.e("Main Ventana Principal","Respuesta del servidor: " + response);
                     if(response.has("msg")){
                         HARD_RESET();
                         // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
@@ -98,6 +98,10 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                     //Si no hay respuesta del servidor mostrar un error ya mediante el LOg y un AlertDialog
                     Toast.makeText(MainVentanaPrincipal.this,"Hubo un problema en el servidor, intentalo mas tarde",Toast.LENGTH_SHORT).show();
                     Log.e("Main Ventana Principal", "<<<<<<<<<No hay respuesta del servidor>>>>>>>>>>");
+                    HARD_RESET();
+                    // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
+                    Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
+                    startActivity(main_registrate);
                 }
             });
             requestQueue.add(request_timeline);
@@ -105,7 +109,6 @@ public class MainVentanaPrincipal extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
     private void HARD_RESET(){
 
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);

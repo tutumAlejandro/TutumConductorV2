@@ -170,7 +170,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                                 String cadena1 = exito3.getString("status");
                                 String cadena2 = exito3.getString("date");
                                 String cadena3 = exito3.getString("name");
-                                String cadena4 = exito3.getString("descripcion");
+                                String cadena4 = exito3.getString("description");
                                 String cadena5 = exito3.getString("success");
                                 if(cadena1.matches("9")){
                                     String cita = exito3.getString("appointment");
@@ -339,7 +339,7 @@ public class MainDocumentosOk extends AppCompatActivity {
                         Log.d("My Tag",">>>>>>>>>>>>INE: "+type2);
 
                         //Obtener los datos de la licencia
-                        JSONObject licence_array = exito.getJSONObject("licence");
+                        JSONObject licence_array = exito.getJSONObject("license");
                         String name3 = licence_array.getString("name");
                         String title3 = licence_array.getString("title");
                         String descripcion3 = licence_array.getString("description");
