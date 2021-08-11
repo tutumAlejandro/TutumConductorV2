@@ -109,7 +109,7 @@ public class MainRegistrate extends AppCompatActivity {
             confirm_datos.setIcon(R.drawable.logo_1024);
             confirm_datos.setMessage(Html.fromHtml("<p><font color=''><b>¿Los datos son correctos?</b></font></p> <p><b>Nombre: </b>"+nombres.getEditText().getText().toString().trim()+"</p>"+
                                                    "<p><b> Apellido Paterno: </b>"+apeidop.getEditText().getText().toString().trim()+"</p>"+"<p><b>Apellido Materno: </b>"+apeidom.getEditText().getText().toString().trim()+"</p>"+
-                                                   "<p><b>Correo Eléctronico: </b>"+email.getEditText().getText().toString().trim()+"</p> <p>Recuerda que no podas modificar estos datos hasta que termines tu registro<p>"));
+                                                   "<p><b>Correo Eléctronico: </b>"+email.getEditText().getText().toString().trim()+"</p> <p>Recuerda que no podras modificar estos datos hasta que termines tu registro<p>"));
             confirm_datos.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

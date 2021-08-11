@@ -38,7 +38,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
     private TextInputLayout telefono;
     private String url_registro="https://www.tutumapps.com/api/driver/registryDriver";
     private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
-    private String name,phone,email,token;
+    private String name,phone,email,token,password;
     CountryCodePicker ccp;
     boolean ccp1;
     boolean ok=false;
@@ -56,6 +56,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
         int state= preferences_user.getInt("State",0);
         name = preferences_user.getString("name","");
         email = preferences_user.getString("email","");
+        password = preferences_user.getString("password","");
         get_FCM();
 
     }
@@ -116,6 +117,8 @@ public class MainRegistroTelefono extends AppCompatActivity {
             jsonObject.put("email",email);
             jsonObject.put("phone",phone);
             jsonObject.put("name",name);
+            jsonObject.put("password",password);
+            jsonObject.put("status",3);
             jsonObject.put("fcm_token",token);
 
             final String requestBody = jsonObject.toString();

@@ -21,6 +21,7 @@ import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Main_Inici
 import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
 import com.example.tutumconductorv2.Pop_Up.PopUpContinuarRegistro;
+import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -92,13 +93,13 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                         try {
                             JSONObject obj1 = response.getJSONObject("data");
                             String state = obj1.getString("status");
-                            if(!state.matches("10")){
-                                Intent main_pop_continuar = new Intent(MainVentanaPrincipal.this, PopUpContinuarRegistro.class);
-                                startActivity(main_pop_continuar);
-                                HARD_RESET();
+                            Log.e("Main Ventana Principal", "valor status: "+state);
+                            if(state.matches("5") || state.matches("6") || state.matches("7") || state.matches("8") || state.matches("9") || state.matches("10")){
+                                Intent main_timeline = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
+                                startActivity(main_timeline);
                             }else{
-                                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
-                                startActivity(main_registrate);
+                                Intent main_continua_registro = new Intent(MainVentanaPrincipal.this, PopUpContinuarRegistro.class);
+                                startActivity(main_continua_registro);
                                 Log.d("Main Ventana Principal", "Registro Terminado Inicia Sesión");
                             }
                         } catch (JSONException e) {
