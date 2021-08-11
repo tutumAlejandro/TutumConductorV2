@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,35 +61,31 @@ public class HomeFragment  extends Fragment {
     private double lat = 0.0, lng = 0.0;
     private Bitmap smallMarker;
     //private TokenProvider mTokenProvider;
-    private AuthProvider mAuthProvider = new AuthProvider();
+    public AuthProvider mAuthProvider = new AuthProvider();
     private com.google.android.gms.maps.model.LatLng mCurrentLatLng;
-    private GeofireProvider mGeofireProvider;
-    private FusedLocationProviderClient mFusedLocation;
-    private Button mButtonConnect;
-    private boolean mIsConnect = false;
+    public GeofireProvider mGeofireProvider;
+    public FusedLocationProviderClient mFusedLocation;
+    //public MapVali mMapvali = new MapVali();
+    public Button mButtonConnect;
+    public ToggleButton toggle;
+    public boolean mIsConnect = false;
     private LocationRequest mLocationRequest;
 
     DatabaseReference mDatabase;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+       // mMapvali = new MapVali();
         mAuthProvider = new AuthProvider();
         mGeofireProvider = new GeofireProvider("active_drivers");
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
-      /*  mButtonConnect = mButtonConnect.findViewById(R.id.on_off);
-        mButtonConnect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mIsConnect) {
-                   // disconnect();
-                }
-                else {
-                    locationStart();
-                }
-            }
-        });
-*/
+        //mButtonConnect = mButtonConnect.findViewById(R.id.on_off);
+//        toggle = toggle.findViewById(R.id.on_off);
+
+
+
+
         HomeViewModel homeViewModel;
 
         homeViewModel =
@@ -130,7 +127,7 @@ public class HomeFragment  extends Fragment {
 
     }
 
-    private OnMapReadyCallback callback = new OnMapReadyCallback() {
+    public OnMapReadyCallback callback = new OnMapReadyCallback() {
         @Override
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;

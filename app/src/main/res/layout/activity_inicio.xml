@@ -32,20 +32,20 @@
             android:layout_height="match_parent"
             android:background="@color/white">
 
-            <ImageView
-                android:id="@+id/User_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="76dp"
-                android:contentDescription="@string/user_img"
-                android:elevation="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.634"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/default_avatar" />
+    <ImageView
+        android:id="@+id/User_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="120dp"
+        android:contentDescription="@string/user_img"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/default_avatar" />
 
-            <TextView
+    <TextView
                 android:id="@+id/bienvenida_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,24 +57,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/User_img" />
 
-            <TextView
-                android:id="@+id/pasajero_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="@string/pasajero_label"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/dark"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bienvenida_label" />
 
+    <TextView
+        android:id="@+id/nConductor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="@string/pasajero_label"
+        android:textColor="@color/dark"
+        android:textSize="24sp"
+        android:layout_gravity="center|left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenida_label" />
 
-
-            <Button
+    <Button
                 android:id="@+id/button_sign_out"
                 android:layout_width="176dp"
                 android:layout_height="46dp"
@@ -102,7 +101,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pasajero_label" />
+                app:layout_constraintTop_toBottomOf="@+id/nConductor" />
 
             <Button
                 android:id="@+id/button_unidad"
@@ -275,29 +274,28 @@
 
     <ImageView
         android:id="@+id/imagen_fondo_perfin_n"
-        android:layout_width="211dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="136dp"
+        android:layout_width="405dp"
+        android:layout_height="238dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="1788dp"
         android:contentDescription="@string/fondo_naranja"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/template" />
 
     <ImageView
-                android:id="@+id/imagen_fondo_perfil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
-                android:contentDescription="@string/fondo_circle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.659"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/circle" />
+        android:id="@+id/imagen_fondo_perfil"
+        android:layout_width="89dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="108dp"
+        android:contentDescription="@string/fondo_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </ScrollView>

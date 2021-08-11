@@ -2,12 +2,12 @@ package com.example.tutumconductorv2.Registro.menus_rol;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,8 +16,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 
 import org.json.JSONObject;
 

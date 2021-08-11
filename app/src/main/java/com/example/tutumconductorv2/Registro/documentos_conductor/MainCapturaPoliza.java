@@ -1,22 +1,21 @@
 package com.example.tutumconductorv2.Registro.documentos_conductor;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -24,8 +23,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,8 +36,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
 import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
 
@@ -172,6 +172,8 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
     {
         if (vigencia.isEmpty())
         {
+            vigenciaPoliza.setTextColor(ColorStateList.valueOf(Color.RED));
+            vigenciaPoliza.setError("Campo Requerido");
             return false;
         }
         else{
@@ -186,6 +188,10 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
         String vig = vigenciaPoliza.getText().toString().trim();
         if(!check_vigencia_poliza(vig) | !check_poliza)
         {
+            androidx.appcompat.app.AlertDialog.Builder registro_exitoso = new androidx.appcompat.app.AlertDialog.Builder(MainCapturaPoliza.this);
+            registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0404'> <b> Licencia de Conducir </b> </font>"));
+            registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0404'> <b> Para continuar debes llenar todos los datos. </b> </font>"));
+            registro_exitoso.show();
             return;
         }else {
             if(rol.matches("Socio"))

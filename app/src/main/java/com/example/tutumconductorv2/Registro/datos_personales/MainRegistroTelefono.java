@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.datos_personales;
+ package com.example.tutumconductorv2.Registro.datos_personales;
 
 import android.content.Context;
 import android.content.Intent;
@@ -87,6 +87,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
     public void main_otp(View v) {
 
         phone=telefono.getEditText().getText().toString().trim();
+        Log.e("Telefono","telefono:" + phone);
         ccp1=ccp.getCcpDialogShowNameCode();
         ccp1 = ccp.getCcpDialogShowFlag();
         SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);

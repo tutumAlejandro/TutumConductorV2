@@ -56,7 +56,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:boxStrokeWidth="2dp"
+                app:hintEnabled="true"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

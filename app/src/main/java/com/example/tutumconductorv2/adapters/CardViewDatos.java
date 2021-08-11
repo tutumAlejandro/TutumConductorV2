@@ -2,11 +2,13 @@ package com.example.tutumconductorv2.adapters;
 
 public class CardViewDatos {
     private String header;
-    private int id_report;
+    private int ganancia;
 
-    public CardViewDatos(String header, int id_report) {
+
+    public CardViewDatos(String header, int ganancia) {
         this.header = header;
-        this.id_report = id_report;
+        this.ganancia = ganancia;
+
     }
 
     public CardViewDatos(String header) {
@@ -22,10 +24,10 @@ public class CardViewDatos {
     }
 
     public int getId_report() {
-        return id_report;
+        return ganancia;
     }
 
     public void setId_report(int date) {
-        this.id_report = id_report;
+        this.ganancia = ganancia;
     }
 }

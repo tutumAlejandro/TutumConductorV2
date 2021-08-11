@@ -1,8 +1,5 @@
 package com.example.tutumconductorv2.Registro.menus_rol;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -52,6 +52,7 @@ public class MainDocumentosOk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_documentos_ok);
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+
         rol= preferences.getString("rol","");
         password = preferences.getString("password","");
         email = preferences.getString("email","");
@@ -131,7 +132,9 @@ public class MainDocumentosOk extends AppCompatActivity {
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
                 final JSONObject jsonObject = new JSONObject();
                 jsonObject.put("phone",tel);
-                final String requestBody = jsonObject.toString(); // Con esta cadena podemos ver que mandamos dentro del JSON
+                final String requestBody = jsonObject.toString();
+                Log.e("json","json"+requestBody);
+                // Con esta cadena podemos ver que mandamos dentro del JSON
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -252,12 +255,13 @@ public class MainDocumentosOk extends AppCompatActivity {
         String url = "https://www.tutumapps.com/api/driver/documentsStatus";
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         String tel=preferences.getString("phone","");
+        Log.e("tel","telefono:"+tel);
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone",tel);
             final String requestBody = jsonObject.toString();
-
+            Log.e("json","Json"+requestBody);
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -684,6 +688,7 @@ public class MainDocumentosOk extends AppCompatActivity {
         try {
               jsonObject.put("phone",phone);
               final String requestBody = jsonObject.toString();
+              Log.e("json","json:"+requestBody);
               JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
                   @Override
                   public void onResponse(JSONObject response) {

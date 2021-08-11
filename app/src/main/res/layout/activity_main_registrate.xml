@@ -125,11 +125,11 @@
                 android:hint="@string/txt_registrate_pass"
                 android:textColorHint="@color/white"
                 app:boxStrokeColor="@color/white"
-                app:boxStrokeWidth="2dp"
+                app:passwordToggleTint="@color/white"
                 app:errorEnabled="true"
+                app:boxStrokeWidth="2dp"
                 app:hintEnabled="true"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/white">
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

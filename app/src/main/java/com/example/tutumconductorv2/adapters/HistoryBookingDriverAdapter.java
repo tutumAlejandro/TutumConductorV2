@@ -1,6 +1,68 @@
 package com.example.tutumconductorv2.adapters;
 
 
+/*
+public class HistoryBookingDriverAdapter extends RecyclerView.Adapter<HistoryBookingDriverAdapter.ViewHolder>
+        implements View.OnClickListener{
+
+    private View.OnClickListener listener; //ok
+
+    public HistoryBookingDriverAdapter(List<CardView_Datos_Ganancia> heads_list)
+    {
+        this.heads_list = heads_list;
+    }
+
+    private List<CardView_Datos_Ganancia> heads_list;
+    private Context context;
+
+    public HistoryBookingDriverAdapter(Context context){
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_history_booking,parent,false);
+        view.setOnClickListener(this);
+        return new ViewHolder(view);
+    }
+
+
+
+
+    @Override
+    public void onBindViewHolder(@NonNull HistoryBookingDriverAdapter.ViewHolder holder, int position) {
+        holder.titulo_reporte.setText(heads_list.get(position).getHeader());
+    }
+
+    @Override
+    public int getItemCount() {
+        return heads_list.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener)
+    {
+        this.listener = listener;
+    }
+    @Override
+    public void onClick(View v) {
+        if(listener != null)
+            listener.onClick(v);
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+
+        private TextView titulo_reporte;
+        private int id_reporte=0;
+
+        public ViewHolder(@NonNull  View itemView) {
+            super(itemView);
+            titulo_reporte = itemView.findViewById(R.id.head_report);
+        }
+    }
+}*/
+
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +75,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.models.HistoryBooking;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryBookingDriverAdapter extends RecyclerView.Adapter<HistoryBookingDriverAdapter.Holder> {
 
     Context context;
-    List<HistoryBooking> lista;
+   // List<HistoryBooking> lista;
+    List<HistoryBooking> lista = new ArrayList<>();
+
+
+
+    public HistoryBookingDriverAdapter(List<HistoryBooking> heads_list)
+
+    {
+        this.heads_list = heads_list;
+    }
+
+    private List<HistoryBooking> heads_list;
 
     public void AdaptadorRecycler(Context context, List<HistoryBooking> lista) {
         this.context = context;
@@ -39,7 +113,7 @@ public class HistoryBookingDriverAdapter extends RecyclerView.Adapter<HistoryBoo
         holder.getOrigen().setText(lista.get(i).getOrigin());
         holder.getDestino().setText(lista.get(i).getDestination());
         holder.getDate().setText(lista.get(i).date().getDate());
-        holder.getPrice().setText(lista.get(i).getOrigin());
+        holder.getPrice().setText(lista.get(i).price());
 
     }
 
@@ -63,9 +137,11 @@ public class HistoryBookingDriverAdapter extends RecyclerView.Adapter<HistoryBoo
             price = itemView.findViewById(R.id.txtPrecio);
         }
 
-        /*public ImageView getImageView() {
-            return imageView;
+/*public ImageView getImageView() {
+    ImageView imageView;
+    return imageView;
         }*/
+
 
         public TextView getOrigen() {
             return origen;
@@ -89,108 +165,3 @@ public class HistoryBookingDriverAdapter extends RecyclerView.Adapter<HistoryBoo
 
 
 
-
-/*
-
-import android.content.Context;
-import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.activity_historial_viajes;
-import com.example.tutumconductorv2.models.HistoryBooking;
-import com.example.tutumconductorv2.providers.ClientProvider;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-
-public class HistoryBookingDriverAdapter  extends FirebaseRecyclerAdapter<HistoryBooking, HistoryBookingDriverAdapter.ViewHolder> {
-
-    private ClientProvider mClientProvider;
-    private Context mContext;
-
-    public HistoryBookingDriverAdapter(FirebaseRecyclerOptions<HistoryBooking> options, Context context) {
-        super(options);
-        mClientProvider = new ClientProvider();
-        mContext = context;
-    }
-
-    @Override
-    protected void onBindViewHolder(@NonNull final ViewHolder holder, int position, @NonNull HistoryBooking historyBooking) {
-
-        final String id = getRef(position).getKey();
-
-
-        holder.textViewOrigin.setText(historyBooking.getOrigin());
-        holder.textViewDestination.setText(historyBooking.getDestination());
-        holder.textViewCalification.setText(String.valueOf(historyBooking.getCalificationDriver()));
-        mClientProvider.getClient(historyBooking.getIdClient()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    String name = dataSnapshot.child("name").getValue().toString();
-                    holder.textViewName.setText(name);
-                    if (dataSnapshot.hasChild("image")) {
-                        String image = dataSnapshot.child("image").getValue().toString();
-                        Picasso.with(mContext).load(image).into(holder.imageViewHistoryBooking);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, activity_historial_viajes.class);
-                intent.putExtra("idHistoryBooking", id);
-                mContext.startActivity(intent);
-            }
-        });
-
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_history_booking, parent, false);
-        return new  ViewHolder(view);
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView textViewName;
-        private TextView textViewOrigin;
-        private TextView textViewDestination;
-        private TextView textViewCalification;
-        private ImageView imageViewHistoryBooking;
-        private View mView;
-
-
-        public ViewHolder(View view) {
-            super(view);
-            mView = view;
-            textViewName = view.findViewById(R.id.textViewName);
-            textViewOrigin = view.findViewById(R.id.textViewOrigin);
-            textViewDestination = view.findViewById(R.id.textViewDestination);
-            textViewCalification = view.findViewById(R.id.textViewCalification);
-            imageViewHistoryBooking = view.findViewById(R.id.imageViewHistoryBooking);
-        }
-
-    }
-}
-*/

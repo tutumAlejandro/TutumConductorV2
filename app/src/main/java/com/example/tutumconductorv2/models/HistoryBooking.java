@@ -10,7 +10,7 @@ public class HistoryBooking {
     Date date;
     int price;
 
-    public HistoryBooking() {
+    public HistoryBooking(String titulo) {
 
     }
 
