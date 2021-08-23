@@ -37,7 +37,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
 
     private TextInputLayout telefono;
     private String url_registro="https://www.tutumapps.com/api/driver/registryDriver";
-    private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
+   // private String url_timeline="https://www.tutumapps.com/api/passenger/newJourney";
     private String name,phone,email,token,password;
     CountryCodePicker ccp;
     boolean ccp1;

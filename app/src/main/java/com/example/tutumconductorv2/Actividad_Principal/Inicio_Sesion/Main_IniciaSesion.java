@@ -146,7 +146,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
                               String alias = driver.getString("alias");
                               String driver_img = driver.getString("driver_img");
                               String email = driver.getString("email");
-                              String available = driver.getString("avaijl able");
+                              String available = driver.getString("available");
                               String phone = driver.getString("phone");
                               String type = driver.getString("type");
                               int travels = driver.getInt("travels");

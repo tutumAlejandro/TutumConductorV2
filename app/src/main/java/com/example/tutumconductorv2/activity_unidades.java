@@ -1,19 +1,34 @@
 package com.example.tutumconductorv2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCaracteristicas;
+import com.example.tutumconductorv2.Registro.menus_rol.MainNuevoVehiculoSocio;
 
 public class activity_unidades extends AppCompatActivity {
+
+    private ImageView btn_agregar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unidades);
+        btn_agregar = findViewById(R.id.btnplus);
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        String type = preferences.getString("type","");
+
+        if(type.matches("1")){
+            btn_agregar.setVisibility(View.VISIBLE);
+        }else{
+            btn_agregar.setVisibility(View.GONE);
+        }
     }
 
 
@@ -37,7 +52,7 @@ public class activity_unidades extends AppCompatActivity {
     }
 
     public void btnNuevaUnidad(View V){
-        Intent intentIni = new Intent(activity_unidades.this, caracteristicas_nueva_unidad.class);
+        Intent intentIni = new Intent(activity_unidades.this, MainNuevoVehiculoSocio.class);
         startActivity(intentIni);
     }
 

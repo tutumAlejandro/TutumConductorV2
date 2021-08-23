@@ -4,11 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,9 +21,24 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Main_IniciaSesion;
+import com.example.tutumconductorv2.Pop_Up.MainPopUpUbicacion;
 import com.example.tutumconductorv2.Registro.datos_personales.MainActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Inicio extends AppCompatActivity {
 
@@ -32,6 +51,11 @@ public class Inicio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        editStatus(preferences.getString("api_token",""),"1");
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
@@ -56,7 +80,7 @@ public class Inicio extends AppCompatActivity {
         toHistorial = findViewById(R.id.button_historial);
         foto_perfil = findViewById(R.id.User_img);
 
-        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+
         url_imagen = preferences.getString("driver_img","");
         url_imagen = url_imagen.replace("https:\\/\\/www.tutumapps.com\\/media\\/profile\\","https://www.tutumapps.com/media/profile/");
         Picasso.get().load(url_imagen).into(foto_perfil);
@@ -132,5 +156,46 @@ public class Inicio extends AppCompatActivity {
             Toast.makeText(this, "Vuelve a presionar para salir", Toast.LENGTH_SHORT).show();
         }
         tiempoPrimerClick = System.currentTimeMillis();
+    }
+
+    private void editStatus(String api_token,String status){
+        String url = "https://www.tutumapps.com/api/driver/checkChangeStatus";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+
+            //jsonObject.put("email",email);
+            jsonObject.put("status", status);
+            jsonObject.put("api_token",api_token);
+
+
+            final String requestBody = jsonObject.toString();
+
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                   Log.e("Status","Status:"+response);
+                 }
+                }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            })
+            {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Accept", "application/json");
+                    return params;}
+            };
+
+            requestQueue.add(request);
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }
