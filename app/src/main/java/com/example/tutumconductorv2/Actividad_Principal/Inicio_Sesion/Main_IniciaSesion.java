@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,6 +46,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
         email = findViewById(R.id.Input_Email);
         pass = findViewById(R.id.Input_Contraseña);
         recupera = findViewById(R.id.recupera_contraseña);
+
        /* String email_usuario = "usuario@gmail.com";
         String pass_usuario = "123456789";*/
 
@@ -100,6 +102,9 @@ public class Main_IniciaSesion extends AppCompatActivity {
         }
     }
 
+
+
+
     public void menu_principal(View v)
     {
         correo = email.getEditText().getText().toString().trim();
@@ -115,7 +120,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
     }
 
 
-    private void inicioSesion(){
+    private boolean inicioSesion(){
         String url = "https://www.tutumapps.com/api/driver/login";
         try{
             RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -133,9 +138,14 @@ public class Main_IniciaSesion extends AppCompatActivity {
                     try {
                           if(response.getString("success").matches("true")){
                             Log.e("TAG Inicio Sesion","Inicio de sesion Correcto!!!!!!");
+                              Toast.makeText(Main_IniciaSesion.this, "Inicio de sesion Correcto", Toast.LENGTH_SHORT).show();
 
                               SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
                               SharedPreferences.Editor obj_edit = preferences.edit();
+                              obj_edit.putBoolean("Logged", true);
+                              obj_edit.putString("Username", correo);
+                              obj_edit.putString("Password", contrasena);
+                              obj_edit.apply();
 
 
                               JSONObject data = response.getJSONObject("data");
@@ -226,6 +236,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
                               finish();
                            }else{
                               Log.e("TAG Inicio Sesion","Inicio de sesion Incorrecto!!!!!!");
+                              Toast.makeText(Main_IniciaSesion.this, "Inicio de sesion Incorrecto", Toast.LENGTH_SHORT).show();
                           }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -237,6 +248,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
                     Log.d("TAG", "Error: " + error);
+
                 }
             });
             requestQueue.add(jsonObjectRequest);
@@ -244,7 +256,8 @@ public class Main_IniciaSesion extends AppCompatActivity {
         catch (JSONException e){
             e.printStackTrace();
         }
+        return false;
     }
-
+     
 
 }

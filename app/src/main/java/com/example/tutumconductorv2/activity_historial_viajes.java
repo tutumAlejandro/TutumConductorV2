@@ -44,14 +44,12 @@ public class activity_historial_viajes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial_viajes);
-        card_history_booking = findViewById(R.id.recyclerViewHistoryBooking);
+        card_history_booking = (RecyclerView)findViewById(R.id.recyclerViewHistoryBooking);
+        card_history_booking.setLayoutManager(new LinearLayoutManager(this));
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         api_token = preferences.getString("api_token","");
         heads_list = new ArrayList<>();
         HistorialViaje(api_token);
-
-        card_history_booking.setLayoutManager(new LinearLayoutManager(this));
-
 
     }
 

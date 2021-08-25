@@ -1,5 +1,7 @@
 package com.example.tutumconductorv2.home;
 
+import static android.content.ContentValues.TAG;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -48,7 +50,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import static android.content.ContentValues.TAG;
+import java.util.HashMap;
+import java.util.Map;
 
 //import com.example.tutumconductorv2.providers.TokenProvider;
 
@@ -269,10 +272,10 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
 
             /*SUBIR UBICACION EN TIEPO REAL A FIREBASE*/
 
-            /*Map<String,Object> latlang = new HashMap<>();
+            Map<String,Object> latlang = new HashMap<>();
             latlang.put("latitud", location.getLatitude());
             latlang.put("longitud", location.getLongitude());
-            mDatabase.child("Locations").push().setValue(latlang);*/
+            mDatabase.child("Locations").push().setValue(latlang);
 
         }
     }

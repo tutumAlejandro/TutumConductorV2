@@ -2,14 +2,13 @@ package com.example.tutumconductorv2;
 
 import android.content.Context;
 import android.content.Intent;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,12 +17,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Main_IniciaSesion;
+import com.example.tutumconductorv2.Pop_Up.PopUpContinuarRegistro;
 import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
 import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
-import com.example.tutumconductorv2.Pop_Up.PopUpContinuarRegistro;
 import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,8 +35,16 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ventana_principal);
         //POST_timeline();
-
+            Sesion_login();
     }
+
+    private void Sesion_login(){
+        SharedPreferences sharedPreferences = getSharedPreferences("isLogged", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("isLogged", "YES");
+        editor.apply();
+    }
+
     public void btn_registrate(View v)
     {
 
