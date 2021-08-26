@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Registro.documentos_conductor.MainCapturaCaracteristicas"
+    android:background="@color/white"
+    tools:context=".Registro.menus_rol.MainCapturaCaracteriristicasNuevoVehiculo"
     android:forceDarkAllowed="false">
 
     <ScrollView
@@ -22,7 +23,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/img_retroceso_caracteristicas"
+                    android:id="@+id/img_retroceso_caracteristicas_nuevo_vehiculo"
                     android:layout_width="@dimen/width_img_retroceso"
                     android:layout_height="@dimen/heigth_img_retroceso"
                     android:layout_marginStart="28dp"
@@ -86,7 +87,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/btn_caracteristicas_frontal"
+                    android:id="@+id/btn_caracteristicas_frontal_nuevo"
                     android:layout_width="@dimen/width_img_camera"
                     android:layout_height="@dimen/heigth_img_camara"
                     android:layout_marginStart="@dimen/margin_img_camara_border_one"
@@ -130,8 +131,8 @@
                     android:text="@string/img_txt_frontal"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_text_body_capture"
-                    app:layout_constraintBottom_toTopOf="@+id/btn_caracteristicas_frontal"
-                    app:layout_constraintStart_toStartOf="@+id/btn_caracteristicas_frontal" />
+                    app:layout_constraintBottom_toTopOf="@+id/btn_caracteristicas_frontal_nuevo"
+                    app:layout_constraintStart_toStartOf="@+id/btn_caracteristicas_frontal_nuevo" />
 
                 <TextView
                     android:id="@+id/txt_reverso_caracteristicas"
@@ -224,7 +225,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/boton_redondo"
-                android:onClick="guarda_caracterisitcas"
                 android:text="@string/btn_text_guardar"
                 android:textColor="@color/white"
                 android:textSize="@dimen/size_text_btn" />

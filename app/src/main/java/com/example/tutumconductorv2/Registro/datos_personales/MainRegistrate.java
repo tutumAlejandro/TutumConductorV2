@@ -21,7 +21,6 @@ import com.google.android.material.textfield.TextInputLayout;
 public class MainRegistrate extends AppCompatActivity {
 
     private TextInputLayout nombres,apeidop,apeidom,email,pass;
-    private Button btn_acp, btn_can;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +31,6 @@ public class MainRegistrate extends AppCompatActivity {
         apeidom = findViewById(R.id.InputApeidoM);
         email = findViewById(R.id.InputCorreo);
         pass = findViewById(R.id.InputContraseña);
-
-        btn_acp = findViewById(R.id.btn_aceptar_terminos_data);
-        btn_can = findViewById(R.id.btn_cancelar_terminos_data);
-
     }
 
     private boolean check_field(String app, TextInputLayout campo)

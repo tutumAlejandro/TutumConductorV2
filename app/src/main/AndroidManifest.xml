@@ -33,7 +33,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Registro.menus_rol.MainNuevoVehiculoSocio"></activity>
+        <activity
+            android:name=".Registro.menus_rol.MainCapturaCaracteriristicasNuevoVehiculo"
+            android:theme="@style/InputTextBlack"/>
+        <activity android:name=".Registro.menus_rol.MainNuevoVehiculoSocio" />
         <activity android:name=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Eventualidad.RespuestaReporteUsuario" />
         <activity android:name=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Eventualidad.RespuestaReporteViaje" />
         <activity android:name=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.RespuestaReporteTecnico" />
@@ -57,7 +60,11 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="@string/google_api_key" />
+            <!-- android:value="${MAPS_API_KEY}"/> -->
+
+
+
 
         <activity android:name=".Registro.menus_rol.MainDocumentosOk" />
         <activity android:name=".Registro.menus_rol.MainConductorDocumentos" />

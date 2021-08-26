@@ -325,8 +325,8 @@
                         android:text="@string/txt_btn_doc_actualiza"
                         android:textColor="@color/error"
                         android:textSize="@dimen/size_text_head_btn"
-                        app:layout_constraintStart_toStartOf="@+id/button5_socio_error"
-                        app:layout_constraintTop_toTopOf="@+id/button5_socio_error"
+                        app:layout_constraintStart_toStartOf="@+id/button2_vehiculo_nuevo_error"
+                        app:layout_constraintTop_toTopOf="@+id/button2_vehiculo_nuevo_error"
                         android:visibility="gone"
                         android:forceDarkAllowed="false"/>
                     <TextView
@@ -339,7 +339,7 @@
                         android:text="@string/txt_btn_doc_tarjeta"
                         android:textColor="@color/black"
                         android:textSize="@dimen/size_text_body_btn"
-                        app:layout_constraintStart_toStartOf="@id/button5_socio_error"
+                        app:layout_constraintStart_toStartOf="@id/button2_vehiculo_nuevo_error"
                         app:layout_constraintTop_toBottomOf="@+id/txt_btn2_head_nuevo_vehiculo_error"
                         android:visibility="gone"
                         android:forceDarkAllowed="false"/>

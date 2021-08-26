@@ -6,6 +6,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -271,11 +272,21 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
             Log.d(TAG, "LONGITUD: " + lat);
 
             /*SUBIR UBICACION EN TIEPO REAL A FIREBASE*/
-
-            Map<String,Object> latlang = new HashMap<>();
+            SharedPreferences preferences = getActivity().getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+            /*Map<String,Object> latlang = new HashMap<>();
+            latlang.put("current_journey",0);
+            latlang.put("driver_id",preferences.getInt("driver_id",0));
+            latlang.put("grades",0);
             latlang.put("latitud", location.getLatitude());
             latlang.put("longitud", location.getLongitude());
-            mDatabase.child("Locations").push().setValue(latlang);
+            latlang.put("name",preferences.getString("name",""));
+            */
+            mDatabase.child("Locations").child("driver_id").setValue(preferences.getInt("driver_id",0));
+            mDatabase.child("Locations").child("grades").setValue(0);
+            mDatabase.child("Locations").child("latitud").setValue(location.getLatitude());
+            mDatabase.child("Locations").child("longitud").setValue(location.getLongitude());
+            mDatabase.child("Locations").child("name").setValue(preferences.getString("name",""));
+            mDatabase.child("Locations").child("status").setValue(1);
 
         }
     }
