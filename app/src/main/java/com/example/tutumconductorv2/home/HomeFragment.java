@@ -281,12 +281,12 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
             latlang.put("longitud", location.getLongitude());
             latlang.put("name",preferences.getString("name",""));
             */
-            mDatabase.child("Locations").child("driver_id").setValue(preferences.getInt("driver_id",0));
-            mDatabase.child("Locations").child("grades").setValue(0);
-            mDatabase.child("Locations").child("latitud").setValue(location.getLatitude());
-            mDatabase.child("Locations").child("longitud").setValue(location.getLongitude());
-            mDatabase.child("Locations").child("name").setValue(preferences.getString("name",""));
-            mDatabase.child("Locations").child("status").setValue(1);
+            mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("driver_id").setValue(preferences.getInt("driver_id",0));
+            mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("grades").setValue(0);
+            mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("latitud").setValue(location.getLatitude());
+            mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("longitud").setValue(location.getLongitude());
+            mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("name").setValue(preferences.getString("name",""));
+            mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("status").setValue(1);
 
         }
     }
