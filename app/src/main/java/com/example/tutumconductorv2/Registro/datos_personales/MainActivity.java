@@ -1,11 +1,14 @@
 package com.example.tutumconductorv2.Registro.datos_personales;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tutumconductorv2.Inicio;
 import com.example.tutumconductorv2.MainVentanaPrincipal;
 import com.example.tutumconductorv2.R;
 
@@ -14,7 +17,9 @@ import java.util.concurrent.Executors;
 
 public class MainActivity<restoredText> extends AppCompatActivity {
 
-    private String IsLogged;
+    private boolean isUserLogin = true;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +39,45 @@ public class MainActivity<restoredText> extends AppCompatActivity {
             }
         });*/
 
+
+      /*  SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+
+        if (preferences.contains(“isUserLogin”)) {
+            Intent intent = new Intent(MainActivity.this, HomeFragment.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(MainActivity.this, MainVentanaPrincipal .class);
+            startActivity(intent);
+        }*/
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run()
             {
 
-                Intent main_login = new Intent(MainActivity.this, MainVentanaPrincipal.class);
+                preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                editor = preferences.edit();
+
+                if(preferences.contains("correo")){
+                    Intent main_inicio = new Intent(MainActivity.this, Inicio.class);
+                    startActivity(main_inicio);
+                    finish();
+                }else{
+                    Intent main_login = new Intent(MainActivity.this, MainVentanaPrincipal.class);
+                    startActivity(main_login);
+                    finish();
+                }
+
+               /* Intent main_login = new Intent(MainActivity.this, MainVentanaPrincipal.class);
                 startActivity(main_login);
-                finish();
+                finish();*/
             }
         },2000);
        // inicio();
+
+
+
+
 
     }
 

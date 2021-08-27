@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tutumconductorv2.Inicio;
 import com.example.tutumconductorv2.Pop_Up.MainPopUpUbicacion;
 import com.example.tutumconductorv2.R;
 import com.google.android.material.textfield.TextInputLayout;
@@ -36,6 +37,9 @@ public class Main_IniciaSesion extends AppCompatActivity {
     String _url_recupera = "https://tutumapps.com/password/reset";
     private boolean isSucess;
 
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +54,14 @@ public class Main_IniciaSesion extends AppCompatActivity {
        /* String email_usuario = "usuario@gmail.com";
         String pass_usuario = "123456789";*/
 
+       preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        editor = preferences.edit();
 
+        if(preferences.contains("correo")){
+            Intent main_inicio = new Intent(Main_IniciaSesion.this, Inicio.class);
+            startActivity(main_inicio);
+            finish();
+        }
 
         recupera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,15 +120,33 @@ public class Main_IniciaSesion extends AppCompatActivity {
     {
         correo = email.getEditText().getText().toString().trim();
         contrasena = pass.getEditText().getText().toString().trim();
+
+        editor.putString("correo", correo);
+        editor.putString("contrasena", contrasena);
+        editor.commit();
+
         if(!check_password(contrasena) | !check_email(correo))
         {
 
         }
         else {
             inicioSesion();
+
         }
 
     }
+
+    private  void Islogged(String correo, String  contrasena){
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_edit = preferences.edit();
+        obj_edit.putString("Username", correo);
+        obj_edit.putString("Password", contrasena);
+        obj_edit.apply();
+    }
+
+
+
+
 
 
     private boolean inicioSesion(){
