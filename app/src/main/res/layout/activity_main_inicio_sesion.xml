@@ -24,6 +24,7 @@
             map:layout_constraintStart_toStartOf="parent"
             map:layout_constraintEnd_toEndOf="parent"/>
 
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/on_off"
             android:layout_width="88dp"

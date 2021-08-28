@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +54,7 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
-        editStatus(preferences.getString("api_token",""),"1");
+        editStatus(preferences.getString("api_token",""),"0");
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -79,7 +80,6 @@ public class Inicio extends AppCompatActivity {
         toGanancia = findViewById(R.id.button_unidad);
         toHistorial = findViewById(R.id.button_historial);
         foto_perfil = findViewById(R.id.User_img);
-
 
         url_imagen = preferences.getString("driver_img","");
         url_imagen = url_imagen.replace("https:\\/\\/www.tutumapps.com\\/media\\/profile\\","https://www.tutumapps.com/media/profile/");
@@ -160,6 +160,10 @@ public class Inicio extends AppCompatActivity {
 
     private void editStatus(String api_token,String status){
         String url = "https://www.tutumapps.com/api/driver/checkChangeStatus";
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_edit = preferences.edit();
+        obj_edit.putString("status",status);
+        obj_edit.commit();
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();

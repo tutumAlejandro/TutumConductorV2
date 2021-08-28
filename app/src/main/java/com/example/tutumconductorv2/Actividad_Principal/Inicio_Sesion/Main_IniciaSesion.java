@@ -165,6 +165,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
 
                               JSONObject vehicle = data.getJSONObject("vehicle");
                               int vehicle_id = vehicle.getInt("vehicle_id");
+                              String vehicle_id_string = Integer.toString(vehicle_id);
                               String vehicle_title = vehicle.getString("vehicle_title");
                               int vehicle_year = vehicle.getInt("vehicle_year");
                               String vehicle_color = vehicle.getString("vehicle_color");
@@ -191,7 +192,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
                               obj_edit.putInt("driver_time",driver_time);
                               obj_edit.putInt("calification",calification);
 
-                              obj_edit.putInt("vehicle_id",vehicle_id);
+                              obj_edit.putString("vehicle_id",vehicle_id_string);
                               obj_edit.putString("vehicle_title",vehicle_title);
                               obj_edit.putInt("vehicle_year",vehicle_year);
                               obj_edit.putString("vehicle_color",vehicle_color);
