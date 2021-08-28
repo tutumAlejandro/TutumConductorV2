@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -29,9 +26,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Main_IniciaSesion;
-import com.example.tutumconductorv2.Pop_Up.MainPopUpUbicacion;
 import com.example.tutumconductorv2.Registro.datos_personales.MainActivity;
+import com.example.tutumconductorv2.home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
@@ -43,11 +39,16 @@ import java.util.Map;
 
 public class Inicio extends AppCompatActivity {
 
+    public HomeFragment  HomeFragment = new HomeFragment();
     private AppBarConfiguration mAppBarConfiguration;
     private Button toPerfil,toUnidad,signOut,toAyuda,toGanancia,toHistorial;
     private ImageView foto_perfil;
     private boolean upButton;
     private String url_imagen="";
+    SharedPreferences preferences_2;
+    SharedPreferences.Editor editor_2;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +57,7 @@ public class Inicio extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         editStatus(preferences.getString("api_token",""),"0");
 
-
+        HomeFragment = new HomeFragment();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
@@ -107,6 +108,15 @@ public class Inicio extends AppCompatActivity {
                 Intent intSingOut = new Intent(Inicio.this, MainActivity.class);
                 intSingOut.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intSingOut.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                editStatus(preferences.getString("api_token",""),"0");
+                Log.e("CONDUCTOR", "DESCONECTADO");
+                Toast.makeText(Inicio.this, "CONDUCTOR DESCONECTADO", Toast.LENGTH_SHORT).show();
+
+                editor_2.clear();
+                editor_2.commit();
+
                 startActivity(intSingOut);
             }
         });
@@ -135,7 +145,18 @@ public class Inicio extends AppCompatActivity {
             }
         });
 
+     preferences_2 = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        editor_2 = preferences_2.edit();
+        datosUsuario();
     }
+
+    private  void datosUsuario(){
+        String usuario = preferences_2.getString("correo","null");
+        String contrasena = preferences_2.getString("contrasena","null");
+        Log.e("CORREO", " " +usuario);
+        Log.e("CONTRASENA", " "+contrasena);
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -157,6 +178,24 @@ public class Inicio extends AppCompatActivity {
         }
         tiempoPrimerClick = System.currentTimeMillis();
     }
+
+
+    public void Notchecked() {
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        editStatus(preferences.getString("api_token",""),"0");
+        Log.e("CONDUCTOR", "DESCONECTADO");
+        Toast.makeText(Inicio.this, "CONDUCTOR DESCONECTADO", Toast.LENGTH_SHORT).show();
+    }
+
+    public void checked() {
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        editStatus(preferences.getString("api_token",""),"1");
+        Log.e("CONDUCTOR", "DESCONECTADO");
+        Toast.makeText(Inicio.this, "CONDUCTOR DESCONECTADO", Toast.LENGTH_SHORT).show();
+    }
+
+
+
 
     private void editStatus(String api_token,String status){
         String url = "https://www.tutumapps.com/api/driver/checkChangeStatus";
@@ -202,4 +241,6 @@ public class Inicio extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
 }
