@@ -18,5 +18,8 @@ public class activity_chat_reporte extends AppCompatActivity {
     public void btnRegresarProblema1(View V){
         Intent intentIni = new Intent(activity_chat_reporte.this, ReportarProblema.class);
         startActivity(intentIni);
+        for(int i =0; i<10;i++){
+
+        }
     }
 }
