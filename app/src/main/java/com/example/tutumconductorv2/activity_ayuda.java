@@ -32,6 +32,9 @@ public class activity_ayuda extends AppCompatActivity {
         btnReportarProblema = findViewById(R.id.btnReportarProblemaTecnico);
         btnRegresar = findViewById(R.id.img_retroceso_documentos_snv);
 
+if(btnRegresar.equals("Ayer")){
+
+}
 
         TyC.setOnClickListener(new View.OnClickListener() {
             @Override
