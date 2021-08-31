@@ -12,10 +12,6 @@ public class GeofireProvider {
     private DatabaseReference mDatabase;
     private GeoFire mGeofire;
 
-    /*public GeofireProvider(String reference) {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child(reference);
-        mGeofire = new GeoFire(mDatabase);
-    }*/
 
     public GeofireProvider(String reference) {
         mDatabase = FirebaseDatabase.getInstance().getReference().child(reference);

@@ -27,15 +27,16 @@ import org.json.JSONObject;
 
 public class MainVentanaPrincipal extends AppCompatActivity {
 
+    // Decalracion de variables globales
+
     private int estado_previo;
     private String phone;
-    //private String state="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ventana_principal);
-        //POST_timeline();
-            Sesion_login();
+        Sesion_login();
     }
 
     private void Sesion_login(){
