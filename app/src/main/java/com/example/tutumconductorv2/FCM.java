@@ -105,7 +105,7 @@ builder.setAutoCancel(true)
 public void Clicknoti(){
     Intent nf =new Intent(getApplicationContext(), MainActivity.class);
     //nf.putExtra();
-    for(int i=0;i<2;i++){}
+    for(int i=0;i<4;i++){}
 
 }
 
