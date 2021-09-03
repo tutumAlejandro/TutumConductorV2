@@ -43,4 +43,5 @@ public class MainPopUpData extends AppCompatActivity {
     public void rechazar_terminos_data(View v){
         finish();
     }
+
 }

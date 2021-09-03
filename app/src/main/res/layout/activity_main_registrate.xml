@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro.datos_personales.MainRegistrate"
+    android:orientation="vertical"
+    android:background="@color/darkest"
+    android:forceDarkAllowed="false">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imf_fondo_registrate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_imagen_fonde3"
+                android:contentDescription="@string/imagenes"
+                android:src="@drawable/fondo3" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputNombres"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="@string/txt_registrate_nombres"
+                android:textColorHint="@color/white"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="4dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHighlight="@color/white"
+                    android:textColorLink="@color/white"
+                    android:textSize="@dimen/size_text_input" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputApeidoP"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="@string/txt_registrate_apeido_paterno"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="4dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_text_input" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputApeidoM"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="@string/txt_registrate_apeido_materno"
+                android:textColorHint="@color/white"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="4dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_text_input" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputCorreo"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="@string/txt_registrate_email"
+                android:textColorHint="@color/white"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="4dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_text_input" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputContraseña"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/txt_registrate_pass"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="@color/white"
+                app:passwordToggleTint="@color/white"
+                app:errorEnabled="true"
+                app:boxStrokeWidth="2dp"
+                app:hintEnabled="true"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_text_input" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_guardar_registro"
+                android:layout_width="@dimen/width_boton"
+                android:layout_height="@dimen/heigth_boton"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/boton_redondo"
+                android:onClick="btn_registro"
+                android:text="@string/btn_text_continuar"
+                android:fontFamily="@font/boring_sans_bold"
+                android:textSize="@dimen/size_text_btn"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
