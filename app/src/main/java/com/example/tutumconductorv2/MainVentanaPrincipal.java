@@ -28,7 +28,6 @@ import org.json.JSONObject;
 public class MainVentanaPrincipal extends AppCompatActivity {
 
     // Decalracion de variables globales
-
     private int estado_previo;
     private String phone;
 
@@ -46,35 +45,36 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         editor.apply();
     }
 
-    public void btn_registrate(View v)
-    {
+    public void btnRegistro(View view){
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        String telefono = preferences.getString("phone","");
+        int state = preferences.getInt("Status", 0);
+        Log.e("Numero de Telefono", "telefono: " + telefono);
+        Log.e("Etapa del registro", "Etapa: " + state);
 
-        SharedPreferences preferencias_ventanaPrincipal = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        estado_previo = preferencias_ventanaPrincipal.getInt("State",0);
-        if(estado_previo == 0){ // falta agregar state == 10
-            Log.d("Main Ventana Principal","Mo hay ningun registro sin terminar");
-            Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
-            startActivity(main_registrate);
+        //Si el campo "phone" en la base de datos SharedPreferences esta vacio quiere decir que no hay un registro activo
+        if(preferences.getString("phone","").isEmpty()){
+            startActivity(new Intent(MainVentanaPrincipal.this, MainRegistrate.class));
+            overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         }else{
-            Log.d("Main Ventana Principal","Hay un registro sin terminar en el telefono");
-            phone = preferencias_ventanaPrincipal.getString("phone","");
-            if(phone.isEmpty()){
-                HARD_RESET();
-                Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainPopUpData.class);
-                startActivity(main_registrate);
-                Log.d("Main Ventana Principal", "No hay ningun numero de telefono registrado");
+            // Si el status de la solicitud se encuentra en 0 quiere decir que nop hay ningun dato asociado con ese telefono
+            // o si el status es igual a 10 significa que ya hay un registro completo con ese numero de telefono
+            if(preferences.getInt("State",0) == 0 || preferences.getInt("State",0) == 10){
+                HARD_RESET(); // Se reinician los valores de la base de datos "Datos_Usuario  a sus valore por Default
+                startActivity(new Intent(MainVentanaPrincipal.this, MainRegistrate.class));
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }else{
-                Log.d("Main Ventana Principal","Hay un numero de telefono registrado en el telefono");
+                Log.e("Ventana Principal", "Hay un registro sin concluir, mandando una peticion Json..");
                 POST_timeline();
             }
-
-
         }
+
+
     }
     public void btn_inicia_sesion(View v)
     {
-        Intent main_inicio_sesion = new Intent(MainVentanaPrincipal.this, Main_IniciaSesion.class);
-        startActivity(main_inicio_sesion);
+        startActivity(new Intent(MainVentanaPrincipal.this, Main_IniciaSesion.class));
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
     private void POST_timeline(){
         String url = "https://www.tutumapps.com/api/driver/registryTimelineStatus";

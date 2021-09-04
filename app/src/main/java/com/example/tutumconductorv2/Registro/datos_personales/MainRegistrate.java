@@ -19,12 +19,15 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainRegistrate extends AppCompatActivity {
 
+    //Declaracion de las variuables globales para el activity MainRegistrate
     private TextInputLayout nombres, apeidop, apeidom, email, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_registrate);
+
+        //Asociacion del xml con el archivo .java
         nombres = findViewById(R.id.InputNombres);
         apeidop = findViewById(R.id.InputApeidoP);
         apeidom = findViewById(R.id.InputApeidoM);
@@ -32,6 +35,7 @@ public class MainRegistrate extends AppCompatActivity {
         pass = findViewById(R.id.InputContraseña);
     }
 
+    //Funcion para revisar los campos de Nombre, apeido paterno, aperido materno
     private boolean check_field(String app, TextInputLayout campo) {
         if (app.isEmpty()) {
             campo.setErrorEnabled(true);
@@ -44,7 +48,8 @@ public class MainRegistrate extends AppCompatActivity {
         }
     }
 
-    private boolean check_field_email(String correo, TextInputLayout campo) {
+    //Funcion para revisar el campo del correo electronico
+    private boolean check_field_email(String correo) {
         if (correo.isEmpty()) {
             email.setErrorEnabled(true);
             email.setErrorTextColor(ColorStateList.valueOf(Color.RED));
@@ -61,7 +66,8 @@ public class MainRegistrate extends AppCompatActivity {
         }
     }
 
-    private boolean check_field_pass(String contraseña, TextInputLayout campo) {
+    //Funcion para revisar el campo de la contraseña
+    private boolean check_field_pass(String contraseña) {
         if (contraseña.isEmpty()) {
             pass.setErrorEnabled(true);
             pass.setErrorTextColor(ColorStateList.valueOf(Color.RED));
@@ -79,17 +85,16 @@ public class MainRegistrate extends AppCompatActivity {
     }
 
     public void btn_registro(View v) {
-        if (!check_field(nombres.getEditText().getText().toString().trim(), nombres) | !check_field(apeidop.getEditText().getText().toString().trim(), apeidop) |
-                !check_field_email(email.getEditText().getText().toString().trim(), email) |
-                !check_field_pass(pass.getEditText().getText().toString().trim(), pass)) {
+        // Revisión de todos los campos, en caso de que uno contenga error
+        if (!check_field(nombres.getEditText().getText().toString().trim(), nombres) | !check_field(apeidop.getEditText().getText().toString().trim(), apeidop) | !check_field_email(email.getEditText().getText().toString().trim()) | !check_field_pass(pass.getEditText().getText().toString().trim())) {
             return;
         } else {
             AlertDialog.Builder confirm_datos = new AlertDialog.Builder(MainRegistrate.this);
             confirm_datos.setTitle(Html.fromHtml("<font color='#E4B621'> <b>Registro Conductor</b></font>"));
             confirm_datos.setIcon(R.drawable.logo_1024);
-            confirm_datos.setMessage(Html.fromHtml("<p><font color=''><b>Â¿Los datos son correctos?</b></font></p> <p><b>Nombre: </b>" + nombres.getEditText().getText().toString().trim() + "</p>" +
+            confirm_datos.setMessage(Html.fromHtml("<p><font color=''><b> ¿Los datos son correctos?</b></font></p> <p><b>Nombre: </b>" + nombres.getEditText().getText().toString().trim() + "</p>" +
                     "<p><b> Apellido Paterno: </b>" + apeidop.getEditText().getText().toString().trim() + "</p>" + "<p><b>Apellido Materno: </b>" + apeidom.getEditText().getText().toString().trim() + "</p>" +
-                    "<p><b>Correo ElÃ©ctronico: </b>" + email.getEditText().getText().toString().trim() + "</p> <p>Recuerda que no podras modificar estos datos hasta que termines tu registro<p>"));
+                    "<p><b>Correo Eléctronico: </b>" + email.getEditText().getText().toString().trim() + "</p> <p>Recuerda que no podras modificar estos datos hasta que termines tu registro<p>"));
             confirm_datos.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

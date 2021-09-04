@@ -92,6 +92,7 @@ public class MainRegistroTelefono extends AppCompatActivity {
         ccp1 = ccp.getCcpDialogShowFlag();
         SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferences_user.edit();
+        obj_editor.putString("phone",phone);
         obj_editor.putInt("State",3);
         obj_editor.commit();
         if(!check_telefono(phone)){

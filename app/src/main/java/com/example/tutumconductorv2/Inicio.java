@@ -113,7 +113,7 @@ public class Inicio extends AppCompatActivity {
                 editStatus(preferences.getString("api_token",""),"0");
                 Log.e("CONDUCTOR", "DESCONECTADO");
                 Toast.makeText(Inicio.this, "CONDUCTOR DESCONECTADO", Toast.LENGTH_SHORT).show();
-
+                editor_2.putBoolean("isLogged",false);
                 editor_2.clear();
                 editor_2.commit();
 

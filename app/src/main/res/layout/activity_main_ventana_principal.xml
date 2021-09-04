@@ -28,12 +28,11 @@
                 android:layout_marginTop="50dp"
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/boring_sans_heavy"
-                android:onClick="btn_registrate"
+                android:forceDarkAllowed="false"
+                android:onClick="btnRegistro"
                 android:text="@string/btn_text_registrate"
                 android:textColor="@color/white"
-                android:textSize="@dimen/size_text_btn"
-                android:forceDarkAllowed="false">
-            </Button>
+                android:textSize="@dimen/size_text_btn"></Button>
 
             <Button
                 android:layout_width="@dimen/width_boton"
