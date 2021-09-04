@@ -3,10 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/rounded_corner.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/layout_mostrar_datos.xml" value="0.309255079006772" />
         <entry key="..\:/Users/Alejandro/StudioProjects/TutumConductor/app/src/main/res/layout/activity_inicia_sesion.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/Alejandro/StudioProjects/TutumConductor/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Alejandro/StudioProjects/TutumConductor/app/src/main/res/layout/activity_main_registrate.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/Alejandro/StudioProjects/TutumConductor/app/src/main/res/layout/activity_main_ventana_principal.xml" value="0.17502532928064843" />
       </map>
     </option>
   </component>

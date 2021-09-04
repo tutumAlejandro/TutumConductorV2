@@ -89,6 +89,7 @@ public class MainRegistrate extends AppCompatActivity {
         if (!check_field(nombres.getEditText().getText().toString().trim(), nombres) | !check_field(apeidop.getEditText().getText().toString().trim(), apeidop) | !check_field_email(email.getEditText().getText().toString().trim()) | !check_field_pass(pass.getEditText().getText().toString().trim())) {
             return;
         } else {
+
             AlertDialog.Builder confirm_datos = new AlertDialog.Builder(MainRegistrate.this);
             confirm_datos.setTitle(Html.fromHtml("<font color='#E4B621'> <b>Registro Conductor</b></font>"));
             confirm_datos.setIcon(R.drawable.logo_1024);

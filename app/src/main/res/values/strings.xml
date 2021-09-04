@@ -1,4 +1,47 @@
 <resources>
+
+    <!-- declaracion de las strings  para la aplicación de tutum conductor -->
+    <!-- Strings MainActivity-->
+    <string name="txt_inicio_by">By</string>
+    <string name="txt_inicio_tutum">Tutum®</string>
+    <string name="txt_inicio_tutum2">Tutum</string>
+
+    <!-- Strings Activity_VentanaPrincipal -->
+    <string name="btn_text_inicio_sesion">INICIAR SESIÓN</string>
+    <string name="btn_text_registrate">REGISTRATE</string>
+
+    <!-- Strings PopUp Continuar Registro -->
+    <string name="txt_pop_up_text0">Vaya.....</string>
+    <string name="txt_pop_up_text1">Parece que tienes un registro sin completar.</string>
+    <string name="txt_pop_up_text2">¿Deseas continuar con tu registro?</string>
+    <string name="txt_btn_pop_up1">Si, Deseo continuar</string>
+    <string name="txt_btn_pop_up2">No, Iniciar uno nuevo</string>
+
+    <!-- Strings para la activity MainRegistro-->
+    <string name="txt_registrate_nombres">Nombre(s)</string>
+    <string name="txt_registrate_apeido_paterno">Apellido Paterno</string>
+    <string name="txt_registrate_apeido_materno">Apellido Materno</string>
+    <string name="txt_registrate_email">Correo Electrónico</string>
+    <string name="txt_registrate_pass">Contraseña</string>
+
+    <!-- Strings para el PopUp para confirmar los datos del conductor -->
+    <string name="txt_head_pop_up_confirmar">Registro Conductor</string>
+    <string name="txt_head2_pop_up_confirmar">¿Los datos son correctos?</string>
+    <string name="txt_nombre_pop_up_confirmar">Nombre:</string>
+    <string name="txt_apeidop_pop_up_confirmar">Apeido Paterno:</string>
+    <string name="txt_apeidom_pop_up_confirmar">Apeido Materno:</string>
+    <string name="txt_correo_pop_up_confirmar">Correo Electrónico:</string>
+    <string name="txt_body_pop_up_confirmar">Recuerda que no podras modificar estos datos hasta que termines tu registro</string>
+    <string name="txt_btn_aceptar_confirmar">Aceptar</string>
+    <string name="txt_btn_cancelar_confirmar">Cancelar</string>
+
+    <!-- Strings para la ativity MainRegistroTelefono-->
+    <string name="txt_ingresa_text1">Ingresa tu Número de Teléfono Móvil</string>
+    <string name="txt_ingresa_telefono">Teléfono Celular</string>
+    <!--            -->
+
+
+
     <!-- Strings para la aplicacion de tutum conductor-->
     <string name="app_name">Tutum Conductor</string>
     <string name="socio">Socio</string>
@@ -13,14 +56,9 @@
     <!-- Strings tod para las imagenes-->
     <string name="imagenes">imagenes</string>
 
-    <!-- Strings para la ventana de presentación-->
-    <string name="txt_inicio_by">By</string>
-    <string name="txt_inicio_tutum">Tutum®</string>
-    <string name="txt_inicio_tutum2">Tutum</string>
 
-    <!-- Strings para los botones-->
-    <string name="btn_text_inicio_sesion">INICIAR SESIÓN</string>
-    <string name="btn_text_registrate">REGISTRATE</string>
+
+
     <string name="btn_text_continuar">Continuar</string>
     <string name="btn_text_socio">Socio Administrador</string>
     <string name="btn_text_conductor">Conductor</string>
@@ -37,28 +75,15 @@
     <string name="input_matricula">Matricula</string>
     <string name="input_codigo">Código del Vehículo</string>
 
-    <!-- Strings para la ventanan PopUp Continuar con el registro-->
-    <string name="txt_pop_up_text0">Vaya.....</string>
-    <string name="txt_pop_up_text1">Parece que tienes un registro sin completar.</string>
-    <string name="txt_pop_up_text2">¿Deseas continuar con tu registro?</string>
-    <string name="txt_btn_pop_up1">Si, Deseo continuar</string>
-    <string name="txt_btn_pop_up2">No, Iniciar uno nuevo</string>
 
-    <!-- Strings para la ventana registrate-->
-    <string name="txt_registrate_nombres">Nombre(s)</string>
-    <string name="txt_registrate_apeido_paterno">Apellido Paterno</string>
-    <string name="txt_registrate_apeido_materno">Apellido Materno</string>
-    <string name="txt_registrate_email">Correo Electrónico</string>
-    <string name="txt_registrate_pass">Contraseña</string>
+
+
 
     <!-- Strings para la ventana inicio de sesion-->
     <string name="txt_inicio_email">Correo Electrónico</string>
     <string name="txt_inicio_pass">Contraseña</string>
     <string name="txt_inicio_recupera">Recupera Contraseña</string>
 
-    <!-- Strings para la ventana ingresa telefono-->
-    <string name="txt_ingresa_text1">Ingresa tu Número de Teléfono Móvil</string>
-    <string name="txt_ingresa_telefono">Teléfono Celular</string>
 
     <!-- Strings para los pop-up del registro de telefono -->
     <string name="txt_pre_registro_ok">Número de teléfono y correo electrónico agregados correctamente</string>
