@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -319,4 +322,19 @@ public class MainRegistroTelefono extends AppCompatActivity {
             }
         });
     }
+    public AlertDialog dialogResposePhone(String response, boolean succes){
+        //Creamos un alertDialog y su constructor (builder)
+        final AlertDialog alertDialog;
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Obtenemos el layoutInflater
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.response_phone_registry, null);
+        //TextView = view.findViewById(R.id);
+
+
+        builder.setView(view);
+        alertDialog = builder.create();
+      return alertDialog;
+    }
+
 }
