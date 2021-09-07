@@ -3,10 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/rounded_corner.xml" value="0.37864583333333335" />
-        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/layout_mostrar_datos.xml" value="0.309255079006772" />
-        <entry key="..\:/Users/Alejandro/StudioProjects/TutumConductor/app/src/main/res/layout/activity_inicia_sesion.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/Alejandro/StudioProjects/TutumConductor/app/src/main/res/layout/activity_main_registrate.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/drawable/background_pop_up.xml" value="0.1891891891891892" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/drawable/boton_documentos.xml" value="0.1891891891891892" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/drawable/boton_redondo.xml" value="0.1891891891891892" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/drawable/rounded_corner.xml" value="0.1891891891891892" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_caracteristicas_nueva_unidad.xml" value="0.21240942028985507" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_chat_reporte.xml" value="0.21240942028985507" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_inicia_sesion.xml" value="0.1286231884057971" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_inicio.xml" value="0.25" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_captura_caracteriristicas_nuevo_vehiculo.xml" value="0.1" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_captura_caracteristicas.xml" value="0.1" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_inicio_sesion.xml" value="0.14516129032258066" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_nuevo_vehiculo_socio.xml" value="0.11728395061728394" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_pop_up_ubicacion.xml" value="0.13949275362318841" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_registrate.xml" value="0.3068391866913124" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_registro_telefono.xml" value="0.33" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_main_socio_documentos.xml" value="0.1171943711521548" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/activity_unidades.xml" value="0.1" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/layout/rounded_corner.xml" value="0.1752252252252252" />
+        <entry key="..\:/Users/Alejandro/StudioProjects/AppConductorAndroid/app/src/main/res/drawable/background_pop_up.xml" value="0.3648148148148148" />
+        <entry key="..\:/Users/Alejandro/StudioProjects/AppConductorAndroid/app/src/main/res/drawable/boton_redondo.xml" value="0.3472222222222222" />
+        <entry key="..\:/Users/Alejandro/StudioProjects/AppConductorAndroid/app/src/main/res/drawable/boton_redondo_cancelar.xml" value="0.3472222222222222" />
+        <entry key="..\:/Users/Alejandro/StudioProjects/AppConductorAndroid/app/src/main/res/layout/activity_main_terminos_y_condiciones.xml" value="0.3625" />
+        <entry key="..\:/Users/Alejandro/StudioProjects/AppConductorAndroid/app/src/main/res/layout/confirm_data_layout.xml" value="0.1762917933130699" />
+        <entry key="app/src/main/res/layout/activity_inicia_sesion.xml" value="0.15070921985815602" />
       </map>
     </option>
   </component>

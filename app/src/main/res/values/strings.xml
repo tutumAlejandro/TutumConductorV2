@@ -30,7 +30,7 @@
     <string name="txt_nombre_pop_up_confirmar">Nombre:</string>
     <string name="txt_apeidop_pop_up_confirmar">Apeido Paterno:</string>
     <string name="txt_apeidom_pop_up_confirmar">Apeido Materno:</string>
-    <string name="txt_correo_pop_up_confirmar">Correo Electrónico:</string>
+    <string name="txt_correo_pop_up_confirmar">Email:</string>
     <string name="txt_body_pop_up_confirmar">Recuerda que no podras modificar estos datos hasta que termines tu registro</string>
     <string name="txt_btn_aceptar_confirmar">Aceptar</string>
     <string name="txt_btn_cancelar_confirmar">Cancelar</string>

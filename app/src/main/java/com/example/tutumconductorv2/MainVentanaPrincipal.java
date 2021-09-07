@@ -28,13 +28,20 @@ import org.json.JSONObject;
 public class MainVentanaPrincipal extends AppCompatActivity {
 
     // Decalracion de variables globales
-    private int estado_previo;
+    private int state;
     private String phone;
+    private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ventana_principal);
+        // abrir la base de datos SharedPreferences y sacar las variables Status y phone
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        state = preferences.getInt("State",0);
+        phone = preferences.getString("phone","");
+        Log.e("Ventana Principal","Status guardado: "+state);
+        Log.e("Ventana Principal","phone guardado: "+ phone);
         Sesion_login();
     }
 
@@ -46,25 +53,19 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     }
 
     public void btnRegistro(View view){
-        SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        String telefono = preferences.getString("phone","");
-        int state = preferences.getInt("Status", 0);
-        Log.e("Numero de Telefono", "telefono: " + telefono);
-        Log.e("Etapa del registro", "Etapa: " + state);
-
         //Si el campo "phone" en la base de datos SharedPreferences esta vacio quiere decir que no hay un registro activo
-        if(preferences.getString("phone","").isEmpty()){
+        if(phone.isEmpty()){
             startActivity(new Intent(MainVentanaPrincipal.this, MainRegistrate.class));
             overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         }else{
             // Si el status de la solicitud se encuentra en 0 quiere decir que nop hay ningun dato asociado con ese telefono
             // o si el status es igual a 10 significa que ya hay un registro completo con ese numero de telefono
-            if(preferences.getInt("State",0) == 0 || preferences.getInt("State",0) == 10){
+            if(state == 0 || state == 1 || state == 10){
                 HARD_RESET(); // Se reinician los valores de la base de datos "Datos_Usuario  a sus valore por Default
-                startActivity(new Intent(MainVentanaPrincipal.this, MainRegistrate.class));
+                startActivity(new Intent(MainVentanaPrincipal.this, MainRegistrate.class)); //Iniciar la actividada para registrarse
                 overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }else{
-                Log.e("Ventana Principal", "Hay un registro sin concluir, mandando una peticion Json..");
+                Log.e("Ventana Principal", "Hay un registro sin concluir, mandando una peticion Json con el numero de telefono: "+ phone);
                 POST_timeline();
             }
         }
@@ -76,38 +77,46 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         startActivity(new Intent(MainVentanaPrincipal.this, Main_IniciaSesion.class));
         overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
-    private void POST_timeline(){
-        String url = "https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
+    private void POST_timeline(){
         try{
+            //Creacion de un peticion para la comunicacion a traves de internet
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone",phone);
             final String requestBody = jsonObject.toString();
-            Log.d("Main Ventana Principal","Peticion hecha al servidor");
-            JsonObjectRequest request_timeline = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+            Log.e("Main Ventana Principal","Peticion hecha al servidor");
+            JsonObjectRequest request_timeline = new JsonObjectRequest(Request.Method.POST, url_timeline, jsonObject, new Response.Listener<JSONObject>() {
+
 
                 @Override
                 public void onResponse(JSONObject response) {
+                    //Mostrar la respuesta del servidor
                     Log.e("Main Ventana Principal","Respuesta del servidor: " + response);
+
+                    //Si en la respuesta contiene un mensaje(msg) quiere decir que no hay un registro con esos datos en nuestra base de datos
                     if(response.has("msg")){
-                        HARD_RESET();
-                        // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
-                        Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
-                        startActivity(main_registrate);
                         Log.d("Main Ventana Principal","No se encontro el registro y se borran los datos de la BD Shared Preferences");
+                        HARD_RESET(); // Se reinician los valores de la base de datos "Datos_Usuario  a sus valore por Default
+                        startActivity(new Intent(MainVentanaPrincipal.this, MainRegistrate.class)); //Iniciar la actividada para registrarse
+                        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                     }else{
+                        // Si no contiene un mensaje la respuesta del servidor tiene el status donde se quedo el proceso de registro de un nuevo conductor
                         try {
                             JSONObject obj1 = response.getJSONObject("data");
                             String state = obj1.getString("status");
                             Log.e("Main Ventana Principal", "valor status: "+state);
-                            if(state.matches("5") || state.matches("6") || state.matches("7") || state.matches("8") || state.matches("9") || state.matches("10")){
-                                Intent main_timeline = new Intent(MainVentanaPrincipal.this, MainDocumentosOk.class);
-                                startActivity(main_timeline);
+                            // si el estatus es 0 quiere decir que en el servidor no existe un registro con el numero de telefono guardado en el SharedPreferences
+                            //Si el estatus es 10 quiere decir que el prospecto fue aceptado como conductor
+                            if(state.matches("0") || state.matches("10") ){
+                                HARD_RESET(); // Se reinician los valores de la base de datos "Datos_Usuario  a sus valore por Default
+                                startActivity(new Intent(MainVentanaPrincipal.this, MainRegistrate.class)); //Iniciar la actividada para registrarse
+                                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                             }else{
-                                Intent main_continua_registro = new Intent(MainVentanaPrincipal.this, PopUpContinuarRegistro.class);
-                                startActivity(main_continua_registro);
-                                Log.d("Main Ventana Principal", "Registro Terminado Inicia Sesión");
+                                //
+                                startActivity(new Intent(MainVentanaPrincipal.this, PopUpContinuarRegistro.class)); //Iniciar la actividada para registrarse
+                                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                                Log.d("Main Ventana Principal", "Registro sin concluir, cargando los datos del usuario");
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -120,10 +129,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
                     //Si no hay respuesta del servidor mostrar un error ya mediante el LOg y un AlertDialog
                     Toast.makeText(MainVentanaPrincipal.this,"Hubo un problema en el servidor, intentalo mas tarde",Toast.LENGTH_SHORT).show();
                     Log.e("Main Ventana Principal", "<<<<<<<<<No hay respuesta del servidor>>>>>>>>>>");
-                    HARD_RESET();
                     // Si existe un encabezado que se llame msg, entonces no hay un registro con el numero de telefono guardado
-                    Intent main_registrate = new Intent(MainVentanaPrincipal.this, MainRegistrate.class);
-                    startActivity(main_registrate);
                 }
             });
             requestQueue.add(request_timeline);
@@ -132,7 +138,6 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         }
     }
     private void HARD_RESET(){
-
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferences.edit();
         obj_editor.putString("name","");

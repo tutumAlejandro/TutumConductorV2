@@ -9,7 +9,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Patterns;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -89,16 +92,31 @@ public class MainRegistrate extends AppCompatActivity {
         if (!check_field(nombres.getEditText().getText().toString().trim(), nombres) | !check_field(apeidop.getEditText().getText().toString().trim(), apeidop) | !check_field_email(email.getEditText().getText().toString().trim()) | !check_field_pass(pass.getEditText().getText().toString().trim())) {
             return;
         } else {
-
-            AlertDialog.Builder confirm_datos = new AlertDialog.Builder(MainRegistrate.this);
-            confirm_datos.setTitle(Html.fromHtml("<font color='#E4B621'> <b>Registro Conductor</b></font>"));
-            confirm_datos.setIcon(R.drawable.logo_1024);
-            confirm_datos.setMessage(Html.fromHtml("<p><font color=''><b> ¿Los datos son correctos?</b></font></p> <p><b>Nombre: </b>" + nombres.getEditText().getText().toString().trim() + "</p>" +
-                    "<p><b> Apellido Paterno: </b>" + apeidop.getEditText().getText().toString().trim() + "</p>" + "<p><b>Apellido Materno: </b>" + apeidom.getEditText().getText().toString().trim() + "</p>" +
-                    "<p><b>Correo Eléctronico: </b>" + email.getEditText().getText().toString().trim() + "</p> <p>Recuerda que no podras modificar estos datos hasta que termines tu registro<p>"));
-            confirm_datos.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            createCustomDialog().show();
+        }
+    }
+    public AlertDialog createCustomDialog(){
+        //Creamos un alertDialog y su constructor (builder)
+        final AlertDialog alertDialog;
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Obtenemos el layoutInflater
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.confirm_data_layout, null);
+        Button btn_aceptar = view.findViewById(R.id.btn_aceptar_datos);
+        Button btn_cancelar = view.findViewById(R.id.btn_cancelar_datos);
+        TextView nombre_conductor = view.findViewById(R.id.nombre_conductor);
+        TextView apeidop_conductor = view.findViewById(R.id.apeidop_conductor);
+        TextView apeidom_conductor = view.findViewById(R.id.apeidom_conductor);
+        TextView email_conductor = view.findViewById(R.id.email_conductor);
+        nombre_conductor.setText(nombres.getEditText().getText().toString().trim());
+        apeidop_conductor.setText(apeidop.getEditText().getText().toString().trim());
+        apeidom_conductor.setText(apeidom.getEditText().getText().toString().trim());
+        email_conductor.setText(email.getEditText().getText().toString().trim());
+        builder.setView(view);
+        alertDialog = builder.create();
+            btn_aceptar.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(View v) {
                     SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
                     SharedPreferences.Editor obj_editor = preferences.edit();
                     obj_editor.putString("name", (nombres.getEditText().getText().toString().trim()) + " " + apeidop.getEditText().getText().toString().trim() + " " + apeidom.getEditText().getText().toString().trim());
@@ -106,19 +124,20 @@ public class MainRegistrate extends AppCompatActivity {
                     obj_editor.putString("password", pass.getEditText().getText().toString().trim());
                     obj_editor.putInt("State", 1);
                     obj_editor.commit();
+                    finish();
                     Intent main_registro_telefono = new Intent(MainRegistrate.this, MainRegistroTelefono.class);
                     startActivity(main_registro_telefono);
-                    finish();
+                    alertDialog.dismiss();
                 }
             });
-            confirm_datos.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            btn_cancelar.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(View v) {
+                    alertDialog.dismiss();
                     return;
                 }
             });
-            confirm_datos.show();
-        }
+        return alertDialog;
     }
 
 }
