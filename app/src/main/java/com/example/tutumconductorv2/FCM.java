@@ -53,20 +53,9 @@ public class FCM  extends FirebaseMessagingService{
         String from = remoteMessage.getFrom();
         Log.d(TAG, "Noticias ");
 
-        /* if(remoteMessage.getNotification() != null){
+         if(remoteMessage.getNotification() != null){
             Log.e("TAG","Titulo de la notificacion"+remoteMessage.getNotification().getTitle());
             Log.e("TAG","Cuerpo de la notificacion"+remoteMessage.getNotification().getBody());
-        }*/
-        String titulo;
-        String texto;
-
-
-
-        if (remoteMessage.getData().size()>0  ){
-
-            Log.e("TAG","Titulo de la notificacion"+remoteMessage.getNotification().getTitle());
-            Log.e("TAG","Cuerpo de la notificacion"+remoteMessage.getNotification().getBody());
-
         }
 
     }
