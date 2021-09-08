@@ -41,7 +41,6 @@
     <!--            -->
 
 
-
     <!-- Strings para la aplicacion de tutum conductor-->
     <string name="app_name">Tutum Conductor</string>
     <string name="socio">Socio</string>
@@ -55,8 +54,6 @@
 
     <!-- Strings tod para las imagenes-->
     <string name="imagenes">imagenes</string>
-
-
 
 
     <string name="btn_text_continuar">Continuar</string>
@@ -74,9 +71,6 @@
     <string name="input_ano_vehiculo">Año del vehículo</string>
     <string name="input_matricula">Matricula</string>
     <string name="input_codigo">Código del Vehículo</string>
-
-
-
 
 
     <!-- Strings para la ventana inicio de sesion-->
@@ -407,9 +401,16 @@
     <string name="title_activity_maps_activitydelete">Map</string>
 
     <string name="test_alert_dialog">Este es un test de un alert Dialog</string>
-
-
     <string name="hint_adjuntar_imagen">Adjuntar imagen</string>
+
+    <string name="head_new_request">NUEVA SOLICITUD</string>
+    <string name="punto_new_request">PUNTO DE ENCUENTRO</string>
+    <string name="destino_new_request">DESTINO</string>
+    <string name="name_new_request">nombre usuario</string>
+    <string name="price_new_request">Precio</string>
+    <string name="time_new_request">Tiempo</string>
+    <string name="distance_new_request">Distance</string>
+    precio, timepo distancia
 
 
 </resources>
