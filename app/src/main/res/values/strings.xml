@@ -412,5 +412,22 @@
     <string name="distance_new_request">Distance</string>
     precio, timepo distancia
 
+    <!-- Cadenas para una nueva solicitud de viaje -->
+    <string name="request_head">NUEVA SOLICITUD</string>
+    <string name="request_label_origin">PUNTO DE ENCUENTRO</string>
+    <string name="request_label_destiny">DESTINO</string>
+    <string name="request_label_price">Precio</string>
+    <string name="request_label_time">Tiempo</string>
+    <string name="request_label_distance">Distancia</string>
+    <string name="request_btn_label_no">NO GRACIAS</string>
+    <string name="request_btn_label_yes">CONFIRMAR</string>
+
+    <string name="request_label_tst_name">Nombre prueba prueba</string>
+    <string name="request_label_tst_addr">Calle Alfredo Lewis 102A, Circunvalación Nte,202...</string>
+    <string name="request_label_tst_addr2">Jardines de Versalles 238, Versalles Primera...</string>
+    <string name="request_label_tst_price">$66</string>
+    <string name="request_label_tst_time">9 min</string>
+    <string name="request_label_tst_distance">2.84 km</string>
+
 
 </resources>
