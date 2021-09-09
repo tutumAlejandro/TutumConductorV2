@@ -8,16 +8,37 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Ini_cancel_viaje extends AppCompatActivity {
 
     private TextView tiempo, distancia, precio,origen,destino,nombre_pasajero;
     String cad1= "256",cad2="45.50",cad3="20:50";
+    private Button btn_acpt, btn_cancel;
+    private String journey_id;
+    private String api_token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +60,9 @@ public class Ini_cancel_viaje extends AppCompatActivity {
         precio = findViewById(R.id.price_request);
         tiempo = findViewById(R.id.time_request);
         distancia = findViewById(R.id.distance_request);
+
+        btn_acpt = findViewById(R.id.btn_confirm_request);
+        btn_cancel = findViewById(R.id.btn_cancel_request);
         /**Valores que nos interesan de la base de datos Shared Preferences
          * "pick_address"
          * "drop_address"
@@ -63,32 +87,65 @@ public class Ini_cancel_viaje extends AppCompatActivity {
         precio.setText("$"+preferences.getString("fare",""));
         tiempo.setText(preferences.getString("duration","")+"min");
         distancia.setText(preferences.getString("distance","")+"km");
+        journey_id = preferences.getString("journey_id","");
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        btn_acpt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                Log.e("Journey_id","Valor Journey_id: "+journey_id);
+                accepTravel(preferences.getString("api_token",""),Integer.parseInt(journey_id));
+                finish();
+            }
+        });
 
     }
 
+    public void accepTravel(String api_token, int journey){
+        String url = "https://www.tutumapps.com/api/driver/acceptJourney";
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
 
-    public void Regresar(){
-        AlertDialog.Builder alerta = new AlertDialog.Builder(Ini_cancel_viaje.this);
-        alerta.setMessage("Desea cancelar el viaje?")
-                .setCancelable(false)
-                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish(); //funcion en la que se debe regresar a la pantalla del viaje
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel(); //se mantiene en la misma pantalla para poder iniciar el viaje
-                    }
-                });
-        AlertDialog titulo = alerta.create();
-        titulo.setTitle("Confirmacion");
-        titulo.show();
-    }
-    public void Iniciar(){
-        Toast.makeText(this, "Viaje iniciado",Toast.LENGTH_SHORT).show(); //mensaje para indicar que el viaje inicio
-        finish();
+            //jsonObject.put("email",email);
+            jsonObject.put("phone",journey);
+            jsonObject.put("api_token",api_token);
+
+
+            final String requestBody = jsonObject.toString();
+
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.e("respuesta viaje", "respuesta: "+response);
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            })
+            {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Accept", "application/json");
+                    return params;}
+            };
+
+            requestQueue.add(request);
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }

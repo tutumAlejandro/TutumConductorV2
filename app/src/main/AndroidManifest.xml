@@ -193,7 +193,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Ini_cancel_viaje"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemePopUp"/>
 
         <!--
         <provider

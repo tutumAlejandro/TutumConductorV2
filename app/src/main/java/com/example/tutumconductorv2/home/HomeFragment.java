@@ -267,9 +267,11 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
 
     private void actualizarUbicacion(Location location) {
         SharedPreferences preferences = getContext().getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+
         phone = preferences.getString("phone","");
         updateFMToken("https://www.tutumapps.com/api/driver/updateFCMToken");
         get_FCM();
+
         if (location != null) {
 
             mCurrentLatLng = new com.google.android.gms.maps.model.LatLng(location.getLatitude(), location.getLongitude());
@@ -398,6 +400,7 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
             e.printStackTrace();
         }
     }
+
     private void get_FCM(){
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
             @Override
@@ -440,6 +443,7 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
         }
 
     }
+
 }
 
 

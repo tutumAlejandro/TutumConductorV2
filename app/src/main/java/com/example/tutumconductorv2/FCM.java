@@ -34,7 +34,7 @@ import com.example.tutumconductorv2.R;
 
 public class FCM  extends FirebaseMessagingService{
 
-
+    private RequestQueue requestQueue;
 
     public static final String TAG="NOTICIAS";
 
@@ -123,43 +123,6 @@ public void Clicknoti(){
 
 }
 
-
-
-
-/*        if (remoteMessage.getNotification() != null) {
-
-
-            titulo = remoteMessage.getNotification().getTitle();
-            texto = remoteMessage.getNotification().getBody();
-
-
-            Log.e( "TITULO: ", " " + titulo);
-            Log.e("CUERPO: ", " " + texto);
-
-            //Opcional: mostramos la notificación en la barra de estado
-            showNotification(titulo, texto);
-
-
-
-            Log.d(TAG, "notificaciones "+remoteMessage.getNotification().getBody());
-
-
-
-        }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void showNotification(String titulo, String texto) {
 
         NotificationCompat.Builder notificationBuilder =
@@ -183,7 +146,9 @@ public void Clicknoti(){
     private void postTokenRefresh(String phone, String token){
         try {
             String url = "https://www.tutumapps.com/api/driver/updateFCMToken";
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            if (requestQueue == null) {
+                requestQueue = Volley.newRequestQueue(getApplicationContext());
+            }
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone",phone);
             jsonObject.put("fcm_token",token);
