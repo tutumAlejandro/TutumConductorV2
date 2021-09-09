@@ -15,7 +15,9 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,10 +45,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.NotificationsClass;
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.Registro.datos_personales.MainOTP;
+import com.example.tutumconductorv2.Registro.datos_personales.MainRegistroTelefono;
 import com.example.tutumconductorv2.providers.AuthProvider;
 import com.example.tutumconductorv2.providers.GeofireProvider;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.maps.CameraUpdate;
 import com.google.android.libraries.maps.CameraUpdateFactory;
 import com.google.android.libraries.maps.GoogleMap;
@@ -59,6 +65,7 @@ import com.google.android.libraries.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,6 +93,7 @@ public class HomeFragment  extends Fragment {
     public ToggleButton status_button;
     public boolean mIsConnect = false;
     private LocationRequest mLocationRequest;
+    private String token,phone;
 
     DatabaseReference mDatabase;
 
@@ -258,6 +266,10 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
     };
 
     private void actualizarUbicacion(Location location) {
+        SharedPreferences preferences = getContext().getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+        phone = preferences.getString("phone","");
+        updateFMToken("https://www.tutumapps.com/api/driver/updateFCMToken");
+        get_FCM();
         if (location != null) {
 
             mCurrentLatLng = new com.google.android.gms.maps.model.LatLng(location.getLatitude(), location.getLongitude());
@@ -269,7 +281,6 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
             Log.d(TAG, "LONGITUD: " + lat);
 
             /*SUBIR UBICACION EN TIEPO REAL A FIREBASE*/
-            SharedPreferences preferences = getActivity().getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
 
             mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("driver_id").setValue(preferences.getInt("driver_id",0));
             mDatabase.child("Locations").child(String.valueOf(preferences.getInt("driver_id",0))).child("grades").setValue(0);
@@ -386,6 +397,48 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
         }catch (JSONException e){
             e.printStackTrace();
         }
+    }
+    private void get_FCM(){
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if(!task.isSuccessful())
+                {
+                    Log.e("FCM","No se pudo obtener el token FCM");
+                    return;
+                }
+                token = task.getResult();
+                Log.e("Token FCM","token generado en el registro: "+token);
+            }
+        });
+    }
+    public void updateFMToken(String url)  {
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("phone",phone);
+            jsonObject.put("fcm_token",token);
+
+            final String requestBody = jsonObject.toString();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.e("Token","respuesta: "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            });
+            requestQueue.add(request);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
     }
 }
 

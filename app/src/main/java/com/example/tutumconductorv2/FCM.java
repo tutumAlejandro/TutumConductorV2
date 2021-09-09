@@ -5,9 +5,12 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.Html;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationCompat;
 
 import com.android.volley.Request;
@@ -23,7 +26,11 @@ import com.google.firebase.messaging.RemoteMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
+import com.example.tutumconductorv2.R;
 
 public class FCM  extends FirebaseMessagingService{
 
@@ -53,19 +60,21 @@ public class FCM  extends FirebaseMessagingService{
         String from = remoteMessage.getFrom();
         Log.d(TAG, "Noticias ");
 
-        /* if(remoteMessage.getNotification() != null){
-            Log.e("TAG","Titulo de la notificacion"+remoteMessage.getNotification().getTitle());
-            Log.e("TAG","Cuerpo de la notificacion"+remoteMessage.getNotification().getBody());
-        }*/
-        String titulo;
-        String texto;
+         if(remoteMessage.getNotification() != null){
 
-
-
-        if (remoteMessage.getData().size()>0  ){
-
-            Log.e("TAG","Titulo de la notificacion"+remoteMessage.getNotification().getTitle());
-            Log.e("TAG","Cuerpo de la notificacion"+remoteMessage.getNotification().getBody());
+             Map<String,String> notification_body = new HashMap<String, String>();
+             notification_body = remoteMessage.getData();
+             Iterator interator = notification_body.keySet().iterator();
+             while(interator.hasNext())
+             {
+                 String key = (String) interator.next();
+                 String value = (String) notification_body.get(key);
+                 Log.e("Valores de la notificacion","key: "+ key);
+                 Log.e("Valores de la notificacion","Value: " + value);
+             }
+             /*
+             Intent solicitud = new Intent(getApplicationContext(),solicitudViaje.class);
+             startActivity(solicitud);*/
 
         }
 

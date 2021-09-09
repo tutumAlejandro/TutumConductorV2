@@ -30,7 +30,7 @@
     <string name="txt_nombre_pop_up_confirmar">Nombre:</string>
     <string name="txt_apeidop_pop_up_confirmar">Apeido Paterno:</string>
     <string name="txt_apeidom_pop_up_confirmar">Apeido Materno:</string>
-    <string name="txt_correo_pop_up_confirmar">Correo Electrónico:</string>
+    <string name="txt_correo_pop_up_confirmar">Email:</string>
     <string name="txt_body_pop_up_confirmar">Recuerda que no podras modificar estos datos hasta que termines tu registro</string>
     <string name="txt_btn_aceptar_confirmar">Aceptar</string>
     <string name="txt_btn_cancelar_confirmar">Cancelar</string>
@@ -401,15 +401,16 @@
     <string name="title_activity_maps_activitydelete">Map</string>
 
     <string name="test_alert_dialog">Este es un test de un alert Dialog</string>
-
-
     <string name="hint_adjuntar_imagen">Adjuntar imagen</string>
 
-    <!-- Strings para ventanas de iniciar/cancelar viaje y finalizar viaje-->
-    <string name="BotonRegresar">Regresar</string>
-    <string name="BotonIniciar">Iniciar</string>
-    <string name="BotonRegresar1">Regresar</string>
-    <string name="BotonFinalizar">Finalizar</string>
+    <string name="head_new_request">NUEVA SOLICITUD</string>
+    <string name="punto_new_request">PUNTO DE ENCUENTRO</string>
+    <string name="destino_new_request">DESTINO</string>
+    <string name="name_new_request">nombre usuario</string>
+    <string name="price_new_request">Precio</string>
+    <string name="time_new_request">Tiempo</string>
+    <string name="distance_new_request">Distance</string>
+    precio, timepo distancia
 
 
 </resources>
