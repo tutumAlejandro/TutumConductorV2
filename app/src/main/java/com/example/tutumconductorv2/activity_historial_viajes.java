@@ -72,7 +72,7 @@ public class activity_historial_viajes extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         Log.e("Historial de Viajes" +
-                                "","Rerspuesta!!!: "+response);
+                                "","Respuesta!!!: "+response);
                         //test_check.setText(response.getString("success"));
                         if(response.getString("success").matches("true"))
                         {

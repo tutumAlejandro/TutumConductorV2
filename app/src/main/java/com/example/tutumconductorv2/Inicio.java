@@ -82,6 +82,8 @@ public class Inicio extends AppCompatActivity {
         toHistorial = findViewById(R.id.button_historial);
         foto_perfil = findViewById(R.id.User_img);
 
+
+
         url_imagen = preferences.getString("driver_img","");
         url_imagen = url_imagen.replace("https:\\/\\/www.tutumapps.com\\/media\\/profile\\","https://www.tutumapps.com/media/profile/");
         Picasso.get().load(url_imagen).into(foto_perfil);

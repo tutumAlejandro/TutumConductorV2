@@ -42,12 +42,17 @@
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/boring_sans_heavy"
+                android:forceDarkAllowed="false"
                 android:onClick="btn_inicia_sesion"
                 android:text="@string/btn_text_inicio_sesion"
                 android:textColor="@color/white"
-                android:textSize="@dimen/size_text_btn"
-                android:forceDarkAllowed="false">
-            </Button>
+                android:textSize="@dimen/size_text_btn"></Button>
+
+            <Button
+                android:layout_width="341dp"
+                android:layout_height="wrap_content"
+                android:onClick="btnprueba"
+                android:text="Button" />
 
         </LinearLayout>
     </ScrollView>

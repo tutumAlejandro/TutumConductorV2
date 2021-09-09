@@ -41,7 +41,6 @@
     <!--            -->
 
 
-
     <!-- Strings para la aplicacion de tutum conductor-->
     <string name="app_name">Tutum Conductor</string>
     <string name="socio">Socio</string>
@@ -55,8 +54,6 @@
 
     <!-- Strings tod para las imagenes-->
     <string name="imagenes">imagenes</string>
-
-
 
 
     <string name="btn_text_continuar">Continuar</string>
@@ -74,9 +71,6 @@
     <string name="input_ano_vehiculo">Año del vehículo</string>
     <string name="input_matricula">Matricula</string>
     <string name="input_codigo">Código del Vehículo</string>
-
-
-
 
 
     <!-- Strings para la ventana inicio de sesion-->
@@ -410,6 +404,12 @@
 
 
     <string name="hint_adjuntar_imagen">Adjuntar imagen</string>
+
+    <!-- Strings para ventanas de iniciar/cancelar viaje y finalizar viaje-->
+    <string name="BotonRegresar">Regresar</string>
+    <string name="BotonIniciar">Iniciar</string>
+    <string name="BotonRegresar1">Regresar</string>
+    <string name="BotonFinalizar">Finalizar</string>
 
 
 </resources>

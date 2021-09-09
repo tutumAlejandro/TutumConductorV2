@@ -6,9 +6,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,6 +33,7 @@ public class MainVentanaPrincipal extends AppCompatActivity {
     private int estado_previo;
     private String phone;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +41,21 @@ public class MainVentanaPrincipal extends AppCompatActivity {
         Sesion_login();
     }
 
+//////////////////////prueba de ventanas
+
+        public void btnprueba(View view) {
+        Intent prueba = new Intent(MainVentanaPrincipal.this, Ini_cancel_viaje.class);
+        startActivity(prueba);
+        }
+
+    //////////////
     private void Sesion_login(){
         SharedPreferences sharedPreferences = getSharedPreferences("isLogged", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("isLogged", "YES");
         editor.apply();
     }
+
 
     public void btnRegistro(View view){
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);

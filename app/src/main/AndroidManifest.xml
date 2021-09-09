@@ -35,8 +35,14 @@
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Ini_cancel_viaje"
+            android:exported="true" />
+        <activity
+            android:name=".Finalizar_viaje"
+            android:exported="true" />
+        <activity
             android:name=".Registro.menus_rol.MainCapturaCaracteriristicasNuevoVehiculo"
-            android:theme="@style/InputTextBlack"/>
+            android:theme="@style/InputTextBlack" />
         <activity android:name=".Registro.menus_rol.MainNuevoVehiculoSocio" />
         <activity android:name=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Eventualidad.RespuestaReporteUsuario" />
         <activity android:name=".Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Eventualidad.RespuestaReporteViaje" />
@@ -61,12 +67,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_api_key" />
-            <!-- android:value="${MAPS_API_KEY}"/> -->
-
-
-
-
+            android:value="@string/google_api_key" /> <!-- android:value="${MAPS_API_KEY}"/> -->
         <activity android:name=".Registro.menus_rol.MainDocumentosOk" />
         <activity android:name=".Registro.menus_rol.MainConductorDocumentos" />
         <activity
