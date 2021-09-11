@@ -22,16 +22,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/txt_head_pop_up_confirmar"
-                android:textColor="@color/daysi"
+                android:textColor="@color/white"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/boring_sans_bold"
-                android:textSize="21sp"/>
+                android:textSize="24sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/txt_head2_pop_up_confirmar"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="21sp"
                 android:fontFamily="@font/boring_sans_bold"
                 android:layout_marginTop="10dp"/>
@@ -39,15 +39,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boring_sans_bold"
                     android:text="@string/txt_nombre_pop_up_confirmar"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/boring_sans_bold"/>
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
                 <TextView
                     android:id="@+id/nombre_conductor"
                     android:layout_width="wrap_content"
@@ -55,7 +56,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:textSize="18sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/boring_sans_bold"/>
             </LinearLayout>
             <LinearLayout
@@ -69,7 +70,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/txt_apeidop_pop_up_confirmar"
                     android:textSize="18sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/boring_sans_bold"/>
                 <TextView
                     android:id="@+id/apeidop_conductor"
@@ -78,7 +79,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
                     android:textSize="18sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/boring_sans_bold"/>
             </LinearLayout>
             <LinearLayout
@@ -92,7 +93,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/txt_apeidom_pop_up_confirmar"
                     android:textSize="18sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/boring_sans_bold"/>
                 <TextView
                     android:id="@+id/apeidom_conductor"
@@ -101,7 +102,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
                     android:textSize="18sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/boring_sans_bold"/>
             </LinearLayout>
             <LinearLayout
@@ -114,8 +115,8 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:text="@string/txt_correo_pop_up_confirmar"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/boring_sans_bold"/>
                 <TextView
                     android:id="@+id/email_conductor"
@@ -125,7 +126,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
                     android:textSize="16sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/open_sans_bold"/>
             </LinearLayout>
             <TextView
@@ -134,14 +135,14 @@
                 android:text="@string/txt_body_pop_up_confirmar"
                 android:textColor="@color/daysi"
                 android:fontFamily="@font/boring_sans_bold"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:textAlignment="center"/>
             <Button
                 android:id="@+id/btn_aceptar_datos"
-                android:layout_width="180dp"
+                android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:background="@drawable/boton_redondo"
                 android:layout_marginTop="20dp"
@@ -150,7 +151,7 @@
                 android:textColor="@color/white"/>
             <Button
                 android:id="@+id/btn_cancelar_datos"
-                android:layout_width="180dp"
+                android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:background="@drawable/boton_redondo_cancelar"
                 android:layout_marginTop="20dp"

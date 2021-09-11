@@ -61,7 +61,7 @@ public class MainOTP extends AppCompatActivity {
         num_tel = findViewById(R.id.num_telefono);
         ReOtp = findViewById(R.id.link_reenviar_otp);
 
-        num_tel.setText(cadenas_registro.telefono);
+       // num_tel.setText(cadenas_registro.telefono);
 
         Editar.setOnClickListener(new View.OnClickListener() {
             @Override

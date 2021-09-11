@@ -94,6 +94,7 @@ public class HomeFragment  extends Fragment {
     public boolean mIsConnect = false;
     private LocationRequest mLocationRequest;
     private String token,phone;
+    RequestQueue requestQueue;
 
     DatabaseReference mDatabase;
 
@@ -247,7 +248,7 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
         @Override
         public void onLocationChanged(@NonNull Location location) {
             actualizarUbicacion(location);
-            time = 2000;
+            time = 4000;
         }
 
         @Override
@@ -266,8 +267,8 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
     };
 
     private void actualizarUbicacion(Location location) {
-        SharedPreferences preferences = getContext().getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
 
+        SharedPreferences preferences = getContext().getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         phone = preferences.getString("phone","");
         updateFMToken("https://www.tutumapps.com/api/driver/updateFCMToken");
         get_FCM();
@@ -417,7 +418,9 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
     }
     public void updateFMToken(String url)  {
         try {
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            if (requestQueue == null) {
+                requestQueue = Volley.newRequestQueue(getContext());
+            }
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone",phone);
             jsonObject.put("fcm_token",token);

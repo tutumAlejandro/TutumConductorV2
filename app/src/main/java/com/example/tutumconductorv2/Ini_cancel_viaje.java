@@ -50,7 +50,7 @@ public class Ini_cancel_viaje extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(medidasVentana);
         int ancho = medidasVentana.widthPixels;
         int alto = medidasVentana.heightPixels;
-        getWindow().setLayout((int)(ancho*0.80), (int)(alto*0.8));
+        getWindow().setLayout((int)(ancho*0.90), (int)(alto*0.8));
         //----------------------------------------------------------------------------------
         SharedPreferences preferences = getSharedPreferences("Datos_Viaje", Context.MODE_PRIVATE);
         // Asociacion de los xml con la parte del java
@@ -99,6 +99,7 @@ public class Ini_cancel_viaje extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                Log.e("api token","api token: "+preferences.getString("api_token",""));
                 Log.e("Journey_id","Valor Journey_id: "+journey_id);
                 accepTravel(preferences.getString("api_token",""),Integer.parseInt(journey_id));
                 finish();
@@ -114,7 +115,7 @@ public class Ini_cancel_viaje extends AppCompatActivity {
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
 
             //jsonObject.put("email",email);
-            jsonObject.put("phone",journey);
+            jsonObject.put("journey_id",journey);
             jsonObject.put("api_token",api_token);
 
 

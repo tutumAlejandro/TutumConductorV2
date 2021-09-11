@@ -28,8 +28,8 @@
     <string name="txt_head_pop_up_confirmar">Registro Conductor</string>
     <string name="txt_head2_pop_up_confirmar">¿Los datos son correctos?</string>
     <string name="txt_nombre_pop_up_confirmar">Nombre:</string>
-    <string name="txt_apeidop_pop_up_confirmar">Apeido Paterno:</string>
-    <string name="txt_apeidom_pop_up_confirmar">Apeido Materno:</string>
+    <string name="txt_apeidop_pop_up_confirmar">Apellido Paterno:</string>
+    <string name="txt_apeidom_pop_up_confirmar">Apellido Materno:</string>
     <string name="txt_correo_pop_up_confirmar">Email:</string>
     <string name="txt_body_pop_up_confirmar">Recuerda que no podras modificar estos datos hasta que termines tu registro</string>
     <string name="txt_btn_aceptar_confirmar">Aceptar</string>
@@ -429,5 +429,8 @@
     <string name="request_label_tst_time">9 min</string>
     <string name="request_label_tst_distance">2.84 km</string>
 
+    <!-- Cadenas para una nueva solicitud de viaje -->
+    <string name="label_btn_gallery">Galeria</string>
+    <string name="label_btn_camera">Camara</string>
 
 </resources>
