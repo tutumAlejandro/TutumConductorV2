@@ -101,18 +101,20 @@ public class HomeFragment  extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-       // mMapvali = new MapVali();
+
         mAuthProvider = new AuthProvider();
         mGeofireProvider = new GeofireProvider("active_drivers");
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        //mButtonConnect = mButtonConnect.findViewById(R.id.on_off);
+
+        // Primero leer la base de datos Datos_Usuario_Login para ver si esta en viaje el conductor
 
 
-
-
+        // Segun yo no se usa
         HomeViewModel homeViewModel;
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        //------------------------------------------------------------------------------------------
+
+
         View root = inflater.inflate(R.layout.activity_main_inicio_sesion, container, false);
 
        // mTokenProvider = new TokenProvider();

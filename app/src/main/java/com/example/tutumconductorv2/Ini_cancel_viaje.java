@@ -92,6 +92,10 @@ public class Ini_cancel_viaje extends AppCompatActivity {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_edit = preferences.edit();
+                obj_edit.putBoolean("onTravel", false);
+                obj_edit.commit();
                 finish();
             }
         });
@@ -99,6 +103,9 @@ public class Ini_cancel_viaje extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_edit = preferences.edit();
+                obj_edit.putBoolean("onTravel", true);
+                obj_edit.commit();
                 Log.e("api token","api token: "+preferences.getString("api_token",""));
                 Log.e("Journey_id","Valor Journey_id: "+journey_id);
                 accepTravel(preferences.getString("api_token",""),Integer.parseInt(journey_id));
