@@ -429,6 +429,9 @@
     <string name="request_label_tst_time">9 min</string>
     <string name="request_label_tst_distance">2.84 km</string>
 
+    <!-- Cadenas para el cardView pre viaje -->
+    <string name="pretravel_txt_arrive">YA LLEGUÉ</string>
+
     <!-- Cadenas para una nueva solicitud de viaje -->
     <string name="label_btn_gallery">Galeria</string>
     <string name="label_btn_camera">Camara</string>

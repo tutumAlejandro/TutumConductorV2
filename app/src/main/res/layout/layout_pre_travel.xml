@@ -1,38 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="270dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_travel_pop_up"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <RatingBar
+        android:id="@+id/rate_passenger_pretravel"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:numStars="5"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#FAE000"
+        android:rating="10"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RatingBar
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:numStars="5"
-            android:progressBackgroundTint="#FFFFFF"
-            android:progressTint="#FAE000"
-            android:rating="10"
-            android:stepSize="0.5" />
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"/>
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/open_sans_semibold"
-            android:textColor="@color/black"
-            android:text="@string/request_label_tst_name"
-            android:textSize="16sp"/>
+    <ImageView
+        android:id="@+id/img_passenger_pretravel"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="104dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/default_avatar" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/passenger_name_pretravel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/request_label_tst_name"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/img_passenger_pretravel"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="@string/request_label_origin"
+        android:textColor="@color/gray_2"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+    <TextView
+        android:id="@+id/passenger_origin_pretravel"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/request_label_tst_addr"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <Button
+        android:id="@+id/btn_llegue_pretravel"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/boton_llegue"
+        android:text="@string/pretravel_txt_arrive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <Button
+        android:id="@+id/btn_phone_pretravel"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/boton_redondo"
+        android:foreground="@drawable/ic_baseline_local_phone_24"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_llegue_pretravel" />
+
+    <Button
+        android:id="@+id/btn_sms_pretravel"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/boton_redondo"
+        android:foreground="@drawable/ic_baseline_sms_24"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_phone_pretravel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
