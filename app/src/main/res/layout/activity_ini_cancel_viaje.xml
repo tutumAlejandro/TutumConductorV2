@@ -54,7 +54,7 @@
                     android:fontFamily="@font/boring_sans_heavy"
                     android:forceDarkAllowed="false"
                     android:onClick="btnCancelar"
-                    android:text="@string/BotonRegresar1"
+
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_text_btn"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +70,7 @@
                     android:fontFamily="@font/boring_sans_heavy"
                     android:forceDarkAllowed="false"
                     android:onClick="btnInicio"
-                    android:text="@string/BotonIniciar"
+
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_text_btn"
                     app:layout_constraintBottom_toBottomOf="parent"

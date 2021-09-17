@@ -2,7 +2,7 @@ package com.example.tutumconductorv2.models;
 
 import java.util.Date;
 
-public class HistoryBooking {
+public class ListItem {
 
     String idHistoryBooking, idClient, idDriver, destination,  origin, time, km, status;
     double originLat, originLng, destinationLat, destinationLng, calificationClient, calificationDriver;
@@ -10,25 +10,25 @@ public class HistoryBooking {
     Date date;
     int price;
 
-    public HistoryBooking(String titulo) {
 
+
+
+    public int getPrice() {
+        return price;
     }
 
-    public HistoryBooking(String idHistoryBooking, String idClient, double originLat) {
-        this.idHistoryBooking = idHistoryBooking;
+    public ListItem(String idClient, int price, String origin, String destination, String status) {
+        //this.idHistoryBooking = idHistoryBooking;
         this.idClient = idClient;
-        this.idDriver = idDriver;
-        this.destination = destination;
-        this.origin = origin;
-        this.time = time;
-        this.km = km;
-        this.status = status;
-        this.originLat = originLat;
-        this.originLng = originLng;
-        this.destinationLat = destinationLat;
-        this.destinationLng = destinationLng;
         this.date = date;
         this.price = price;
+        this.origin = origin;
+        this.destination = destination;
+        this.status = status;
+
+
+
+
     }
 
     public long getTimestamp() {
@@ -154,4 +154,7 @@ public class HistoryBooking {
     public Date date() { return date; }
 
     public int price() { return  price; }
+
+
 }
+

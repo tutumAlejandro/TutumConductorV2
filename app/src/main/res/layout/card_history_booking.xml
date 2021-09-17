@@ -1,160 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical">
 
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <ImageView
-                    android:id="@+id/btnCrearReporte"
-                    android:layout_width="376dp"
-                    android:layout_height="204dp"
-                    android:layout_marginTop="32dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_documentos2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"></ImageView>
-
-                <TextView
-                    android:id="@+id/txtEncuentro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:text="@string/txtLugarEncuentro2"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
-                    app:layout_constraintTop_toBottomOf="@+id/txtEncuentro1" />
-
-                <TextView
-                    android:id="@+id/txtEncuentro1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="12dp"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:text="@string/txtLugarEncuentro"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
-                    app:layout_constraintTop_toBottomOf="@+id/txtPuntoPartida" />
-
-                <TextView
-                    android:id="@+id/txtPuntoPartida"
-                    android:layout_width="125dp"
-                    android:layout_height="14dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/boring_sans_light"
-                    android:text="@string/txtEncuentro"
-                    android:textColor="@color/black"
-                    android:textSize="10sp"
-                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
-                    app:layout_constraintTop_toTopOf="@+id/btnCrearReporte" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
 
-                <TextView
-                    android:id="@+id/txtFecha2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txtFecha2"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/txtEncuentro1"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFecha3" />
+        <ImageView
+            android:id="@+id/btnCrearReporte"
+            android:layout_width="376dp"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_documentos2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-                <TextView
-                    android:id="@+id/txtDestino5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txtDestino"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toTopOf="@+id/txtDestino2"
-                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
-                    app:layout_constraintTop_toBottomOf="@+id/txtEncuentro"
-                    app:layout_constraintVertical_bias="0.79" />
-
-                <TextView
-                    android:id="@+id/txtFecha3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/txtFecha"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/txtEncuentro1"
-                    app:layout_constraintTop_toTopOf="@+id/btnCrearReporte" />
-
-                <TextView
-                    android:id="@+id/txtDestino"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:text="@string/txtLugarDestino2"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
-                    app:layout_constraintTop_toBottomOf="@+id/txtDestino2" />
-
-                <TextView
-                    android:id="@+id/txtDestino2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="64dp"
-                    android:fontFamily="@font/open_sans_semibold"
-                    android:text="@string/txtLugarDestino"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
-                    app:layout_constraintTop_toBottomOf="@+id/txtEncuentro" />
-
-                <TextView
-                    android:id="@+id/txtPrecio"
-                    android:layout_width="57dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="156dp"
-                    android:fontFamily="@font/open_sans_extra_bold"
-                    android:text="@string/txtPrecio"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    app:layout_constraintEnd_toEndOf="@+id/btnCrearReporte"
-                    app:layout_constraintHorizontal_bias="0.775"
-                    app:layout_constraintStart_toEndOf="@+id/txtDestino2"
-                    app:layout_constraintTop_toTopOf="@+id/btnCrearReporte" />
-
-                <ImageView
-                    android:id="@+id/imgIconoPerfil"
-                    android:layout_width="44dp"
-                    android:layout_height="126dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="48dp"
-                    android:src="@drawable/trip"
-                    app:layout_constraintStart_toStartOf="@+id/btnCrearReporte"
-                    app:layout_constraintTop_toTopOf="@id/btnCrearReporte" />
+        <TextView
+            android:id="@+id/txtEncuentro"
+            android:layout_width="239dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:maxLines="3"
+            android:text="@string/txtLugarEncuentro2"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/txtDestino5"
+            app:layout_constraintTop_toBottomOf="@+id/txtPuntoPartida" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/txtPuntoPartida"
+            android:layout_width="143dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:singleLine="true"
+            android:text="@string/txtEncuentro"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtEncuentro"
+            app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
+            app:layout_constraintTop_toTopOf="@+id/btnCrearReporte" />
+
+
+        <TextView
+            android:id="@+id/txtFecha2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="70dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:singleLine="true"
+            android:text="@string/txtFecha2"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnCrearReporte"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toEndOf="@+id/txt_id_viajes"
+            app:layout_constraintTop_toTopOf="@+id/btnCrearReporte"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txtDestino5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:singleLine="true"
+            android:text="@string/txtDestino"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
+            app:layout_constraintTop_toBottomOf="@+id/txtEncuentro" />
+
+        <TextView
+            android:id="@+id/txt_id_viajes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:singleLine="true"
+            android:text="id_viaje:4588"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/imgIconoPerfil"
+            app:layout_constraintStart_toStartOf="@+id/btnCrearReporte"
+            app:layout_constraintTop_toTopOf="@+id/btnCrearReporte"
+            app:layout_constraintVertical_bias="0.533" />
+
+
+        <TextView
+            android:id="@+id/txtDestino2"
+            android:layout_width="249dp"
+            android:layout_height="93dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:maxLines="3"
+            android:text="@string/txtLugarDestino"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/imgIconoPerfil"
+            app:layout_constraintTop_toBottomOf="@+id/txtDestino5"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txtPrecio"
+            android:layout_width="57dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/open_sans_extra_bold"
+            android:singleLine="true"
+            android:text="@string/txtPrecio"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnCrearReporte"
+            app:layout_constraintTop_toTopOf="@+id/btnCrearReporte" />
+
+        <ImageView
+            android:id="@+id/imgIconoPerfil"
+            android:layout_width="44dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:src="@drawable/trip"
+            app:layout_constraintStart_toStartOf="@+id/btnCrearReporte"
+            app:layout_constraintTop_toTopOf="@id/btnCrearReporte" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

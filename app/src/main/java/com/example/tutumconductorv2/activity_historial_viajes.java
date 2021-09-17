@@ -44,7 +44,7 @@ public class activity_historial_viajes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial_viajes);
-        card_history_booking = (RecyclerView)findViewById(R.id.recyclerViewHistoryBooking);
+        card_history_booking = (RecyclerView)findViewById(R.id.RecyclerView);
         card_history_booking.setLayoutManager(new LinearLayoutManager(this));
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         api_token = preferences.getString("api_token","");
@@ -64,7 +64,7 @@ public class activity_historial_viajes extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
 
-            jsonObject.put("type","historial");
+          //  jsonObject.put("type","historial");
             jsonObject.put("api_token",api_token);
             final String requestBody = jsonObject.toString();
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {

@@ -195,7 +195,7 @@
 
 
     <!-- Strings para test del traslado de informacion entre ventanas-->
-    <string name="test_terminos_y_condiciones">Terminos ok</string>
+    <string name="test_terminos_y_condiciones">Terminos OK</string>
     <string name="test_ine">Ine OK</string>
     <string name="test_licencia">Licencia OK:</string>
     <string name="test_caracteristicas">Caracteristicas OK:</string>
@@ -288,7 +288,7 @@
     <string name="btnNombre">Nombre</string>
     <string name="txtConductor">Conductor Tutum</string>
     <string name="btnCelular">Teléfono Celular</string>
-    <string name="txtNumero">449-248-2572</string>
+    <string name="txtNumero">449–248–2572</string>
     <string name="btnCorreo">Correo Electrónico</string>
     <string name="txtElectronico">taxi@tutum.com</string>
     <string name="btnAcceso">Acceso</string>
@@ -402,6 +402,15 @@
 
     <string name="test_alert_dialog">Este es un test de un alert Dialog</string>
     <string name="hint_adjuntar_imagen">Adjuntar imagen</string>
+    <string name="nombre">Nombre:</string>
+    <string name="origen">Origen:</string>
+    <string name="av_falsa_calle_falsa">av falsa calle falsa</string>
+    <string name="calificacion">Calificacion:</string>
+    <string name="jose_luis_teran">jose luis teran</string>
+    <string name="_0">0</string>
+    <string name="destino">Destino:</string>
+    <string name="av_falsa_calle_falsa2">av falsa calle falsa</string>
+    <string name="estatus">Estatus</string>
 
     <string name="head_new_request">NUEVA SOLICITUD</string>
     <string name="punto_new_request">PUNTO DE ENCUENTRO</string>

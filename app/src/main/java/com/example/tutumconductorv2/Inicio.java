@@ -142,7 +142,7 @@ public class Inicio extends AppCompatActivity {
         toHistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intHistorial = new Intent(Inicio.this, activity_historial_viajes.class);
+                Intent intHistorial = new Intent(Inicio.this, MainActivity_TestRecycler .class);
                 startActivity(intHistorial);
             }
         });

@@ -8,6 +8,10 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -72,11 +76,13 @@
                 android:layout_height="542dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewHistoryBooking"
+                    android:id="@+id/RecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                     />
+
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

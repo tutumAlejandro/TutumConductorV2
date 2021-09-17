@@ -35,6 +35,9 @@
         android:theme="@style/Theme.TutumConductorV2"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MainActivity_TestRecycler"
+            android:exported="true" />
+        <activity
             android:name=".solicitudViaje"
             android:exported="true" />
         <activity
