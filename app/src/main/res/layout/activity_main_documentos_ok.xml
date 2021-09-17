@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registro.menus_rol.MainDocumentosOk"
+    tools:context=".RegistroConductor.TimeLineDocumentos.MainDocumentosOk"
     android:background="@color/darkest"
     android:orientation="vertical"
     android:forceDarkAllowed="false">

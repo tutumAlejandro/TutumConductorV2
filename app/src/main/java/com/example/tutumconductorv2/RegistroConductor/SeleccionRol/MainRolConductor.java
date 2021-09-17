@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.menus_rol;
+package com.example.tutumconductorv2.RegistroConductor.SeleccionRol;
 
 import android.content.Context;
 import android.content.Intent;

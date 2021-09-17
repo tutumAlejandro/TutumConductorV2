@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.documentos_conductor;
+package com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -36,8 +36,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
-import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainConductorDocumentos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainSnvDocuemtos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainSocioDocumentos;
 
 import org.json.JSONObject;
 
@@ -48,15 +49,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements View.OnClickListener {
+public class MainCapturaTarjeton extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView btn_regreso_tarjeta_circulacion;
-    private ImageView btn_tarjeta;
-    private EditText vigencia_tarjeta;
+    private ImageView btn_regreso_tarjeton;
+    private ImageView btn_tarjeton;
+    private EditText vigenciaTarjeton;
+    private int year, month, day;
     private String rol;
     private String vigencia="";
     private String image_code1="";
-    private int day,month,year;
 
 
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -66,55 +67,66 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
     int factor = 1;
     int quality_image=30;
 
-    private boolean check_tarjeta = false;
-
+    private boolean check_tarjeton = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_captura_tarjeta_circulacion);
-        btn_regreso_tarjeta_circulacion = findViewById(R.id.img_retroceso_tarjeta);
-        vigencia_tarjeta = findViewById(R.id.VigenciaTarjeta);
+        setContentView(R.layout.activity_main_captura_tarjeton);
 
-        btn_tarjeta = findViewById(R.id.btn_img_tarjeta);
+        SharedPreferences preferencias_tarjeton = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        rol = preferencias_tarjeton.getString("rol","");
 
-        vigencia_tarjeta.setOnClickListener(this);
-        SharedPreferences preferencias_tarjeta = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        rol = preferencias_tarjeta.getString("rol","");
+        vigenciaTarjeton = findViewById(R.id.VigenciaTarjeton);
+        btn_regreso_tarjeton = findViewById(R.id.img_retroceso_tarjeton);
 
+        btn_tarjeton = findViewById(R.id.btn_img_tarjeton);
 
-        btn_regreso_tarjeta_circulacion.setOnClickListener(new View.OnClickListener() {
+        vigenciaTarjeton.setOnClickListener(this);
+        btn_regreso_tarjeton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferencias_tarjeta = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-                SharedPreferences.Editor obj_editor = preferencias_tarjeta.edit();
-                int state = preferencias_tarjeta.getInt("State",0);
+                SharedPreferences preferencias_tarjeton = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+                SharedPreferences.Editor obj_editor = preferencias_tarjeton.edit();
+                int state = preferencias_tarjeton.getInt("State",0);
                 if(state == 7){
                     if (rol.matches("Socio")) {
-                        Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                        obj_editor.putString("tarjeta1","2");
+                        Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
+                        obj_editor.putString("tarjeton1","2");
                         obj_editor.commit();
                         startActivity(main_socio_documentos);
                         finish();
-                    } else {
-                        Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                        obj_editor.putString("tarjeta2","2");
+                    } else if (rol.matches("Conductor")) {
+                        Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
+                        obj_editor.putString("tarjeton2","2");
                         obj_editor.commit();
                         startActivity(main_conductor_documentos);
+                        finish();
+                    } else {
+                        Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("tarjeton3","2");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
                         finish();
                     }
                 }else{
                     if (rol.matches("Socio")) {
-                        Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                        obj_editor.putString("tarjeta1","0");
+                        Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
+                        obj_editor.putString("tarjeton1","0");
                         obj_editor.commit();
                         startActivity(main_socio_documentos);
                         finish();
-                    } else {
-                        Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                        obj_editor.putString("tarjeta2","0");
+                    } else if (rol.matches("Conductor")) {
+                        Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
+                        obj_editor.putString("tarjeton2","0");
                         obj_editor.commit();
                         startActivity(main_conductor_documentos);
+                        finish();
+                    } else {
+                        Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
+                        obj_editor.putString("tarjeton3","0");
+                        obj_editor.commit();
+                        startActivity(main_snv_documentos);
                         finish();
                     }
                 }
@@ -122,22 +134,22 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
             }
         });
 
-        btn_tarjeta.setOnClickListener(new View.OnClickListener() {
+        btn_tarjeton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaTarjetaCirculacion.this);
+                AlertDialog.Builder opcion = new AlertDialog.Builder(MainCapturaTarjeton.this);
                 opcion.setPositiveButton("Camara", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        check_tarjeta = true;
-                        tomarFoto(v,"tarjeta_de_circulacion");
+                        check_tarjeton = true;
+                        tomarFoto(v,"Tarjeton");
                     }
                 });
                 opcion.setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         cargarImagen();
-                        check_tarjeta = true;
+                        check_tarjeton = true;
                     }
                 });
                 AlertDialog dialog = opcion.create();
@@ -147,19 +159,20 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
                 dialog.show();
             }
         });
+
     }
 
     @Override
     public void onClick(View v) {
-        final Calendar calendario = Calendar.getInstance();
-        year = calendario.get(Calendar.YEAR);
-        month = calendario.get(Calendar.MONTH);
-        day = calendario.get(Calendar.DAY_OF_MONTH);
+            final Calendar calendario = Calendar.getInstance();
+            year = calendario.get(Calendar.YEAR);
+            month = calendario.get(Calendar.MONTH);
+            day = calendario.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                vigencia_tarjeta.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                vigenciaTarjeton.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
                 vigencia= year+"-"+(month+1)+"-"+dayOfMonth;
             }
         },year,month,day);
@@ -167,12 +180,12 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         datePickerDialog.show();
     }
 
-    private boolean check_vigencia_tarjeta(String vigencia)
+    private boolean check_vigencia_Tarjeton(String vigencia)
     {
         if (vigencia.isEmpty())
         {
-            vigencia_tarjeta.setTextColor(ColorStateList.valueOf(Color.RED));
-            vigencia_tarjeta.setError("Campo Requerido");
+            vigenciaTarjeton.setTextColor(ColorStateList.valueOf(Color.RED));
+            vigenciaTarjeton.setError("Campo Requerido");
             return false;
         }
         else{
@@ -180,14 +193,14 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         }
     }
 
-    public void guarda_tarjeta(View v)
+    public void guarda_tarjeton(View v)
     {
-        SharedPreferences preferencias_tarjeta = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
-        SharedPreferences.Editor obj_editor = preferencias_tarjeta.edit();
-        String vig = vigencia_tarjeta.getText().toString().trim();
-        if(!check_vigencia_tarjeta(vig) | !check_tarjeta)
+        SharedPreferences preferencias_tarjeton = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias_tarjeton.edit();
+        String vig = vigenciaTarjeton.getText().toString().trim();
+        if(!check_vigencia_Tarjeton(vig) | !check_tarjeton)
         {
-            androidx.appcompat.app.AlertDialog.Builder registro_exitoso = new androidx.appcompat.app.AlertDialog.Builder(MainCapturaTarjetaCirculacion.this);
+            androidx.appcompat.app.AlertDialog.Builder registro_exitoso = new androidx.appcompat.app.AlertDialog.Builder(MainCapturaTarjeton.this);
             registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0404'> <b> Licencia de Conducir </b> </font>"));
             registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0404'> <b> Para continuar debes llenar todos los datos. </b> </font>"));
             registro_exitoso.show();
@@ -196,18 +209,27 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
             if(rol.matches("Socio"))
             {
                 realizarPost();
-                Intent main_socio_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainSocioDocumentos.class);
-                obj_editor.putString("tarjeta1","1");
+                Intent main_socio_documentos = new Intent(MainCapturaTarjeton.this, MainSocioDocumentos.class);
+                obj_editor.putString("tarjeton1","1");
                 obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
-            }else
+            }else if(rol.matches("Conductor"))
             {
                 realizarPost();
-                Intent main_conductor_documentos = new Intent(MainCapturaTarjetaCirculacion.this, MainConductorDocumentos.class);
-                obj_editor.putString("tarjeta2","1");
+                Intent main_conductor_documentos = new Intent(MainCapturaTarjeton.this, MainConductorDocumentos.class);
+                obj_editor.putString("tarjeton2","1");
                 obj_editor.commit();
                 startActivity(main_conductor_documentos);
+                finish();
+            }
+            else
+            {
+                realizarPost();
+                Intent main_snv_documentos = new Intent(MainCapturaTarjeton.this, MainSnvDocuemtos.class);
+                obj_editor.putString("tarjeton3","1");
+                obj_editor.commit();
+                startActivity(main_snv_documentos);
                 finish();
             }
         }
@@ -240,13 +262,13 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         super.onActivityResult(requestCode, resultCode, data);
         //Primero se pregunta se el resultado fue correcto y si hay una solicitud de captura de imagen
         if(resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE){
-            MediaScannerConnection.scanFile(MainCapturaTarjetaCirculacion.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
+            MediaScannerConnection.scanFile(MainCapturaTarjeton.this, new String[]{mCurrentPhotoPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
                 @Override
                 public void onScanCompleted(String s, Uri uri) { }
             });
             // Se debe de redimensionar la imagen  antes de cargarla en los ImageButton(Se usa ImageButton para no consumir tantos recursos)
-            int targetW = btn_tarjeta.getWidth();
-            int targetH = btn_tarjeta.getHeight();
+            int targetW = btn_tarjeton.getWidth();
+            int targetH = btn_tarjeton.getHeight();
 
             //Obtener las dimensiones del Bitmap
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -265,18 +287,17 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
 
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
             Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
-            btn_tarjeta.setImageBitmap(bitmap2);
-            btn_tarjeta.setBackgroundColor(0x00000000);
+            btn_tarjeton.setImageBitmap(bitmap2);
+            btn_tarjeton.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
             image_code1 = android.util.Base64.encodeToString(imageByte, android.util.Base64.DEFAULT);
-        } else if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
-
+        }else if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             Uri path = data.getData();
 
-            int targetW = btn_tarjeta.getWidth();
-            int targetH = btn_tarjeta.getHeight();
+            int targetW = btn_tarjeton.getWidth();
+            int targetH = btn_tarjeton.getHeight();
 
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
@@ -299,8 +320,8 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
                 e.printStackTrace();
             }
             Bitmap bitmap2 = Bitmap.createScaledBitmap(bitmap,targetW,targetH,false);
-            btn_tarjeta.setImageBitmap(bitmap2);
-            btn_tarjeta.setBackgroundColor(0x00000000);
+            btn_tarjeton.setImageBitmap(bitmap2);
+            btn_tarjeton.setBackgroundColor(0x00000000);
             ByteArrayOutputStream array = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG,quality_image,array);
             byte[] imageByte = array.toByteArray();
@@ -334,13 +355,13 @@ public class MainCapturaTarjetaCirculacion extends AppCompatActivity implements 
         String tel="";
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
         tel=preferences.getString("phone","");
-        String url = "https://tutumapps.com/api/driver/uploadCirculationCard";
+        String url = "https://tutumapps.com/api/driver/uploadControlCard";
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone", tel);
             jsonObject.put("img_front",image_code1);
-            jsonObject.put("circulation_card_expiry",vigencia);
+            jsonObject.put("control_card_expiry",vigencia);
 
             final String requestBody = jsonObject.toString();
 

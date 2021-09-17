@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.datos_personales;
+package com.example.tutumconductorv2;
 
 import android.content.Context;
 import android.content.Intent;
@@ -66,7 +66,7 @@ public class MainActivity<restoredText> extends AppCompatActivity {
             {
                 //Buscar en la base de datos si el usuario esta logeado
                 SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
-                if(preferences.getBoolean("isLoggeg",false)){
+                if(preferences.getBoolean("Login",false)){
                     //Intent inicio = new Intent(MainActivity.this,Inicio.class);
                     startActivity(new Intent(MainActivity.this,Inicio.class));
                     overridePendingTransition(R.anim.fade_in,R.anim.fade_out);

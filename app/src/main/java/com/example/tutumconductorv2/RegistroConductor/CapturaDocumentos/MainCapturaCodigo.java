@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.documentos_conductor;
+package com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,9 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
-import com.example.tutumconductorv2.Registro.menus_rol.MainSnvDocuemtos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainSnvDocuemtos;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;

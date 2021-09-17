@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registro.documentos_conductor.MainCapturaLicencia"
+    tools:context=".RegistroConductor.CapturaDocumentos.MainCapturaLicencia"
     android:orientation="vertical"
     android:background="@color/white"
     android:forceDarkAllowed="false">

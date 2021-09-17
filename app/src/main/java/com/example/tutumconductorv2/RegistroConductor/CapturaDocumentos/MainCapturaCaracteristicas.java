@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.documentos_conductor;
+package com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -29,11 +29,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,9 +41,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
-import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
-import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainConductorDocumentos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainSocioDocumentos;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;

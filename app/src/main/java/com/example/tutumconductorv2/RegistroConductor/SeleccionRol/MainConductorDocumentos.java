@@ -1,15 +1,10 @@
-package com.example.tutumconductorv2.Registro.menus_rol;
+package com.example.tutumconductorv2.RegistroConductor.SeleccionRol;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,14 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCaracteristicas;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaIne;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaLicencia;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaPoliza;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjetaCirculacion;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaTarjeton;
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainTerminosYCondiciones;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaCaracteristicas;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaIne;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaLicencia;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaPoliza;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaTarjetaCirculacion;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaTarjeton;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainTerminosYCondiciones;
+import com.example.tutumconductorv2.RegistroConductor.TimeLineDocumentos.MainDocumentosOk;
 
 public class MainConductorDocumentos extends AppCompatActivity {
 

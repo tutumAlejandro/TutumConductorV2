@@ -1,10 +1,8 @@
-package com.example.tutumconductorv2.Registro.datos_personales;
+package com.example.tutumconductorv2.RegistroConductor.DatosPersonales;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,10 +11,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
-import com.example.tutumconductorv2.Registro.menus_rol.MainRolConductor;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainRolConductor;
 import com.google.android.material.textfield.TextInputLayout;
-import com.hbb20.CountryCodePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,11 +36,9 @@ public class MainOTP extends AppCompatActivity {
     private boolean isSucess;
     private final int INTERVALO = 5000;
     private long tiempoPrimerClick;
-    private Object CountryCodePicker;
-    private String phone, CodigoOTP;
+    private String CodigoOTP;
     com.hbb20.CountryCodePicker ccp;
 
-    private String url_timeline="https://www.tutumapps.com/api/driver/registryTimelineStatus";
 
     public MainOTP() {
     }
@@ -61,17 +55,15 @@ public class MainOTP extends AppCompatActivity {
         num_tel = findViewById(R.id.num_telefono);
         ReOtp = findViewById(R.id.link_reenviar_otp);
 
-       // num_tel.setText(cadenas_registro.telefono);
-
         Editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferences_user.edit();
                 obj_editor.putString("phone","");
+                obj_editor.putBoolean("edit_phone",false);
                 obj_editor.commit();
                 Intent main_registro_telefono = new Intent(MainOTP.this, MainRegistroTelefono.class);
-                cadenas_registro.edit_phone= false;
                 startActivity(main_registro_telefono);
                 finish();
             }
@@ -122,6 +114,11 @@ public class MainOTP extends AppCompatActivity {
 
     public void editar(View v)
     {
+        SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences_user.edit();
+        obj_editor.putString("phone","");
+        obj_editor.putBoolean("edit_phone",false);
+        obj_editor.commit();
         Intent main_registro_telefono = new Intent(MainOTP.this, MainRegistroTelefono.class);
         startActivity(main_registro_telefono);
         finish();

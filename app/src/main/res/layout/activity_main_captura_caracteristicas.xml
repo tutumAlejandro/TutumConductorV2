@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Registro.documentos_conductor.MainCapturaCaracteristicas"
+    tools:context=".RegistroConductor.CapturaDocumentos.MainCapturaCaracteristicas"
     android:forceDarkAllowed="false">
 
     <ScrollView

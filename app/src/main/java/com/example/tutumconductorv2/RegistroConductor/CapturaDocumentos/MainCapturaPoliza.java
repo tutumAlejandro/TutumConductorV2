@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.documentos_conductor;
+package com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -36,8 +36,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.menus_rol.MainConductorDocumentos;
-import com.example.tutumconductorv2.Registro.menus_rol.MainSocioDocumentos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainConductorDocumentos;
+import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainSocioDocumentos;
 
 import org.json.JSONObject;
 

@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,9 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Main_IniciaSesion;
 import com.example.tutumconductorv2.Pop_Up.PopUpContinuarRegistro;
-import com.example.tutumconductorv2.Registro.datos_personales.MainPopUpData;
-import com.example.tutumconductorv2.Registro.datos_personales.MainRegistrate;
-import com.example.tutumconductorv2.Registro.menus_rol.MainDocumentosOk;
+import com.example.tutumconductorv2.RegistroConductor.DatosPersonales.MainRegistrate;
 
 import org.json.JSONException;
 import org.json.JSONObject;

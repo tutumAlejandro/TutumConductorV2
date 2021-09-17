@@ -1,4 +1,4 @@
- package com.example.tutumconductorv2.Registro.datos_personales;
+ package com.example.tutumconductorv2.RegistroConductor.DatosPersonales;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +11,6 @@ import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +24,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
-import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_registro;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -98,10 +95,11 @@ public class MainRegistroTelefono extends AppCompatActivity {
         obj_editor.putString("phone",phone);
         obj_editor.putInt("State",3);
         obj_editor.commit();
+
         if(!check_telefono(phone)){
             return;
         }else {
-            if(!cadenas_registro.edit_phone){
+            if(preferences_user.getBoolean("edit_phone",false)){
                 editPhoneNumber();
                 Intent main_otp = new Intent(MainRegistroTelefono.this, MainOTP.class);
                 startActivity(main_otp);

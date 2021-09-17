@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".Registro.menus_rol.MainCapturaCaracteriristicasNuevoVehiculo"
+    tools:context=".RegistroConductor.CapturaDocumentosNuevoVehiculo.MainCapturaCaracteriristicasNuevoVehiculo"
     android:forceDarkAllowed="false">
 
     <ScrollView

@@ -1,13 +1,11 @@
-package com.example.tutumconductorv2.Registro.datos_personales;
+package com.example.tutumconductorv2.RegistroConductor.DatosPersonales;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;

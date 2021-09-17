@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.menus_rol;
+package com.example.tutumconductorv2.RegistroConductor.CapturaDocumentosNuevoVehiculo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.tutumconductorv2.R;

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Registro.documentos_conductor.MainCapturaTarjetaCirculacion"
+    tools:context=".RegistroConductor.CapturaDocumentos.MainCapturaTarjetaCirculacion"
     android:forceDarkAllowed="false">
     <ScrollView
         android:layout_width="match_parent"

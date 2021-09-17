@@ -1,4 +1,4 @@
-package com.example.tutumconductorv2.Registro.datos_personales;
+package com.example.tutumconductorv2.Pop_Up;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.RegistroConductor.DatosPersonales.MainRegistrate;
 
 public class MainPopUpData extends AppCompatActivity {
 

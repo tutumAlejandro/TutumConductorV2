@@ -9,8 +9,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tutumconductorv2.Registro.documentos_conductor.MainCapturaCaracteristicas;
-import com.example.tutumconductorv2.Registro.menus_rol.MainNuevoVehiculoSocio;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaCaracteristicas;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentosNuevoVehiculo.MainNuevoVehiculoSocio;
 
 public class activity_unidades extends AppCompatActivity {
 
