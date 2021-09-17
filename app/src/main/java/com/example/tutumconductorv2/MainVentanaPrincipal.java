@@ -50,10 +50,10 @@ public class MainVentanaPrincipal extends AppCompatActivity {
 
 //////////////////////prueba de ventanas
 
-        public void btnprueba(View view) {
+       /* public void btnprueba(View view) {
         Intent prueba = new Intent(MainVentanaPrincipal.this, Ini_cancel_viaje.class);
         startActivity(prueba);
-        }
+        }*/
 
     //////////////
     private void Sesion_login(){

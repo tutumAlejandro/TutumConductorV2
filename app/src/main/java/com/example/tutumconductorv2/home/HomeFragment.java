@@ -94,24 +94,27 @@ public class HomeFragment  extends Fragment {
     public boolean mIsConnect = false;
     private LocationRequest mLocationRequest;
     private String token,phone;
+    RequestQueue requestQueue;
 
     DatabaseReference mDatabase;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-       // mMapvali = new MapVali();
+
         mAuthProvider = new AuthProvider();
         mGeofireProvider = new GeofireProvider("active_drivers");
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        //mButtonConnect = mButtonConnect.findViewById(R.id.on_off);
+
+        // Primero leer la base de datos Datos_Usuario_Login para ver si esta en viaje el conductor
 
 
-
-
+        // Segun yo no se usa
         HomeViewModel homeViewModel;
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        //------------------------------------------------------------------------------------------
+
+
         View root = inflater.inflate(R.layout.activity_main_inicio_sesion, container, false);
 
        // mTokenProvider = new TokenProvider();
@@ -247,7 +250,7 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
         @Override
         public void onLocationChanged(@NonNull Location location) {
             actualizarUbicacion(location);
-            time = 2000;
+            time = 4000;
         }
 
         @Override
@@ -266,10 +269,12 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
     };
 
     private void actualizarUbicacion(Location location) {
+
         SharedPreferences preferences = getContext().getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         phone = preferences.getString("phone","");
         updateFMToken("https://www.tutumapps.com/api/driver/updateFCMToken");
         get_FCM();
+
         if (location != null) {
 
             mCurrentLatLng = new com.google.android.gms.maps.model.LatLng(location.getLatitude(), location.getLongitude());
@@ -398,6 +403,7 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
             e.printStackTrace();
         }
     }
+
     private void get_FCM(){
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
             @Override
@@ -414,7 +420,9 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
     }
     public void updateFMToken(String url)  {
         try {
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            if (requestQueue == null) {
+                requestQueue = Volley.newRequestQueue(getContext());
+            }
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone",phone);
             jsonObject.put("fcm_token",token);
@@ -440,6 +448,7 @@ googleMap.setOnMarkerClickListener(HomeFragment.this);
         }
 
     }
+
 }
 
 

@@ -194,6 +194,11 @@
         <activity
             android:name=".Actividad_Principal.Inicio_Sesion.Reportes.activity_chat_reporte"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".Ini_cancel_viaje"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemePopUp"/>
+
         <!--
         <provider
             android:name="android.support.v4.content.FileProvider"

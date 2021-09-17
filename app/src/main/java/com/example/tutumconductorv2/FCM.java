@@ -34,7 +34,7 @@ import com.example.tutumconductorv2.R;
 
 public class FCM  extends FirebaseMessagingService{
 
-
+    private RequestQueue requestQueue;
 
     public static final String TAG="NOTICIAS";
 
@@ -62,6 +62,8 @@ public class FCM  extends FirebaseMessagingService{
 
          if(remoteMessage.getNotification() != null){
 
+             SharedPreferences preferences = getSharedPreferences("Datos_Viaje",Context.MODE_PRIVATE);
+             SharedPreferences.Editor obj_editor = preferences.edit();
              Map<String,String> notification_body = new HashMap<String, String>();
              notification_body = remoteMessage.getData();
              Iterator interator = notification_body.keySet().iterator();
@@ -69,12 +71,15 @@ public class FCM  extends FirebaseMessagingService{
              {
                  String key = (String) interator.next();
                  String value = (String) notification_body.get(key);
+                 obj_editor.putString(key,value);
                  Log.e("Valores de la notificacion","key: "+ key);
                  Log.e("Valores de la notificacion","Value: " + value);
              }
-             /*
-             Intent solicitud = new Intent(getApplicationContext(),solicitudViaje.class);
-             startActivity(solicitud);*/
+             obj_editor.commit();
+             Intent solicitud = new Intent(getApplicationContext(),Ini_cancel_viaje.class);
+             //solicitud.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+             solicitud.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+             startActivity(solicitud);
 
         }
 
@@ -118,43 +123,6 @@ public void Clicknoti(){
 
 }
 
-
-
-
-/*        if (remoteMessage.getNotification() != null) {
-
-
-            titulo = remoteMessage.getNotification().getTitle();
-            texto = remoteMessage.getNotification().getBody();
-
-
-            Log.e( "TITULO: ", " " + titulo);
-            Log.e("CUERPO: ", " " + texto);
-
-            //Opcional: mostramos la notificación en la barra de estado
-            showNotification(titulo, texto);
-
-
-
-            Log.d(TAG, "notificaciones "+remoteMessage.getNotification().getBody());
-
-
-
-        }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void showNotification(String titulo, String texto) {
 
         NotificationCompat.Builder notificationBuilder =
@@ -178,7 +146,9 @@ public void Clicknoti(){
     private void postTokenRefresh(String phone, String token){
         try {
             String url = "https://www.tutumapps.com/api/driver/updateFCMToken";
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            if (requestQueue == null) {
+                requestQueue = Volley.newRequestQueue(getApplicationContext());
+            }
             final org.json.JSONObject jsonObject = new org.json.JSONObject();
             jsonObject.put("phone",phone);
             jsonObject.put("fcm_token",token);

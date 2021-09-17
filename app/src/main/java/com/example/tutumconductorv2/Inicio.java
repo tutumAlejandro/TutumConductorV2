@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -28,7 +29,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.Registro.datos_personales.MainActivity;
 import com.example.tutumconductorv2.home.HomeFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -47,6 +51,8 @@ public class Inicio extends AppCompatActivity {
     private String url_imagen="";
     SharedPreferences preferences_2;
     SharedPreferences.Editor editor_2;
+    private String phone="";
+    private String token="";
 
 
     @Override
@@ -56,6 +62,9 @@ public class Inicio extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         editStatus(preferences.getString("api_token",""),"0");
+        /* phone = preferences.getString("phone","");
+        updateFMToken("https://www.tutumapps.com/api/driver/updateFCMToken");
+        get_FCM();*/
 
         HomeFragment = new HomeFragment();
         Toolbar toolbar = findViewById(R.id.toolbar);

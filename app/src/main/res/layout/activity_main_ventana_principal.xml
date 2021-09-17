@@ -48,12 +48,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/size_text_btn"></Button>
 
-            <Button
-                android:layout_width="341dp"
-                android:layout_height="wrap_content"
-                android:onClick="btnprueba"
-                android:text="Button" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
