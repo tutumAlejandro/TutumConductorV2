@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -94,6 +95,11 @@ public class MainTerminosYCondiciones extends AppCompatActivity {
         SharedPreferences preferencias_terminos = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferencias_terminos.edit();
         if(rol.matches("Socio")){
+            androidx.appcompat.app.AlertDialog.Builder registro_exitoso = new androidx.appcompat.app.AlertDialog.Builder(MainTerminosYCondiciones.this);
+            registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0404'> <b> Licencia de Conducir </b> </font>"));
+            registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0404'> <b> Para continuar debes llenar todos los datos. </b> </font>"));
+            registro_exitoso.show();
+
             realizarPost();
             Intent main_socio_documentos = new Intent(MainTerminosYCondiciones.this, MainSocioDocumentos.class);
             obj_editor.putString("terminos1","1");

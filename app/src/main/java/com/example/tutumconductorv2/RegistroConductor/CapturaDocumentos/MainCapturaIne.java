@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -202,6 +203,11 @@ public class MainCapturaIne extends AppCompatActivity {
         SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferencias_ine.edit();
         if(check_ine_frontal && check_ine_reverso){
+            androidx.appcompat.app.AlertDialog.Builder registro_credencial = new androidx.appcompat.app.AlertDialog.Builder(MainCapturaIne.this);
+            registro_credencial.setTitle(Html.fromHtml("<font color='#FF0404'> <b> Captura Ine</b> </font>"));
+            registro_credencial.setMessage(Html.fromHtml("<font color='#FF0404'> <b> Sube  en el apartado correspondiente tu identificación. </b> </font>"));
+            registro_credencial.show();
+
             if(rol.matches("Socio")){
                 realizarPost();
                 Intent main_socio_documentos = new Intent(MainCapturaIne.this, MainSocioDocumentos.class);

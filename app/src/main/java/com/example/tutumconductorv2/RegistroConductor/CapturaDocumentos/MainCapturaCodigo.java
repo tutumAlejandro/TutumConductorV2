@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -93,7 +94,10 @@ public class MainCapturaCodigo extends AppCompatActivity {
 
         code2 = codigo_vehiculo.getEditText().getText().toString().trim();
         if(!check_codigo(code2)){
-            return;
+            androidx.appcompat.app.AlertDialog.Builder codigo_exitoso = new androidx.appcompat.app.AlertDialog.Builder(MainCapturaCodigo.this);
+            codigo_exitoso.setTitle(Html.fromHtml("<font color='#FF0404'> <b> Captura Código</b> </font>"));
+            codigo_exitoso.setMessage(Html.fromHtml("<font color='#FF0404'> <b>Favor de ingresar y verificar sus datos</b> </font>"));
+            codigo_exitoso.show();
         }else{
             realizarPost();
             Intent main_snv_documentos = new Intent(MainCapturaCodigo.this,MainSnvDocuemtos.class);

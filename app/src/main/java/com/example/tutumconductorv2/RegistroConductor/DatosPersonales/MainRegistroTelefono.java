@@ -141,6 +141,10 @@ public class MainRegistroTelefono extends AppCompatActivity {
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
+                                    AlertDialog.Builder pagina_loading = new AlertDialog.Builder(MainRegistroTelefono.this);
+                                    pagina_loading.setTitle(Html.fromHtml("<font color='#FF0000'> <b>Registro Telefono </b></font>"));
+                                    pagina_loading.setMessage(Html.fromHtml("<font color='#FF0000'> <b>Lo sentimos, este número de teléfono y/o correo electrónico ya está siendo utilizado, intenta con otro</b> </font>"));
+                                    pagina_loading.show();
                                     SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor obj_editor = preferences_user.edit();
                                     obj_editor.putString("phone",phone);
@@ -212,6 +216,10 @@ public class MainRegistroTelefono extends AppCompatActivity {
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
+                                    AlertDialog.Builder cargando_resultado = new AlertDialog.Builder(MainRegistroTelefono.this);
+                                    cargando_resultado .setTitle(Html.fromHtml("<font color='#FF0000'> <b>Aplicación en curso </b></font>"));
+                                    cargando_resultado .setMessage(Html.fromHtml("<font color='#FF0000'> <b>Espere un momento </b> </font>"));
+                                    cargando_resultado .show();
                                     SharedPreferences preferences_user = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor obj_editor = preferences_user.edit();
                                     obj_editor.putString("phone",phone);
