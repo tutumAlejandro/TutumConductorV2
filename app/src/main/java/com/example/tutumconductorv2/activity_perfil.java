@@ -21,9 +21,7 @@ public class activity_perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
         Switch switch11 = findViewById(R.id.switch11);
-if(switch11<5){
 
-}
         switch11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
