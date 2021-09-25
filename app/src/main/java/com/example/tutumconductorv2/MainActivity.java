@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import com.example.tutumconductorv2.MainVentanaPrincipal;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.models.ListItem;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class MainActivity<restoredText> extends AppCompatActivity {
@@ -79,11 +82,6 @@ public class MainActivity<restoredText> extends AppCompatActivity {
         },3000);
 
     }
-
-
-
-
-
 
 
 }

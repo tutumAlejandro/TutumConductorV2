@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -73,6 +74,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
             }
         });
     }
+
 
     private boolean check_email(String correo)
     {
@@ -288,6 +290,7 @@ public class Main_IniciaSesion extends AppCompatActivity {
         }
         return false;
     }
-     
+
+
 
 }

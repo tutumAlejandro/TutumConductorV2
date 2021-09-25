@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.ReportarProblema;
 import com.example.tutumconductorv2.Actividad_Principal.Inicio_Sesion.Reportes.Reporte_Tecnico.ReportarProblemaTecnico;
@@ -27,14 +30,12 @@ public class activity_ayuda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda);
 
+
         privacidad = findViewById(R.id.btnPoliticaPrivacidad);
         TyC = findViewById(R.id.btnTerminoCondicion);
         btnReportarProblema = findViewById(R.id.btnReportarProblemaTecnico);
         btnRegresar = findViewById(R.id.img_retroceso_documentos_snv);
 
-if(btnRegresar.equals("Ayer")){
-
-}
 
         TyC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,9 +88,22 @@ if(btnRegresar.equals("Ayer")){
 
     }
 
+    public void btnTermino(View view) {
+        Intent intentIni= new Intent(activity_ayuda.this.url_terminos);
+        finish();
+        startActivity(intentIni);
+    }
 
+    public void btnpolitica(View view) {
+        Intent intentIni= new Intent(activity_ayuda.this.url_privacidad);
+        finish();
+        startActivity(intentIni);
+    }
     @Override
     public void onBackPressed(){
-
+    Intent ayuda = new Intent(activity_ayuda.this.url_privacidad);
     }
+
+
+
 }

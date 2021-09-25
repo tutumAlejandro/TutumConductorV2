@@ -2,23 +2,30 @@ package com.example.tutumconductorv2.RegistroConductor.CapturaDocumentosNuevoVeh
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaCaracteristicas;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaPoliza;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaTarjetaCirculacion;
 
 public class MainNuevoVehiculoSocio extends AppCompatActivity {
     private Button caracteristicasNuevo_prev, polizaNuevo_prev, tarjetaNuevo_prev;
     private Button caracteristicasNuevo_err, polizaNuevo_err, tarjetaNuevo_err;
     private Button caracteristicasNuevo_ok, polizaNuevo_ok, tarjetaNuevo_ok;
-    private TextView hd_btn1_prev, hd_btn2_prev, hd_btn3_prev, hd_btn1_er, hd_btn2_er, hd_btn3_er,hd_btn1_ok, hd_btn2_ok, hd_btn3_ok;
-    private TextView bd_btn1_prev, bd_btn2_prev, bd_btn3_prev, bd_btn1_er, bd_btn2_er,bd_btn3_er, bd_btn1_ok, bd_btn2_ok, bd_btn3_ok;
+    private TextView hd_btn1_prev, hd_btn2_prev, hd_btn3_prev, hd_btn1_er, hd_btn2_er, hd_btn3_er, hd_btn1_ok, hd_btn2_ok, hd_btn3_ok;
+    private TextView bd_btn1_prev, bd_btn2_prev, bd_btn3_prev, bd_btn1_er, bd_btn2_er, bd_btn3_er, bd_btn1_ok, bd_btn2_ok, bd_btn3_ok;
     private TextView bd2_btn1_err, bd2_btn2_err, bd2_btn3_err;
-    private ImageView fwd_btn1_nuevo,fwd_btn2_nuevo,fwd_btn3_nuevo;
-    private ImageView err_btn1_nuevo,err_btn2_nuevo,err_btn3_nuevo;
-    private ImageView ok_btn1_nuevo,ok_btn2_nuevo,ok_btn3_nuevo;
+    private ImageView fwd_btn1_nuevo, fwd_btn2_nuevo, fwd_btn3_nuevo;
+    private ImageView err_btn1_nuevo, err_btn2_nuevo, err_btn3_nuevo;
+    private ImageView ok_btn1_nuevo, ok_btn2_nuevo, ok_btn3_nuevo;
 
 
     @Override
@@ -74,7 +81,32 @@ public class MainNuevoVehiculoSocio extends AppCompatActivity {
         ok_btn3_nuevo = findViewById(R.id.fwd3_nuevo_vehiculo_ok);
 
 
+    }
 
+    public void captura_cara(View view) {
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+        obj_editor.putString("rol","nuevo_vehiculo");
+        obj_editor.commit();
+        Intent maincaptura = new Intent(MainNuevoVehiculoSocio.this, MainCapturaCaracteristicas.class);
+        startActivity(maincaptura);
+    }
 
+    public void captura_poliza(View view) {
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+        obj_editor.putString("rol","nuevo_vehiculo");
+        obj_editor.commit();
+        Intent mainpoliza = new Intent(MainNuevoVehiculoSocio.this, MainCapturaPoliza.class);
+        startActivity(mainpoliza);
+    }
+
+    public void tarjeta_nuevo(View view) {
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferences.edit();
+        obj_editor.putString("rol","nuevo_vehiculo");
+        obj_editor.commit();
+           Intent tarjetanuevo  =new Intent(MainNuevoVehiculoSocio.this, MainCapturaTarjetaCirculacion.class);
+           startActivity(tarjetanuevo);
     }
 }

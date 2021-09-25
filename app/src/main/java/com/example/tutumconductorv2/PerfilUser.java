@@ -1,6 +1,9 @@
 package com.example.tutumconductorv2;
 
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.view.View;
 
 public class PerfilUser {
 
@@ -26,13 +29,13 @@ public class PerfilUser {
     private String email;
 
 
-    public PerfilUser(){
+    public PerfilUser() {
     }
 
     public PerfilUser(String home, String job, String name, String telefono, String password, String email,
                       String home_dir, String job_dir, String passengerId, String userId, String passengerImg,
                       boolean emailVerified, String travels, String calification, String fb_id, String google_id,
-                      String api_token){
+                      String api_token) {
         this.id = 0;
         this.name = name;
         this.Job = job;
@@ -201,4 +204,6 @@ public class PerfilUser {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

@@ -244,8 +244,8 @@ public class MainCapturaLicencia extends AppCompatActivity implements View.OnCli
         String vig = vigenciaLicencia.getText().toString().trim();
         if (!check_vigencia_licencia(vig) | !check_licencia_frente | !check_licencia_reverso) {
             androidx.appcompat.app.AlertDialog.Builder registro_exitoso = new androidx.appcompat.app.AlertDialog.Builder(MainCapturaLicencia.this);
-            registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0404'> <b> Licencia de Conducir </b> </font>"));
-            registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0404'> <b> Para continuar debes llenar todos los datos. </b> </font>"));
+            registro_exitoso.setTitle(Html.fromHtml("<font color='#FF0404'> <b> licencia de conducir</b> </font>"));
+            registro_exitoso.setMessage(Html.fromHtml("<font color='#FF0404'> <b>  Favor de subir de manera correcta su licencia vigente. </b> </font>"));
             registro_exitoso.show();
             return;
         } else {

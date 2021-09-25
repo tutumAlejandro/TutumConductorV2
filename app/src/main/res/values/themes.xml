@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.TutumConductorV2" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.TutumConductorV2" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/darkest</item>
         <item name="colorPrimaryDark">@color/darkest</item>
@@ -8,39 +8,48 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="InputTextBlack" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="InputTextBlack" parent="Theme.AppCompat.NoActionBar">
         <item name="colorAccent">@color/darkest</item>
         <item name="android:colorActivatedHighlight">@color/darkest</item>
         <item name="android:colorFocusedHighlight">@color/darkest</item>
     </style>
-    <style name="InputTextWhite" parent="Theme.AppCompat.NoActionBar">
+
+    <style name="InputTextWhite" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="boxStrokeColor">@color/darkest</item>
         <item name="colorAccent">@color/darkest</item>
         <item name="android:colorActivatedHighlight">@color/darkest</item>
         <item name="android:colorFocusedHighlight">@color/darkest</item>
     </style>
+
     <style name="spinner_style">
         <item name="boxStrokeColor">@color/black</item>
         <item name="boxBackgroundMode">outline</item>
         <item name="android:strokeColor">@color/black</item>
         <item name="strokeWidth">4dp</item>
     </style>
-    <style name="ErrorInputText" parent="Theme.AppCompat">
-        <item name="android:strokeColor">@color/error</item>
+
+    <style name="ErrorInputText" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:strokeColor  ">@color/error</item>
         <item name="android:textColorHint">@color/error</item>
     </style>
+
     <style name="ThemePopUp" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowIsFloating">true</item>
     </style>
+
     <style name="ThemePopUp2" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowIsFloating">true</item>
     </style>
+
     <style name="DialogTheme" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:background">@color/white</item>
     </style>
+
     <style name="CardViewTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
+
 </resources>

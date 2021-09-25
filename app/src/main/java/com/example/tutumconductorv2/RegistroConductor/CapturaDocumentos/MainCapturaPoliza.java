@@ -36,6 +36,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentosNuevoVehiculo.MainNuevoVehiculoSocio;
 import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainConductorDocumentos;
 import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainSocioDocumentos;
 
@@ -110,10 +111,17 @@ public class MainCapturaPoliza extends AppCompatActivity implements View.OnClick
                         obj_editor.commit();
                         startActivity(main_socio_documentos);
                         finish();
-                    } else {
+                    } else if(rol.matches("Conductor")){
+
                         Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainConductorDocumentos.class);
                         obj_editor.putString("poliza2","0");
                         obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
+                    }else {
+                        Intent main_conductor_documentos = new Intent(MainCapturaPoliza.this, MainNuevoVehiculoSocio.class);
+                        // obj_editor.putString("caracteristicas2","0");
+                        //obj_editor.commit();
                         startActivity(main_conductor_documentos);
                         finish();
                     }

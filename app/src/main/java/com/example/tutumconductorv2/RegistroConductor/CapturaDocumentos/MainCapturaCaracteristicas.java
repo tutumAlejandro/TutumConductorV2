@@ -33,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -41,10 +42,12 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tutumconductorv2.R;
 import com.example.tutumconductorv2.Registro.BD_registro.utilidades.cadenas_documentos;
+import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentosNuevoVehiculo.MainNuevoVehiculoSocio;
 import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainConductorDocumentos;
 import com.example.tutumconductorv2.RegistroConductor.SeleccionRol.MainSocioDocumentos;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
@@ -52,6 +55,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainCapturaCaracteristicas extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -121,7 +126,7 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         spFabs = (Spinner)findViewById(R.id.spFabricantes);
         spModelo = (Spinner)findViewById(R.id.spModelo);
 
-        model_input = findViewById(R.id.input_modelo);
+        model_input = findViewById(R.id.input_model);
         matricula_input = findViewById(R.id.input_matricula);
 
         btn_frente_carac = findViewById(R.id.btn_caracteristicas_frontal);
@@ -144,34 +149,45 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 SharedPreferences preferencias_caracteristicas = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias_caracteristicas.edit();
                 int state = preferencias_caracteristicas.getInt("State",0);
-                if(state == 7){
+
+                if(state==7) {
                     if (rol.matches("Socio")) {
+
                         Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
-                        obj_editor.putString("caracteristicas1","2");
+                        obj_editor.putString("caracteristicas1", "2");
                         obj_editor.commit();
                         startActivity(main_socio_documentos);
                         finish();
-                    } else{
+                    } else {
+
+
                         Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
-                        obj_editor.putString("caracteristicas2","2");
+                        obj_editor.putString("caracteristicas2", "2");
                         obj_editor.commit();
                         startActivity(main_conductor_documentos);
                         finish();
                     }
-                }else{
+                }else {
                     if (rol.matches("Socio")) {
                         Intent main_socio_documentos = new Intent(MainCapturaCaracteristicas.this, MainSocioDocumentos.class);
                         obj_editor.putString("caracteristicas1","0");
                         obj_editor.commit();
                         startActivity(main_socio_documentos);
                         finish();
-                    } else{
+                    } else if(rol.matches("Conductor")){
                         Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
                         obj_editor.putString("caracteristicas2","0");
                         obj_editor.commit();
                         startActivity(main_conductor_documentos);
                         finish();
+                    }else{
+                        Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainNuevoVehiculoSocio.class);
+                        // obj_editor.putString("caracteristicas2","0");
+                        //obj_editor.commit();
+                        startActivity(main_conductor_documentos);
+                        finish();
                     }
+
                 }
             }
         });
@@ -978,12 +994,17 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
                 obj_editor.commit();
                 startActivity(main_socio_documentos);
                 finish();
-            }else{
+            }else if(rol.matches("Conductor")){
                 realizarPost();
                 Intent main_conductor_documentos = new Intent(MainCapturaCaracteristicas.this, MainConductorDocumentos.class);
                 obj_editor.putString("caracteristicas2","1");
                 obj_editor.commit();
                 startActivity(main_conductor_documentos);
+                finish();
+            }else{
+                newVehicle();
+                Intent nuevo_vehiculo = new Intent(MainCapturaCaracteristicas.this,MainNuevoVehiculoSocio.class);
+                startActivity(nuevo_vehiculo);
                 finish();
             }
         }
@@ -1174,6 +1195,51 @@ public class MainCapturaCaracteristicas extends AppCompatActivity implements Ada
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void newVehicle(){
+        SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login",Context.MODE_PRIVATE);
+        String url = "https://tutumapps.com/api/driver/newVehicle";
+        String api_token=preferences.getString("api_token","");
+        model_id_vehicle();
+
+        try {
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            final org.json.JSONObject jsonObject = new org.json.JSONObject();
+            jsonObject.put("api_token",api_token);
+            jsonObject.put("vehicle_model_id",model_id);
+            jsonObject.put("year",year);
+            jsonObject.put("color","blanco");
+            jsonObject.put("plate",matricula);
+            jsonObject.put("img_src",image_code1);
+            jsonObject.put("img_back",image_code2);
+            jsonObject.put("img_side",image_code3);
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("My Tag","Exito!!!!! "+response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                    Log.d("My Tag","Error"+error);
+                }
+            })
+            {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Accept", "application/json");
+                    return params;}
+            };
+
+            requestQueue.add(request);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
     public void cargarImagen(){
         Intent galeria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

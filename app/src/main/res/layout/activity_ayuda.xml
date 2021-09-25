@@ -24,6 +24,8 @@
                 android:layout_height="126dp"
                 android:orientation="horizontal">
 
+
+
                 <ImageView
                     android:id="@+id/FlechaAtrasAyuda"
                     android:layout_width="50dp"
@@ -209,12 +211,13 @@
                     android:layout_height="78dp"
                     android:layout_marginTop="20dp"
                     android:clickable="true"
-                    android:onClick="terminos"
+                    android:onClick="btnTermino"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnUsarApp"></ImageView>
+                    app:layout_constraintTop_toBottomOf="@id/btnUsarApp">
+                    </ImageView>
 
                 <TextView
                     android:id="@+id/txtTerCon"
@@ -247,12 +250,12 @@
                     android:layout_height="78dp"
                     android:layout_marginTop="20dp"
                     android:clickable="true"
-                    android:onClick="politica"
+                    android:onClick="btnpolitica"
                     android:scaleType="fitXY"
                     android:src="@drawable/btn_documentos2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnTerminoCondicion"></ImageView>
+                    app:layout_constraintTop_toBottomOf="@id/btnTerminoCondicion" />
 
                 <TextView
                     android:id="@+id/txt_sig_paso7"

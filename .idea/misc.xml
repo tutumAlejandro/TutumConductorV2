@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable-v24/thumb.xml" value="0.21875" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable-v24/track.xml" value="0.21875" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/background.xml" value="0.23177083333333334" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/background_pop_up.xml" value="0.21875" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/background_travel_pop_up.xml" value="0.24479166666666666" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/boton_documentos.xml" value="0.21875" />
@@ -33,31 +34,48 @@
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.21875" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/ic_baseline_remove_circle_outline_24.xml" value="0.21875" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/ic_baseline_sms_24.xml" value="0.35648148148148145" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/ic_location_on.xml" value="0.3828125" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/ic_map.xml" value="0.3828125" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/menu_drawable.xml" value="0.21875" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/rounded_corner.xml" value="0.21875" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/drawable/spinner_border.xml" value="0.21875" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_ayuda.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_cambio_contrasena.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_cambio_correo.xml" value="0.215625" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_cambio_telefono.xml" value="0.215625" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_caracteristicas_nueva_unidad.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_chat_reporte.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_chat_reportes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_finalizar.xml" value="0.20380434782608695" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_ganancias.xml" value="0.31657608695652173" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_ini_cancel_viaje.xml" value="0.33" />
-        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_inicia_sesion.xml" value="0.25181159420289856" />
-        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_inicio.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_captura_caracteriristicas_nuevo_vehiculo.xml" value="0.17325227963525835" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_inicia_sesion.xml" value="0.1" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_inicio.xml" value="0.12121212121212122" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main.xml" value="0.3125" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main222.xml" value="0.2791666666666667" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_captura_caracteriristicas_nuevo_vehiculo.xml" value="0.1" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_captura_caracteristicas.xml" value="0.1" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_captura_codigo.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_captura_ine.xml" value="0.1" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_captura_tarjeta_circulacion.xml" value="0.17325227963525835" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_captura_tarjeton.xml" value="0.1" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_inicio_sesion.xml" value="0.3851851851851852" />
-        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_nuevo_vehiculo_socio.xml" value="0.17325227963525835" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_nuevo_vehiculo_socio.xml" value="0.1" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_o_t_p.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_pop_up_data.xml" value="0.16590678824721378" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_pop_up_ubicacion.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_registrate.xml" value="0.25181159420289856" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_socio_documentos.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_main_ventana_principal.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_maps.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_perfil.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_pop_up_continuar_registro.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_problema_tecnico.xml" value="0.24003623188405798" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_redireccion.xml" value="0.1" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_solicitud_viaje.xml" value="0.21770833333333334" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_unidades.xml" value="0.29438405797101447" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_volver_r.xml" value="0.2791666666666667" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/activity_volver_registro.xml" value="0.26510416666666664" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/app_bar_main.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/card_ganancias.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/card_history_booking.xml" value="0.20260416666666667" />
@@ -73,7 +91,9 @@
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/register.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/response_phone_registry.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/spinner_style_1.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/styles.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/layout/travel_request_layout.xml" value="0.3463768115942029" />
+        <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/AppConductorAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/drawable/background_pop_up.xml" value="0.1891891891891892" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/drawable/boton_documentos.xml" value="0.1891891891891892" />
         <entry key="..\:/Users/Alejandro/Documents/Codigos iOS y Android/TutumConductorV22/app/src/main/res/drawable/boton_redondo.xml" value="0.1891891891891892" />
@@ -101,10 +121,17 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.17325227963525835" />
+      </ProjectState>
+    </option>
   </component>
 </project>

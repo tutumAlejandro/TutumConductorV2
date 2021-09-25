@@ -203,6 +203,7 @@ public class MainCapturaIne extends AppCompatActivity {
         SharedPreferences preferencias_ine = getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor = preferencias_ine.edit();
         if(check_ine_frontal && check_ine_reverso){
+            //creamos dialogo de alerta para notificar al usuario que debe ingresar de manera correcta su identificacion
             androidx.appcompat.app.AlertDialog.Builder registro_credencial = new androidx.appcompat.app.AlertDialog.Builder(MainCapturaIne.this);
             registro_credencial.setTitle(Html.fromHtml("<font color='#FF0404'> <b> Captura Ine</b> </font>"));
             registro_credencial.setMessage(Html.fromHtml("<font color='#FF0404'> <b> Sube  en el apartado correspondiente tu identificación. </b> </font>"));
