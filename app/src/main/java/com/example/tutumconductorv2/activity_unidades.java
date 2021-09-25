@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentos.MainCapturaCaracteristicas;
 import com.example.tutumconductorv2.RegistroConductor.CapturaDocumentosNuevoVehiculo.MainNuevoVehiculoSocio;
@@ -21,6 +24,21 @@ public class activity_unidades extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unidades);
         btn_agregar = findViewById(R.id.btnplus);
+
+        Switch switch10 = findViewById(R.id.switch10);
+
+        switch10.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                } else {
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                }
+            }
+        });
         SharedPreferences preferences = getSharedPreferences("Datos_Usuario_Login", Context.MODE_PRIVATE);
         String type = preferences.getString("type","");
 
