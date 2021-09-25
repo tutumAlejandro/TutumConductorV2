@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class activity_perfil extends AppCompatActivity {
 
@@ -17,7 +20,22 @@ public class activity_perfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+        Switch switch11 = findViewById(R.id.switch11);
+if(switch11<5){
 
+}
+        switch11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                } else {
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                }
+            }
+        });
         name = findViewById(R.id.profile_driver_name);
         phone = findViewById(R.id.profile_driver_phone);
         email = findViewById(R.id.profile_driver_email);
